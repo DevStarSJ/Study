@@ -1,1 +1,1 @@
-# [Replication](https://github.com/icysword/Study/wiki/BigData.MongoDB.Replication)  
+# [Replication](https://github.com/DevStarSJ/Study/tree/master/Blog/BigData/MongoDB/Replication.md)  
