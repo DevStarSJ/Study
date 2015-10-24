@@ -2,7 +2,7 @@
 
 #### 1. CentOS Homepage 로 접속합니다. ( <https://www.centos.org> )
 
-![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/CentOS.download.01.png)
+![CentOS Homepage](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/CentOS.download.01.png?raw=true)
 
 #### 2. `Get CentOS Now` 를 눌러서 다음 page로 이동합니다.
 
