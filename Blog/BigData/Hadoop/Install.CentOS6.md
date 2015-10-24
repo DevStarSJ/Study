@@ -20,7 +20,7 @@
 - 이 부분은 아래 설명한 것과 완벽하게 같게 되지는 않습니다.
   - 각자 Network 환경에 따라 수정하셔야 합니다.
 - 먼저 `ifconfig`를 눌러서 확인해 줍니다.  
-  ![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/VirtualBox.CentOS.copy.06.png)  
+  ![VirtualBox.CentOS.copy.06.png](https://github.com/DevStarSJ/Study/tree/master/Blog/Linux/CentOS/image/VirtualBox.CentOS.copy.06.png)  
   - VM Image를 복사한 경우 Network명칭이 `eth0` , `eth1`이 아니라 `eth2` , `eth5` 이런식으로 다를 수도 있습니다.
   - 위 정보에서 `Network 명칭` , `MAC Address (HWaddr)` , `IP (inet addr)` 정보를 다른 file에 설정해야 하니 어디 적어두시거나 다른 Terminal을 하나 띄우시길 추천 드립니다.
 - `/etc/sysconfig/network-scripts` 내부에 있는 `ifcfg-네트워크명칭` 파일을 복사 및 편집해야 합니다.
