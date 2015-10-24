@@ -2,7 +2,7 @@
 
 - CentOS 6.7 버전에는 기본적으로 `Java7`이 설치되어 있습니다.
 
-  ![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/CentOS.java.01.png)
+  ![CentOS Homepage](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/CentOS.java.01.png?raw=true)
 
 1. 먼저 Java7을 지웁니다.
   ```
@@ -10,11 +10,11 @@ yum remove java
 ```
   - 진짜로 잘 지워졌는지 확인해 보겠습니다.  
 
-      ![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/CentOS.java.02.png)
+      ![CentOS Homepage](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/CentOS.java.02.png?raw=true)
 
 1. Java Homepage(<http://java.sun.com>) 에서 Java 8 버전을 다운로드 받습니다.
 
-  ![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/CentOS.java.03.png)
+  ![CentOS Homepage](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/CentOS.java.03.png?raw=true)
 
 1. 다운로드 받은 file을 압축을 풀고 java란 이름으로 link를 생성합니다.
   ```
@@ -26,7 +26,7 @@ yum remove java
 ```
   - `ls -al`명령어로 link가 제대로 생성되었는지 확인합니다.  
 
-    ![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/CentOS.java.04.png)
+    ![CentOS Homepage](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/CentOS.java.04.png?raw=true)
 
 1. profile에 Java8 환경설정을 해줍니다.
   ```
@@ -47,4 +47,4 @@ export PATH
 
 1. 바뀐 java 버전을 확인해 봅니다.  
 
-  ![CentOS Homepage](https://github.com/icysword/Study/wiki/Linux/CentOS/image/CentOS.java.05.png)
+  ![CentOS Homepage](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/CentOS.java.05.png?raw=true)
