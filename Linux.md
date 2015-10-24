@@ -1,0 +1,1 @@
+# [CentOS](https://github.com/icysword/Study/wiki/Linux.CentOS)
