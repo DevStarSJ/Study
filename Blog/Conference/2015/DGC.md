@@ -3,7 +3,7 @@
 2015년 10월 23일 코엑스 그랜드볼룸에서 열린 데이터 그랜드 컨퍼런스에 참가하였습니다.
 
 저는 8시 40분경에 도착했는데 벌써 많은 분들이 줄 서 있었습니다.
-![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conferrence/2015/image/DGC2015.01.jpg?raw=true)
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/DGC2015.01.jpg?raw=true)
 
 개회사 이영덕 한국DB진흥원장
 
