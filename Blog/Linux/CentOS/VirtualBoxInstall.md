@@ -10,7 +10,7 @@
 
 - 아래 Link 참조 바랍니다.
 
-#### [CentOS 다운로드 받기](https://github.com/DevStarSJ/Study/tree/master/Blog/Linux/CentOS/Download)
+#### [CentOS 다운로드 받기](https://github.com/DevStarSJ/Study/tree/master/Blog/Linux/CentOS/Download.md)
 
 - VirtualBox에 설치시 다운로드 받은 Image를 mount 시켜서 진행합니다.
 
