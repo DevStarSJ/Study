@@ -370,6 +370,6 @@ hadoop datanode
 
 - Web Interface로 상태를 확인해 보겠습니다.
   - <http://hadoop.master:50070> : HDFS 확인. NameNode가 안떠있으면 접속되지 않습니다.
-      ![CentOS Homepage](https://github.com/icysword/Study/wiki/BigData/Hadoop/image/hadoop.50070.png)  
+      ![Hadoop.Install.CentOS](https://github.com/DevStarSJ/Study/tree/master/Blog/BigData/Hadoop/image/hadoop.50070.png)  
   - <http://hadoop.master:8088> : Resource & Node Manager 확인이 가능합니다.
-      ![CentOS Homepage](https://github.com/icysword/Study/wiki/BigData/Hadoop/image/hadoop.8088.png)  
+      ![Hadoop.Install.CentOS](https://github.com/DevStarSJ/Study/tree/master/Blog/BigData/Hadoop/image/hadoop.8088.png)  
