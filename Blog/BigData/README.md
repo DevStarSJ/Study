@@ -1,3 +1,3 @@
-# [Hadoop](https://github.com/icysword/Study/wiki/BigData.Hadoop)  
+# [Hadoop](https://github.com/DevStarSJ/Study/tree/master/Blog/BigData/Hadoop)  
 
-# [MongoDB](https://github.com/icysword/Study/wiki/BigData.MongoDB)
+# [MongoDB](https://github.com/DevStarSJ/Study/tree/master/Blog/BigData/MongoDB)
