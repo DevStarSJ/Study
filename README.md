@@ -4,4 +4,4 @@
 
 # [Linux](https://github.com/DevStarSJ/Study/tree/master/Blog/Linux)
 
-# [Conferrence](https://github.com/DevStarSJ/Study/tree/master/Blog/Conferrence)
+# [Conferrence](https://github.com/DevStarSJ/Study/tree/master/Blog/Conference)
