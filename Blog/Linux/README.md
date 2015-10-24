@@ -1,1 +1,1 @@
-# [CentOS](https://github.com/icysword/Study/wiki/Linux.CentOS)
+# [CentOS](https://github.com/icysword/DevStarSJ/Study/tree/master/Blog/Linux/CentOS)
