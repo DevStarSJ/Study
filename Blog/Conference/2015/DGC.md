@@ -300,7 +300,7 @@
   - 제가 지금 다니는 회사인 WareValley의 부스입니다. Column-based Database인 PetaSQL을 뒤에 가장 크게 걸어서 밀고 있나 보군요.  
     ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/DGC2015.11.jpg?raw=true)  
   - 부스 앞쪽에는 Orange와 Chakra에 대한 안내도 있었습니다.  
-    - 솔직히 저 외눈박이 괴물같은 이미지는... 이해가 안갑니다. ;;; (오히려 염오스럽다 해야할까....)
+    - 솔직히 저 외눈박이 괴물같은 이미지는... 이해가 안갑니다. ;;; 
     ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/DGC2015.12.jpg?raw=true)  
   - 다른 곳도 저런식으로 부스가 전시되어 있습니다. 총 16개 정도의 부스가 마련되어 있었습니다.  
     ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/DGC2015.13.jpg?raw=true)  
