@@ -30,7 +30,7 @@ Microsoft 한국지사 최기영 부사장님의 인사말이 있었습니다. �
 - Microsoft의 3가지 Mission이 있습니다.
   1. `Intelligent Cloud` : 지능화된 클라우드인 Azure Cloud를 제공하고 있습니다. 여러가지 Open Source 및 Hadoop, Linux, Java 등을 많은 고객들이 설치하여 사용중입니다.
   2. `Cross-Plaform` : Office 제품을 Android, Mac 에서도 사용이 가능하며, Mac / Linux에서 사용가능한 개발용 Editor인 Visual Studio Code 도 제공하고 있습니다.
-  3. `Personal Computing` : Universal Windows Platform, HoloLens 등 사용자 경험을 바탕으로 가상 현실 등 풍부한 시나리오를 공급하고자 노력하고 있습니다.
+  3. `Personal Computing` : 일반적인 의미의 PC가 아니라 개인별 맞춤 컴퓨팅 환경을 의미합니다. Universal Windows Platform, HoloLens 등 사용자 경험을 바탕으로 가상 현실 등 풍부한 시나리오를 공급하고자 노력하고 있습니다.
 - 이런 Mission 들을 이루기 위해 가장 중요한 역할을 하는 것이 개발자 들이라는 것을 다시한번 강조하면서 인사말을 마쳤습니다.
 
 #### Keynote
@@ -67,47 +67,53 @@ Visual C++ Team Manager인 Ayman Shoukry의 Keynote Session이 있었습니다. 
   - Linux에서 실행되는 것을 Windows에서 Debugging하는 것도 가능하다고 말했습니다.
     - `Pycon Korea 2015`에서 김명신 부장님이 Azure상에서 실행중인 Python Web Page를 Visual Studio에서 원격으로 Debugging하는 것을 보여주었는데, 비슷한 내용인 듯 합니다.  
 
-#### General Session : 세상을 품은 플랫폼과 그 가능성에 대해서
-마이크로소프트 에반젤리스트팀
-김명신 부장님
+#### General Session
+- 마이크로소프트 에반젤리스트팀
 
-생산성, 지능적 클라우드 조직, 맞춤형컴퓨팅 환경
+1. 세상을 품은 플랫폼과 그 가능성에 대해서 - 김명신 부장님
+  - 앞에서 얘기한 3가지 Mission (생산성, 지능적 Cloud, 맞춤형 컴퓨팅 환경)에 대해서 다시 한번 강조하였습니다.
+  - 예전에는 새로운 기능이 추가될때마다 사용법이 어려웠지만, 이제는 펜, 몸동작 등 친숙한 방법으로 새로운 기능을 제공해주기 위해서 노력하고 있습니다.
+  - Computer뿐만 아니라 모든 Device에서 서비스를 제공하도록 노력하고 있습니다.
+  - Microsoft Azure Cloud에 대해서 전체적인 소개를 해 주었습니다.
 
-새로운 기능이 추가될때마다 사용하기 어려웠다.
-이제는 펜, 몸동작 등 친숙한 방법으로 이제는 새로운 기능을 제공해주기 위해서 노력하고있다.
-컴퓨터뿐만 아니라 모든 디바이스에서 재공하고자 노력하고 있다.
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.07.jpg?raw=true)  
 
-맞춤형 컴퓨팅에 대한 마소의 노력
-김영욱부장님 밀덕
-Cross 
-Multiple device families, 각각의 디바이스를 관통하는 크로스
-플랫폼을 관통하는 크로스
-윈도우즈10은 디바이스를 관통하는 크로스
-소스레벨 호환성이 아닌 바이너리 레벨의 호환성
-윈도우에서 돌아가는 바이너리를 안드로이드이서 바로 실행UWP
-브릿지 테크놀러지
-오브젝티브씨 코드로 안드로이드를 생산
-등...
-안드로이드까지는 컴파일이 가능한데 ios는 맥북에서 컴파일해야한다. Xcode가 필요하다
-아두이노 라즈베리팡이 로 만든 비비탄 분당 120발 쏘는 경개병 시연
-데이터를 이벤트 허브로 미국 서버로 전송
+2. 맞춤형 Computing에 대한 Microsoft의 노력 - 밀덕 김영욱 부장님
+  - Cross
+    - Device들을 관통하는 Cross, Platform을 관통하는 Cross. 이렇게 2가지로 생각 할 수 있습니다.
+    - Windows10 은 Device를 관통하는 Cross 입니다.
+    - Visual Studio 2015는 Platform을 관통하는 Cross를 위해 노력하고 있습니다.
+    - UWP (Universal Windows Platform)을 사용하면 Source Level의 호환이 아닌 Windows에서 만든 Binary를 그대로 Android에서 실행가능하도록 Binary-level의 호환성을 제공하고 있습니다.
+    - Bridge Technology : Code의 Cross
+      - Objective-C Code를 이용해서 Windows와 Android에서 돌아가는 Application 작성
+      - Open Source로 진행중인데, 아직은 갈길이 많이 남았습니다.
+      - Android까지는 Windows에서 Compile이 가능한데, IOS는 Mac에서 XCode를 가지고 Compile해야 합니다.
+  - IoT 시연
+    - Arduino, Raspberry_Pi 2를 이용한 무인 경비 시스템을 소개하였습니다.
+    - 분당 120발읠 발사하는 BB탄 총을 장착하고 있으며, 근처 물체가 접근하면 발사합니다.
+    - 모든 Data를 미국에 있는 Azure Cloud에 설치한 Event Hub로 실시간 전송합니다. (이게 뭐라고...)
+    - 김영욱 부장님이 안전을 위해 고글과 널판지로 만든 튼튼한 방패를 들고 직접 무인 경비 시스템의 BB탄을 맞는 시범을 보였습니다.
 
-클라우드
-김명신 부장님
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.08.jpg?raw=true)  
 
-마이크로소프트 애저Asure
+3. 최상의 개발도구 Visual Studio - 김태영 부장님
+  - TAEYO.NET 의 그 분이십니다. 실제로는 첨 봤는데 상당히 젋고 스마트해 보이시네요.
+  - IntelliTest 시연 : 생성된 Code 상의 모든 경로를 다 Test하는 Code를 자동으로 생성 및 수행해줍니다.
+  - ASP.NET 5.0을 Linux에 배포하는 시연을 보여주었습니다.
 
-김태영부장님
-최상의 개발도구
-Visual Studio
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.09.jpg?raw=true)  
 
-IntelliTest 시연
-자동으로 테스트 코드 생성맟 수행
-Asp.net 5.0을 리눅스에 배포 하는 시연
+4. 맺음말 - 김명신 부장님
+  - 오후 세션에 대한 간단한 소개를 해 주었습니다.
+  - Windows Phone에서 PPT를 직접 편집하는 시연을 보여주었습니다.
+    - 노트북에 태블릿에 스마트폰을 넣고 무슨 가방이 아니라 군장같은것을 가지고 다니는 모습을 묘사해주었는데, 마치 주말의 내 모습 그대로 였습니다.
+    - Windows Phone에 Project의 영상입력단자를 연결하니 바로 화면이 PC의 Windows 10과 같이 바뀌었습니다.
+      - 이건 그냥 Phone이 아니라 PC 더군요.
+      - 거기서 UWP 버전의 PowerPoint를 열어서 직접 편집하는것을 간단히 보여주었습니다.
+      - 물론 모든 종류의 Desktop Application이 돌아가진 않겠지만, UWP로 작성된 App.들은 모두 돌아가겠죠.
 
-마지막 김명신부장님
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.10.jpg?raw=true)  
 
-윈폰에서 ppt 편집 시연
 
 트랙2-1
 
