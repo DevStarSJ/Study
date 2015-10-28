@@ -83,21 +83,21 @@ Visual C++ Team Manager인 Ayman Shoukry의 Keynote Session이 있었습니다. 
     - Device들을 관통하는 Cross, Platform을 관통하는 Cross. 이렇게 2가지로 생각 할 수 있습니다.
     - Windows10 은 Device를 관통하는 Cross 입니다.
     - Visual Studio 2015는 Platform을 관통하는 Cross를 위해 노력하고 있습니다.
-    - UWP (Universal Windows Platform)을 사용하면 Source Level의 호환이 아닌 Windows에서 만든 Binary를 그대로 Android에서 실행가능하도록 Binary-level의 호환성을 제공하고 있습니다.
-    - Bridge Technology : Code의 Cross
+    - UWP (Universal Windows Platform)을 사용하면 Source Level의 호환이 아닌 Windows에서 만든 Binary를 그대로 Android에서 실행가능하도록 `Binary-level의 호환성`을 제공하고 있습니다.
+    - `Bridge Technology` : Code의 Cross
       - Objective-C Code를 이용해서 Windows와 Android에서 돌아가는 Application 작성
       - Open Source로 진행중인데, 아직은 갈길이 많이 남았습니다.
       - Android까지는 Windows에서 Compile이 가능한데, IOS는 Mac에서 XCode를 가지고 Compile해야 합니다.
   - IoT 시연
     - Arduino, Raspberry_Pi 2를 이용한 무인 경비 시스템을 소개하였습니다.
-    - 분당 120발읠 발사하는 BB탄 총을 장착하고 있으며, 근처 물체가 접근하면 발사합니다.
+    - 120s/min의 BB탄 Machine Gun을 장착하였으며, 근처 물체가 접근하면 발사합니다.
     - 모든 Data를 미국에 있는 Azure Cloud에 설치한 Event Hub로 실시간 전송합니다. (이게 뭐라고...)
     - 김영욱 부장님이 안전을 위해 고글과 널판지로 만든 튼튼한 방패를 들고 직접 무인 경비 시스템의 BB탄을 맞는 시범을 보였습니다.
 
 ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.08.jpg?raw=true)  
 
 3. 최상의 개발도구 Visual Studio - 김태영 부장님
-  - TAEYO.NET 의 그 분이십니다. 실제로는 첨 봤는데 상당히 젋고 스마트해 보이시네요.
+  - `TAEYO.NET`의 그 분이십니다. 실제로는 첨 봤는데 상당히 젋고 스마트해 보이시네요.
   - IntelliTest 시연 : 생성된 Code 상의 모든 경로를 다 Test하는 Code를 자동으로 생성 및 수행해줍니다.
   - ASP.NET 5.0을 Linux에 배포하는 시연을 보여주었습니다.
 
@@ -113,6 +113,24 @@ Visual C++ Team Manager인 Ayman Shoukry의 Keynote Session이 있었습니다. 
       - 물론 모든 종류의 Desktop Application이 돌아가진 않겠지만, UWP로 작성된 App.들은 모두 돌아가겠죠.
 
 ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.10.jpg?raw=true)  
+
+####점심시간
+
+처음 행사 안내에 점심식사에 대한 따로 언급이 없어서 근처 식당이나, 대학내의 교내식당에서 사먹어야하는 줄 알고, 찾아봤는데 다행히 도시락으로 제공해 주었습니다. 한식이었으며, 맛있고 영양분을 골고루 섭취할수 있는 아주 훌륭한 도시락이었습니다.  
+
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.14.jpg?raw=true)  
+
+밥을 먹고 로비로 나오니 전시된 바이크에 누님한분이 서있더군요.  그냥 지나가면서 대충 찍다보니 사진이 쫌... 최소한 밝기라도 맞췄어야 했을텐데요.  
+
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.12.jpg?raw=true)  
+
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.13.jpg?raw=true)  
+
+오후 세션은 6개의 Track으로 나뉘어서 진행됩니다.
+
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.11.jpg?raw=true)  
+
+며칠전에 참석한 `Data Grand Conference 2015`에서 시간마다 Track을 옮겨다니니 매번 자리 찾는것이 큰 일이더군요. Microsoft는 행사 후 동영상으로 다른곳보다 비교적 빨리 공개를 해주므로 그냥 1개의 Track에서 계속 앉아 있기로 결정했습니다. C++ 관련 Track이 진행이 진행되는 
 
 
 트랙2-1
