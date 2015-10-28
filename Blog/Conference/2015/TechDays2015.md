@@ -3,10 +3,18 @@
 - 일시 : 2015년 10월 27일 화요일 09:00 ~ 21:10  
 - 장소 : 세종대학교 광계토관 컨벤션센터  
 
+#### 등록  
+
+아침부터 비가 많이 왔습니다.  
+아침 8시 30분 경에 도착했는데, 아직 등록을 진행하고 있지 않았습니다.  
+  ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.01.jpg?raw=true)  
+ 
+채널나인가이라는 작은 스티로폼 인형을 이벤트로 주던데, 현장 여기저기 있는 힌트 팻말을 보고 정답을 적어서 제출하면 되더군요.  아래 사진과 같은 표지판들을 찾아다니면서 정답을 적어서 받았습니다.  
+    ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/2015-10-27-Techdays.03.jpg?raw=true)
 
 
 
- ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.01.jpg?raw=true)
+
 
 최기영 부사장 인사말
 
