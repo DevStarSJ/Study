@@ -5,34 +5,33 @@
 
 #### 등록  
 
-아침부터 비가 많이 왔습니다.  
-아침 8시 30분 경에 도착했는데, 아직 등록을 진행하고 있지 않았습니다.  
-  ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.01.jpg?raw=true)  
+아침부터 비가 많이 왔습니다. 아침 8시 30분 경에 도착했는데, 아직 등록을 진행하고 있지 않았습니다.  
+
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.01.jpg?raw=true)  
  
-채널나인가이라는 작은 스티로폼 인형을 이벤트로 주던데, 현장 여기저기 있는 힌트 팻말을 보고 정답을 적어서 제출하면 되더군요.  
-아래 사진과 같은 표지판들을 찾아다니면서 정답을 적어서 받았습니다.  
-    ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/2015-10-27-Techdays.03.jpg?raw=true)
+채널나인가이라는 작은 스티로폼 인형을 이벤트로 주던데, 현장 여기저기 있는 힌트 팻말을 보고 정답을 적어서 제출하면 되더군요. 아래 사진과 같은 표지판들을 찾아다니면서 정답을 적어서 받았습니다.  
 
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/2015-10-27-Techdays.03.jpg?raw=true)  
 
+9시 25분부터 행사장을 열어줘서 입장을 할 수 있었습니다. 멀리서 보았을 때 3개의 화면이 보였는데, 가운데 자리에서 약간 왼쪽에 위치하여 Reserved 라고 표시괸 예약석 3줄 바로 뒤에 자리를 잡았습니다. 오늘 들을 세션들을 한번 체크하고, 아이패드와 키보드를 세팅하였습니다.
 
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.02.jpg?raw=true)  
 
+#### 인사말
+- 최기영 부사장, Microsoft
 
-최기영 부사장 인사말
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.05.jpg?raw=true)  
 
-개발자들이 더 많은 것을 이룰수 있도록 하기 위한 행사
-미션 스테이트먼트.
-소프트웨어를 통해서 힘을 갖고 더 많은 것을 이룰수 있도록 하기 위한 노력
-모바일 퍼스트, 클라우드 펄스트
-플랫폼과 프로턱티비티
-소프트웨어로 이루겠다.
-새로운 3번째 ceo 가 되면서 많은 전략이 바뀌고 있다.
-오픈소스를 과거에는 경쟁 배타적이었는데, 이제는 적극적으로 수용
-개발자 출신 ceo
-3가지 미션
-	1.	인텔리전트 클라우드 : 지능화된 클라우드, 애저 클라우드, 최근 12개월간 500개의 서비스오픈소스 사용자들이 25% 증가, 하둡, 리눅스, 자바, Iaas
-	2.	오피스 제품군이 안드로이드, 맥오에스에서 가능, 비주얼스튜디오코드도 맥오에스 에서 됨. 크로스 플랫폼 좀 더 많은 풍성한 시나리오.
-	3.	퍼스널 컴퓨팅을 좀 더 발전되게 시킥겠다. 유니버설 윈도우즈 플랫폼, 홀로렌즈 , 사용자 경험, 가상현실, 풍부한 시나리오
-이런 미션들을 이루어 가기 위해서 가장 중요한 역할을 하는 것이 개발자 들이다.
+Microsoft 한국지사 최기영 부사장님의 인사말이 있었습니다. 대략적인 내용은 다음과 같습니다.
+- `tech days`는 개발자들이 Software를 통해서 더 많은 힘을 갖고 더 많은 것을 이룰수 있도록 해주기 위해서 준비한 행사임을 강조하였습니다.  
+- Microsoft가 3번째 CEO 인도인 출신의 `Satya Nadella`를 회장으로 맞이하면서 많은 것이 바뀌고 있습니다.  
+  - 과거에는 Open Source에 대해서는 배타적이었다면, 이제는 적극적으로 수용을 하고 있습니다.
+  - 무엇보다도 `개발자 출신 CEO`인 만큼 개발자 입장에서 많은 것을 노력하고 있습니다.  
+- Microsoft의 3가지 Mission이 있습니다.
+  1. Intelligent Cloud : 지능화된 클라우드인 Azure Cloud를 제공하고 있습니다. 여러가지 Open Source 및 Hadoop, Linux, Java 등을 많은 고객들이 설치하여 사용중입니다.
+  2. Cross-Plaform : Office 제품을 Android, Mac 에서도 사용이 가능하며, Mac / Linux에서 사용가능한 개발용 Editor인 Visual Studio Code 도 제공하고 있습니다.
+  3. Personal Computing : Universal Windows Platform, HoloLens 등 사용자 경험을 바탕으로 가상 현실 등 풍부한 시나리오를 공급하고자 노력하고 있습니다.
+- 이런 Mission 들을 이루기 위해 가장 중요한 역할을 하는 것이 개발자 들이라는 것을 다시한번 강조하면서 인사말을 마쳤습니다.
 
 Keynote. Ayman Shoukry. Visual C++ Team Manager
 
