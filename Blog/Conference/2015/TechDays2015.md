@@ -28,42 +28,46 @@ Microsoft 한국지사 최기영 부사장님의 인사말이 있었습니다. �
   - 과거에는 Open Source에 대해서는 배타적이었다면, 이제는 적극적으로 수용을 하고 있습니다.
   - 무엇보다도 `개발자 출신 CEO`인 만큼 개발자 입장에서 많은 것을 노력하고 있습니다.  
 - Microsoft의 3가지 Mission이 있습니다.
-  1. Intelligent Cloud : 지능화된 클라우드인 Azure Cloud를 제공하고 있습니다. 여러가지 Open Source 및 Hadoop, Linux, Java 등을 많은 고객들이 설치하여 사용중입니다.
-  2. Cross-Plaform : Office 제품을 Android, Mac 에서도 사용이 가능하며, Mac / Linux에서 사용가능한 개발용 Editor인 Visual Studio Code 도 제공하고 있습니다.
-  3. Personal Computing : Universal Windows Platform, HoloLens 등 사용자 경험을 바탕으로 가상 현실 등 풍부한 시나리오를 공급하고자 노력하고 있습니다.
+  1. `Intelligent Cloud` : 지능화된 클라우드인 Azure Cloud를 제공하고 있습니다. 여러가지 Open Source 및 Hadoop, Linux, Java 등을 많은 고객들이 설치하여 사용중입니다.
+  2. `Cross-Plaform` : Office 제품을 Android, Mac 에서도 사용이 가능하며, Mac / Linux에서 사용가능한 개발용 Editor인 Visual Studio Code 도 제공하고 있습니다.
+  3. `Personal Computing` : Universal Windows Platform, HoloLens 등 사용자 경험을 바탕으로 가상 현실 등 풍부한 시나리오를 공급하고자 노력하고 있습니다.
 - 이런 Mission 들을 이루기 위해 가장 중요한 역할을 하는 것이 개발자 들이라는 것을 다시한번 강조하면서 인사말을 마쳤습니다.
 
-Keynote. Ayman Shoukry. Visual C++ Team Manager
+#### Keynote
+- Ayman Shoukry, Visual C++ Team Manager  
 
-우리의 미션
-Empower 개발자가 의사결정을 할수 있도록 툴을 제공
-지구상의 어떤 것에서 모든 플랫폼에서 작업이 가능하도록 지원
-이제 하나의 플랫폼에서만 작업하는 시대는 지났다.
-모바일 퍼스트, 클라우드 퍼스트
- 10년전부터 오픈소스에서 활동했다.
-오픈소스 기여 > 통합 > 
-.NETF foundation 1년반밖에 안되었는데 많은 활동들이 이루어 지고 있다.
-cppCon 코어 가이드라인 비얀네 씨와 같이 함께 기여
-아파치코르도바, 안드로이드 에뮬레이터
-엑셀을 안드로이드에서 돌아가게 만들게 하기 위해서 필요했었다.
-구글에서 만든것보다 더 좋은 성능의 에뮬레이터를 만들었다.
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.06.jpg?raw=true)  
 
-.NET Core 를 오픈소스화 하여 이제 윈도우 뿐만 아니라 리눅스 맥에서도 닷넷코어가 올라가므로 ASP.NET이 모든곳에서 다 돌아간다,
+Visual C++ Team Manager인 Ayman Shoukry의 Keynote Session이 있었습니다. 물론 영어로 진행이 되었으며 동시통역기가 자리마다 있었습니다. 대략적인 내용은 다음과 같습니다.
 
-C++의 Cross Platform
-현재는 플랫폼마다 주된 언어가 달랐었는데,
-그래서 코드 재사용도 되지 않았고, 하나의 플랫폼이 지배적이 된다면, 나머지 플랫폼들이 간과될수밖에 없었다.
-미국 안드로이드 마켓에서 탑100개 의 앱 중에 적어도 하나의 씨뿔뿔 이 들어가있는게 75%이상이다.
-페이스북, 캔디크러시 등 왠만한 앱들은 모두 씨뿔뿔을 사용하고 있다.
-파워포인트 팀이 처음에는 윈도우즈 온리였는데, 95%이상이 공통된 씨뿔뿔 코드로 공유
-OpenGL 데모 Android, IOS, Shared  3개의 프로젝트로 되어있음
+- `Empower` : 개발자가 의사결정을 할 수 있도록 개발Tool을 제공하고자 노력하고 있습니다.
+  - 지구상의 어떤 곳에서도 모든 Platform에서 작업이 가능하도록 지원하고자 합니다.
+  - 이제 하나의 Platform에서만 작업하는 시대는 지났습니다.
+  - Mobile First, Cloud First인 시대가 이미 왔습니다.
 
-다음달에 공식적으로 발표할 내용
-리눅스도 지원
-리눅스 프로젝트도 지원
-readme.txt에 어떻게 작업할지에 댈한 설명이있고, 윈도우에서 디버깅하면서 리눅스에서 실해하는것. Pycon에서 김명신 부장님이 시연 해주신거랑 비슷
+- Microsoft의 Open Source 활동은 10년전부터 진행되었습니다.
+  - `.NET foundation`은  1년반 밖에 되지 않았지만 많은 활동들이 이루어 지고 있습니다.
+  - `cppCon`의 core guideline을 `Bjarne Stroustrup`(C++ 창시자)과 함께 기여하고 있습니다.
+  - `Apache Cordova` , `Adroid Emulator`도 진행하고 있으며, Google에서 만든 Emulator보다 더 성능이 좋습니다.
+  - `.NET Core`를 Open Source화 하여 이제는 Windows 뿐만 아니라 Linux, Mac에서도 .NET Core가 올라가므로 `ASP.NET`이 모든 Platform에서 실행 됩니다.  
 
-제너럴 세션 세상을 품은 플랫폼과 그 가능성에 대해서
+- C++의 Cross Platform
+  - 현재는 플랫폼마다 주된 언어가 달라서, 각 플랫폼별로 Code의 재사용도 되지 않았고, 하나의 플랫폼이 지배적이 된다면, 나머지 플랫폼들이 간과될 수 밖에 없었습니다.  
+  - Android, IOS, Windows 에서 모두 다 개발 가능한 언어는 `C/C++` 밖에 없습니다.  
+  - US Android Market의 Top 100 App. 들 중 C++ Code가 들어간 것이 75%이상입니다.  
+    - Facebook, Candy Crush 등 왠만한 App.들은 모두 C++를 사용하고 있습니다.  
+  - PowerPoint가 처음에는 Windows-Only였지만, 95%이상이 Shared 가능한 C++ Code로 되어 있어서 Android, Mac에서 이제는 실행이 가능합니다.  
+
+- `OpenGL Demo` 시연
+  - Android, IOS, Shared 3개의 Project로 되어 있는 것을 보여주면서, Android 와 IOS가 같이 Shared Project를 사용하면서 실행이 가능하다는 것을 시연하였습니다.
+
+- Visual C++의 `Linux Project` 지원
+  - 다음달에 공식적으로 발표할 내용으로, `Visual Studio 2015 Update 1`에서 Linux Project도 Visual Studio에서 작업이 가능하도록 지원할 예정이라 했습니다.
+  - Project 생성시 `readme.txt`를 보면 어떻게 빌드하고 배포하는지에 대한 설명이 있으며,
+  - Linux에서 실행되는 것을 Windows에서 Debugging하는 것도 가능하다고 말했습니다.
+    - `Pycon Korea 2015`에서 김명신 부장님이 Azure상에서 실행중인 Python Web Page를 Visual Studio에서 원격으로 Debugging하는 것을 보여주었는데, 비슷한 내용인 듯 합니다.  
+
+#### General Session : 세상을 품은 플랫폼과 그 가능성에 대해서
 마이크로소프트 에반젤리스트팀
 김명신 부장님
 
