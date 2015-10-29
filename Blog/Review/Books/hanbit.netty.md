@@ -1,11 +1,17 @@
-### Microsoft Tech Days Korea 2015  
+### 자바 네트워크 소녀 Netty
+- 한빛출판사
+- 정경석 지음
 
-- 일시 : 2015년 10월 27일 화요일 09:00 ~ 21:10  
-- 장소 : 세종대학교 광계토관 컨벤션센터
+ ![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.02.jpg?raw=true)  
 
- ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.01.jpg?raw=true)  
- 
- 자바 네트워크 소녀 Netty 
+####첫 인상
+
+- 처음 책을 받고 깜짝 놀랐습니다.
+- 내가 분명 주문한 것은 IT 기술서적인데...
+  - 미소녀의 대형 브로마이드가 배송되었으며,
+   - 덤으로 책이 한권 같이 왔더군요.
+
+![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.01.jpg?raw=true)  
 
 수많은 개발자들이 사용하는 언어 JAVA
 Netty는 범용 자바 네트워크 프레임 워크이다. 소셜로 출시 된 것을 보고 
