@@ -130,51 +130,45 @@ Visual C++ Team Manager인 Ayman Shoukry의 Keynote Session이 있었습니다. 
 
 ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.11.jpg?raw=true)  
 
-며칠전에 참석한 `Data Grand Conference 2015`에서 시간마다 Track을 옮겨다니니 매번 자리 찾는것이 큰 일이더군요. Microsoft는 행사 후 동영상으로 다른곳보다 비교적 빨리 공개를 해주므로 그냥 1개의 Track에서 계속 앉아 있기로 결정했습니다. C++ 관련 Track이 진행이 진행되는 
+며칠전에 참석한 `Data Grand Conference 2015`에서 시간마다 Track을 옮겨다니니 매번 자리 찾는것이 큰 일이더군요. Microsoft는 행사 후 동영상으로 다른곳보다 비교적 빨리 공개를 해주므로 그냥 1개의 Track에서 계속 앉아 있기로 결정했습니다. C++ 관련 Track이 진행이 진행되는 Track 2에 쭉 있기로 결정했습니다.
+
+#### Track 2-1. What is new in Visual C++ 2015 and Future Directions
+- Ulzii Luvsanbat , Ayman Shoukry
+
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.15.jpg?raw=true)  
 
 
-트랙2-1
+Keynote를 하신 Visual C++의 Team Manager Ayman Shoukry는 계속 이 사람이 잘하고 있나 감시를 하는 듯한 모습이었고, Ulzii Luvsanbat 가 계속해서 진행을 하였습니다. Visual C++ 2015에서의 기능에 대하여 전반적으로 설명을 해 주었습니다.
 
-사실 C#에서는 많이 화려하게 개발이 가능하지만 c++은 아직 부족하지만,
-많이 따라가려고 노력했다.
-Refactoring, single file intellisense
+- Refactoring 기능 : C#에 비해서 아직까진 많이 부족하지만, 따라가려고 노력 중입니다.
+- Single File Intellisense : C++ 파일 하나면 열더라도 내부적으로 Project를 생성하여 기본 Library Header 파일과의 연동 및 Intellisense 기능을 사용 할 수 있습니다.
+- Quick Action 기능 (`Ctrl + ,`)에 대한 몇가지 시연을 보여주었습니다.
+  - `\n\t` 등이 포함된 문자열을 보기좋게 자동으로 표현해 주는 기능
+  - Derived Class에서 pure virtual function 구현
+  - Rename Function
+  - Function의 declaration에서 peek windows로 definition 생성
+  - Generic Lambda를 Extrac Function으로 생성
+- `Send Smile`, `Send Frown`을 이용해서 건의를 전달해주면 Update시 반영을 합니다. Update 우선순위에 큰 영향을 미치는 항목이니 필요한 기능에 대해서는 자주 Send를 해주시는게 좋습니다.
+- Diagnostic Monitor 및 Function 별로 수행시간 계산 : 내부적으로 복잡한 heuristic algorithm을 이용하여 실제 Machine에서의 수행시간과 거의 동일한 결과로 계산을 합니다.
+- Update 1이 다음달 Release 됩니다.
+  - Visual Studio 2013때와 같이 3개월 단위로 Update를 배포할 계획입니다.
+  - 아직 C++11도 100% 다 수용하지 못하고 있습니다만, 표준을 따르도록 노력하고 있습니다.
+  - `await`(C#에서 async task의 결과를 기다리는 keyword)가 Update 1에 반영될 예정입니다. (개인적으로는 정말 기쁜 소식입니다.)
+  - CLang with microsoft code generator도 개발중에 있습니다. 이제 많은 IOS App.을 Windows에서도 돌릴 수 있습니다.
+  - IDE 없이 Compiler만 별도로 제공할 계획입니다.
+  - Remote Linux Debegging 기능 및 Linux Project 생성도 추가될 계획입니다.
+- Code Optimization을 이용하여 algorithm을 대신 최적화 해줍니다.
+  - for문 안에 반복적인 if가 있는 경우 if 조건을 먼저 수행하고 for-loop를 수행하는 식으로 자동으로 최적화 해줍니다.
+- Multi-Build 기능을 제공할 계획입니다.
+  - 지정한 시간(예를 들어서 퇴근후 시간)에 놀고있는 PC를 이용하여 Build에 사용하여 Build 시간을 줄일 수 있는 기능을 제공합니다.
+- Visual Studio Code 가 C++도 지원되도록 할 계획입니다.
 
-시연
-컨투럴 콤마
-긴 문자열 스마트탭 raw string indentation ?
-Derived class 에서 quick action하면 pure virtual function 구현
-Rename function
-Function의 declaration에서 defination을 생성 peek window로
-Generic lambda 를 extract function으로 생성
-Send smile / send frown 오렌지에도 들어가면 좋을듯
-Diagnostic monitor가 자동으로 뜸
-Function 별로 수행시간 계산 > 복잡한 휴레스틱 알고리즘
+- QnA 시간에 나온 질문 중 `왜 Windows에서 C++을 사용해야 하느냐?`에 대해서 이렇게 답하였습니다.
+  - 새로 만들것 같으면 `C#`이 훨씬 더 좋은 방법입니다.
+  - Performce가 중요한 application이거나, UI가 아주 Heavy한 경우에는 C++이 더 좋습니다.
+  - 기존의 C++ Code가 많은 Project인 경우에는 C++을 계속해서 사용하는 경우가 좋습니다.
+    - 예를 들어서 Adobe의 application들은 과거 C++로 만들어 졌기 때문에 계속해서 C++로 개발중입니다.
 
-Await update1
-아직 11도 100프로 못하고 있다
-generic lambda, noexcept, inline namespace, thread safe local, alignof alignas, unicode string literals modifiers, auto return decudcing, constexpr, 
-
-Clang with microsoft code generator
-많은 ios앱을 윈도우즈에서 돌릴수있다
-캔디크러시도 가능
-
-빌드타임을 줄였다고 하는데...
-코드 최적화 컴플렉스한 알고리즘을 대신 최적화
-For if > if for
-다음달 첫 업데이트 3개월주기
-
-멀티빌드 여러기계로 빌드 퇴근뒤 놀고있는 피시들
-Ide말고 컴파일러만 원한다
-Remote linux debugging
-Vs code for c++
-
-큐엔에이
-
-씨뿔뿔 쓰는 이유 윈도우에서
-
-기존 c++ 코드가 있는 경우 어도비 리더 는 시샵이전에 있던 코드
-퍼포먼스 유아이가 해비한 경우
-크로스플랫폼의 경우 기존앱을 확대하고자 할 경우
 
 2 김성엽 안드로이드개발
 C++로 안드로이드 개발 및 크로스 플랫폼
