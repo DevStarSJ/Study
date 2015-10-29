@@ -6,16 +6,31 @@
 
 ####첫 인상
 
-- 처음 책을 받고 깜짝 놀랐습니다.
-- 내가 분명 주문한 것은 IT 기술서적인데...
-  - 미소녀의 대형 브로마이드가 배송되었으며,
-   - 덤으로 책이 한권 같이 왔더군요.
+처음 책을 받고 깜짝 놀랐습니다.  
+내가 분명 주문한 것은 IT 기술서적인데...  
+미소녀의 대형 브로마이드가 배송되었으며, 덤으로 책이 한권 같이 왔더군요.  
 
 ![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.01.jpg?raw=true)  
 
-수많은 개발자들이 사용하는 언어 JAVA
-Netty는 범용 자바 네트워크 프레임 워크이다. 소셜로 출시 된 것을 보고 
-더욱더 궁금해 졌다. 채팅 소켓 프로그램이 관심이 많았던 부분이 있었다. 
+두께가 많이 두껍지 않아서 부담없이 들고 다니기 좋아 보입니다. 하지만 표지 그림때문에 약간 들고다니기는 망설여 지더군요.  
+종이재질은 `한빛미디어`다 보니 당연히 최상이구요.  
+책안의 그림, 소스코드, 스크린샷 모두 눈에 쏙쏙 들어오게 되어 있었습니다.  
+
+- 그림
+  ![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.03.jpg?raw=true)  
+
+- 스크린샷  
+  ![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.04.jpg?raw=true)  
+
+- Source Code
+  ![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.05.jpg?raw=true)  
+
+####전체적인 서평
+
+수많은 개발자들이 사용하는 언어,`Java`. `Netty`는 범용 자바 네트워크 프레임 워크입니다. `Facebook`에서 출시 된 것을 보고 어떤 내용일까 궁금했는데, `한빛리더스 2기` 활동 중인데 이번 달의 목록에 이 책이 있었습니다. 그것도 선착순 5명만 가능하다고 해서 얼릉 신청했습니다. 
+| Network Server 개발을 하기 위해서는 Socket을 이용한 Chatting Server만 만들어보면 됩니다.
+| Web Server 개발을 하기 위해서는 게시판만 한번 만들어보면 됩니다.
+
 네티의 내부를 이해하기 어려운 점이 있긴 하지만 처음에 추천의 말에서 
 "네티를 처음 접하신 분은 4-5장을 꼭 정독"하라는 글귀를 읽고 우선 
 4-5장부터 차례대로 보기 시작하였다. 
