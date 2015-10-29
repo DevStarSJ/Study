@@ -137,7 +137,6 @@ Visual C++ Team Manager인 Ayman Shoukry의 Keynote Session이 있었습니다. 
 
 ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.15.jpg?raw=true)  
 
-
 Keynote를 하신 Visual C++의 Team Manager Ayman Shoukry는 계속 이 사람이 잘하고 있나 감시를 하는 듯한 모습이었고, Ulzii Luvsanbat 가 계속해서 진행을 하였습니다. Visual C++ 2015에서의 기능에 대하여 전반적으로 설명을 해 주었습니다.
 
 - Refactoring 기능 : C#에 비해서 아직까진 많이 부족하지만, 따라가려고 노력 중입니다.
@@ -169,54 +168,49 @@ Keynote를 하신 Visual C++의 Team Manager Ayman Shoukry는 계속 이 사람�
   - 기존의 C++ Code가 많은 Project인 경우에는 C++을 계속해서 사용하는 경우가 좋습니다.
     - 예를 들어서 Adobe의 application들은 과거 C++로 만들어 졌기 때문에 계속해서 C++로 개발중입니다.
 
+#### Track 2-2. 알아두면 핵 이득! VC++로 안드로이드 개발하기
+- 김성엽
 
-2 김성엽 안드로이드개발
-C++로 안드로이드 개발 및 크로스 플랫폼
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.16.jpg?raw=true)  
 
-50위 안드앱중 80프로가 C++
-개발자에게 더많은 플랫폼은 더 많은 기회가 제공
-고객의요구 데답용얍 사면서 모버일로도 가능하면 좋겠다
-Ndk쓰면 5개정도 함수만 추가로쓰면 안드로이드개발가능
+Visual Studio 2015를 이용하여 C++을 이용하여 Android app을 개발하는 내용 및 Android Project 생성 및 Emulator 실행을 보여주었습니다.
 
-안드로이드 에뮬레이터
-Hyper-v필요. Win 8 pro 이상
-Bios에서 하드웨어 가상화가 지원되어야함
-실제 물리메모리 사용. 충분한 램 6기가이상
-최신노트북 프로급, 램 8기가
+- 개발자에게 더 많은 Platform은 더 많은 기회가 생김을 의미합니다.
+- 요즘 고객의 요구사항 중 Desktop용 App. 개발을 의뢰하면서 Mobile에서도 가능했으면 좋겠다는 것이 늘어가고 있습니다.
+- Android NDK를 사용하면 5개 정도 함수만 구현해주면 C++로 Android app.의 개발이 가능합니다.
+- Microsoft의 Android Emulator는 요구사항에 만족하지 않아도 설치는 되지만 실행은 되지 않습니다.
+  - `Hyper-V`(Win8이상)가 필요합니다.
+  - BIOS에서 `Hardware Virtualization`이 지원되는지도 확인을 해야 합니다.
+  - 실제 물리 Memory를 사용해서 구동하므로 충분한 RAM (최소 6GB이상)이 필요합니다.
+  - Visual Studio Community나 Professional에서는 관리자 권한으로 실행해야 하며, Enterprise 에서는 자동으로 관리자권한으로 실행됩니다.
+- Native app 개발 방법 및 Project 구조에 대하여 소개를 해 주었으며, Android Java Project 생성 및 실행도 간단히 보여주었습니다.
+- 모든 예제 및 설명은 블로그에 자세히 소개되어 있으니 참조하라고 하였습니다.
 
-커뮤니티나 프로에서는 관리자 권한으로 실행해야함, 엔터프라이즈애서는 자동으로
+#### Track 2-3. Visual Studio를 사용하는 비주얼 개발자를 위한 Tips & Tricks (No Slide, All Demo!) 알아두면 핵 이득! VC++로 안드로이드 개발하기
+- 김태영
 
-블로그에 native app개발 내용들 있음
-Native app개발 방법 소개
-안드로이드 프로젝트의 구조맟 직접 개발해야할 함수들에 대해서 설명
-Main.cpp에 7개 함수중 생성,해제 빼고 5개만 수정하여 사용하면됨
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.17.jpg?raw=true)
 
-안드로이드 자바기반 앱 개발 시연
-Shared library 하나로 안드로이드 윈도우 다 가능
+엄청나게 많은 사람들이 이번 세션을 들으러 들어왔습니다. 역시나 말을 아주 재밌게 잘 하십니다. Visual Studio를 사용할 때 알아두면 편리하거나, 좀 더 화려하게 화면을 꾸미는 Tip을 소개해주었습니다.
 
-	3.	김태영
-데모만 진행
+- Nuget Package를 이용해서 설치가 가능한 IDE 파워툴에 대한 소개입니다.
+  - Pronama-chan IDE : Editor 창에 미소녀가 표시됩니다.
+  - VSColorOutput : Build창이 Color로 출력됩니다.
+  - Change Color Theme
+  - Color Theme Editor
+  - Trailing Whitespace Visualizer : space 등의 공간을 다른 색으로 표시합니다.
 
-프로나마찬: 애니메
-빌드가 녹색 등 컬러로 , 등 빌드리포트 : VSColorOutput
-Change color theme
-Color theme editor
+- Code 정적 분석 기능 (C#)
+  - Code 의 정적 분석 기능 활성화/해제를 보여주었습니다.
+  - Fxcop, Codecracker(시험판) 등의 추가적으로 적용도 가능합니다.
 
-알트드래그 후 한번에 수정
-공백보여줌 : trailing whitespace visualizer
-컨트럴수ㅏ프트v 이력저장
-컨트럴 컴마 하고 검색
-솔탐에서 열린파일위치열어주기
-
-Json,xml을 클래스로 붙여놓기
-레이아웃 저장
-
-코드분석
-Fxcop
-Codecracker 시험판
-라이브 시각적 투라, 라이브 속성 탐색기
-Developer assistant : intellisense 및 검색
-디버깅 포인트 import,export
+- Visual Studio의 기능 소개
+  - Alt + Drag 후 한번에 수정
+  - Ctrl + Shift + v : 저장 이력 저장
+  - Ctrl + , 후 검색
+  - Solution Explorer에서 열린 파일 위치 열어주기 버튼
+  - JSON, XML을 Class로 붙여넣기
+  - IDE Layout 저장 및 불러오기
 
 	4.	김희준님
 
