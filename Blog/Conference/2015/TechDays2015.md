@@ -186,7 +186,7 @@ Visual Studio 2015를 이용하여 C++을 이용하여 Android app을 개발하�
 - Native app 개발 방법 및 Project 구조에 대하여 소개를 해 주었으며, Android Java Project 생성 및 실행도 간단히 보여주었습니다.
 - 모든 예제 및 설명은 블로그에 자세히 소개되어 있으니 참조하라고 하였습니다.
 
-#### Track 2-3. Visual Studio를 사용하는 비주얼 개발자를 위한 Tips & Tricks (No Slide, All Demo!) 알아두면 핵 이득! VC++로 안드로이드 개발하기
+#### Track 2-3. Visual Studio를 사용하는 비주얼 개발자를 위한 Tips & Tricks (No Slide, All Demo!) 알아두면 핵 이득!
 - 김태영
 
 ![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.17.jpg?raw=true)
@@ -212,95 +212,83 @@ Visual Studio 2015를 이용하여 C++을 이용하여 Android app을 개발하�
   - JSON, XML을 Class로 붙여넣기
   - IDE Layout 저장 및 불러오기
 
-	4.	김희준님
+#### Track 2-4. 디버깅, 어디까지 해봤니? 당신이 아마도 몰랐을 디버깅 꿀팁 공개
+- 김희준
 
-프로파일링
-perfTips
-진단툴을 이용하여 메모리해제안하는거 찾아내는 시연
-메모리 스냅샷,
-메니지드,네이티브
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.18.jpg?raw=true)
 
-브레이크 포인트
-트레이스 포인트
-data break point : 메모리 주소에 브피 걸기
-워치창 옮긴뒤 &붙여서 주소얻고 디버그 메뉴에서 찾아가서 주소와 바이트수 입력
+Visual Studio 2015의 Debugging 에 대한 여러가지 시연을 보여주었습니다. 하지만 아직까지는 Native(C++)에 대해서는 적용되지 않고, Managed(C#)에만 적용 가능한 것들이 많아서 아쉬웠습니다.
 
-트레이스포인트 : action bp가 걸리면 값 및 콜스택 출력
+- Data Break Point
+  - Native(C++)도 가능합니다.
+  - 변수명을 Watch 창에 &를 붙여서 적어주면 Memory 주소를 알 수 있습니다.
+  - Debug 메뉴에서 Memory 주소와 Byte수를 입력하면 해당 값이 바뀌었을 때 Break 됩니다.
 
-exception
+- Trace Point
+  - Break Point를 Action 쪽 설정값을 주면 Break 되진 않고, 거기서 설정한 출력값 (Value, Call Stack 등...)을 Output 창에 출력합니다.
 
-intellitrace
-실행을 녹화
-ui 깨지는버그, 화면 레이아웃 깨지는 버그 등 프로그램이 죽지는 않지만 뭔가 미묘한 버그
-오히려 crash되는군 덤프떠서 보면 됨
-녹화를 떠서 뒤로 되돌려보면서 확인
-닷넷만가능
-엔터프라이즈이상만
+- Intellitrace
+  - 실행을 녹화하여 추후 원하는 시점으로 돌아가서 Debugging이 가능합니다.
+  - UI가 깨진다던지, Button을 눌렀을 때 이상동작이 있는 것 같이 프로그램이 죽지는 않지만 뭔가 원인을 모르겠는 버그를 찾는데 편리합니다.
+  - Managed(C#)만 되고, Enterprise 이상 버전에서만 지원합니다.
 
-run to cursor
-step into specific
-@err
-,hr
+- `Run to Cursor` / `Step into Specific`
+  - C++의 경우 parameter로 string이 있는 경우 `F11`을 눌러도 해당 함수 안으로 들어가기 위해서는 몇단계를 거쳐야하는데, 바로 들어갈 수 있도록 해줍니다.
 
+- `void*`의 값을 보고 싶으면 주석에서 casting 한 형식을 적어준 다음 마우스를 올리면 볼 수 있습니다.
 
-void* 된거 볼려면 주석애ㅔ서 캐스팅하면 볼수있음
+- 시간 관계상 설명은 못해줬지만 Multithread 환경의 경우 Parallel Stack, Parallel Watch 활용이 가능합니다.
 
-패러럴 스택, 패러럴 워치
-멀티스레드 디버깅
+####경품추첨 및 스낵코너
 
-경품추첨
+경품추첨이 있었습니다. 등록할때 작성한 명함 또는 명함이 없는 사람들은 이름을 적어서 냈는데, 모두 다 종이만 뽑혔습니다. 명함은 단 한번도 뽑히지 않았습니다.
 
-저녁 스낵코너
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.19.jpg?raw=true)
 
-저녁세션1 옥찬호
-녹슨 C++코드에 모던 C++로 기름칠하기
+그리고 로비에는 저녁 세션 참가자들을 위한 칵테일 과 스낵 코너가 마련되었는데, 칵테일은 한 30분은 줄서야 먹을 수 있을만큼 줄이 길었구요. 스낵도 사람이 너무 많아서 먹기가 많이 불편했습니다. 그래도 다행히 빵종류만 있을줄 알았는데, 김밥과 떡이 있었습니다.
 
-#ifdef로 떡칠된코드, if중첩으로 도배된 코드
-전처리기
-리소스관리 등...
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.20.jpg?raw=true)
 
-_UNICODE 를 함수 2개로 들어오는 타입에따라 구분
-함수템플릿
+####Community Session 4-1. 녹슨 C++코드에 모던 C++로 기름칠하기
+- 옥찬호
 
-매크로
-변수대신사용 > enum > enum class
-함수대신사용 > inline
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.21.jpg?raw=true)
 
-리소스관리
-메모리해제코드 > RAII 클래스로 만들어서 생성자, 해제자 로 처리
-하지만 포인터로 만들면 생성자는 실행되지만 자동으로 소멸자는 호출 안된다
-> 스마트포인터 
-람다식
-auto
-ranged-for
+제가 운영진으로 몸담고 있는 `Facebook C++ Korea`의 대표입니다. C++의 안좋은 Code에 대한 예시 및 그것을 Modern C++을 이용하여 고치는 경우에 대해서 소개를 하였으며, 관련 새로운 문법에 대해서 몇가지 소개해 주었습니다.
 
-오후세션2 유영천
-UWP C++
-minecraft ms가샀다 자바로된걸 c++로 만들었다
-UWP 모바일 친화, 웹친화 ui쉽다
-권한문제 sandbox 하드웨어 모든가능 못씀
-iot에서 제외된 것들이많다. 파일선택 등...
-배포쉽고, 디바이스 많지만 기능은 데탑앱보다 많이 딸린다
-gdi 못쓰고 xaml
-창모드지원
-드래드앤드랍 지원
-megayuchi
-c++/cx를 조금은 사용 스마트포인트를 내장한 c++ c#과도 비슷. 메모리 할당 해제 안해도 됨
-람다와 ppl 많이 사용
-api호출이 c#형태
-예제없으면 C#으로 한뒤 . 대신 화살표 왠만하면 돌아감
-xaml ui
-wpf랑 거의 같음
+- `#ifdef` 와 같은 전처리기는 왠만하면 사용하지 않는 것을 추천하였으며, 함수안에서 일부만 전처리기로 처리하는 것은 좋지 않습니다.
+  - `_UNICODE` 를 확인하는 경우는 `function template`를 활용하여 함수를 나누는 것이 좋습니다.
+- - if 중첩으로 depth가 계속 증가하는 code의 경우는 검사조건을 반대로하여 바로 return 하는 식으로 고쳐서 depth 증가를 피할 수 있습니다.
 
-모든 작업은 비동기 ui 블록 절대 없게
+- Macro의 사용은 무조건 피하는 것이 좋습니다.
+  - 변수 대신 사용하는 경우는 `enum` < `enum class` 를 활용하는 것이 좋습니다.
+  - 함수 대신 사용하는 경우는 `inline`등을 이용하여 함수로 구현하는 것이 좋습니다.
 
-uwp위해서 추가로 학습할것
-xaml
-c++/cx
-async api + ppl
+- 기타 Smart Point auto, ranged-for 를 소개하였습니다.
 
+####Community Session 4-2. 프로그래밍 언어의 F1머신 C++을 타고 Windows 10 UWP 앱 개발의 세계로
+- 유영천 (megayuchi)
 
+![DGC2015](https://github.com/DevStarSJ/Study/blob/master/Blog/Conference/2015/image/small.2015-10-27-Techdays.22.jpg?raw=true)
 
+UWP (Universla Windows Platform) app. 을 C++로 개발하는 것에 대한 소개였습니다. 개인적으로 가장 관심이 가는 세션이었습니다.
 
-
-
+- Java로 된 minecraft를 Microsoft가 인수하여 UWP로 다시 구현하였습니다.
+- UWP는 Mobile 및 Web UI를 구현하기가 쉽습니다.
+- 아직까지는 sandbox의 권한문제 때문에 hareware의 모든 기능을 다 사용하지는 못합니다.
+- IoT상의 Windows10의 UWP는 Desktop에서 실행되는 것에 비해 제외된 것들이 많습니다.
+  - File 선택창을 못띄웁니다.
+- 배포가 쉽고, 여러 Device에서 실행이 가능하지만, 기능이 Desktop application보다는 많이 부족합니다.
+- GDI를 사용하지 않고 XAML을 이용하여 화면에 출력합니다.
+  - C#의 WPF랑 거의 흡사한 형태입니다.
+- Windows10부터는 창모드도 지원하며, file drag & drop도 지원되어서 웬만하면 Desktop용 application을 개발하는것 보다는 UWP로 개발하는게 여러모로 유리합니다.
+- `C++/CX` 문법을 조금은 배우셔야 합니다.
+  - 기본적으로 모든 객체에 대해서는 reference로 전달되며, smart point를 내장하고 있어서, memory 할당 해제를 할 필요가 없습니다.
+- Lambda 식과 PPL을 많이 사용합니다.
+  - 절대로 UWP는 UI를 Block할 수 없게 설계되어 있어서 무조건 비동기로 실행시키게 되어 있습니다.
+- 만약 C++로 예제 code를 찾기 힘들면 C#으로 검색한 뒤어 . 대신에 -> 로만 고쳐서 왠만해서는 잘 돌아갑니다.
+  - API 호출도 C# 형식에 가깝습니다.
+- 기존 C++ 개발자가 UWP를 위해서는 몇가지 추가로 학습하셔야 합니다.
+  - XAML
+  - C++/CX 문법
+  - PPL 및 async api
