@@ -1,7 +1,7 @@
 ### 자바 네트워크 소녀 Netty
 - 한빛출판사
 - 정경석 지음
-- 한빛출판사 Link : <http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-224-3>
+- 책소개 Link : <http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-224-3>
 
  ![Netty](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.netty.02.jpg?raw=true)  
 
