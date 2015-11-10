@@ -74,3 +74,37 @@ SVN , MSBuild 설정에 대한 부분을 설명드리겠습니다.
 
 ![Jenkins.png](https://github.com/DevStarSJ/Study/blob/master/Blog/CI/image/jenkins.09.png?raw=true)  
 
+`MSBuild`의 자세한 사용법에 대해서는 여기서 다루지 않겠습니다.  
+
+MSDN에 자세한 설명이 있으니 참조하시면 됩니다.
+> <https://msdn.microsoft.com/ko-kr/library/ms164311.aspx>
+
+그 중 Jenkins에서 자주 사용하는 예시 한가지만 든다면...
+
+```
+/p:Configuration="Release" /t:Clean,Build
+```
+
+Release 모드로 Clean 후 Build를 할 경우 위와 같이 써주시면 됩니다.
+
+###5. Jenkins item 추가
+
+- `새로운 item`을 누르면 추가가 가능합니다.
+- 원하시는 이름을 입력한 뒤 `Freestyle project`를 선택합니다.
+- 먼저 `고급 프로젝트 옵션`에서 `고급` 버튼을 눌러서 `사용자 빌드 경로 사용`을 체크하셔서 source code를 받을 경로를 입력해 줍니다.  
+
+> ex. `d:\build\svn\test_project`  
+
+- `소스코드관리`에는 `Subversion`을 선택하시고 `Repository URL`을 입력합니다.  
+
+> ex. `svn://192.168.0.1/repo/test_project/trunk`  
+
+- `Add Build Step` 을 눌러서 `MSBuild`를 선택합니다.
+  - build할 solution이나 project 파일명을 전체경로나 위에 정한 사용자 빌드 경로로 부터의 상태경로로 입력합니다.  
+
+> ex. `./workspace/buildAll.sln`  
+
+  - 그리고 command line argument에 옵션을 적어줍니다.
+
+> ex. `/p:Configuration="Release" /t:Clean,Build`  
+
