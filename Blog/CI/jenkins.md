@@ -11,14 +11,14 @@ build 및 test, deploy하는 역할 자체는 command line에서 수행가능한
 
 ###2. 이번 Posting에서 다룰 내용
 
-1. Jenkins Download
+1. Jenkins download 및 설치 (Windows 기준)
 2. MSBuild plugin 설치
-3. jenkins item 설정
+3. Jenkins item 설정
   1. SVN Repository에서 source code 내려받기
   2. VisualStudio Solution (.sln)을 command line에서 실행시키기 (MSBuild 이용)
   3. Jenkins item에서 build 후 다른 item 실행
 
-
+###3. Jenkins download 및 설치
 
 
 
