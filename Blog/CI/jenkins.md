@@ -100,11 +100,16 @@ Release 모드로 Clean 후 Build를 할 경우 위와 같이 써주시면 됩�
 > ex. `svn://192.168.0.1/repo/test_project/trunk`  
 
 - `Add Build Step` 을 눌러서 `MSBuild`를 선택합니다.
-  - build할 solution이나 project 파일명을 전체경로나 위에 정한 사용자 빌드 경로로 부터의 상태경로로 입력합니다.  
+- build할 solution이나 project 파일명을 전체경로나 위에 정한 사용자 빌드 경로로 부터의 상태경로로 입력합니다.  
 
 > ex. `./workspace/buildAll.sln`  
 
-  - 그리고 command line argument에 옵션을 적어줍니다.
+- 그리고 command line argument에 옵션을 적어줍니다.
 
 > ex. `/p:Configuration="Release" /t:Clean,Build`  
 
+- 한 item에서 여러가지의 build step을 가질 수 있습니다. 예를 들어서 `Release`로 빌드하고, `Debug`로도 빌드 한다던지, 다른 project나 solution 들을 build 한다든지 등요.
+- build step에서 `Execute Windows batch command`를 선택하시면 일단 command line에서 선택하는 명령어를 그대로 입력하셔서 실행이 가능합니다. 관련 내용을 미리 batch file (.bat)나 python으로 생성해 놓고 실행하면 편리합니다.
+  - 특정 file들을 다른 folder로 옮겨 놓고 파일이름을 다르게 복사하고 등등의 작업이 가능합니다.
+- 현재 item이 끝난 후 다른 item을 자동으로 시작 시킬려면 `빌드 후 조치 추가`에서 `Build other projects`를 눌러서 다른 item명을 입력하시면 선택이 됩니다. 콤마(,)를 입력해서 여러개 project 실행이 가능합니다. Test Project를 실행한다던지, InstallShield를 이용하여 배포 파일을 생성하는 등의 작업을 하면 편리하게 활용이 가능합니다.
+- 주기적으로 build를 할려면 `빌드 유발`에 `Build periodically`를 선택하셔서 `Schedule`에 입력하시면 됩니다. 참고로 매일 새벽에 돌리실려면 `@midnight`라고 입력하시면 됩니다. 오른쪽 ?를 누르면 자세한 설명이 나옵니다.
