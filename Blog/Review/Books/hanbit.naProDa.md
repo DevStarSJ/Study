@@ -45,7 +45,7 @@
 
 이렇듯 모든 개발자라면 모두 관심있어할 만한 주제부터 해서 힘들어하시는 소외받으신 분들 이야기까지 개발자 분야의 꼭대기에서 바닥까지 모든 것을 다 다룬다고 해야 하나요 ?
 
-![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProda.03.jpg?raw=true)  
+![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.03.jpg?raw=true)  
 
 ####1부 언어
 
