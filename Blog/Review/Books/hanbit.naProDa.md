@@ -3,7 +3,7 @@
 - 임백준, 정도현, 김호광 지음
 - 책소개 Link : <http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-228-1>
 
- ![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProda.01.jpg?raw=true)  
+ ![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.01.jpg?raw=true)  
 
 안녕하세요. 오늘 정말 재미있고 유익한 책 한권을 소개할께요.
 최근 본 개발자 관련 서적중에 가장 재미있는 책입니다.
@@ -29,7 +29,7 @@
 저런 말이야 누구나 다 할 수 있지.
 정말 그렇게 다 긁어줄까 ? 라고 의문을 느낄 수 있겠지만, 이미 나프다 컨퍼런스 영상을 본 후라서 정말 그럴꺼라는 확신이 들었습니다.
 
-![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProda.02.jpg?raw=true)  
+![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.02.jpg?raw=true)  
 
 ####책 구성
 
@@ -79,7 +79,7 @@ MS의 신기술들, MS Azure, Amazon AWS 등 Cloud 활용시의 장단점을 비
 기술적인 부분부터 해서 서비스단의 이야기까지 많은 부분에 대해서 간접적으로 나마 이해하는데 많은 도움이 되었습니다.
 그 동안 여러가지 컨퍼런스에서 직접 봐왔던 분들이 guest로 오셔서 이야기를 진행해주셨는데, 그 분들이 정말 대단한 분들이란 것을 느끼게 되었습니다.
 
-![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProda.03.jpg?raw=true)  
+![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.04.jpg?raw=true)  
 
 ####3부 삶
 
