@@ -1,9 +1,9 @@
-### 팟캐스트 나는 프로그래머다: 뉴욕, 서울, 도쿄 개발자의 촌철살인 IT 이야기
-- 한빛미디어
-- 임백준, 정도현, 김호광 지음
-- 책소개 Link : <http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-228-1>
+### 못난이 목사 세계를 향해 날다
+- 매일경제신문사
+- 박용배
+- 책소개 Link : <http://book.naver.com/bookdb/book_detail.nhn?bid=8313572>
 
- ![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.01.jpg?raw=true)  
+ ![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.motmok.01.jpg?raw=true)  
 
 안녕하세요. 오늘 정말 재미있고 유익한 책 한권을 소개할께요.
 최근 본 개발자 관련 서적중에 가장 재미있는 책입니다.
