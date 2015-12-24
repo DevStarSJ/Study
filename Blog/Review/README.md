@@ -6,4 +6,4 @@
 
 ##[선대인의 빅픽처 : 저성장 시대의 생존 경제학](https://github.com/DevStarSJ/Study/tree/master/Blog/Review/Books/BigPicture.md)
 
-##[훌륭한 프로그래머가 되는 법 : Becoming a Better Programmer](https://github.com/DevStarSJ/Study/tree/master/Blog/Review/Books/hanbit.BBaP.md)
+##[훌륭한 프로그래머가 되는 법 : Becoming a Better Programmer](https://github.com/DevStarSJ/Study/tree/master/Blog/Review/Books/hanbit.BBP.md)
