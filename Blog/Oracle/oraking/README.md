@@ -5,4 +5,5 @@
 
 ## Chapter.01 Oracle Architecture
 
-### [01.기본 아키텍처](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/oraking/01.01.md)
+### [01.기본 아키텍처](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/oraking/01.01.Architecture.md)
+### [02.기본 아키텍처](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/oraking/01.02.DBBufferCache.md)
