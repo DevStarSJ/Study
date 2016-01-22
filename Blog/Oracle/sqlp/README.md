@@ -17,3 +17,5 @@
 
 ### [1장 SQL 기본](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.01.sql.basic.md)
 
+### [2장 SQL 활용 - SET, Hierarchical Query, Sub-query](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.02.sql.adv.md)
+
