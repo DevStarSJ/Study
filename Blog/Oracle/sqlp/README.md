@@ -19,3 +19,5 @@
 
 ### [2장 SQL 활용 - SET, Hierarchical Query, Sub-query](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.02.sql.adv.md)
 
+### [2장 SQL 활용 - GROUP, Window function](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.02.group.md)
+
