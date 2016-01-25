@@ -24,3 +24,7 @@
 
 ####[2.3 Window function](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.04.window.md)
 
+####[2.4 DCL](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.05.dcl.md)
+
+####[2.5 PL/SQL](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.06.plsql.md)
+
