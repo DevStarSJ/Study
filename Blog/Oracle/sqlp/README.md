@@ -30,3 +30,12 @@
 
 ###3장 SQL 최적화 기본 원리
 ####[3.1 Optimizer, Execution Plan](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.07.optimizer.md)
+
+## 3과목 SQL 고급 활용 및 튜닝
+
+40 문제 (배점 40점) + 주관식 2문제 (배점 30점)
+
+###1장 Architecture 기반 Tuning 원리
+
+####[3.1 Database Architecture](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/03.01.architecture.md)
+
