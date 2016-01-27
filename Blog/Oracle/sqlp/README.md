@@ -28,3 +28,5 @@
 
 ####[2.5 PL/SQL](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.06.plsql.md)
 
+###3장 SQL 최적화 기본 원리
+####[3.1 Optimizer, Execution Plan](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/02.07.optimizer.md)
