@@ -1,8 +1,17 @@
 
-* CStringA to std::string
+* CString (CStringA, CStringW) to std::string
 ```C++
-CStringA CS;
-std::string S = CS.GetBuffer();
+std::string S2(CString CS)
+{
+#ifdef _UNICODE
+	std::wstring WS = CS.GetBuffer();
+	std::string S = "";
+	S.assign(WS.begin(), WS.end());
+#else
+	std::string S = CS.GetBuffer();
+#endif
+	return S;
+}
 ```
 
 * CStringW to std::string
