@@ -14,25 +14,33 @@ std::string S2(CString CS)
 }
 ```
 
-* CStringW to std::string
+* std::string to CString (CStringA, CStringW)
 ```C++
-CStringW CS;
-std::wstring WS = CS.GetBuffer();
-std::string S = "";
-S.assign(WS.begin(), WS.end());
+CString S2(std::string S)
+{
+#ifdef _UNICODE
+	std::wstring WS = _T("");
+	WS.assign(S.begin(), S.end());
+	CString CS = WS.c_str();
+#else
+	CString CS = S.c_str();
+#endif
+	return CS;
+}
 ```
 
-* std::string to CStringA
+* std::wstring to CString (CStringA, CStringW)
 ```C++
-std::string S;
-CString CS = S.c_str();
-```
-
-* std::string to CStringW
-```C++
-std::string S;
-std::wstring WS = _T("");
-WS.assign(S.begin(), S.end());
-CString CS = WS.c_str();
+CString S2(std::wstring WS)
+{
+#ifdef _UNICODE
+	CString CS = WS.c_str();
+#else
+	std::string S = "";
+	S.assign(WS.begin(), WS.end());
+	CString CS = S.c_str();
+#endif
+	return CS;
+}
 ```
 
