@@ -68,7 +68,7 @@ CStringW CS(CA);
 CStringA _CA(CS);
 ```
 
-### TCHAR* (char*, wchat_t*) to LPSTR, LPTSTR, LPCSTR, LPCTSTR
+### TCHAR* (char\*, wchat_t\*) to LPSTR, LPTSTR, LPCSTR, LPCTSTR
 ```C++
 LPSTR S4_LPSTR(TCHAR * pChar)
 {
