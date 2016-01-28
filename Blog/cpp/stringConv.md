@@ -1,8 +1,10 @@
 
 * CStringA to std::string
 ```C++
+int main() {
 CStringA CS;
 std::string S = CS.GetBuffer();
+}
 ```
 
 * CStringW to std::string
