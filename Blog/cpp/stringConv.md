@@ -126,4 +126,7 @@ void SMEMCPY(char* destBuf, CString & strSrc, int nSize)
 }
 ```
 
+###전체 Code
+
+<https://gist.github.com/DevStarSJ/c68e55449dc6e68d7376>
 
