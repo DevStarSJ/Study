@@ -13,12 +13,11 @@ MFC (C++) 에서 여러가지 라이브러리를 사용하다보면
 
 ###CString (CStringA, CStringW) to std::string
 ```C++
-std::string S2(CString CS)
+std::string S2(CString& CS)
 {
 #ifdef _UNICODE
-	std::wstring WS = CS.GetBuffer();
-	std::string S = "";
-	S.assign(WS.begin(), WS.end());
+	USES_CONVERSION;
+	std::string S = W2A(CS.GetBuffer());
 #else
 	std::string S = CS.GetBuffer();
 #endif
@@ -28,12 +27,11 @@ std::string S2(CString CS)
 
 ###std::string to CString (CStringA, CStringW)
 ```C++
-CString S2(std::string S)
+CString S2(std::string& S)
 {
 #ifdef _UNICODE
-	std::wstring WS = _T("");
-	WS.assign(S.begin(), S.end());
-	CString CS = WS.c_str();
+	USES_CONVERSION;
+	CString CS = A2W(S.c_str());
 #else
 	CString CS = S.c_str();
 #endif
@@ -43,14 +41,13 @@ CString S2(std::string S)
 
 ###std::wstring to CString (CStringA, CStringW)
 ```C++
-CString S2(std::wstring WS)
+CString S2(std::wstring& WS)
 {
 #ifdef _UNICODE
 	CString CS = WS.c_str();
 #else
-	std::string S = "";
-	S.assign(WS.begin(), WS.end());
-	CString CS = S.c_str();
+	USES_CONVERSION;
+	CString CS = W2A(WS.c_str());
 #endif
 	return CS;
 }
@@ -58,18 +55,16 @@ CString S2(std::wstring WS)
 
 ###std::string to/from std::wstring
 ```C++
-std::string S3(std::wstring WS)
+std::string S3(std::wstring& WS)
 {
-	std::string S = "";
-	S.assign(WS.begin(), WS.end());
-	return S;
+	USES_CONVERSION;
+	return std::string(WA2(WS.c_str()));
 }
 
-std::wstring S3(std::string S)
+std::wstring S3(std::string& S)
 {
-	std::wstring WS = L"";
-	WS.assign(S.begin(), S.end());
-	return WS;
+	USES_CONVERSION;
+	return std::wstring(A2W(S.c_str()));
 }
 ```
 
