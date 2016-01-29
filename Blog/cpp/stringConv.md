@@ -11,6 +11,9 @@ MFC (C++) 에서 여러가지 라이브러리를 사용하다보면
 혹시 더 필요한 조합이나 아래 Code에 Error가 있으면 feedback 부탁드리겠습니다.  
 (모든 조합을 다 Test해보진 않았습니다. ;;;)
 
+처음엔 문제 많은 code였는데 feedback 주신분들이 친절히 가르쳐 주셔서 조금씩 보완하고 있는 중입니다.  
+감사드립니다. ^_^
+
 ###CString (CStringA, CStringW) to std::string
 ```C++
 std::string S2(CString& CS)
