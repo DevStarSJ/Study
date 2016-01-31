@@ -39,3 +39,4 @@
 
 ####[3.1 Database Architecture](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/03.01.architecture.md)
 
+####[3.2 SQL Parsing](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/03.02.sql.parsing.md)
