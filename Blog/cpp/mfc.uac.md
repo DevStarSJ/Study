@@ -26,6 +26,7 @@ MFC에서 다른 Applicationd을 실행할때 `CreateProcess()`함수를 많이 
 
 #####1. Project -> Propertise -> Manifest Tool -> Input and Oupput -> `Embed Manifest` 항목을 `Yes`로 설정
   - 이렇게 했을 경우 Compile시 아래와 같은 오류가 발생할 수 있습니다.
+
 >CVTRES : fatal error CVT1100: duplicate resource.  type:MANIFEST, name:1. language:0x0409  
 LINK : fatal error LNK1123: COFF로 변환하는 동안 오류가 발생했습니다. 파일이 잘못되었거나 손상되었습니다.  
 
