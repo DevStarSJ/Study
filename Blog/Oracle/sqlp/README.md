@@ -42,3 +42,5 @@
 ####[3.2 SQL Parsing, 3.3 DB Call, 3.4 Block I/O](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/03.02.sql.parsing.md)
 
 ###[2장 Lock과 Transaction 동시성 제어](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/03.03.lock.md)
+
+###[3장 Optimizer 원리](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/03.04.optimizer.md)
