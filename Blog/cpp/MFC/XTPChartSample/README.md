@@ -1,3 +1,8 @@
+###Codejock Xtreme ToolkitPro Chart Control Tutorial
+
+
+
+
 stdafx.h에
 
 #include <XTToolkitPro.h> 
