@@ -156,14 +156,140 @@ pContent->GetLegend()->SetVisible(TRUE);
 
 ![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.09.png?raw=true)
 
+* Series의 통계값 계산
 
+아래와 같은 함수들을 지원해줘서 통계값을 쉽게 계산할 수 있습니다. Min, Max등의 다양한 함수가 많습니다.
+
+```C++
 double dArithmeticMean = pPoints->GetArithmeticMean(0);
 double dVariance = pPoints->GetVariance(0);
 double dStd = pPoints->GetStandardDeviation(0);
+```
 
-이렇게 각 Point들의 통계값 산출 가능, Min,Max등 여러가지 있음
----
-AXIS 설정
+* 축(AXIS 설정)
+
+```C++
+// Axis 설정
+//CXTPChartDiagram2D* pDiagram = DYNAMIC_DOWNCAST(CXTPChartDiagram2D, pCollection->GetAt(0)->GetDiagram());
+CXTPChartDiagram* pDiagram = pCollection->GetAt(0)->GetDiagram();
+CXTPChartDiagram2D* pD2D = DYNAMIC_DOWNCAST(CXTPChartDiagram2D, pDiagram);
+
+CXTPChartAxis *pAxisX = pD2D->GetAxisX();
+
+CXTPChartAxisTitle* pTitle = pAxisX->GetTitle();
+
+pTitle->SetText(_T("X-Argument"));
+pTitle->SetVisible(TRUE);
+
+CXTPChartAxis *pAxisY = pD2D->GetAxisY();
+
+CXTPChartAxisTitle* pTitle2 = pAxisY->GetTitle();
+
+pTitle2->SetText(_T("Y-Value"));
+pTitle2->SetVisible(TRUE);
+```
+
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.10.png?raw=true)
+
+* Series Marker 안보이게 하기
+
+```C++
+for (int i = 0; i < pCollection->GetCount(); i++)
+{
+	CXTPChartPointSeriesStyle* pStyle = (CXTPChartPointSeriesStyle*)pCollection->GetAt(i)->GetStyle();
+	pStyle->GetMarker()->SetVisible(FALSE);
+	//pStyle->GetMarker()->SetSize(20); // Maeker Size 조정
+	//pStyle->GetMarker()->SetType(xtpChartMarkerCircle); // enum XTPChartMarkerType 
+}
+```
+
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.11.png?raw=true)
+
+* 마우스 휠을 이용한 Zoom 허용 및 Scroll 허용
+
+```C++
+pD2D->SetAllowZoom(TRUE);	// 마우스 휠을 이용한 Zoom 허용
+pD2D->SetAllowScroll(TRUE); // Scroll 허용
+```
+
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.12.png?raw=true)
+
+* Chart Image 저장
+
+```C++
+m_wndChartControl.SaveAsImage(_T("D:\\A.PNG"),CSize(600,400));
+```
+
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/A.PNG?raw=true)
+
+###위 설명한 내용의 Full Source
+
+```C++
+void CXTPChartSampleDlg::InitChart()
+{
+	// Content를 이용해서 Chart의 Title, Series, Legends등의 설정이 가능
+	CXTPChartContent* pContent = m_wndChartControl.GetContent();
+	if (!pContent) return;
+
+	pContent->GetLegend()->SetVisible(TRUE);
+
+	// Title 설정
+	CXTPChartTitleCollection* pTitles = pContent->GetTitles();
+	if (pTitles)
+	{
+		CXTPChartTitle* pTitle = pTitles->Add(new CXTPChartTitle());
+		if (pTitle)
+		{
+			pTitle->SetText(_T("My Chart"));
+		}
+	}
+
+	// Series, Series Point 추가
+	CXTPChartSeriesCollection* pCollection = pContent->GetSeries();
+	if (pCollection)
+	{
+		CXTPChartSeries* pSeries = pCollection->Add(new CXTPChartSeries());
+		if (pSeries)
+		{
+			pSeries->SetName(_T("Series1"));
+			pSeries->SetStyle(new CXTPChartLineSeriesStyle());
+			CXTPChartSeriesPointCollection* pPoints = pSeries->GetPoints();
+			if (pPoints)
+			{
+				pPoints->Add(new CXTPChartSeriesPoint(0, 3));
+				pPoints->Add(new CXTPChartSeriesPoint(1, 1));
+				pPoints->Add(new CXTPChartSeriesPoint(2, 2));
+				pPoints->Add(new CXTPChartSeriesPoint(3, 0.5));
+
+				double dArithmeticMean = pPoints->GetArithmeticMean(0);
+				double dStd = pPoints->GetStandardDeviation(0);
+
+			}
+		}
+
+		CXTPChartSeries* pS2 = pCollection->Add(new CXTPChartSeries());
+		if (pS2)
+		{
+			pS2->SetName(_T("Series2"));
+			pS2->SetStyle(new CXTPChartLineSeriesStyle());
+			CXTPChartSeriesPointCollection* pPoints = pS2->GetPoints();
+			if (pPoints)
+			{
+				pPoints->Add(new CXTPChartSeriesPoint(0, 2));
+				pPoints->Add(new CXTPChartSeriesPoint(1, 0.5));
+				pPoints->Add(new CXTPChartSeriesPoint(2, 3));
+				pPoints->Add(new CXTPChartSeriesPoint(3, 1));
+			}
+		}
+
+		// SeriesLabel의 설정
+		for (int i = 0; i < pCollection->GetCount(); i++)
+		{
+			CXTPChartSeriesLabel* pLabel = pCollection->GetAt(i)->GetStyle()->GetLabel();
+			pLabel->GetFormat()->SetCategory(xtpChartNumber);
+			pLabel->GetFormat()->SetDecimalPlaces(1); // 소숫점 표시
+			pLabel->SetVisible(FALSE);
+		}
 
 		// Axis 설정
 		//CXTPChartDiagram2D* pDiagram = DYNAMIC_DOWNCAST(CXTPChartDiagram2D, pCollection->GetAt(0)->GetDiagram());
@@ -193,7 +319,7 @@ AXIS 설정
 				}
 			}
 		}
------
+
 		// Marker 안보이게 하기
 		for (int i = 0; i < pCollection->GetCount(); i++)
 		{
@@ -202,15 +328,14 @@ AXIS 설정
 			//pStyle->GetMarker()->SetSize(20); // Maeker Size 조정
 			//pStyle->GetMarker()->SetType(xtpChartMarkerCircle); // enum XTPChartMarkerType 
 		}
------
+
 		pD2D->SetAllowZoom(TRUE);	// 마우스 휠을 이용한 Zoom 허용
 		pD2D->SetAllowScroll(TRUE); // Scroll 허용
------
+
 		m_wndChartControl.SaveAsImage(_T("D:\\A.PNG"),CSize(600,400));
+	}
+}
+```
 
+###예제 소스
 
-
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.10.png?raw=true)
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.11.png?raw=true)
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.12.png?raw=true)
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/A.PNG?raw=true)
