@@ -3,6 +3,9 @@
 
 
 
+
+
+
 stdafx.h에
 
 #include <XTToolkitPro.h> 
@@ -214,3 +217,16 @@ AXIS 설정
 
 
 
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.01.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.02.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.03.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.04.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.05.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.06.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.07.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.08.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.09.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.10.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.11.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.12.png?raw=true)
+![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/A.PNG?raw=true)
