@@ -339,3 +339,4 @@ void CXTPChartSampleDlg::InitChart()
 
 ###예제 소스
 
+<https://github.com/DevStarSJ/Cpp/tree/master/MFC/XTPChartSample>
