@@ -58,3 +58,5 @@
 ####[5.1 One SQL 구현기법](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.01.onesql.md)
 
 ####[5.2 Sort Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.02.sort.md)
+
+####[5.3 DML Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.03.dml.md)
