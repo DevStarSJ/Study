@@ -60,3 +60,5 @@
 ####[5.2 Sort Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.02.sort.md)
 
 ####[5.3 DML Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.03.dml.md)
+
+####[5.4 Partition 활용, 5.5 Batch Program Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.04.partition.md)
