@@ -62,3 +62,7 @@
 ####[5.3 DML Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.03.dml.md)
 
 ####[5.4 Partition 활용, 5.5 Batch Program Tuning](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/04.04.partition.md)
+
+###핵심정리
+
+[1. 외워야할 SQL문법들](https://github.com/DevStarSJ/Study/tree/master/Blog/Oracle/sqlp/05.01.sql.md)
