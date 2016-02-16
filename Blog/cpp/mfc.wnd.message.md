@@ -22,6 +22,53 @@ Textbox에 숫자를 적어두고 Button을 눌렀을 경우 해당 숫자를 �
 
 ###1. 준비사항
 
+먼저 간단하게 Dialog 기반으로 MFC Application Project를 생성해주세요.
+
+그런 다음 아래의 2개의 File을 추가합니다.
+
+#####UserWnd.h
+```C++
+#pragma once
+#include "afxwin.h"
+
+#define WM_USER_WND				WM_USER + 10001
+
+class CUserWnd : public CWnd
+{
+public:
+	HWND m_hwndDlg = nullptr;
+
+protected:
+	DECLARE_MESSAGE_MAP()
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+};
+```
+
+#####UserWnd.cpp
+```C++
+#include "stdafx.h"
+#include "UserWnd.h"
+
+BEGIN_MESSAGE_MAP(CUserWnd, CWnd)
+	ON_WM_LBUTTONDOWN()
+END_MESSAGE_MAP()
+
+void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	HWND hWnd = GetSafeHwnd();
+
+	if (hWnd == NULL) return;
+	if (!::IsWindow(hWnd)) return;
+
+	int nID = GetDlgCtrlID();
+
+	if (m_hwndDlg != nullptr)
+	{
+
+	}
+}
+```
+
 사용자 정의 Control에서는 Message를 보낼 Dialog의 HWND을 알고 있어야 합니다.  
 먼저 사용자 정의 Control에 자신을 포함하고 있는 Dialog의 HWND를 보관하는 멤버변수를 생성합니다.
 
