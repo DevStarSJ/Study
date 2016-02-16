@@ -42,5 +42,21 @@ HWND가 아니라 Dialog의 pointer를 직접 가지고 있을 수도 있습니�
 pointer->SendMessage(메세지, WPARAM, LPARAM);
 ```
 
+그리고 Message를 보낼 상황이 CWnd 에 속한 Event들일 경우에는
+
+헤더파일 (.h) 안에 아래 macro를 넣어 주시구요.
+
+```C++
+DECLARE_MESSAGE_MAP()
+```
+cpp파일(.cpp) 안에 Message Map을 설정해 주세요.  
+(아래 예제는 왼쪽 마우스버튼 클리시 메세지를 전달해보도록 하겠습니다.)
+
+```C++
+BEGIN_MESSAGE_MAP(자신의 Class명, 상속받은 부모의 Class명)
+    ON_WM_LBUTTONUP()
+END_MESSAGE_MAP()
+```
+
 
 
