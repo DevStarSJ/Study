@@ -86,5 +86,19 @@ void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)  // Mouse left button cl
 - #3 : 사용자 정의 메세지를 보내기위해 필요한 값들 HWND, ControlID를 가지고 있습니다. if 구문 안에서 각각의 메세지 타입에 따른 구현이 달라집니다.
 - #4 : 부모 class에서 해당 메세지에 대한 동작을 계속 하도록 호출해 줍니다. 부모 class의 작업이 필요없다면 이 줄은 삭제하면 됩니다.
 
+#####Dialog Header file (필자의 경우 UserCtrlMsgDlg.h)
 
+- UserWnd.h를 추가해 주세요.
+
+```C++
+#include "UserWnd.h"
+```
+
+- CUserWnd 타입의 멤버를 선언해 주세요.
+
+```C++
+CUserWnd m_wndUser;
+```
+
+#####Dialog cpp file (필자의 경우 UserCtrlMsgDlg.cpp)
 
