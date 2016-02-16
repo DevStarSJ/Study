@@ -129,11 +129,120 @@ m_wndUser.Create(NULL, _T(""), WS_VISIBLE | WS_BORDER, CRect(0, 0, 100, 100), th
 - 대신 Message 전달 이후 return값을 받아야 하므로 해당 처리가 끝날때까지 대기하게 됩니다.
 - Dialog에 같은 User Control이 여러 개 있을 경우 모두 같은 Message로 전달되므로, Parameter로 Control ID를 보내는 등의 방법을 사용하여 Dialog에서 처리하는 함수 내부에서 구분하여 사용해야 합니다.
 
+#####UserWnd.cpp
+
+OnLButtonDown 함수 내부에 아래와 같이 1줄을 추가
+
+```C++
+void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	HWND hWnd = GetSafeHwnd();
+
+	if (hWnd == NULL) return;
+	if (!::IsWindow(hWnd)) return;
+
+	int nID = GetDlgCtrlID();
+
+	if (m_hwndDlg != nullptr)
+	{
+		::SendMessage(m_hwndDlg, WM_USER_WND, nID, NULL);
+	}
+
+	CWnd::OnLButtonDown(nFlags, point);
+}
+```
+
+#####Dialog Header file (필자의 경우 UserCtrlMsgDlg.h)
+
+Message를 처리할 함수를 선언해주세요.
+
+```C++
+afx_msg LRESULT OnUserWnd(WPARAM wParam, LPARAM lPraram);
+```
+
+#####Dialog cpp file (필자의 경우 UserCtrlMsgDlg.cpp)
+
+Message Map에 아래 1줄을 추가해주세요.
+
+```C++
+ON_MESSAGE(WM_USER_WND, OnUserWnd)
+```
+
+- ON_MESSAGE 경우 Message번호 와 실행할 함수를 인자로 설정해줍니다.
+
+Command를 처리할 함수를 구현합니다.
+
+```C++
+LRESULT CUserCtrlMsgDlg::OnUserWnd(WPARAM wParam, LPARAM lPraram)
+{
+	int nID = (int)wParam; // 해당 ID를 비교해서 Control 구분 가능
+
+	AfxMessageBox(_T("ON MESSAGE"));
+
+	return TRUE;
+}
+```
+
+이제 실행 후 왼쪽 상단의 검은색 선 안을 누르면 해당 메세지가 출력되는 것을 확인 할 수 있습니다.
 
 ##2. Notify 방식
 
 - Dialog에 해당 User Control이 여러개 있고, 전달한 메세지 종류가 2가지 이상인 경우 유용합니다.
 - Dialog에 Notify로 알려주고 User Control은 계속 남은 처리를 진행합니다.
+
+#####UserWnd.cpp
+
+OnLButtonDown 함수 내부에 아래와 같이 NMHDR 선언과 SendMessage를 추가
+
+```C++
+void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	HWND hWnd = GetSafeHwnd();
+
+	if (hWnd == NULL) return;
+	if (!::IsWindow(hWnd)) return;
+
+	int nID = GetDlgCtrlID();
+
+	if (m_hwndDlg != nullptr)
+	{
+		NMHDR nmhdr;
+		nmhdr.code = WM_USER_WND;
+		nmhdr.idFrom = nID;
+		nmhdr.hwndFrom = hWnd;
+		::SendMessage(m_hwndDlg, WM_NOTIFY, nID, (LPARAM)&nmhdr);
+	}
+
+	CWnd::OnLButtonDown(nFlags, point);
+}
+```
+
+#####Dialog Header file (필자의 경우 UserCtrlMsgDlg.h)
+
+Message를 처리할 함수를 선언해주세요.
+
+```C++
+afx_msg void OnNotyfyUserWnd(NMHDR* pNMHDR, LRESULT* pResult);
+```
+
+#####Dialog cpp file (필자의 경우 UserCtrlMsgDlg.cpp)
+
+Message Map에 아래 1줄을 추가해주세요.
+
+```C++
+ON_NOTIFY(WM_USER_WND, IDC_USER_WND, OnNotyfyUserWnd)
+```
+
+- ON_NOTIFY 경우 Message번호, Contril ID와 실행할 함수를 인자로 설정해줍니다.
+
+Command를 처리할 함수를 구현합니다.
+
+```C++
+void CUserCtrlMsgDlg::OnNotyfyUserWnd(NMHDR* pNMHDR, LRESULT* pResult)
+{
+	AfxMessageBox(_T("ON NOTIFY"));
+}
+```
 
 ##3. Command 방식
 
@@ -173,7 +282,7 @@ afx_msg void OnCommandUserWnd();
 
 #####Dialog cpp file (필자의 경우 UserCtrlMsgDlg.cpp)
 
-Message Box에 아래 1줄을 추가해주세요.
+Message Map에 아래 1줄을 추가해주세요.
 
 ```C++
 ON_COMMAND(IDC_USER_WND, OnCommandUserWnd)
