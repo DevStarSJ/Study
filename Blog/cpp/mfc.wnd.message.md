@@ -44,6 +44,9 @@ protected:
 };
 ```
 
+- #1 : 사용자 정의 메세지 입니다.
+- #2 : 메세지를 보낼려면 해당 메세지를 받을 Dialog의 pointer나 HWND값이 필요합니다.
+
 #####UserWnd.cpp
 ```C++
 #include "stdafx.h"
