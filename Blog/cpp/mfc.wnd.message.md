@@ -31,7 +31,7 @@ Textbox에 숫자를 적어두고 Button을 눌렀을 경우 해당 숫자를 �
 #pragma once
 #include "afxwin.h"
 
-#define WM_USER_WND		       WM_USER + 10001              // User-defined Message (#1)
+#define WM_USER_WND		       WM_USER + 10001          // User-defined Message (#1)
 
 class CUserWnd : public CWnd
 {
@@ -39,24 +39,28 @@ public:
 	HWND m_hwndDlg = nullptr;                               // HWND of Parent Dialog (#2)
 
 protected:
-	DECLARE_MESSAGE_MAP()
-	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);  // Mouse left button click event (#3)
+	DECLARE_MESSAGE_MAP()                                   // Message Map Macro (#3)
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);  // Mouse left button click event (#4)
 };
 ```
 
 - #1 : 사용자 정의 메세지 입니다.
 - #2 : 메세지를 보낼려면 해당 메세지를 받을 Dialog의 pointer나 HWND값이 필요합니다.
+  - HWND를 알고 있는 경우 : `::SendMessage(m_hwndDlg, 메세지, WPARAM, LPARAM);`
+  - Dialog의 pointer를 알고 있는 경우 : `pointer->SendMessage(메세지, WPARAM, LPARAM);`
+- #3 : Message Map을 사용할려면 헤더파일에 선언해줘야할 매크로 입니다.
+- #4 : 예제로 마우스 왼쪽 버튼을 눌렀을 경우 Dialog로 Message를 전달하기 위하여 해당 메세지를 사용했습니다.
 
 #####UserWnd.cpp
 ```C++
 #include "stdafx.h"
 #include "UserWnd.h"
 
-BEGIN_MESSAGE_MAP(CUserWnd, CWnd)
-	ON_WM_LBUTTONDOWN()
+BEGIN_MESSAGE_MAP(CUserWnd, CWnd)                        // Message Map (#1)
+	ON_WM_LBUTTONDOWN()                                  // Mouse left button click event (#2)
 END_MESSAGE_MAP()
 
-void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)
+void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)  // Mouse left button click event (#3)
 {
 	HWND hWnd = GetSafeHwnd();
 
@@ -69,44 +73,18 @@ void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 
 	}
+	
+	CWnd::OnLButtonDown(nFlags, point);                  // Call Parent Function (#4)
 }
 ```
 
-사용자 정의 Control에서는 Message를 보낼 Dialog의 HWND을 알고 있어야 합니다.  
-먼저 사용자 정의 Control에 자신을 포함하고 있는 Dialog의 HWND를 보관하는 멤버변수를 생성합니다.
-
-```C++
-public:
-    HWND m_hwndDlg;
-```
-
-HWND를 알고 있어야 Message를 보낼 수 있습니다.
-
-```C++
-::SendMessage(m_hwndDlg, 메세지, WPARAM, LPARAM);
-```
-
-HWND가 아니라 Dialog의 pointer를 직접 가지고 있을 수도 있습니다.
-
-```C++
-pointer->SendMessage(메세지, WPARAM, LPARAM);
-```
-
-그리고 Message를 보낼 상황이 CWnd 에 속한 Event들일 경우에는
-
-헤더파일 (.h) 안에 아래 macro를 넣어 주시구요.
-
-```C++
-DECLARE_MESSAGE_MAP()
-```
-cpp파일(.cpp) 안에 Message Map을 설정해 주세요.  
-(아래 예제는 왼쪽 마우스버튼 클리시 메세지를 전달해보도록 하겠습니다.)
-
-```C++
-BEGIN_MESSAGE_MAP(자신의 Class명, 상속받은 부모의 Class명)
-    ON_WM_LBUTTONUP()
-END_MESSAGE_MAP()
-```
+- #1 : Message Map 정의 부분입니다.
+  - 첫번째 인자 : 해당 class를 적어줍니다.
+  - 두번째 인자 : 부모 class를 적어줍니다. 해당 class 내에 적어주지 않은 메세지에 대해서는 부모 class에서 처리하게 됩니다.
+    - 만약 CXTPChartControl을 상속받아서 만든 사용자 정의 Control일 경우 두번째 인자에 CXTPChartControl을 적어줘야 합니다.
+- #2 : MFC에서 미리 정의해놓은 것으로 마우스 왼쪽 버튼 눌렀을때 OnLButtonDown()을 실행하게 됩니다.
+- #3 : 사용자 정의 메세지를 보내기위해 필요한 값들 HWND, ControlID를 가지고 있습니다. if 구문 안에서 각각의 메세지 타입에 따른 구현이 달라집니다.
+- #4 : 부모 class에서 해당 메세지에 대한 동작을 계속 하도록 호출해 줍니다. 부모 class의 작업이 필요없다면 이 줄은 삭제하면 됩니다.
 
 
 
