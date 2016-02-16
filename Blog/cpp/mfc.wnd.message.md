@@ -20,7 +20,7 @@ Textbox에 숫자를 적어두고 Button을 눌렀을 경우 해당 숫자를 �
 
 각각에 대해서 소개해 드리겠습니다.
 
-###1. 준비사항
+##준비사항
 
 먼저 간단하게 Dialog 기반으로 MFC Application Project를 생성해주세요.
 
@@ -86,6 +86,14 @@ void CUserWnd::OnLButtonDown(UINT nFlags, CPoint point)  // Mouse left button cl
 - #3 : 사용자 정의 메세지를 보내기위해 필요한 값들 HWND, ControlID를 가지고 있습니다. if 구문 안에서 각각의 메세지 타입에 따른 구현이 달라집니다.
 - #4 : 부모 class에서 해당 메세지에 대한 동작을 계속 하도록 호출해 줍니다. 부모 class의 작업이 필요없다면 이 줄은 삭제하면 됩니다.
 
+#####Resource.h
+
+- UserWnd의 Control ID를 생성해줍니다.
+
+```C++
+#define IDC_USER_WND					10001
+```
+
 #####Dialog Header file (필자의 경우 UserCtrlMsgDlg.h)
 
 - UserWnd.h를 추가해 주세요.
@@ -102,3 +110,31 @@ CUserWnd m_wndUser;
 
 #####Dialog cpp file (필자의 경우 UserCtrlMsgDlg.cpp)
 
+- OnInitDialog() 에서 UserWnd를 생성해 줍니다.
+
+```C++
+// TODO: Add extra initialization here
+m_wndUser.m_hwndDlg = GetSafeHwnd();
+m_wndUser.Create(NULL, _T(""), WS_VISIBLE, CRect(0, 0, 100, 100), this, IDC_USER_WND);
+```
+
+이로서 준비는 끝났습니다.  
+위에서 언급한 3가지 방법 (Message, Notify, Command)에 대해서 어떤 방법으로 구현을 하더라도 이 준비과정은 똑같습니다.  
+
+##1. Message 방식
+
+- Dialog에 해당 User Control을 1개만 사용할 경우 유용합니다.
+- Dialog에 Message로 전달하는 방식입니다.
+- return값을 받을수 있기 때문에 User Control에서 그 값에 따라 처리가 가능합니다.
+- 대신 Message 전달 이후 return값을 받아야 하므로 해당 처리가 끝날때까지 대기하게 됩니다.
+- Dialog에 같은 User Control이 여러 개 있을 경우 모두 같은 Message로 전달되므로, Parameter로 Control ID를 보내는 등의 방법을 사용하여 Dialog에서 처리하는 함수 내부에서 구분하여 사용해야 합니다.
+
+
+##2. Notify 방식
+
+- Dialog에 해당 User Control이 여러개 있고, 전달한 메세지 종류가 2가지 이상인 경우 유용합니다.
+- Dialog에 Notify로 알려주고 User Control은 계속 남은 처리를 진행합니다.
+
+##3. Command 방식
+
+- Dialog에 User Control에서 Dialog로 전달할 메세지가 1가지 밖에 없을 경우 유용합니다.
