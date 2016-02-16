@@ -31,16 +31,16 @@ Textbox에 숫자를 적어두고 Button을 눌렀을 경우 해당 숫자를 �
 #pragma once
 #include "afxwin.h"
 
-#define WM_USER_WND				WM_USER + 10001
+#define WM_USER_WND		       WM_USER + 10001              // User-defined Message (#1)
 
 class CUserWnd : public CWnd
 {
 public:
-	HWND m_hwndDlg = nullptr;
+	HWND m_hwndDlg = nullptr;                               // HWND of Parent Dialog (#2)
 
 protected:
 	DECLARE_MESSAGE_MAP()
-	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);  // Mouse left button click event (#3)
 };
 ```
 
