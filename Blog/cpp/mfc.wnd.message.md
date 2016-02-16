@@ -115,7 +115,7 @@ CUserWnd m_wndUser;
 ```C++
 // TODO: Add extra initialization here
 m_wndUser.m_hwndDlg = GetSafeHwnd();
-m_wndUser.Create(NULL, _T(""), WS_VISIBLE, CRect(0, 0, 100, 100), this, IDC_USER_WND);
+m_wndUser.Create(NULL, _T(""), WS_VISIBLE | WS_BORDER, CRect(0, 0, 100, 100), this, IDC_USER_WND);
 ```
 
 이로서 준비는 끝났습니다.  
@@ -137,4 +137,6 @@ m_wndUser.Create(NULL, _T(""), WS_VISIBLE, CRect(0, 0, 100, 100), this, IDC_USER
 
 ##3. Command 방식
 
-- Dialog에 User Control에서 Dialog로 전달할 메세지가 1가지 밖에 없을 경우 유용합니다.
+- Dialog에 해당 User Control 별로 전달할 메세지가 1가지 밖에 없을 경우 유용합니다.
+  - e.g. button의 경우 눌렀을 경우에만 메세지를 전달하면 되고, 나머지 경우는 전달하지 않아도 될 경우 유용합니다.
+
