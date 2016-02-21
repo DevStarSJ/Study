@@ -5,7 +5,7 @@ SQL Tuning을 하기 위해서 가장 기본으로 알아야 하는 것이 Plan�
 
 아래 내용중 SELECT Tuning시 중요하게 봐야할 사항은 다음과 같습니다.
 - 실행 순서 : Plan, Trace 동일
-- Trace 결과 : Row Source Operation의 각 수치들의 의미
+- Trace 결과 : Row Source Operation의 각 수치들의 의미 (rows, cr만 알아도 됩니다.)
 
 ##1. Plan 읽는 법
 
@@ -133,4 +133,8 @@ Tunning시 사실상 크게 볼 필요 없습니다.
 
 ##참조 Slide
 
-- 
+좀 더 자세한 사항을 알고 싶으시면 아래 Slide를 참고해주세요.
+
+- `[Oracle Architecture][2015 04-17] Consistent vs Current` : <http://www.slideshare.net/seokjoonyun9/oracle-architecture2015-0417-consistent-vs-current>
+- `[2015-06-12] Oracle 성능 최적화 및 품질 고도화 1` : <http://www.slideshare.net/seokjoonyun9/20150612-oracle-1>
+- `[2015-07-10-윤석준] Oracle 성능 관리 & v$sysstat` : <http://www.slideshare.net/seokjoonyun9/20150710-oracle-vsysstat>
