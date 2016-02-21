@@ -3,6 +3,10 @@
 SQL Tuning을 하기 위해서 가장 기본으로 알아야 하는 것이 Plan과 Trce를 읽는 방법입니다.  
 그래야 어느 곳이 비효율적인지를 알아내서 그 부분을 중심으로 Tuning 전략을 세울 수 있습니다.  
 
+아래 내용중 SELECT Tuning시 중요하게 봐야할 사항은 다음과 같습니다.
+- 실행 순서 : Plan, Trace 동일
+- Trace 결과 : Row Source Operation의 각 수치들의 의미
+
 ##1. Plan 읽는 법
 
 - Plan은 SQL을 실행하기 전에 Optimizer에 의해 선택된 최적의 실행 경로 및 계산되어진 예상 Cost를 보여줍니다.
@@ -95,3 +99,38 @@ Rows     Row Source Operation
       0  TABLE ACCESS FULL EMP (cr=3 pr=0 pw=0 time=0 us cost=2 size=190 card=5
 ```
 
+###2.1 Row Source Operation 읽는법
+
+상대적으로 중요한 Row Source Operation 읽는 법부터 소개해드리겠습니다.  
+Plan과 같은 형식으로 실행 경로를 보여 줍니다.  
+읽는 법은 Plan과 같으며 괄호 안에 나오는 성능지표 값을 해석하는 것이 중요합니다.
+
+- Rows (왼쪽) : return row 수 입니다. 해당 단계에서 몇건의 row가 결과로 return 되었는지 알려줍니다.
+- cr : (Consistent Mode Block Read) 총 읽은 block수 입니다. 의미상은 DB Buffer Cache에서 읽은 block수 이지만, disk상에서 읽은 경우에도 buffer로 먼저 올린 후에 읽어야 하므로 사실상 disk + cache에서 읽은 총 수라고 해석하면 됩니다.
+- pr : (Physical Disk Block Read) disk에서 읽은 block수 입니다.
+- pw : (Physical Disk Block Write) disk에 저장한 block수 입니다.
+- time : 소요시간 (microsecond 단위)
+- cost : cost (성능상)
+- size : data size
+- card : (cardinality)
+
+
+###2.2 Call Table
+
+Tunning시 사실상 크게 볼 필요 없습니다.  
+
+- Call
+  - Parse : Cursor를 Parsing하고 Execution Plan을 생성하는 단계
+  - Execute : Cursor를 실행하는 단계
+  - Fetch : 결과 Record를 Fetch하는 단계
+- Count : 수행 회수
+- CPU : CPU 사용시간
+- Elapsed : 수행시간 ( CPU time + Wait time )
+- Disk : Disk에서 읽은 Block수
+- Query : Consistent Mode에서 읽은 Block수 (Query 수행 시점에 읽은 읽기 전용 Block)
+- Current : Current Mode에서 읽은 Block수 (Table을 액세스하는 시점에 읽은 수정할 Block)
+- Rows : 읽거나 갱신한 처리 건수
+
+##참조 Slide
+
+- 
