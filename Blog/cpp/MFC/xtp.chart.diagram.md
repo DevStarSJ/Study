@@ -3,7 +3,8 @@ Xtreame Toolkip Pro의 Chart Control인 CXTPChartControl 사용시 알아야 할
 XTPChart를 조금 사용해 본 소감은...  
 만들다 말았다는 느낌 ???  
 
-Mouse Click 이벤트 처리 같은거 ???NM_CLICK만 처리가 됩니다.  
+Mouse Click 이벤트 처리 같은거 ???  
+NM_CLICK만 처리가 됩니다.   
 ButtonDown, ButtonUp 같은거 처리 안됩니다.  
 그냥 상속받아서 처리하세요.아래 글 참조하시면 됩니다.  
 
