@@ -26,4 +26,4 @@ Xtreame Toolkip Pro의 Chart Control인 CXTPChartControl 사용시 알아야 할
 위 그림은 Posting 목적으로 해상도를 줄여 놓았습니다.  
 원래 크기대로 보실려면 아래 Link를 눌러주세요.
 
-<https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/image/XTP.diagram.png>
+<https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/image/XTP.diagram.png?raw=true>
