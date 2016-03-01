@@ -1,13 +1,8 @@
-// CIA.09.02.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
 #include <thread>
 #include <future>
 #include <exception>
 #include <chrono>
 #include <iostream>
-
 
 class interrupt_flag
 {
@@ -23,42 +18,6 @@ public:
 		return flag.load(std::memory_order_relaxed);
 	}
 };
-
-
-//class interrupt_flag
-//{
-//	std::atomic<bool> flag;
-//	//std::condition_variable* thread_cond;
-//	//std::mutex set_clear_mutex;
-//public:
-//	interrupt_flag()// : thread_cond(0)
-//	{}
-//
-//	void set()
-//	{
-//		flag.store(true, std::memory_order_relaxed);
-//		//std::lock_guard<std::mutex> lk(set_clear_mutex);
-//		//if (thread_cond)
-//		//	thread_cond->notify_all();
-//	}
-//
-//	bool is_set() const
-//	{
-//		return flag.load(std::memory_order_relaxed);
-//	}
-//
-//	void set_condition_variable(std::condition_variable& cv)
-//	{
-//		//std::lock_guard<std::mutex> lk(set_clear_mutex);
-//		//thread_cond = &cv;
-//	}
-//
-//	void clear_condition_variable()
-//	{
-//		//std::lock_guard<std::mutex> lk(set_clear_mutex);
-//		//thread_cond = 0;
-//	}
-//};
 
 thread_local interrupt_flag this_thread_interrupt_flag;
 
