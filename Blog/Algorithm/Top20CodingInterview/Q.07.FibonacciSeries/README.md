@@ -1,33 +1,103 @@
-##Swap Number without using additional memory
+##Fibonacci Series
 
-How to swap two numbers without using a temp variable, write code which is free from Integer overflow? 
+Write a function to print nth number in Fibonacci series?
 
 출처 : <http://www.csharpstar.com/top-20-google-amazon-programming-interview-questions>
 
-추가로 변수를 사용하지 않고 두 숫자의 저장된 위치를 바꾸세요.
+피보나찌 수열 (황금비) 을 계산하세요.
 
-이 문제는 Programming skill을 묻는게 아니라 해법을 생각하게 하는 질문입니다.
+---
 
-방법은 2가지가 있습니다.
+일단 피보나찌 수열이 무엇인지는 Link를 참조해 주세요.
 
-`+`나 `-`를 이용해도 되지만, 그럴 경우 overflow가 일어날 수가 있기 때문에 XOR연산(`^`)을 이용하면 됩니다.
+<https://en.wikipedia.org/wiki/Fibonacci_number>
 
-###C Sharp
+`황금비` 라고 해서 사람의 눈에 가장 자연스러운 가로 세로 비율을 나타내는데 많이 사용됩니다.
+
+가장 간단한 방법은 재귀함수(Recursive Function)을 이용하여 구현을 하면됩니다.
+
+통상적으로 학교에서 배운 방법입니다.
+
+하지만 이 방법으로 44번째 Fibonacci Number를 계산할 경우 이미 계산된 결과를 재사용하지 못해서 엄청나게 많은 Call Stack이 쌓입니다.  
+
+그래서 한 번 계산된 결과를 별도의 Array에 저장을 해서 재활용하는 방법을 이용하여서 구현하였습니다.  
+
+
+###C Sharp (basic implementation)
 
 ```C#
 class Program
 {
+    public static int Fibonacci(int n)
+    {
+        if (0 <= n && n <= 2)
+            return n;
+
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+
+static void Main(string[] args)
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            System.Console.WriteLine(string.Format("Fibonacci {0} : {1}", i, Fibonacci(i)));
+        }
+        System.Console.WriteLine(string.Format("Fibonacci 44th : {0}", Fibonacci(44)));
+    }
+}
+```
+
+###C Sharp (reusing calculation)
+```C#
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static List<int> FibonacciSeries = new List<int>();
+
+    public static int GetFibonacciNumber(int n)
+    {
+        int nCnt = FibonacciSeries.Count();
+        if (n <= nCnt)
+        {
+            return FibonacciSeries[n - 1];
+        }
+        else
+        {
+            int ret = 0;
+            if (n == 1)
+            {
+                FibonacciSeries.Add(1);
+                ret = 1;
+            }
+            else if (n == 2)
+            {
+                if (FibonacciSeries.Count() == 0)
+                {
+                    FibonacciSeries.Add(1);
+                }
+
+                FibonacciSeries.Add(2);
+                ret = 2;
+            }
+            else
+            {
+                ret = GetFibonacciNumber(n - 1) + GetFibonacciNumber(n - 2);
+                FibonacciSeries.Add(ret);
+            }
+
+            return ret;
+        }
+    }
+
     static void Main(string[] args)
     {
-        int a = 30593;
-        int b = 13953093;
-
-        a ^= b;
-        b ^= a;
-        a ^= b;
-
-        System.Console.WriteLine(a);
-        System.Console.WriteLine(b);
+        for (int i = 1; i <= 10; i++)
+        {
+            System.Console.WriteLine(string.Format("Fibonacci {0} : {1}", i, GetFibonacciNumber(i)));
+        }
+        System.Console.WriteLine(string.Format("Fibonacci 44 : {0}", GetFibonacciNumber(44)));
     }
 }
 ```
