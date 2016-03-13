@@ -182,7 +182,6 @@ public:
 
 void main()
 {
-	// insert code here...
 	LinkedNode<std::string> node1("Luna");
 	LinkedNode<std::string> node2("Star");
 	LinkedNode<std::string> node3("Dev");
