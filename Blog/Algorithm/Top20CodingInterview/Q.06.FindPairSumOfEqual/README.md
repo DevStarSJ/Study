@@ -6,6 +6,8 @@ How to find all pairs of elements in an integer array, whose sum is equal to a g
 
 숫자 배열에서 주어진 값과 합이 같은 쌍(pair)을 모두 찾으세요.
 
+---
+
 기본적인 for문을 사용할 수 있는지를 묻는 문제로 판단됩니다.
 
 ###C Sharp
