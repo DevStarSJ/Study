@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Q02DetectCircular
 {
-    class LinkedNode<T> : Object
+    class LinkedNode<T> : object
     {
         public T Value { set; get; }
 
@@ -44,6 +44,7 @@ namespace Q02DetectCircular
         public bool DetectCirculation()
         {
             List<LinkedNode<T>> checkList = new List<LinkedNode<T>>();
+            checkList.Add(this);
 
             LinkedNode<T> node = Previous;
             while (node != null)
@@ -72,27 +73,6 @@ namespace Q02DetectCircular
 
     class Program
     {
-        static bool DetectCircular(LinkedList<string> list)
-        {
-            List<int> checkList = new List<int>();
-
-            LinkedListNode<string> node = list.First;
-           
-            while(node != null)
-            {
-                int nHash = node.GetHashCode();
-
-                foreach(int nVisited in checkList)
-                    if (nVisited == nHash)
-                        return true;
-
-                checkList.Add(nHash);
-                node = node.Next;
-            }
-
-            return false;
-        }
-
         static void Main(string[] args)
         {
             LinkedNode<string> node1 = new LinkedNode<string>("Luna");
