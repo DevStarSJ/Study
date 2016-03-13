@@ -1,4 +1,4 @@
-##Find Pair Sum of Equal
+##Find Pairs Sum of Equal
 
 How to find all pairs of elements in an integer array, whose sum is equal to a given number?  
 
