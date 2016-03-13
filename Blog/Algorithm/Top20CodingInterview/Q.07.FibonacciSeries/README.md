@@ -1,4 +1,4 @@
-##Fibonacci Series
+##Fibonacci Sequence
 
 Write a function to print nth number in Fibonacci series?
 
