@@ -20,7 +20,9 @@ Write a function to print nth number in Fibonacci series?
 
 하지만 이 방법으로 44번째 Fibonacci Number를 계산할 경우 이미 계산된 결과를 재사용하지 못해서 엄청나게 많은 Call Stack이 쌓입니다.  
 
-그래서 한 번 계산된 결과를 별도의 Array에 저장을 해서 재활용하는 방법을 이용하여서 구현하였습니다.  
+이 문제를 해결하기 위해서는 뒤에서 부터 Recursive 하게 호출하는 방법을 사용하지 말고 앞에서부터 계산하면 해결됩니다.  
+
+또다른 방법으로는 한 번 계산된 결과를 별도의 Array에 저장을 해서 재활용하는 방법을 이용하는 방법도 있습니다.
 
 
 ###C Sharp (basic implementation)
