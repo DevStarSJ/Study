@@ -1,38 +1,39 @@
-##Count Set Bits
+##Remove Duplicate Characters
 
-Write a function to count a total number of set bits in a 32 bit Integer?
+Write a function to remove duplicate characters from String ?
 
 출처 : <http://www.csharpstar.com/top-20-google-amazon-programming-interview-questions>
 
-32bit Int 값을 받아서 몇 Bit를 사용중인지 카운트하세요.
+문자열을 입력받아서 중복된 문자를 제거하세요.
 
 ---
 
-Shift 연산자 ( >>, << ) 만 사용할 수 있으면 풀 수 있습니다.  
+대부분 언어의 string 타입에는 특정 문자 또는 문자열의 subset의 위치를 찾는 함수가 존재합니다.  
 
-만약 문제가 전체 사용하는 Bit가 아니라 1로 Set된 Bit가 몇개인지 묻는다면 Bit 연산자 ( &, | )를 사용해서 비교하면 됩니다.
+그것을 이용하여 해당 문자가 있는지 없는지 체크를 하면 쉽게 해결 할 수 있습니다.
 
 ###C Sharp
 
 ```C#
 class Program
 {
-    static int CountBits(int num)
+    static string RemoveDiplicateChar(string str)
     {
-        int cnt = 0;
-        while (num != 0)
-        {
-            cnt++;
-            num >>= 1;
-        }
-        return cnt;
-    }
+        string result = string.Empty;
 
+        foreach(char c in str)
+        {
+            if (result.IndexOf(c) != -1)
+                continue;
+            result += c;
+        }
+
+        return result;
+    }
     static void Main(string[] args)
     {
-        System.Console.WriteLine(string.Format("{0} set bits : {1}", 255, CountBits(255)));
-        System.Console.WriteLine(string.Format("{0} set bits : {1}", 256, CountBits(256)));
-        System.Console.WriteLine(string.Format("{0} set bits : {1}", 65535, CountBits(65535)));
+        string str1 = "I love you";
+        System.Console.WriteLine(string.Format("{0} : {1}", str1, RemoveDiplicateChar(str1)));
     }
 }
 ```
