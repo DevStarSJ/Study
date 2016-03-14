@@ -8,7 +8,8 @@ Write a function to count a total number of set bits in a 32 bit Integer?
 
 ---
 
-Shift 연산자 ( >>, << ) 만 사용할 수 있으면 풀 수 있습니다.
+Shift 연산자 ( >>, << ) 만 사용할 수 있으면 풀 수 있습니다.  
+
 만약 문제가 전체 사용하는 Bit가 아니라 1로 Set된 Bit가 몇개인지 묻는다면 Bit 연산자 ( &, | )를 사용해서 비교하면 됩니다.
 
 ###C Sharp
