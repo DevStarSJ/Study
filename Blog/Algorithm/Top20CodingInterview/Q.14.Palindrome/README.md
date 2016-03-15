@@ -1,39 +1,23 @@
-##Check Prime Number
+##Check Palindrome
 
-Algorithm to check if a number is Prime or not?
+Algorithm to check if a number is Palindrome?
 
 출처 : <http://www.csharpstar.com/top-20-google-amazon-programming-interview-questions>
 
-소수인지 검사하세요.
+Palindrome인지 검사하세요.
 
 ---
 
-소수(Prime Number)란 ? 자기자신과 1로만 나누어 떨어지는 수를 의미합니다.
+Palindrome란 ? 문자, 숫자의 순서가 앞에서 읽은 것과 뒤에서 읽은 것이 같은 것을 의미합니다.
+
+가장 대표적인 예제로는 다음과 같은 것들이 있습니다.
+
+>"A man, a plan, a canal, Panama!", "Amor, Roma", "race car", "stack cats", "step on no pets", "taco cat", "put it up", "Was it a car or a cat I saw?" and "No 'x' in Nixon".
+
+<https://en.wikipedia.org/wiki/Palindrome>
 
 ###C Sharp
 
 ```C#
-class Program
-{
-    static bool IsPrimeNumber(int num)
-    {
-        if (num == 1 || num == 2)
-            return true;
 
-        for (int i = 2; i < num; i++)
-        {
-            if (num % i == 0)
-                return false;
-        }
-        return true;
-    }
-    static void Main(string[] args)
-    {
-        System.Console.WriteLine(string.Format(
-            "{0} is Prime Number ? {1}", 27, IsPrimeNumber(27) ? "Yes" : "No"));
-
-        System.Console.WriteLine(string.Format(
-            "{0} is Prime Number ? {1}", 37, IsPrimeNumber(37) ? "Yes" : "No"));
-    }
-}
 ```
