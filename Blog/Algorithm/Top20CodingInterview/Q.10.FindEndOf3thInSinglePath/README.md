@@ -1,39 +1,55 @@
-##Remove Duplicate Characters
+##Find end of 3th element in single pass linked list
 
-Write a function to remove duplicate characters from String ?
+How to find the 3rd element from end, in a singly linked, in a single pass?
 
 출처 : <http://www.csharpstar.com/top-20-google-amazon-programming-interview-questions>
 
-문자열을 입력받아서 중복된 문자를 제거하세요.
+한쪽 방향으로만 진행가능한 Linked List에서 끝에서 3번째 값을 찾으세요.
 
 ---
 
-대부분 언어의 string 타입에는 특정 문자 또는 문자열의 subset의 위치를 찾는 함수가 존재합니다.  
+현재 진행중인 Node에서 3번째 전의 값을 어딘가에 저장하면서 진행하면 쉽게 찾을 수 있습니다.
 
-그것을 이용하여 해당 문자가 있는지 없는지 체크를 하면 쉽게 해결 할 수 있습니다.
+방법으로는 여러가지가 있을 수 있습니다.
+
+원문 Link의 방법대로 node 2개를 선언해서 그 중 하나는 head로 부터 3칸을 먼저 진행한 뒤에 같이 가는 방법도 있구요.  
+
+저는 queue의 size를 3으로 유지하면서 모든 진행이 끝난뒤 queue의 처음값을 return하였습니다.
 
 ###C Sharp
 
 ```C#
+using System.Collections.Generic;
+
 class Program
 {
-    static string RemoveDiplicateChar(string str)
+    static T FindEndOf3th<T>(LinkedList<T> list)
     {
-        string result = string.Empty;
+        Queue<T> queue = new Queue<T>();
 
-        foreach(char c in str)
+        LinkedListNode<T> node = list.First;
+
+        while (node != null)
         {
-            if (result.IndexOf(c) != -1)
-                continue;
-            result += c;
-        }
+            queue.Enqueue(node.Value);
 
-        return result;
+            if (queue.Count > 3)
+                queue.Dequeue();
+
+            node = node.Next;
+        }
+        return queue.Dequeue();
     }
     static void Main(string[] args)
     {
-        string str1 = "I love you";
-        System.Console.WriteLine(string.Format("{0} : {1}", str1, RemoveDiplicateChar(str1)));
+        LinkedList<int> list = new LinkedList<int>();
+        list.AddLast(1);
+        list.AddLast(2);
+        list.AddLast(3);
+        list.AddLast(4);
+        list.AddLast(5);
+
+        System.Console.WriteLine(FindEndOf3th<int>(list));
     }
 }
 ```
