@@ -1,61 +1,58 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Q01Majority
+class Program
 {
-    class Program
+    private static int FindMajority(List<int> vNumbers)
     {
-        private static int FindMajority(List<int> p_nList)
+        int nMajority = vNumbers.Count() / 2;
+
+        Dictionary<int, int> mExsitingNumber = new Dictionary<int, int>();
+
+        foreach(int number in vNumbers)
         {
-            int nMajority = p_nList.Count() / 2;
-
-            Dictionary<int, int> mFind = new Dictionary<int, int>();
-
-            foreach(int nElement in p_nList)
+            if (mExsitingNumber.ContainsKey(number))
             {
-                if (mFind.ContainsKey(nElement))
+                mExsitingNumber[number] += 1;
+                if (mExsitingNumber[number] >= nMajority)
                 {
-                    mFind[nElement] += 1;
-                    if (mFind[nElement] >= nMajority)
-                    {
-                        return nElement;
-                    }
-                }
-                else
-                {
-                    mFind.Add(nElement, 1);
+                    return number;
                 }
             }
-
-            throw new Exception("There is no Majority");
+            else
+            {
+                mExsitingNumber.Add(number, 1);
+            }
         }
 
-        static void Main(string[] args)
+        throw new Exception("There is no Majority");
+    }
+
+    static void Main(string[] args)
+    {
+        List<int> vNumbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        try
         {
-            List<int> list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int nMajority = FindMajority(vNumbers);
 
-            try
-            {
-                int nRet = FindMajority(list);
+            System.Console.WriteLine(nRet);
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e.Message);
+        }
 
-                System.Console.WriteLine(nRet);
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.Message);
-            }
-
-            try
-            {
-                System.Console.WriteLine(
-                    FindMajority(
-                        new List<int> { 1, 2, 3, 3, 3, 3, 4, 5, 3 }));
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.ToString());
-            }
+        try
+        {
+            System.Console.WriteLine(
+                FindMajority(
+                    new List<int> { 1, 2, 3, 3, 3, 3, 4, 5, 3 }));
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e.ToString());
         }
     }
 }
