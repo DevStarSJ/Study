@@ -12,7 +12,7 @@ Given an unsorted array which has a number in the majority (a number appears mor
 
 각 언어별로 제가 구현한 것은 다음과 같습니다.
 
-###C Sharp
+###C\# 
 
 ```C#
 using System;
