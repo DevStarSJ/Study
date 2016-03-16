@@ -126,13 +126,13 @@ template <typename T>
 class LinkedNode
 {
 public:
-	T value;
+	T m_value;
 	LinkedNode* m_pPrevious = nullptr;
 	LinkedNode* m_pNext = nullptr;
 
 	LinkedNode<T>(T p_value)
 	{
-		value = p_value;
+		m_value = p_value;
 	}
 
 	void SetPrevious(LinkedNode* p_node)
@@ -149,30 +149,30 @@ public:
 
 	bool DetectCirculation()
 	{
-		std::vector<LinkedNode*> checkList{ this };
+		std::vector<LinkedNode*> vVisitedNodes{ this };
 
-		LinkedNode* node = m_pPrevious;
-		while (node != nullptr)
+		LinkedNode* traveling = m_pPrevious;
+		while (traveling != nullptr)
 		{
-			for (LinkedNode* visited : checkList)
+			for (LinkedNode* visited : vVisitedNodes)
 			{
-				if (node == visited)
+				if (traveling == visited)
 					return true;
 			}
-			checkList.push_back(node);
-			node = node->m_pPrevious;
+			vVisitedNodes.push_back(traveling);
+			traveling = traveling->m_pPrevious;
 		}
 
-		node = m_pNext;
-		while (node != nullptr)
+		traveling = m_pNext;
+		while (traveling != nullptr)
 		{
-			for (LinkedNode* visited : checkList)
+			for (LinkedNode* visited : vVisitedNodes)
 			{
-				if (node == visited)
+				if (traveling == visited)
 					return true;
 			}
-			checkList.push_back(node);
-			node = node->m_pNext;
+			vVisitedNodes.push_back(traveling);
+			traveling = traveling->m_pNext;
 		}
 
 		return false;
@@ -181,6 +181,7 @@ public:
 
 void main()
 {
+	// insert code here...
 	LinkedNode<std::string> node1("Luna");
 	LinkedNode<std::string> node2("Star");
 	LinkedNode<std::string> node3("Dev");
