@@ -12,24 +12,24 @@ public:
 	}
 };
 
-int FindMajority(std::vector<int> p_nVec)
+int FindMajority(std::vector<int> p_vnNumbers)
 {
-	size_t nMajority = p_nVec.size() / 2;
+	size_t nMajority = p_vnNumbers.size() / 2;
 
-	std::unordered_map<int, int> mFind;
+	std::unordered_map<int, int> mExistingNumbers;
 
-	for (int nElement : p_nVec)
+	for (int nNumber : p_vnNumbers)
 	{
-		auto it = mFind.find(nElement);
-		if (it != mFind.end())
+		auto it = mExistingNumbers.find(nNumber);
+		if (it != mExistingNumbers.end())
 		{
-			mFind.at(it->first) = it->second + 1;
-			if (mFind.at(it->first) >= nMajority)
+			mExistingNumbers.at(it->first) = it->second + 1;
+			if (mExistingNumbers.at(it->first) >= nMajority)
 				return it->first;
 		}
 		else
 		{
-			mFind.insert(std::make_pair<int, int>(std::move(nElement), 1));
+			mExistingNumbers.insert(std::make_pair<int, int>(std::move(nNumber), 1));
 		}
 	}
 
