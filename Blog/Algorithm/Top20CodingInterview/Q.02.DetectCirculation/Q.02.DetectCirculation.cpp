@@ -5,13 +5,13 @@ template <typename T>
 class LinkedNode
 {
 public:
-	T value;
+	T m_value;
 	LinkedNode* m_pPrevious = nullptr;
 	LinkedNode* m_pNext = nullptr;
 
 	LinkedNode<T>(T p_value)
 	{
-		value = p_value;
+		m_value = p_value;
 	}
 
 	void SetPrevious(LinkedNode* p_node)
