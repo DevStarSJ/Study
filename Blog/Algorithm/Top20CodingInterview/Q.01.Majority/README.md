@@ -19,60 +19,57 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Q01Majority
+class Program
 {
-    class Program
+    private static int FindMajority(List<int> vNumbers)
     {
-        private static int FindMajority(List<int> p_nList)
+        int nMajority = vNumbers.Count() / 2;
+
+        Dictionary<int, int> mExsitingNumber = new Dictionary<int, int>();
+
+        foreach(int number in vNumbers)
         {
-            int nMajority = p_nList.Count() / 2;
-
-            Dictionary<int, int> mFind = new Dictionary<int, int>();
-
-            foreach(int nElement in p_nList)
+            if (mExsitingNumber.ContainsKey(number))
             {
-                if (mFind.ContainsKey(nElement))
+                mExsitingNumber[number] += 1;
+                if (mExsitingNumber[number] >= nMajority)
                 {
-                    mFind[nElement] += 1;
-                    if (mFind[nElement] >= nMajority)
-                    {
-                        return nElement;
-                    }
-                }
-                else
-                {
-                    mFind.Add(nElement, 1);
+                    return number;
                 }
             }
-
-            throw new Exception("There is no Majority");
+            else
+            {
+                mExsitingNumber.Add(number, 1);
+            }
         }
 
-        static void Main(string[] args)
+        throw new Exception("There is no Majority");
+    }
+
+    static void Main(string[] args)
+    {
+        List<int> vNumbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+        try
         {
-            List<int> list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int nMajority = FindMajority(vNumbers);
 
-            try
-            {
-                int nRet = FindMajority(list);
+            System.Console.WriteLine(nRet);
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e.Message);
+        }
 
-                System.Console.WriteLine(nRet);
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.Message);
-            }
-
-            try
-            {
-                System.Console.WriteLine(
-                    FindMajority(
-                        new List<int> { 1, 2, 3, 3, 3, 3, 4, 5, 3 }));
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e.ToString());
-            }
+        try
+        {
+            System.Console.WriteLine(
+                FindMajority(
+                    new List<int> { 1, 2, 3, 3, 3, 3, 4, 5, 3 }));
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e.ToString());
         }
     }
 }
@@ -95,24 +92,24 @@ public:
 	}
 };
 
-int FindMajority(std::vector<int> p_nVec)
+int FindMajority(std::vector<int> p_vnNumbers)
 {
-	size_t nMajority = p_nVec.size() / 2;
+	size_t nMajority = p_vnNumbers.size() / 2;
 
-	std::unordered_map<int, int> mFind;
+	std::unordered_map<int, int> mExistingNumbers;
 
-	for (int nElement : p_nVec)
+	for (int nNumber : p_vnNumbers)
 	{
-		auto it = mFind.find(nElement);
-		if (it != mFind.end())
+		auto it = mExistingNumbers.find(nNumber);
+		if (it != mExistingNumbers.end())
 		{
-			mFind.at(it->first) = it->second + 1;
-			if (mFind.at(it->first) >= nMajority)
+			mExistingNumbers.at(it->first) = it->second + 1;
+			if (mExistingNumbers.at(it->first) >= nMajority)
 				return it->first;
 		}
 		else
 		{
-			mFind.insert(std::make_pair<int, int>(std::move(nElement), 1));
+			mExistingNumbers.insert(std::make_pair<int, int>(std::move(nNumber), 1));
 		}
 	}
 
@@ -151,23 +148,22 @@ class NoMajority(Exception):
     def __str__(self):
         return self.value
 
-
-def FindMajority(inList):
-    mFind = dict()
-    nMajority = len(inList) / 2
-    for nElement in inList:
-        if nElement in mFind:
-            mFind[nElement] += 1
-            if mFind[nElement] >= nMajority:
-                return nElement
+def FindMajority(listNumbers):
+    mExsitingNumbers = dict()
+    nMajority = len(listNumbers) / 2
+    for nNumber in listNumbers:
+        if nNumber in mExsitingNumbers:
+            mExsitingNumbers[nNumber] += 1
+            if mExsitingNumbers[nNumber] >= nMajority:
+                return nNumber
         else:
-            mFind[nElement] = 1
+            mExsitingNumbers[nNumber] = 1
     raise NoMajority
 
-list = [ 1,2,3,4,5,6,7,8,9,0]
+listNumbers = [ 1,2,3,4,5,6,7,8,9,0]
 
 try:
-    print(FindMajority(list))
+    print(FindMajority(listNumbers))
 except NoMajority as err:
     print(err)
 
@@ -184,26 +180,26 @@ import java.util.*;
 
 public class Q01_Majority {
 
-	public static int FindMajority(List<Integer> nList) throws Exception
+	public static int FindMajority(List<Integer> vNumbers) throws Exception
 	{
-		int nSize = nList.size();
+		int nSize = vNumbers.size();
 		int nMajority = nSize / 2;
-		HashMap<Integer, Integer> mFind = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> mExistingNumbers = new HashMap<Integer, Integer>();
 		
 		for (int i = 0; i < nSize; i++)
 		{
-			int nElement = nList.get(i);
-			Integer nValue = mFind.get(nElement);
+			int nNumber = vNumbers.get(i);
+			Integer nValue = mExistingNumbers.get(nNumber);
 			if (nValue != null)
 			{
 				nValue++;
 				if (nValue >= nMajority)
-					return nElement;
-				mFind.put(nElement, nValue);
+					return nNumber;
+				mExistingNumbers.put(nNumber, nValue);
 			}
 			else
 			{
-				mFind.put(nElement, 1);
+				mExistingNumbers.put(nNumber, 1);
 			}
 		}
 
@@ -212,13 +208,13 @@ public class Q01_Majority {
 	
 	public static void main(String[] args) 
 	{
-		List<Integer> nList1 = Arrays.asList(1,2,3,4,4,4,4,4,3,3);
-		List<Integer> nList2 = Arrays.asList(1,2,3,4,5,6,7,8,9,0);
+		List<Integer> nNumbers1 = Arrays.asList(1,2,3,4,4,4,4,4,3,3);
+		List<Integer> nNumbers2 = Arrays.asList(1,2,3,4,5,6,7,8,9,0);
 		
 		try 
 		{
-			System.out.println(FindMajority(nList1));
-			System.out.println(FindMajority(nList2));
+			System.out.println(FindMajority(nNumbers1));
+			System.out.println(FindMajority(nNumbers2));
 		}
 		catch (Exception e)
 		{
@@ -227,4 +223,3 @@ public class Q01_Majority {
 	}
 }
 ```
-
