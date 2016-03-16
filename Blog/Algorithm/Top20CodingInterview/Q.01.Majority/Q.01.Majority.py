@@ -5,23 +5,22 @@ class NoMajority(Exception):
     def __str__(self):
         return self.value
 
-
-def FindMajority(inList):
-    mFind = dict()
-    nMajority = len(inList) / 2
-    for nElement in inList:
-        if nElement in mFind:
-            mFind[nElement] += 1
-            if mFind[nElement] >= nMajority:
-                return nElement
+def FindMajority(listNumbers):
+    mExsitingNumbers = dict()
+    nMajority = len(listNumbers) / 2
+    for nNumber in listNumbers:
+        if nNumber in mExsitingNumbers:
+            mExsitingNumbers[nNumber] += 1
+            if mExsitingNumbers[nNumber] >= nMajority:
+                return nNumber
         else:
-            mFind[nElement] = 1
+            mExsitingNumbers[nNumber] = 1
     raise NoMajority
 
-list = [ 1,2,3,4,5,6,7,8,9,0]
+listNumbers = [ 1,2,3,4,5,6,7,8,9,0]
 
 try:
-    print(FindMajority(list))
+    print(FindMajority(listNumbers))
 except NoMajority as err:
     print(err)
 
