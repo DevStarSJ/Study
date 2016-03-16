@@ -19,7 +19,7 @@ Linked List Node자체를 Object로 생성하여 해당 Node중 아무곳에서�
 - 새로 방문한 Node를 이미 방문한 적이 있는 Node List와 비교한다. 이미 방문한 Node라면 `return true`
 - 더 이상 방문할 Node가 없다면 `return fasle`
 
-###C\#
+###C\# 
 
 ```C#
 using System.Collections.Generic;
