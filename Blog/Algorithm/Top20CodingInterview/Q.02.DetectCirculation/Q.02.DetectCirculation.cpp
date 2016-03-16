@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include <vector>
 
@@ -29,30 +28,30 @@ public:
 
 	bool DetectCirculation()
 	{
-		std::vector<LinkedNode*> checkList{ this };
+		std::vector<LinkedNode*> vVisitedNodes{ this };
 
-		LinkedNode* node = m_pPrevious;
-		while (node != nullptr)
+		LinkedNode* traveling = m_pPrevious;
+		while (traveling != nullptr)
 		{
-			for (LinkedNode* visited : checkList)
+			for (LinkedNode* visited : vVisitedNodes)
 			{
-				if (node == visited)
+				if (traveling == visited)
 					return true;
 			}
-			checkList.push_back(node);
-			node = node->m_pPrevious;
+			vVisitedNodes.push_back(traveling);
+			traveling = traveling->m_pPrevious;
 		}
 
-		node = m_pNext;
-		while (node != nullptr)
+		traveling = m_pNext;
+		while (traveling != nullptr)
 		{
-			for (LinkedNode* visited : checkList)
+			for (LinkedNode* visited : vVisitedNodes)
 			{
-				if (node == visited)
+				if (traveling == visited)
 					return true;
 			}
-			checkList.push_back(node);
-			node = node->m_pNext;
+			vVisitedNodes.push_back(traveling);
+			traveling = traveling->m_pNext;
 		}
 
 		return false;
