@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 
 namespace Q02DetectCircular
@@ -43,28 +42,27 @@ namespace Q02DetectCircular
 
         public bool DetectCirculation()
         {
-            List<LinkedNode<T>> checkList = new List<LinkedNode<T>>();
-            checkList.Add(this);
+            List<LinkedNode<T>> vVisitedNodes = new List<LinkedNode<T>>();
+            vVisitedNodes.Add(this);
 
-            LinkedNode<T> node = Previous;
-            while (node != null)
+            LinkedNode<T> traveling = Previous;
+            while (traveling != null)
             {
-                foreach (LinkedNode<T> Visited in checkList)
-                    if (Visited == node)
+                foreach (LinkedNode<T> visited in vVisitedNodes)
+                    if (visited == traveling)
                         return true;
-                checkList.Add(node);
-                node = node.Previous;
+                vVisitedNodes.Add(traveling);
+                traveling = traveling.Previous;
             }
 
-            node = Next;
-            while (node != null)
+            traveling = Next;
+            while (traveling != null)
             {
-                int nHash = node.GetHashCode();
-                foreach (LinkedNode<T> Visited in checkList)
-                    if (Visited == node)
+                foreach (LinkedNode<T> Visited in vVisitedNodes)
+                    if (Visited == traveling)
                         return true;
-                checkList.Add(node);
-                node = node.Next;
+                vVisitedNodes.Add(traveling);
+                traveling = traveling.Next;
             }
 
             return false;
