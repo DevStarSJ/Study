@@ -1,4 +1,7 @@
-﻿class LinkedNode<T> : object
+using System;
+using System.Collections.Generic;
+
+class LinkedNode<T> where T : IComparable
 {
     public T Value { set; get; }
 
@@ -36,23 +39,86 @@
         Value = value;
     }
 
-    public static LinkedNode<int> Merge(LinkedNode<int> list1, LinkedNode<int> list2)
+    public bool DetectCirculation()
     {
-        LinkedNode<int> first = null;
-        LinkedNode<int> current = null;
+        List<LinkedNode<T>> vVisitedNodes = new List<LinkedNode<T>>();
+        vVisitedNodes.Add(this);
 
-        LinkedNode<int> node1 = list1;
-        LinkedNode<int> node2 = list2;
+        LinkedNode<T> traveling = Previous;
+        while (traveling != null)
+        {
+            foreach (LinkedNode<T> visited in vVisitedNodes)
+                if (visited == traveling)
+                    return true;
+            vVisitedNodes.Add(traveling);
+            traveling = traveling.Previous;
+        }
 
-        if (node1 == null)
+        traveling = Next;
+        while (traveling != null)
         {
-            return node2;
+            foreach (LinkedNode<T> Visited in vVisitedNodes)
+                if (Visited == traveling)
+                    return true;
+            vVisitedNodes.Add(traveling);
+            traveling = traveling.Next;
         }
-        else if (node2 == null)
+
+        return false;
+    }
+
+    public LinkedNode<T> GetFisrt()
+    {
+        if (DetectCirculation())
+            throw new Exception("Circulation Linked Node");
+        LinkedNode<T> findFirst = this;
+
+        while(findFirst._previous != null)
         {
-            return node1;
+            findFirst = findFirst._previous;
         }
-        if (node1.Value >= node2.Value)
+
+        return findFirst;
+    }
+
+    public bool IsSorted() 
+    {
+        LinkedNode<T> traveling = GetFisrt();
+
+        while (traveling._next != null)
+        {
+            if (traveling.Value.CompareTo(traveling._next.Value) > 0)
+                return false;
+            traveling = traveling._next;
+        }
+
+        return true;
+    }
+
+    public static LinkedNode<T> Merge(LinkedNode<T> list1, LinkedNode<T> list2)
+    {
+        if (list1 != null && !list1.IsSorted())
+            throw new Exception("No Sorted List Inserted : " + nameof(list1));
+
+        if (list2 != null && !list2.IsSorted())
+            throw new Exception("No Sorted List Inserted : " + nameof(list2));
+
+        if (list1 == null)
+        {
+            return list2;
+        }
+        else if (list2 == null)
+        {
+            return list1;
+        }
+
+        LinkedNode<T> first = null;
+        LinkedNode<T> current = null;
+
+        LinkedNode<T> node1 = list1.GetFisrt();
+        LinkedNode<T> node2 = list2.GetFisrt();
+
+        if (node1.Value.CompareTo(node2.Value) >= 0)
         {
             first = node2;
             current = first;
@@ -67,7 +133,7 @@
 
         while (node1 != null && node2 != null)
         {
-            if (node1.Value >= node2.Value)
+            if (node1.Value.CompareTo(node2.Value) >= 0)
             {
                 current.Next = node2;
                 current = current.Next;
@@ -122,5 +188,6 @@ class Program
             ret = ret.Next;
         }
         System.Console.WriteLine("");
+        System.Console.ReadKey();
     }
 }
