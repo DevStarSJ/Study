@@ -262,7 +262,7 @@ print(node1.DetectCirculation())
 
 ###Java
 
-```
+```Java
 import java.util.*;
 
 public class LinkedNode<T> {
