@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include <vector>
 #include <exception>
@@ -9,6 +8,15 @@ public:
 	const char * what() const throw()
 	{
 		return "Not Sorted Node";
+	}
+};
+
+class exception_detectingCirculationNode : public std::exception
+{
+public:
+	const char * what() const throw()
+	{
+		return "Detecting Circulation Node";
 	}
 };
 
@@ -82,6 +90,9 @@ public:
 
 	bool IsSorted()
 	{
+		if (DetectCirculation())
+			throw exception_detectingCirculationNode();
+
 		LinkedNode<T>* traveling = GetFirstNode();
 
 		while (traveling->m_pNext != nullptr)
