@@ -183,13 +183,20 @@ class LinkedNode<T> where T : IComparable
 
         while (travelingBackward != null)
         {
-            LinkedNode<T> tempNext = travelingForward._next;
-
             travelingForward._next = travelingBackward;
-            travelingForward._previous = tempNext;
 
             travelingForward = travelingForward._next;
             travelingBackward = travelingBackward._previous;
+        }
+
+        travelingForward._next = null;
+        newFirst._previous = null;
+
+        travelingForward = newFirst;
+        while(travelingForward._next != null)
+        {
+            travelingForward.Next = travelingForward._next;
+            travelingForward = travelingForward._next;
         }
     }
 }
@@ -226,6 +233,5 @@ class Program
             ret = ret.Next;
         }
         System.Console.WriteLine("");
-        System.Console.ReadKey();
     }
 }
