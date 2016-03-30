@@ -56,7 +56,7 @@ public void Reverse()
 ```
 
 ###C# 전체 Code (Test 포함)
-```
+```C#
 using System;
 using System.Collections.Generic;
 
