@@ -16,7 +16,7 @@ Array를 주어진 Pivot(중심점) 만큼 Rotate하세요.
 
 ---
 
-###C#
+###C# 
 ```C#
 using System;
 
