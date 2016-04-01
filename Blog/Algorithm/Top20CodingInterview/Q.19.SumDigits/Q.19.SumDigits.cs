@@ -4,14 +4,11 @@ class Program
     {
         if (number < 0)
             number *= -1;
-        int sum = 0;
 
         if (number < 10)
             return number;
 
-        sum = number % 10 + SumDigits(number / 10);
-
-        return sum;
+        return number % 10 + SumDigits(number / 10);
     }
     static void Main(string[] args)
     {
