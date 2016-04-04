@@ -3,5 +3,5 @@ call svnindex.cmd -source="{SolutionFolder}" -symbols="{SolutionFolder}\bin\Unic
 ```
 
 ```
-symstore.exe add /r /f "{SolutionFolder}\nim\Unicode Release\*.*" /s "{SymbolRepository}" /t "{Name}" /compress
+symstore.exe add /r /f "{SolutionFolder}\bin\Unicode Release\*.*" /s "{SymbolRepository}" /t "{Name}" /compress
 ```
