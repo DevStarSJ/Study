@@ -9,7 +9,7 @@ symstore.exe add /r /f "{SolutionFolder}\bin\Unicode Release\*.*" /s "{SymbolRep
 ```
 
 >e.g.  
-call svnindex.cmd -source="d:\svn\trunk" -symbol="d:\svn\trunk\bin\Unicode Release"
+call svnindex.cmd -source="d:\svn\trunk" -symbol="d:\svn\trunk\bin\Unicode Release"  
 symstore add /r /f "d:\svn\trunk\bin\Unicode Release\*.*" /s "d:\symbol" /t "MyApp" /compress
 
 ### 저장된 Symbol 확인
