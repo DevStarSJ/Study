@@ -8,7 +8,7 @@ call svnindex.cmd -source="{SolutionFolder}" -symbols="{SolutionFolder}\bin\Unic
 symstore.exe add /r /f "{SolutionFolder}\bin\Unicode Release\*.*" /s "{SymbolRepository}" /t "{Name}" /compress
 ```
 
->e.g.
+>e.g.  
 call svnindex.cmd -source="d:\svn\trunk" -symbol="d:\svn\trunk\bin\Unicode Release"
 symstore add /r /f "d:\svn\trunk\bin\Unicode Release\*.*" /s "d:\symbol" /t "MyApp" /compress
 
@@ -23,7 +23,7 @@ symstore add /r /f "d:\svn\trunk\bin\Unicode Release\*.*" /s "d:\symbol" /t "MyA
 symstore del /i ID /s "{SymbolRepository}"
 ```
 
->e.g.
+>e.g.  
 symstore del /i 142 /s "d:\symbol"
 
 ### symstore 사용법 (Symbol 삭제 포함)
