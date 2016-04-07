@@ -81,3 +81,22 @@
 - `RegistPeriod()` , `ReadPeriod()` , `CheckPeriod()`, `ResetCheckPeriod()` : 사용자 PC에서 Registry에 Subscription License 의 만료일 이전의 경고 메세지 띄우는 기간 및 Grace Period 관련된 값들을 Registy에 기록/읽기/확인/초기화 하는 역할을 수행합니다.
 - `IsValidActivationCode()` : Activation Code와 License Key를 입력받아서 적합한지 확인합니다.
 
+###3 ORestful Project
+- Chilkat을 활용하여 WebService로 Post 하는 단 하나의 함수만을 제공합니다. : `CWVWebService::Post()`
+
+###4 License Project
+- `License.exe` 파일을 생성합니다.
+- 각각의 Dialog 별로 많은 기능을 제공하지 않으므로 각 Dialog 별 기능에 대해서 간략하게 설명드리겠습니다.
+- `Dlg_Container` : 다른 Dialog들을 실행시키는 Dialog 입니다. 기본 디자인 작업은 여기에서 하시면 모든 Dialog에 적용됩니다.
+- `Dlg_MgrKey` : Toolkit의 Report Control을 활용하여 PC에 입력된 License Key 목록을 보여주며 관리해주는 기능을 제공합니다.
+- `Dlg_ActComp` : Activation 과정이 끝났다는 것을 사용자에게 알리는 문구를 출력합니다.
+- `Dlg_ActPend` : Offline Activation 과정 중 Pending 상태임을 알리는 문구를 출력합니다.
+- `Dlg_ActWait` : 현재 Pending 중인 License Key가 있는데, 새로운 Key을 입력하고자 할때 경고 문구를 출력합니다.
+- `Dlg_GenRetJson` : Deactivation Code를 생성하고 Registry에서 License Key 및 Activation Code를 삭제합니다.
+- `Dlg_HostID` : Offline Activation 과정 중 Activation Code를 생성합니다.
+- `Dlg_InAct` : Activation Code를 입력받아서 검증 후 Registry에 기록합니다.
+- `Dlg_InKey` : License Key를 입력받아서 검증 후 Registry에 기록합니다.
+- `Dlg_InMail` : 개인정보 수집,이용을 동의받으며 e-mail을 입력받습니다.
+- `Dlg_RetComp` : Deactivation 과정이 끝났다는 것을 사용자에게 알리는 문구를 출력합니다.
+
+
