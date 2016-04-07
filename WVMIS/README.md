@@ -162,15 +162,15 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - Dialog(Pop-up 형식으로 동작하는 Form)들을 모아두었습니다.
 
 #####1.2.4.1 ES_ACC
-- 담당자를 선택 하는 Dialog 입니다.
 - `3.1 계약관리` 에서 협력업체, 고객사의 `Sale 담당자`, `Billing 담당자`, `Tech 담당자`를 눌렀을 때 실행됩니다.
+- 담당자를 선택 하는 Dialog 입니다.
 - `btn_Cancel_Click()` : 취소 버튼 Click Event
 - `btn_Save_Click()` : 저장 버튼 Click Event
 - `grid_List_DoubleClick()` : Grid에서 더블 클릭시 Event
 
 #####1.2.4.2 ES_ACT
-- 수동 활성화 작업 기능을 제공하는 Dialog 입니다.
 - `4.1 활성화 관리`에서 `Manual Activation` 버튼을 눌렀을 때 실행됩니다.
+- 수동 활성화 작업 기능을 제공하는 Dialog 입니다.
 - `ParseJson()` : 입력받은 JSON 형식의 string을 Parsing 하여 화면상에 표시합니다.
 - `GetJsonString()` : `ParseJson()`의 sub-method. JSON Object에서 특정 field의 값을 string으로 return합니다.
 - `btn_open_Click()` : 파일 오픈 Click Event
@@ -180,6 +180,28 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - `GetResponseJson()` : MFC DLL의 함수입니다.
 - `GetResActJson()` : `GetResponseJson()`의 결과를 C# string으로 return 합니다.
 - `btn_act_Click()` : Apply Activation 버튼 Click Event 입니다.
+
+#####1.2.4.3 ES_ADD_CONTPRD
+- `ES_CONTPRD`에서 `추가`,`수정` 버튼을 눌렀을 때 실행됩니다.
+- 계약 제품 입력 기능을 제공하는 Dialog 입니다.
+- `InitControl()` : 각종 Control의 초기값을 설정합니다.
+- `applyModification()` : Form 생성시 추가일 경우 S/N 값을 출력해주며, 수정일 경우 해당 제품에 관한 정보를 화면에 출력합니다.
+- `combo_product_ComboChanged()` : 제품 ComboBox를 선택했을 때 발생하는 Event
+- `combo_edition_ComboChanged()` : Edition ComboBox를 선택했을 때 발생하는 Event
+- `combo_version_ComboChanged()` : ver. ComboBox를 선택했을 때 발생하는 Event
+- `priceChanged()` : List Price 와 Net Price 값이 바뀔 경우 발생하는 Event
+- `save()` : 저장 버튼 Click Event
+- `check_upgrade_CheckedChanged()` : Upgrade 계약 CheckBox 선택시 발생하는 Event
+- `check_maintc_CheckedChanged()` : 유지보수계약 CheckBox 선택시 발생하는 Event
+- `btn_cancel_Click()` : 취소 버튼 Click Event
+- `licenseTypeChanged()` : License 타입 Radio Button 선택시 발생하는 Event
+- `startDateChange()` : 시작일 변경시 발생하는 Event
+- `endDateChange()` : 종료일 변경시 발생하는 Event
+- `check_manual_CheckedChanged()` : 키 수동입력 Checkbox 선택시 발생하는 Event
+- `btn_orangeKey_Click()` : 키 생성 버튼 Click Event
+- `SaveKey()` : 생성된 License Key를 database에 저장하는 기능
+- `GetLicenseKey()` , `GetLicenseText()` : MFC DLL 함수입니다.
+- `GetKey()` , `GetText()` : MFC 합수의 결과를 C# string으로 return 합니다.
 
 
 
