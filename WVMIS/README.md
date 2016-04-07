@@ -142,7 +142,15 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 #####1.2.3.6 CR_ACT
 - `4.1 활성화 관리`를 누르면 실행됩니다.
 - 활성화 내역을 조회합니다.
-
+- `InitControl()` : 각종 Control의 초기값을 설정합니다.
+- `RefreshList()` : 활성화 내역 Grid (왼쪽)의 List를 출력합니다.
+- `RefreshHistList()` : 왼쪽 Grid에서 선택된 항목에 대한 상세 이력을 오른쪽 Grid에 출력합니다.
+- `btn_Search_Click()` : 검색 버튼 Click Event
+- `view_List_FocusedRowChanged()` : 왼쪽 Grid에서 항목을 선택하면 실행되는 Event
+- `view_Detail_FocusedRowChanged()` : 오른쪽 Grid에서 항목을 선택하면 실행되는 Event
+- `view_Detail_DataSourceChanged()` : 오른쪽 Grid의 항목이 바뀔경우 실행되는 Event
+- `XUCC_FindAll_CheckedChanged()` : 전체기간 Checkbox를 눌렀을 때 실행되는 Event
+- `btn_ManualActivation_Click()` : `Manual Activation` 버튼 Click Event
 
 
 
