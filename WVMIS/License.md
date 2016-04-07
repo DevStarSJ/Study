@@ -99,7 +99,7 @@
 ###4 License Project
 - `License.exe` 파일을 생성합니다.
 - 각각의 Dialog 별로 많은 기능을 제공하지 않으므로 각 Dialog 별 기능에 대해서 간략하게 설명드리겠습니다.
-- `Dlg_Container` : 다른 Dialog들을 실행시키는 Dialog 입니다. 기본 디자인 작업은 여기에서 하시면 모든 Dialog에 적용됩니다.
+- `Dlg_Container` : 다른 Dialog들을 실행시키는 Dialog 입니다. 기본 디자인 작업을 여기에 하면 모든 Dialog에 적용됩니다.
 - `Dlg_MgrKey` : Toolkit의 Report Control을 활용하여 PC에 입력된 License Key 목록을 보여주며 관리해주는 기능을 제공합니다.
 - `Dlg_ActComp` : Activation 과정이 끝났다는 것을 사용자에게 알리는 문구를 출력합니다.
 - `Dlg_ActPend` : Offline Activation 과정 중 Pending 상태임을 알리는 문구를 출력합니다.
