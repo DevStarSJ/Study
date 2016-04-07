@@ -48,6 +48,7 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 
 ####1.2 Forms
 - Winform들을 모아놓음
+
 #####1.2.1 MDI.cs
 - MDI Form
 - 선택된 Menu의 Form을 실행시키는 역할을 합니다.
@@ -62,6 +63,7 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 
 #####1.2.3 CR
 - 기준정보 관련 Form들을 모아두었습니다.
+- 
 #####1.2.3.1 CR_PROD
 - 제품정보를 관리합니다.
 -  RefreshGrid() : Grid에 목록을 출력합니다.
