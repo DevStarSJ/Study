@@ -216,8 +216,54 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - `btn_key_Click()` : 키 발행 버튼(사용되지 않음) Click Event 
 - `DeleteKey()` : 키 삭제 버튼(사용되지 않음) Click Event 
 - `view_List_FocusedRowChanged()` : 제품 정보 Grid를 선택했을 경우 발생하는 Event
-- 
-- 
+- `view_keyList_CustomDrawCell()` : Grid의 Cell 색상을 변경해주는 Event
+
+#####1.2.4.5 ES_CUST
+- `3.1 계약관리` 에서 협력업체, 고객사의 `업체명`을 눌렀을 때 실행됩니다.
+- 업체명을 선택 하는 Dialog 입니다.
+- `btn_Cancel_Click()` : 취소 버튼 Click Event
+- `btn_Save_Click()` : 저장 버튼 Click Event
+- `view_List_DoubleClick()` : Grid에서 더블 클릭시 Event
+
+#####1.2.4.6 ES_DETAIL_ACC
+- `3.1 계약관리` 에서 협력업체, 고객사의 `Sale 담당자`, `Billing 담당자`, `Tech 담당자`를 눌렀을 때 실행됩니다.
+- 선택된 담당자의 상세정보를 표시합니다.
+
+#####1.2.4.7 ES_DETAIL_CUST
+- `3.1 계약관리` 에서 협력업체, 고객사의 `업체명`을 눌렀을 때 실행됩니다.
+- 선택된 업체의 상세정보를 표시합니다.
+
+#####1.2.4.8 ES_GENKEY
+- 현재 사용되지 않는 Dialog 입니다.
+
+#####1.2.4.9 ES_LOGIN
+- 처음 실행시 수행되는 Dialog 입니다.
+- 사용자 ID, Password를 입력합니다.
+- `btn_conn_Click()` : 접속 버튼 Click Event
+- `xucEdit_password_TextKeyPress()` : password 란에 키 입력시 발생하는 Event
+
+#####1.2.4.10 ES_PRODHIST
+-  `3.1 계약관리`에서 `제품 계약 내역`을 눌렀을 때 실행됩니다.
+-  제품 계약 내역을 출력합니다.
+-  `RefreshList()` : Grid에 내용을 출력합니다.
+-  `btn_excel_Click()` : Excel 저장 버튼 Click Event
+
+#####1.2.4.11 ES_PWD
+- `5.1 패스워드 변경`을 누르면 실행됩니다.
+- 사용자 패스워드를 변경하는 기능을 제공합니다.
+- `btn_Save_Click()` : Apply 버튼 Click Event
+- `btn_Cancel_Click()` : Cancel 버튼 Click Event
+
+#####1.2.4.12 ES_ZIP
+- `2.1 고객 관리`에서 주소 입력시 우편번호 번호를 눌렀을 경우 실행됩니다.
+- 우편번호 목록을 보여주며 선택하는 기능을 제공합니다.
+- `RefreshGrid()` : Grid에 내용을 출력합니다.
+- `UC_Text_TextKeyPress()` : 동이름 Edit에 키 입력시 발생하는 Event
+- `OK()` : Apply 버튼 Click Event
+- `Cancel()` : Cancel 버튼 Click Event
+
+
+
 
 
 
