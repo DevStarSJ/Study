@@ -81,6 +81,18 @@
 - `RegistPeriod()` , `ReadPeriod()` , `CheckPeriod()`, `ResetCheckPeriod()` : 사용자 PC에서 Registry에 Subscription License 의 만료일 이전의 경고 메세지 띄우는 기간 및 Grace Period 관련된 값들을 Registy에 기록/읽기/확인/초기화 하는 역할을 수행합니다.
 - `IsValidActivationCode()` : Activation Code와 License Key를 입력받아서 적합한지 확인합니다.
 
+####2.2 ActivationMgr class
+- Activation, Deactivation 과정을 수행합니다.
+- 모두 static 함수로만 이루어진 사실상 namespace 역할을 하는 class 입니다.
+- `TryOnlineAct()` , `RunOnlineAct()` : Online Activation 수행에 사용되는 함수입니다.
+- `TryOnlineDeact()` , `RunOnlineDeact()` : Online Deactivation 수행에 사용되는 함수입니다.
+- `MakeReqActJson[String]()` : 사용자가 Activation 을 요청시 Server로 전달할 JSON을 생성합니다.
+- `MakeDeactJson[String]()` : 사용자가 Deactivation 수행시 Server로 전달할 JSON을 생성합니다.
+- `ApplyActResp()` : Server로 부터 전달받은 JSON으로 Activation을 수행합니다.
+- `ApplyDeactResp()` : 현재 사용되지 않습니다.
+- `ValidateHash()` : 입력받은 JSON의 Hash 값을 검사합니다.
+- `MakeResponseJson()` : Activation 가능한 JSON을 생성합니다. (Server, WVMIS에서 수행합니다.)
+
 ###3 ORestful Project
 - Chilkat을 활용하여 WebService로 Post 하는 단 하나의 함수만을 제공합니다. : `CWVWebService::Post()`
 
