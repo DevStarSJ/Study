@@ -159,9 +159,28 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - 등급 관리 From인데, 현재 사용하지 않습니다.
 
 ####1.2.4 ES
-- Pop-up 형식으로 동작하는 Form들을 모아두었습니다.
+- Dialog(Pop-up 형식으로 동작하는 Form)들을 모아두었습니다.
 
 #####1.2.4.1 ES_ACC
+- 담당자를 선택 하는 Dialog 입니다.
+- `3.1 계약관리` 에서 협력업체, 고객사의 `Sale 담당자`, `Billing 담당자`, `Tech 담당자`를 눌렀을 때 실행됩니다.
+- `btn_Cancel_Click()` : 취소 버튼 Click Event
+- `btn_Save_Click()` : 저장 버튼 Click Event
+- `grid_List_DoubleClick()` : Grid에서 더블 클릭시 Event
+
+#####1.2.4.2 ES_ACT
+- 수동 활성화 작업 기능을 제공하는 Dialog 입니다.
+- `4.1 활성화 관리`에서 `Manual Activation` 버튼을 눌렀을 때 실행됩니다.
+- `ParseJson()` : 입력받은 JSON 형식의 string을 Parsing 하여 화면상에 표시합니다.
+- `GetJsonString()` : `ParseJson()`의 sub-method. JSON Object에서 특정 field의 값을 string으로 return합니다.
+- `btn_open_Click()` : 파일 오픈 Click Event
+- `ClearLabels()` : 화면상 모든 Control의 값들을 삭제
+- `btn_make_Click()` : Make Response File 버튼 Click Event
+- `btn_deact_Click()` : Apply Deactivation 버튼 Click Event
+- `GetResponseJson()` : MFC DLL의 함수입니다.
+- `GetResActJson()` : `GetResponseJson()`의 결과를 C# string으로 return 합니다.
+- `btn_act_Click()` : Apply Activation 버튼 Click Event 입니다.
+
 
 
 
