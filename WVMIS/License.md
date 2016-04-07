@@ -20,7 +20,7 @@
 
 ##Project 설명
 
-###1. Citrus
+###1. Citrus Project
 - License Key, Activation Code생성 및 관리 관련 작업들을 수행합니다.
 - multi-platform용으로 사용될 것을 감안하여 MFC class를 전혀 사용하지 않았습니다.
 
@@ -28,7 +28,7 @@
 - bit(0,1) 들을 저장하는 컨테이너 class 입니다.
 - bit을 저장하고 읽어오는데 편리한 기능들을 제공합니다.
 
-####1.2 Citrus class : 
+####1.2 Citrus class
 - License Key, Activation Code 관련 작업을 수행합니다.
 - `SetVersion()` : Orange 6.0 / 6.1 버전을 설정합니다.
 - `GetTrialDays()` : 현재 License Key의 남은 기간을 일 단위로 return 합니다.
@@ -56,3 +56,17 @@
 - `ValidateHash()` : Hash 값과 Activation Code내의 항목들이 적합한지 검사합니다.
 - `WS2()` : `std::string` 와 `std::wstring`를 변환해 줍니다.
 
+####1.3 Cypher class
+- 암/복호화 기능을 제공합니다.
+- Chilkat Library를 내부적으로 사용했으며 해당 기능을 wrapping한 class 입니다.
+- `EncriptDES()`, `DecriptDES()` : 입력받은 값을 Trible-DES로 암호화/복호화 합니다.
+- `SHA256()` : 입력받은 값을 SHA256으로 Hash처리 합니다.
+
+###2 OLicense Project
+- License Key 및 Activation Code 관련 Registry 작업을 수행합니다.
+- Citrus의 기능을 MFC용 CString로 wrapping 하였습니다.
+
+####2.1 OLicenseKey class
+- License Key 관련 작업 및 Registry 작업을 수행합니다.
+- `Citrus class`와 함수명이 같은 것은 단순히 CString로 처리하기위한 wrapping 함수들입니다.
+- 
