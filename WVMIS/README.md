@@ -20,3 +20,22 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - MFC (Visual Studio 2015)
 - Chilkat Library (C++)
 
+##Project 설명
+
+1. WVMIS
+  - 실제 작업을 한 Project 입니다.
+  - MDI 기반의 Winform으로 구성되었습니다.
+2. LunaStar
+  - Library 성격의 Project 입니다.
+  - 이번 Solution과는 무관하게 기존에 작업된 Project 입니다.
+  - 이번 Solution에서는 다음의 기능을 제공합니다.
+    - Oracle database 연결 및 SQL 작업
+    - Winform을 구성하는 User defined Control
+    - File I/O
+    - DevExpress의 extra skin 제공
+3. Setup
+  - 배포시 Setup 파일을 생성해주는 Project 입니다.
+
+
+
+
