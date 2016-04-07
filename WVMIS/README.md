@@ -105,7 +105,26 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - BTN_A_DEL_Click() : 담당자 -> 삭제 버튼 Click Event
 - BTN_A_SAVE_Click() : 담당자 -> 저장 버튼 Click Event
 
-
+#####1.2.3.4 CR_CONT
+- 계약 정보를 관리합니다.
+- InitControl() : 각종 Control의 초기값을 설정합니다.
+- ClearText(), SetSaveBtn() : Control들의 상태를 변경합니다. FormBase에 의해 호출됩니다.
+- RefreshList() : 계약 List를 Grid에 출력합니다.
+- view_List_FocusedRowChanged() : Grid에서 선택이 변경된 경우 발생하는 Event
+- btn_save_Click() : 저장 버튼 Click Event
+- btn_ProdDetail_Click() : 제품 상세 버튼 Click Event
+- btnEdit_PartnerName_ButtonPressed() : 협력업체 -> 업체명 Click Event
+- btnEdit_CustoerName_ButtonPressed() : 고객사 -> 업체명 Click Event
+- btnEdit_PartnerSales_ButtonPressed() : 협력업체 -> Sales 담당자 Click Event
+- btnEdit_CustomerSales_ButtonPressed() : 고객사 -> Sales 담당자 Click Event
+- btnEdit_PartnerBilling_ButtonPressed() : 협력업체 -> Billing 담당자 Click Event
+- btnEdit_CustomerBilling_ButtonPressed() : 고객사 -> Billing 담당자 Click Event
+- btnEdit_PartnerTech_ButtonPressed() : 협력업체 -> Tech 담당자 Click Event
+- btnEdit_CustomerTech_ButtonPressed() : 고객사 -> Tech 담당자 Click Event
+- btn_add_Click() : 신규 계약 버튼 Click Event
+- btn_cancel_Click() : 취소 버튼 Click Event
+- btn_modify_Click() : 계약 변경 버튼 Click Event
+- btn_delete_Click() : 계약 삭제 버튼 Click Event
 
 
 
