@@ -69,4 +69,15 @@
 ####2.1 OLicenseKey class
 - License Key 관련 작업 및 Registry 작업을 수행합니다.
 - `Citrus class`와 함수명이 같은 것은 단순히 CString로 처리하기위한 wrapping 함수들입니다.
-- 
+- `SetAppPath()` , `SetRegPath1()`, `SetRegPath2()` : Registry 경로를 설정하는 함수입니다.
+- `SetExpiredMessageShown()` , `IsExpiredMessageShown()` : 기간제 License 에서 만료 경고 메세지를 표시여부를 Registry에 기록/확인하는 함수입니다.
+- `MakeHostID()` : 하드웨어 정보를 읽어서 HostID를 생성합니다.
+- `GetKeySerial()` : 제품, 에디션, 입력된 S/N을 이용하여 `00.01.27` 형식의 Registry 기록용 Key를 생성하는 함수입니다.
+- `GetKeyList()` : Registry를 읽어서 입력되어 있는 License Key 목록을 return 합니다.
+- `GetKey()` : `00.01.27` 형식의 Serial을 입력받아 해당 License Key를 return 합니다.
+- `DeleteActivationCode()` : 입력받은 Serial의 Activation Code를 Registry에서 삭제합니다.
+- `DeleteKey()` : 입력받은 Serial의 License Key를 Registry에서 삭제합니다.
+- `RegisterLicenseKey()` : License Key를 Registry에 등록합니다.
+- `RegistPeriod()` , `ReadPeriod()` , `CheckPeriod()`, `ResetCheckPeriod()` : 사용자 PC에서 Registry에 Subscription License 의 만료일 이전의 경고 메세지 띄우는 기간 및 Grace Period 관련된 값들을 Registy에 기록/읽기/확인/초기화 하는 역할을 수행합니다.
+- `IsValidActivationCode()` : Activation Code와 License Key를 입력받아서 적합한지 확인합니다.
+
