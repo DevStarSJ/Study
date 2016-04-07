@@ -262,6 +262,49 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - `OK()` : Apply 버튼 Click Event
 - `Cancel()` : Cancel 버튼 Click Event
 
+####1.2.5 SM/SM_ENV
+- `5.2 환경 설정`을 누르면 실행됩니다.
+- Skin 변경 및 접속정보를 수정 할 수 있습니다.
+- `init()` : 처음 실행시 초기화 method 입니다.
+- `BVBtn_Save_ItemClick()` : Save 버튼 Click Event
+- `BVBtn_Cancel_ItemClick()` : Cancel 버튼 Click Event
+
+###1.3 Globals
+- 전역 변수 class들을 저장해 놓은 폴더입니다.
+
+####1.3.1 Consts
+- const 변수들을 설정해 두었습니다.
+- `INFO.xml` 파일명 및 field명을 저장해 두었습니다.
+
+####1.3.2 InitMgr
+- xml 파일을 읽어서 Statics class에 기록하는 기능을 제공합니다.
+- Statics class를 읽어서 xml 파일에 기록하는 기능을 제공합니다.
+
+####1.3.3 Statics
+- 전역으로 선언된 static 변수를 모아두었습니다.
+- 환경 변수 및 database 접속 정보용 변수들이 있습니다.
+
+###1.4 MFCDLL
+- MFC에서 build한 dll 파일들을 모아두었습니다.
+- Setup 파일 생성할때 여기에 있는 dll 파일을 포함시킵니다.
+- debug시 여기의 파일들을 `bin/Debug` 안으로 복사해 주어야 합니다.
+- 개발망 내의 MFC License Solution 중 아래 Project들을 Release 모드로 빌드해서 복사해주시면 됩니다.
+  - ORestful
+  - OLM
+  - SCitrus
+  - SLicense
+
+###1.5 Util/XMLParser
+- `MENU.xml`을 읽어서 MDI의 메뉴를 구성해주는 기능을 제공합니다.
+- LunaStar에서 편의상 복사한 파일입니다.
+- 자세한 설명은 생략하겠습니다.
+
+###1.6 XML/MENU.xml
+- MDI의 메뉴를 xml 형식으로 저장해 두었습니다.
+- 새로운 Form 추가시 해당 xml을 수정하여야 메뉴상에 표시됩니다.
+- Setup 파일 생성할때 여기에 있는 xml 파일을 포함시킵니다.
+- debug시 여기의 파일을 `bin/Debug` 안으로 복사해 주어야 합니다.
+
 
 
 
