@@ -39,17 +39,17 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 3. Setup
   - 배포시 Setup 파일을 생성해주는 Project 입니다.
 
-###1. WVMIS
+##1. WVMIS
 
-####1.1 Program.cs
+###1.1 Program.cs
   - Main() : Program의 시작점 입니다.
   - SetStaticEnvironment() : 고정적 환경변수를 가져옵니다.
   - SetDBList() : 접속 Database 관련 사항을 읽어옵니다.
 
-####1.2 Forms
+###1.2 Forms
 - Winform들을 모아놓음
 
-#####1.2.1 MDI.cs
+####1.2.1 MDI.cs
 - MDI Form
 - 선택된 Menu의 Form을 실행시키는 역할을 합니다.
 - 이번 Project와는 무관하게 LunaStar에서 가져온 것으로 자세한 설명을 생략합니다.
@@ -61,7 +61,7 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - SQL문 만으로 그 결과를 Control에 반영
 - 이번 Project와는 무관하게 LunaStar에서 가져온 것으로 자세한 설명을 생략합니다.
 
-#####1.2.3 CR
+####1.2.3 CR
 - 기준정보 관련 Form들을 모아두었습니다.
 
 #####1.2.3.1 CR_PROD
@@ -152,6 +152,16 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - `XUCC_FindAll_CheckedChanged()` : 전체기간 Checkbox를 눌렀을 때 실행되는 Event
 - `btn_ManualActivation_Click()` : `Manual Activation` 버튼 Click Event
 
+#####1.2.3.7 CR_EMP
+- 직원 관리 Form인데, 현재 사용하지 않습니다.
+
+#####1.2.3.8 CR_GRADE
+- 등급 관리 From인데, 현재 사용하지 않습니다.
+
+####1.2.4 ES
+- Pop-up 형식으로 동작하는 Form들을 모아두었습니다.
+
+#####1.2.4.1 ES_ACC
 
 
 
