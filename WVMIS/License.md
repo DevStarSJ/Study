@@ -28,7 +28,7 @@
 - bit(0,1) 들을 저장하는 컨테이너 class 입니다.
 - bit을 저장하고 읽어오는데 편리한 기능들을 제공합니다.
 
-####1.2 Citrus class
+####1.2 Citrus class : 
 - License Key, Activation Code 관련 작업을 수행합니다.
 - `SetVersion()` : Orange 6.0 / 6.1 버전을 설정합니다.
 - `GetTrialDays()` : 현재 License Key의 남은 기간을 일 단위로 return 합니다.
@@ -48,3 +48,11 @@
 - `GetUsingDays()` : License Key의 전체 기간을 일 단위로 return 합니다.
 - `GetRemainDays()` : License Key의 남은 기간을 일 단위로 return 합니다.
 - `GetExpiredTime()` : License Key 만료일은 time_t 형식으로 return 합니다.
+- `VerifyActivationCode()` : 입력된 Activation Code를 검증합니다.
+- `CalcExpiredTime()` : 시작일과 사용기간을 입력받아서 만료일을 return 합니다.
+- `CalcUsingDays()` : 시작일과 만료일을 입력받아서 사용기간을 return 합니다.
+- `Encrpt()` , `Decrypt()`: 입력된 문자열을 암호화/복호화 합니다.
+- `MakeHash()` : Activation Code에서 사용하는 Hash값을 생성합니다.
+- `ValidateHash()` : Hash 값과 Activation Code내의 항목들이 적합한지 검사합니다.
+- `WS2()` : `std::string` 와 `std::wstring`를 변환해 줍니다.
+
