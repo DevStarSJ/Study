@@ -75,6 +75,12 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 -  btn_Save_Click() : 저장 버튼 Click Event
 -  btn_Cancel_Click() : 취소 버튼 Click Event
 
+#####1.2.3.2 CR_PERIOD
+- 기간 정책을 관리합니다.
+-  RefreshGrid() : Grid에 목록을 출력합니다.
+-  InitCurrentValues() : 현재의 기간 정책 값을 화면의 SpinEditor에 적용합니다.
+-  btn_Save_Click() : 저장 버튼 Click Event
+
 
 
 
