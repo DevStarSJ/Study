@@ -99,4 +99,21 @@
 - `Dlg_InMail` : 개인정보 수집,이용을 동의받으며 e-mail을 입력받습니다.
 - `Dlg_RetComp` : Deactivation 과정이 끝났다는 것을 사용자에게 알리는 문구를 출력합니다.
 
+###5. GenerateLicenseKey Project
+- License Key를 생성하는 Dialog (GenerateLicenseKey.exe)를 생성합니다.
 
+###6. OLM Project
+- WVMIS 에서 필요한 License Key, Activation Code 관련 함수들을 C#에서 사용할 수 있도록 C-Style 함수로 wrapping하였습니다.
+
+###7 SCitrus Project
+- Citrus Project를 OLM Project에서 사용할 수 있도록 wrapping 한 Project 입니다.
+- 모든 source code는 Citrus Project에 있는 것을 사용하며 Project 설정만 다르게 합니다.
+
+###8 SLicense Project
+- OLicense Project를 OLM Project에서 사용할 수 있도록 wrapping 한 Project 입니다.
+- 모든 source code는 OLicense Project에 있는 것을 사용하며 Project 설정만 다르게 합니다.
+
+###9 WCitrus Project
+- Citrus Project를 활성화 Server 구축시 사용할 수 있도록 wrapping 한 Project 입니다.
+- 모든 source code는 Citrus Project에 있는 것을 사용하며 Project 설정만 다르게 합니다.
+- 아직 Server가 구축되지 않아서 실제로 활용한 적은 없습니다.
