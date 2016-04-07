@@ -203,6 +203,21 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - `GetLicenseKey()` , `GetLicenseText()` : MFC DLL 함수입니다.
 - `GetKey()` , `GetText()` : MFC 합수의 결과를 C# string으로 return 합니다.
 
+#####1.2.4.4 ES_CONTPRD
+- `3.1 계약관리`에서 `제품상세`버튼을 눌렀을 때 실행됩니다.
+- 해당 계약에 포함되는 제품 및 License Key 정보를 등록하는 Dialog 입니다.
+- `InitControl()` : 각종 Control의 초기값을 설정합니다.
+- `RefreshPrdList()` : 제품정보 Grid (위쪽)를 출력합니다.
+- `ModifyContQtyInfo()` : 사용되지 않는 함수입니다.
+- `RefreshKeyList()` : 제품키 Grid (아래쪽)을 출력합니다.
+- `btn_add_Click()` : 추가 버튼 Click Event
+- `btn_modify_Click()` : 수정 버튼 Click Event
+- `btn_delete_Click()` : 삭제 버튼 Click Event
+- `btn_key_Click()` : 키 발행 버튼(사용되지 않음) Click Event 
+- `DeleteKey()` : 키 삭제 버튼(사용되지 않음) Click Event 
+- `view_List_FocusedRowChanged()` : 제품 정보 Grid를 선택했을 경우 발생하는 Event
+- 
+- 
 
 
 
