@@ -305,9 +305,20 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - Setup 파일 생성할때 여기에 있는 xml 파일을 포함시킵니다.
 - debug시 여기의 파일을 `bin/Debug` 안으로 복사해 주어야 합니다.
 
+##2. LunaStar
+- Library Project로 여러 편의 기능을 제공합니다.
+- WVMIS 작업 이전에 작업된 Project이며, 특별한 일이 없는 경우 고칠 일이 없습니다.
+- 간단하게 class별로 어떤 기능을 제공하는지에 대해서만 설명드리겠습니다.
 
+###2.1 DBA
+- Oracle database server에 접속을 하여 SQL문을 실행하는 기능을 제공합니다.
 
+###2.2 UserControls
+- 사용자 정의 Control들을 모아두었습니다.
 
+###2.3 Util/FileIO
+- File 입출력 관련 기능을 제공합니다.
 
-
-
+##3. Setup
+- WVMIS를 배포하고자 할때 Setup 파일을 생성해줍니다.
+- project를 선택하시고 build를 선택하면 setup 파일이 생성됩니다.
