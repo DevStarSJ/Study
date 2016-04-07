@@ -67,7 +67,7 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 #####1.2.3.1 CR_PROD
 - 제품정보를 관리합니다.
 -  RefreshGrid() : Grid에 목록을 출력합니다.
--  view_List_FocusedRowChanged() : Grid에서 특정 항목 선택시 동작하는 Event
+-  view_List_FocusedRowChanged() : Grid에서 특정 항목 선택시 발생하는 Event
 -  ClearText(), SetSaveBtn(), SetKey() : Control들의 상태를 변경합니다. FormBase에 의해 호출됩니다.
 -  btn_Add_Click() : 추가 버튼 Click Event
 -  btn_Modify_Click() : 수정 버튼 Click Event
@@ -80,6 +80,32 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 -  RefreshGrid() : Grid에 목록을 출력합니다.
 -  InitCurrentValues() : 현재의 기간 정책 값을 화면의 SpinEditor에 적용합니다.
 -  btn_Save_Click() : 저장 버튼 Click Event
+
+#####1.2.3.3 CR_CUST
+- 고객사 및 담당자를 관리합니다.
+- InitControl() : 각종 Combobox 의 값들을 설정합니다.
+- RefreshGrid_CustList() : 고객 List를 출력합니다.
+- VIEW_CUST_LIST_FocusedRowChanged() : 고객 List에서 선택 했을 경우 발생하는 Event
+- ClearText(), SetSaveBtn() : Control들의 상태를 변경합니다. FormBase에 의해 호출됩니다.
+- BTN_C_ADD_Click() : 고객 -> 신규 버튼 Click Event
+- BTN_C_MOD_Click() : 고객 -> 수정 버튼 Click Event
+- BTN_C_CANCEL_Click() : 고객 -> 취소 버튼 Click Event
+- BTN_C_DEL_Click() : 고객 -> 삭제 버튼 Click Event
+- BTN_C_SAVE_Click() : 고객 -> 저장 버튼 Click Event
+- EBTN_ZIPCODE_ButtonClick() : 고객 -> 주소입력시 활성화 되는 우편번호 버튼 Click Event
+- RefreshGrid_AccountList() : 담당자 List를 출력합니다.
+- SetAccState() : 담당자 관련 Control 들의 Enable 상태를 설정합니다.
+- ClearAccText(), SetAccSaveBtn() : SetAccState()에 의해 호출됩니다.
+- VIEW_ACCOUNT_LIST_FocusedRowChanged() : 담당자 List에서 선택 했을 경우 발생하는 Event
+- VIEW_ACCOUNT_LIST_DataSourceChanged() : 선택된 고객이 변경될 경우 VIEW_ACCOUNT_LIST_FocusedRowChanged() 호출
+- EBTN_A_ZIPCODE_ButtonClick() : 담당자 -> 주소입력시 활성화 되는 우편번호 버튼 Click Event
+- BTN_A_ADD_Click() : 담당자 -> 추가 버튼 Click Event
+- BTN_A_MOD_Click() : 담당자 -> 수정 버튼 Click Event
+- BTN_A_CANCEL_Click() : 담당자 -> 취소 버튼 Click Event
+- BTN_A_DEL_Click() : 담당자 -> 삭제 버튼 Click Event
+- BTN_A_SAVE_Click() : 담당자 -> 저장 버튼 Click Event
+
+
 
 
 
