@@ -289,10 +289,10 @@ Oracle database server에 접속하여 데이터를 관리합니다.
 - Setup 파일 생성할때 여기에 있는 dll 파일을 포함시킵니다.
 - debug시 여기의 파일들을 `bin/Debug` 안으로 복사해 주어야 합니다.
 - 개발망 내의 MFC License Solution 중 아래 Project들을 Release 모드로 빌드해서 복사해주시면 됩니다.
-  - ORestful
-  - OLM
-  - SCitrus
-  - SLicense
+  - OLM : `MFC` 함수를 `C#`에서 사용가능하도록 C-Style 함수로 wrapping 한 dll 입니다. 
+  - ORestful : SLicense 와의 Dependency 때문에 같이 복사를 하였으며 실제로 기능적으로 필요하지는 않습니다.
+  - SCitrus : License Key, Activation Code  관련 기능을 제공합니다. SLicense에서 이 기능을 제공 받고 있습니다.
+  - SLicense : License Key, Activation Code 관련 기능을 `MFC` dll 형태로 제공합니다. `C#`에서는 직접 활용이 불가능하며 OLM.dll을 통해 기능을 제공하고 있습니다.
 
 ###1.5 Util/XMLParser
 - `MENU.xml`을 읽어서 MDI의 메뉴를 구성해주는 기능을 제공합니다.
