@@ -20,6 +20,42 @@
 
 강제로 `deadlock`을 발생시키는 code를 만들어 보았습니다.
 
+```C#
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+class StaticClass
+{
+    public static IEnumerable<string> Names { set; get; }
+
+    static StaticClass()
+    {
+        Names = Task.Run(async () => { return await InitNamesAsync(); }).Result;
+    }
+
+    public static async Task<IEnumerable<string>> InitNamesAsync()
+    {
+        List<string> nameList = new List<string>
+        {
+            "Luna", "Star", "Philip"
+        };
+
+        return nameList;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        foreach (string name in StaticClass.Names)
+        {
+            System.Console.WriteLine(name);
+        }
+    }
+}
+```
+
 
 
 
