@@ -251,10 +251,11 @@ UI 작업용 `SynchronizationContext`인 경우에는 대게 *BackgroundWorker*�
 **(System.Web.dll: System.Web [internal class])**
 
 **ASP.NET** `SynchronizationContext`는 실행된 페이지상의 ThreadPool 스레드에 설치됩니다.
-`delegate`가 `AspNetSynchronizationContext`에 등록되면, 원래 페이지의 ID와 로칼라이제이션 정보 등을 복원한 다음 `delegate`를 직접 실행합니다.
+`delegate`가 `AspNetSynchronizationContext`에 등록되면, 원래 페이지의 ID와 무화권 정보 등을 복원한 다음 `delegate`를 직접 실행합니다.
 설령 `delegate`가 `Post`를 통해 "비동기적"으로 전달되더라도 직접적으로 실행됩니다.
 
 >The ASP.NET SynchronizationContext is installed on thread pool threads as they execute page code. When a delegate is queued to a captured AspNetSynchronizationContext, it restores the identity and culture of the original page and then executes the delegate directly. The delegate is directly invoked even if it’s “asynchronously” queued by calling Post.
+
 
 `AspNetSynchronizationContext`의 `context`는 개념은 복잡합니다.
 비동기 페이지가 실행되는 동안  `context`는 **ASP.NET** ThreadPool에서 하나의 스레드로 시작합니다.
@@ -264,13 +265,36 @@ UI 작업용 `SynchronizationContext`인 경우에는 대게 *BackgroundWorker*�
 
 >Conceptually, the context of AspNetSynchronizationContext is complex. During the lifetime of an asynchronous page, the context starts with just one thread from the ASP.NET thread pool. After the asynchronous requests have started, the context doesn’t include any threads. As the asynchronous requests complete, the thread pool threads executing their completion routines enter the context. These may be the same threads that initiated the requests but more likely would be whatever threads happen to be free at the time the operations complete.
 
-If multiple operations complete at once for the same application, AspNetSynchronizationContext will ensure that they execute one at a time. They may execute on any thread, but that thread will have the identity and culture of the original page.
 
-One common example is a WebClient used from within an asynchronous Web page. DownloadDataAsync will capture the current SynchronizationContext and later will execute its DownloadDataCompleted event in that context. When the page begins executing, ASP.NET will allocate one of its threads to execute the code in that page. The page may invoke DownloadDataAsync and then return; ASP.NET keeps a count of the outstanding asynchronous operations, so it understands that the page isn’t complete. When the WebClient object has downloaded the requested data, it will receive notification on a thread pool thread. This thread will raise DownloadDataCompleted in the captured context. The context will stay on the same thread but will ensure the event handler runs with the correct identity and culture.
+동일한 응용 프로그램에서 여러 작업이 동시에 완료되면, `AspNetSynchronizationContext`는 항상 완료된 작업을 한 번에 하나씩 실행합니다.
+작업을 실행하는 스레드는 특별한 지정없이 아무 스레드에서나 가능하지만, 실행하는 스레드는 원래 페이지의 ID와 문화권 정보등을 가지고 있습니다.
 
-###Notes on SynchronizationContext Implementations
+>If multiple operations complete at once for the same application, AspNetSynchronizationContext will ensure that they execute one at a time. They may execute on any thread, but that thread will have the identity and culture of the original page.
 
-SynchronizationContext provides a means for writing components that may work within many different frameworks. BackgroundWorker and WebClient are two examples that are equally at home in Windows Forms, WPF, Silverlight, console and ASP.NET apps. However, there are some points that must be kept in mind when designing such reusable components.
+일반적인 예를 들어보자면 비동기 페이지 내에서 사용되는 `WebClient`가 있습니다.
+`DownloadDataAsync`는 현재 `SynchronizationContext`를 캡처하고 이후에 `DownloadDataCompleted` 이벤트를 해당 컨텍스트 내에서 수행할 것입니다.
+페이지가 실행되면 **ASP.NET**은 하나의 스레드를 할당하고 해당 페이지의 코드를 실행합니다.
+
+페이지는 `DownloadDataAsync`를 호출(`invoke`)한 반환(`return`)할 수 있습니다.
+이 경우 **ASP.NET**이 완료되지 않은 비동기 작업의 수를 관리하기 때문에
+해당 페이지 실행이 완료되지 않은 것으로 인식하게 됩니다.
+`WebClient` 개체가 요청한 데이터를 다운로드할 때 스레드 풀의 스레드에게 알림이 전달될 것입니다.
+이 스레드는 캡처된 컨텍스트 내에서 `DownloadDataCompleted` 이벤트를 발생시킵니다.
+컨텍스트는 동일한 스레드에 여전히 머물지만 이벤트 처리기가 올바른 ID 및 문화권으로 실행 되는걸 보장합니다.
+
+>One common example is a WebClient used from within an asynchronous Web page. DownloadDataAsync will capture the current SynchronizationContext and later will execute its DownloadDataCompleted event in that context. When the page begins executing, ASP.NET will allocate one of its threads to execute the code in that page. The page may invoke DownloadDataAsync and then return; ASP.NET keeps a count of the outstanding asynchronous operations, so it understands that the page isn’t complete. When the WebClient object has downloaded the requested data, it will receive notification on a thread pool thread. This thread will raise DownloadDataCompleted in the captured context. The context will stay on the same thread but will ensure the event handler runs with the correct identity and culture.
+
+
+##`SynchronizationContext` 구현에 대한 고려사항
+
+>##Notes on SynchronizationContext Implementations
+
+`SynchronizationContext`는 다양한 프레임워크 내에서 실행되는 구성 요소를 만드는 방법을 제공합니다.
+앞서 살펴본 `BackgroundWorker`와 `WebClient`는 윈도우폼, WPF, Silverlight, 콘솔, ASP.NET 등의 영역에서 동작하는 구성 요소의 예입니다.
+그러나 이러한 재사용 가능한 구성 요소를 디자인할 때에는 몇가지 고려해야할 사항들이 있습니다.
+
+>SynchronizationContext provides a means for writing components that may work within many different frameworks. BackgroundWorker and WebClient are two examples that are equally at home in Windows Forms, WPF, Silverlight, console and ASP.NET apps. However, there are some points that must be kept in mind when designing such reusable components.
+
 
 Generally speaking, SynchronizationContext implementations aren’t equality-comparable. This means that there’s no equivalent to ISynchronizeInvoke.InvokeRequired. However, this isn’t a tremendous drawback; code is cleaner and easier to verify if it always executes within a known context instead of attempting to handle multiple contexts.
 
