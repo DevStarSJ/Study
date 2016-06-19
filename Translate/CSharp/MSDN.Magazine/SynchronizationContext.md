@@ -174,7 +174,7 @@ class SynchronizationContext
 >All delegates queued to the WindowsFormsSynchronizationContext are executed one at a time; they’re executed by a specific UI thread in the order they were queued. The current implementation creates one WindowsFormsSynchronizationContext for each UI thread.
 
 ###DispatcherSynchronizationContext
-(WindowsBase.dll: System.Windows.Threading)
+**(WindowsBase.dll: System.Windows.Threading)**
 
 WPF와 실버라이트 앱은 `DispatcherSynchronizationContext`를 사용하는데,
 그것은 `delegate`를 UI 스레드의 디스패처에게 "일반적인" 우선순위로 큐를 통해 전달합니다.
@@ -190,7 +190,7 @@ WPF와 실버라이트 앱은 `DispatcherSynchronizationContext`를 사용하는
 >All delegates queued to the DispatcherSynchronizationContext are executed one at a time by a specific UI thread in the order they were queued. The current implementation creates one DispatcherSynchronizationContext for each top-level window, even if they all share the same underlying Dispatcher.
 
 ###Default (ThreadPool) SynchronizationContext
-(mscorlib.dll: System.Threading)
+**(mscorlib.dll: System.Threading)**
 
 `SynchronizationContext`이 기본입니다.
 스래드의 현재 `SynchronizationContext`가 `null`인 경우 기본 `SynchronizationContext`를 가집니다.
@@ -239,10 +239,18 @@ UI 작업용 `SynchronizationContext`인 경우에는 대게 *BackgroundWorker*�
 
 >####Figure 3 Nested BackgroundWorkers in a UI Context
 
-By default, all threads in console applications and Windows Services only have the default SynchronizationContext. This causes some event-based asynchronous components to fail. One solution for this is to create an explicit child thread and install a SynchronizationContext on that thread, which can then provide a context for these components. Implementing a SynchronizationContext is beyond the scope of this article, but the ActionThread class of the Nito.Async library (nitoasync.codeplex.com) may be used as a general-purpose SynchronizationContext implementation.
+기본적으로 콘솔 앱 및 Windows 서비스는 기본 `SynchronizationContext`만 사용합니다.
+따라서 일부 이벤트 기반 비동기 작업에서 오류가 발생 합니다.
+한 가지 해결 방법은 명시적으로 자식 스레드를 만들어서 `SynchronizationContext`를 생성하여 이러한 요소들을 위한 `context`를 제공하는 것입니다.
+`SynchronizationContext` 구현에 대해서는 여기에서 다루지 않겠습니다만,
+**Nito.Async 라이브러리**(<http://nitoasync.codeplex.com>)의 ActionThread 클래스를 보시면 범용 `SynchronizationContext`의 구현으로 사용된 것을 확인할 수 있습니다.
+
+>By default, all threads in console applications and Windows Services only have the default SynchronizationContext. This causes some event-based asynchronous components to fail. One solution for this is to create an explicit child thread and install a SynchronizationContext on that thread, which can then provide a context for these components. Implementing a SynchronizationContext is beyond the scope of this article, but the ActionThread class of the Nito.Async library (nitoasync.codeplex.com) may be used as a general-purpose SynchronizationContext implementation.
 
 ###AspNetSynchronizationContext
-(System.Web.dll: System.Web [internal class]) The ASP.NET SynchronizationContext is installed on thread pool threads as they execute page code. When a delegate is queued to a captured AspNetSynchronizationContext, it restores the identity and culture of the original page and then executes the delegate directly. The delegate is directly invoked even if it’s “asynchronously” queued by calling Post.
+**(System.Web.dll: System.Web [internal class])**
+
+The ASP.NET SynchronizationContext is installed on thread pool threads as they execute page code. When a delegate is queued to a captured AspNetSynchronizationContext, it restores the identity and culture of the original page and then executes the delegate directly. The delegate is directly invoked even if it’s “asynchronously” queued by calling Post.
 
 Conceptually, the context of AspNetSynchronizationContext is complex. During the lifetime of an asynchronous page, the context starts with just one thread from the ASP.NET thread pool. After the asynchronous requests have started, the context doesn’t include any threads. As the asynchronous requests complete, the thread pool threads executing their completion routines enter the context. These may be the same threads that initiated the requests but more likely would be whatever threads happen to be free at the time the operations complete.
 
