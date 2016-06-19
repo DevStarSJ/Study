@@ -1,3 +1,5 @@
+원본 : <https://msdn.microsoft.com/en-us/magazine/gg598924.aspx>
+
 FEBRUARY 2011 VOLUME 26 NUMBER 02
 
 #병렬 컴퓨팅 - SynchronizationContext에 관한 모든것
@@ -71,24 +73,72 @@ ISynchronizeInvoke의 기본 개념은 다음과 같습니다.
 
 >##The Concept of SynchronizationContext
 
-ISynchronizeInvoke satisfied two needs:
-determining if synchronization was necessary,
-and queuing a unit of work from one thread to another.
-SynchronizationContext was designed to replace ISynchronizeInvoke,
-but after the design process,
-it turned out to not be an exact replacement.
+ISynchronizeInvoke 두 가지 요구 사항을 만족:
+ 동기화가 필요했다 여부를 결정하고,
+다른 하나의 스레드에서 작업 단위를 대기.
+SynchronizationContext에가 ISynchronizeInvoke를 대체하도록 설계하지만,
+설계 공정 후에는 정확한 대체하지 판명되었다.
+
+`ISynchronizeInvoke`에는 2가지 요구조건이 있는데,
+동기화가 필요한지 판단 가능한지와
+스레드 간의 작업을 queue로 전달가능하냐는 것입니다.
+`SynchronizationContext`는 `ISynchronizeInvoke`를 대체하려고 만들었지만 설계하는 과정에서 완벽하게 대체하지 못하도록 바뀌었습니다.
 
 >ISynchronizeInvoke satisfied two needs: determining if synchronization was necessary, and queuing a unit of work from one thread to another. SynchronizationContext was designed to replace ISynchronizeInvoke, but after the design process, it turned out to not be an exact replacement.
 
-One aspect of SynchronizationContext is that it provides a way to queue a unit of work to a context. Note that this unit of work is queued to a context rather than a specific thread. This distinction is important, because many implementations of SynchronizationContext aren’t based on a single, specific thread. SynchronizationContext does not include a mechanism to determine if synchronization is necessary, because this isn’t always possible.
+`SynchronizationContext`의 첫번째 특징은 큐에 있는 작업을 `context`에 재공한다는 것입니다.
+(특정 스레드가 아닌 `context`에 제공을 한다는게 중요합니다.)
+`SynchronizationContext`의 구현이 특정한 하나의 스레드에 연결되지 않으므로 그 차이는 매우 중요합니다.
+`SynchronizationContext`는 동기화 필요여부를 판단하는 방법을 가지지 않는데, 왜냐면 그 판단이 항상 가능한 것은 아니기 때문입니다.
 
-Another aspect of SynchronizationContext is that every thread has a “current” context. A thread’s context isn’t necessarily unique; its context instance may be shared with other threads. It’s possible for a thread to change its current context, but this is quite rare.
+>One aspect of SynchronizationContext is that it provides a way to queue a unit of work to a context. Note that this unit of work is queued to a context rather than a specific thread. This distinction is important, because many implementations of SynchronizationContext aren’t based on a single, specific thread. SynchronizationContext does not include a mechanism to determine if synchronization is necessary, because this isn’t always possible.
 
-A third aspect of SynchronizationContext is that it keeps a count of outstanding asynchronous operations. This enables the use of ASP.NET asynchronous pages and any other host needing this kind of count. In most cases, the count is incremented when the current SynchronizationContext is captured, and the count is decremented when the captured SynchronizationContext is used to queue a completion notification to the context.
+두 번째 특징은 모든 스레드는 `"current" context`를 가진다는 것입니다.
+그 `context`가 반드시 `unique`할 필요는 없으며 다른 스레드와 공유할 수도 있습니다.
+드물긴 하지만, 스레드가 `current context`를 변경하는 것도 가능합니다.
 
-There are other aspects of SynchronizationContext, but they’re less important to most programmers. The most important aspects are illustrated in Figure 1.
+>Another aspect of SynchronizationContext is that every thread has a “current” context. A thread’s context isn’t necessarily unique; its context instance may be shared with other threads. It’s possible for a thread to change its current context, but this is quite rare.
 
-####Figure 1 Aspects of the SynchronizationContext API
+세 번째 특징은 완료되지 않은 비동기 작업의 수를 제한한다는 것입니다.
+그러므로 ASP.NET 비동기 페이지 사용나 이런 종류의 작업 수 제한이 필요로하는 다른 호스트에서 사용이 가능합니다.
+대부분의 경우 `SynchronizationContext`가 발생하면 `count`는 증가하며, 작업이 끝났다고 `context`에게 통보하면서 감소합니다.
+
+>A third aspect of SynchronizationContext is that it keeps a count of outstanding asynchronous operations. This enables the use of ASP.NET asynchronous pages and any other host needing this kind of count. In most cases, the count is incremented when the current SynchronizationContext is captured, and the count is decremented when the captured SynchronizationContext is used to queue a completion notification to the context.
+
+다른 특징들도 있으나, 개발자 입장에서 그다지 고려할 필요가 없습니다.
+가장 중요한 특징에 대해서는 아래 **그림 1**로 표현하였습니다.
+
+>There are other aspects of SynchronizationContext, but they’re less important to most programmers. The most important aspects are illustrated in Figure 1.
+
+####그림 1. `SynchronizationContext` API의 특징
+```C#
+// The important aspects of the SynchronizationContext APIclass SynchronizationContext
+
+{
+
+  // context에 작업을 전달
+
+  void Post(..); // (비동기)
+
+  void Send(..); // (동기)
+
+  // 비동기 작업 수를 계산
+
+  void OperationStarted();
+
+  void OperationCompleted();
+
+  // 각각의 스레드는 current context를 가짐
+
+  // "Current"가 null이면 "new SynchronizationContext()"
+
+  static SynchronizationContext Current { get; }
+
+  static void SetSynchronizationContext(SynchronizationContext);
+}
+```
+
+>####Figure 1 Aspects of the SynchronizationContext API
 ```C#
 // The important aspects of the SynchronizationContext APIclass SynchronizationContext
 
