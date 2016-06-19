@@ -34,19 +34,32 @@ There are other aspects of SynchronizationContext, but they’re less important 
 
 ####Figure 1 Aspects of the SynchronizationContext API
 ```C#
-// The important aspects of the SynchronizationContext APIclass SynchronizationContext 
+// The important aspects of the SynchronizationContext APIclass SynchronizationContext
+
 {
-   // Dispatch work to the context.
-   void Post(..); // (asynchronously)
-   void Send(..); // (synchronously)
-   // Keep track of the number of asynchronous operations.
-   void OperationStarted();
-   void OperationCompleted();
-   // Each thread has a current context.
-   // If "Current" is null, then the thread's current context is 
-   // "new SynchronizationContext()", by convention.
-   static SynchronizationContext Current { get; }
-   static void SetSynchronizationContext(SynchronizationContext);
+
+  // Dispatch work to the context.
+
+  void Post(..); // (asynchronously)
+
+  void Send(..); // (synchronously)
+
+  // Keep track of the number of asynchronous operations.
+
+  void OperationStarted();
+
+  void OperationCompleted();
+
+  // Each thread has a current context.
+
+  // If "Current" is null, then the thread's current context is
+
+
+  // "new SynchronizationContext()", by convention.
+
+  static SynchronizationContext Current { get; }
+
+  static void SetSynchronizationContext(SynchronizationContext);
 }
 ```
 
@@ -73,15 +86,13 @@ The default SynchronizationContext is applied to ThreadPool threads unless the c
 
 Many event-based asynchronous components don’t work as expected with the default SynchronizationContext. An infamous example is a UI application where one BackgroundWorker starts another BackgroundWorker. Each BackgroundWorker captures and uses the SynchronizationContext of the thread that calls RunWorkerAsync and later executes its RunWorkerCompleted event in that context. In the case of a single BackgroundWorker, this is usually a UI-based SynchronizationContext, so RunWorkerCompleted is executed in the UI context captured by RunWorkerAsync (see Figure 2).
 
-<image: A Single BackgroundWorker in a UI Context>
---그림1--
+![image: A Single BackgroundWorker in a UI Context](https://github.com/DevStarSJ/Study/blob/master/Translate/CSharp/MSDN.Magazine/image/SynchronizationContext.01.jpg?raw=true)
 
 ####Figure 2 A Single BackgroundWorker in a UI Context
 
 However, if the BackgroundWorker starts another BackgroundWorker from its DoWork handler, then the nested BackgroundWorker doesn’t capture the UI SynchronizationContext. DoWork is executed by a ThreadPool thread with the default SynchronizationContext. In this case, the nested RunWorkerAsync will capture the default SynchronizationContext, so it will execute its RunWorkerCompleted on a ThreadPool thread instead of a UI thread (see Figure 3).
 
-<image: Nested BackgroundWorkers in a UI Context>
---그림2--
+![image: Nested BackgroundWorkers in a UI Context](https://github.com/DevStarSJ/Study/blob/master/Translate/CSharp/MSDN.Magazine/image/SynchronizationContext.02.jpg?raw=true)
 
 ####Figure 3 Nested BackgroundWorkers in a UI Context
 
@@ -109,12 +120,6 @@ There isn’t a 1:1 correspondence between SynchronizationContext instances and 
 Finally, the SynchronizationContext.Post method isn’t necessarily asynchronous. Most implementations do implement it asynchronously, but AspNetSynchronizationContext is a notable exception. This may cause unexpected re-entrancy issues. A summary of these different implementations can be seen in Figure 4.
 
 ####Figure 4 Summary of SynchronizationContext Implementations
-
- 	Specific Thread Used to Execute Delegates	Exclusive (Delegates Execute One at a Time)	Ordered (Delegates Execute in Queue Order)	Send May Invoke Delegate Directly	Post May Invoke Delegate Directly
-Windows Forms	Yes	Yes	Yes	If called from UI thread	Never
-WPF/Silverlight	Yes	Yes	Yes	If called from UI thread	Never
-Default	No	No	No	Always	Never
-ASP.NET	No	Yes	No	Always	Always
 
 |                 | Specific Thread Used to Execute Delegates | Exclusive (Delegates Execute One at a Time) | Ordered (Delegates Execute in Queue Order) | Send May Invoke Delegate Directly | Post May Invoke Delegate Directly |
 |-----------------|-------------------------------------------|---------------------------------------------|--------------------------------------------|-----------------------------------|-----------------------------------|
@@ -163,9 +168,11 @@ private void button1_Click(object sender, EventArgs e)
   Task.Factory.StartNew(() =>
   {
     // We are running on a ThreadPool thread here.
-   
+
+  
     ; // Do some work.
-   // Report progress to the UI.
+
+  // Report progress to the UI.
     Task reportProgressTask = Task.Factory.StartNew(() =>
       {
         // We are running on the UI thread here.
