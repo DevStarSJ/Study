@@ -212,23 +212,32 @@ WPF와 실버라이트 앱은 `DispatcherSynchronizationContext`를 사용하는
 >The default SynchronizationContext is applied to ThreadPool threads unless the code is hosted by ASP.NET. The default SynchronizationContext is also implicitly applied to explicit child threads (instances of the Thread class) unless the child thread sets its own SynchronizationContext. Thus, UI applications usually have two synchronization contexts: the UI SynchronizationContext covering the UI thread, and the default SynchronizationContext covering the ThreadPool threads.
 
 기본 `SynchronizationContext`에서는 이벤트 기반 비동기 요소들이 거의 제대로 작동하지 않습니다.
-대표적인 예로 UI 앱에서 백그라운드 작업이 다른 백그라운드 작업을 시작하는 것을 들 수 있습니다.
-각 백그라운드 작업은 `RunWorkerAsync`를 호출하는 스레드의 `SynchronizationContext`에 의해서 동작하고, 그 후에 해당 `context`안에서 `RunWorkerCompleted event`를 실행합니다.
-UI 작업용 `SynchronizationContext`인 경우에는 대게 백그라운드 작업이 하나여서, `RunWorkerAsync`로 획득한 UI `context`가 `RunWorkerCompleted`를 실행합니다. (그림 2 참고)
+대표적인 예로 UI 앱에서 *BackgroundWorker*가 다른 *BackgroundWorker*를 시작하는 것을 들 수 있습니다.
+각 *BackgroundWorker*는 `RunWorkerAsync`를 호출하는 스레드의 `SynchronizationContext`에 의해서 동작하고, 그 후에 해당 `context`안에서 `RunWorkerCompleted event`를 실행합니다.
+UI 작업용 `SynchronizationContext`인 경우에는 대게 *BackgroundWorker*가 하나여서, `RunWorkerAsync`로 획득한 UI `context`가 `RunWorkerCompleted`를 실행합니다.
+(그림 2 참고)
 
 >Many event-based asynchronous components don’t work as expected with the default SynchronizationContext. An infamous example is a UI application where one BackgroundWorker starts another BackgroundWorker. Each BackgroundWorker captures and uses the SynchronizationContext of the thread that calls RunWorkerAsync and later executes its RunWorkerCompleted event in that context. In the case of a single BackgroundWorker, this is usually a UI-based SynchronizationContext, so RunWorkerCompleted is executed in the UI context captured by RunWorkerAsync (see Figure 2).
 
 ![image: A Single BackgroundWorker in a UI Context](https://github.com/DevStarSJ/Study/blob/master/Translate/CSharp/MSDN.Magazine/image/SynchronizationContext.01.jpg?raw=true)
 
-####그림 2 UI `Context`에 백그라운드 작업이 하나인 경우
+####그림 2 UI `Context`에 *BackgroundWorker*가 하나인 경우
 
 >####Figure 2 A Single BackgroundWorker in a UI Context
 
-However, if the BackgroundWorker starts another BackgroundWorker from its DoWork handler, then the nested BackgroundWorker doesn’t capture the UI SynchronizationContext. DoWork is executed by a ThreadPool thread with the default SynchronizationContext. In this case, the nested RunWorkerAsync will capture the default SynchronizationContext, so it will execute its RunWorkerCompleted on a ThreadPool thread instead of a UI thread (see Figure 3).
+그러나 *BackgroundWorker*가 *DoWork* 핸들러를 통해 다른 *BackgroundWorker*를 시작할 경우,
+중첩된 *BackgroundWorker*는 `UI SynchronizationContext`를 캡처하지 않습니다.
+*DoWork*는 ThreadPool의 기본 `SynchronizationContext` 스레드에서 실행됩니다.
+이 경우 중첩된 *RunWorkerAsync*는 기본 `SynchronizationContext`를 캡처하기 때문에 UI 스레드가 아니라 ThreadPool 스레드에 의해 `RunWorkerCompleted`를 실행합니다.
+(그림 3 참고)
+
+>However, if the BackgroundWorker starts another BackgroundWorker from its DoWork handler, then the nested BackgroundWorker doesn’t capture the UI SynchronizationContext. DoWork is executed by a ThreadPool thread with the default SynchronizationContext. In this case, the nested RunWorkerAsync will capture the default SynchronizationContext, so it will execute its RunWorkerCompleted on a ThreadPool thread instead of a UI thread (see Figure 3).
 
 ![image: Nested BackgroundWorkers in a UI Context](https://github.com/DevStarSJ/Study/blob/master/Translate/CSharp/MSDN.Magazine/image/SynchronizationContext.02.jpg?raw=true)
 
-####Figure 3 Nested BackgroundWorkers in a UI Context
+####그림 3 UI `Context`에 중첩된 *BackgroundWorker*들
+
+>####Figure 3 Nested BackgroundWorkers in a UI Context
 
 By default, all threads in console applications and Windows Services only have the default SynchronizationContext. This causes some event-based asynchronous components to fail. One solution for this is to create an explicit child thread and install a SynchronizationContext on that thread, which can then provide a context for these components. Implementing a SynchronizationContext is beyond the scope of this article, but the ActionThread class of the Nito.Async library (nitoasync.codeplex.com) may be used as a general-purpose SynchronizationContext implementation.
 
