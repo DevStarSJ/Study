@@ -1,28 +1,84 @@
-EBRUARY 2011VOLUME 26 NUMBER 02
+FEBRUARY 2011 VOLUME 26 NUMBER 02
 
-#Parallel Computing - It's All About the SynchronizationContext
+#병렬 컴퓨팅 - SynchronizationContext에 관한 모든것
 
-By Stephen Cleary | February 2011
+>#Parallel Computing - It's All About the SynchronizationContext
 
-Multithreaded programming can be quite difficult, and there’s a tremendous body of concepts and tools to learn when one embarks on this task. To help out, the Microsoft .NET Framework provides the SynchronizationContext class. Unfortunately, many developers aren’t even aware of this useful tool.
+By [Stephen Cleary](https://msdn.microsoft.com/en-us/magazine/mt149362?author=stephen+cleary) | February 2011
 
-Regardless of the platform—whether it’s ASP.NET, Windows Forms, Windows Presentation Foundation (WPF), Silverlight or others—all .NET programs include the concept of SynchronizationContext, and all multithreading programmers can benefit from understanding and applying it.
+멀티 스레드 프로그래밍은 매우 어렵습니다.
+제대로 이해하기 위해서는 어마어마한 양의 개념과 도구들을 학습해야 합니다.
+**Microsoft .NET Framework**은 `SynchronizationContext` 클래스를 제공 합니다. 
+불행히도, 많은 개발자들이 이 유용한 도구를 모르고 있습니다.
 
-##The Need for SynchronizationContext
+>Multithreaded programming can be quite difficult, and there’s a tremendous body of concepts and tools to learn when one embarks on this task. To help out, the Microsoft .NET Framework provides the SynchronizationContext class. Unfortunately, many developers aren’t even aware of this useful tool.
 
-Multithreaded programs existed well before the advent of the .NET Framework. These programs often had the need for one thread to pass a unit of work to another thread. Windows programs were centered on message loops, so many programmers used this built-in queue to pass units of work around. Each multithreaded program that wanted to use the Windows message queue in this fashion had to define its own custom Windows message and convention for handling it.
+플랫폼에 상관없이 (ASP. NET, Windows Presentation Foundation, Windows 폼 (WPF), Silverlight 등) 
+.NET 프로그램에는 `SynchronizationContext`의 개념이 포함 되어 있으므로,
+다중 스레드를 개발할 경우 `SynchronizationContext`를 이해하고 활용할 수 있는 해택을 누릴 수 있습니다.
 
-When the .NET Framework was first released, this common pattern was standardized. At that time, the only GUI application type that .NET supported was Windows Forms. However, the framework designers anticipated other models, and they developed a generic solution. ISynchronizeInvoke was born.
+>Regardless of the platform—whether it’s ASP.NET, Windows Forms, Windows Presentation Foundation (WPF), Silverlight or others—all .NET programs include the concept of SynchronizationContext, and all multithreading programmers can benefit from understanding and applying it.
 
-The idea behind ISynchronizeInvoke is that a “source” thread can queue a delegate to a “target” thread, optionally waiting for that delegate to complete. ISynchronizeInvoke also provided a property to determine whether the current code was already running on the target thread; in this case, queuing up the delegate would be unnecessary. Windows Forms provided the only implementation of ISynchronizeInvoke, and a pattern was developed for designing asynchronous components, so everyone was happy.
+##**SynchronizationContext**에 대한 필요성
 
-Version 2.0 of the .NET Framework contained many sweeping changes. One of the major improvements was introducing asynchronous pages to the ASP.NET architecture. Prior to the .NET Framework 2.0, every ASP.NET request needed a thread until the request was completed. This was an inefficient use of threads, because creating a Web page often depends on database queries and calls to Web services, and the thread handling that request would have to wait until each of those operations finished. With asynchronous pages, the thread handling the request could begin each of the operations and then return back to the ASP.NET thread pool; when the operations finished, another thread from the ASP.NET thread pool would complete the request.
+>##The Need for SynchronizationContext
 
-However, ISynchronizeInvoke wasn’t a good fit for the ASP.NET asynchronous pages architecture. Asynchronous components developed using the ISynchronizeInvoke pattern wouldn’t work correctly within ASP.NET pages because ASP.NET asynchronous pages aren’t associated with a single thread. Instead of queuing work to the original thread, asynchronous pages only need to maintain a count of outstanding operations to determine when the page request can be completed. After much thought and careful design, ISynchronizeInvoke was replaced by SynchronizationContext.
+다중 스레드 프로그램은 **.NET Framework**가 등장하기 훨씬 이전부터 있었습니다.
+이 경우 한 스레드에서 다른 스레드로 작업을 전송해야 할 경우가 종종 있습니다.
+Windows 프로그램은 **메시지 루프**를 중심으로 동작하기 때문에,
+많은 개발자들은 **윈도우 메시지 큐**로 작업을 전달했습니다.
+**윈도우 메세지 큐**에서 처리가능한 형태로 **사용자정의 윈도우 메세지**를 정의하여야 했습니다.
 
-##The Concept of SynchronizationContext
+>Multithreaded programs existed well before the advent of the .NET Framework. These programs often had the need for one thread to pass a unit of work to another thread. Windows programs were centered on message loops, so many programmers used this built-in queue to pass units of work around. Each multithreaded program that wanted to use the Windows message queue in this fashion had to define its own custom Windows message and convention for handling it.
 
-ISynchronizeInvoke satisfied two needs: determining if synchronization was necessary, and queuing a unit of work from one thread to another. SynchronizationContext was designed to replace ISynchronizeInvoke, but after the design process, it turned out to not be an exact replacement.
+.NET Framework가 처음 나왔을 때에는 이런 식의 방법이 표준이었습니다.
+그땐 .NET이 지원하는 GUI 어플리케이션은 **Windows Form** 뿐 이었습니다.
+그러나, 프레임워크 개발자는 다른 방식의 등장을 예상하고, 범용 솔루션을 개발했습니다.
+그래서 탄생한 것이 `ISynchronizeInvoke`입니다.
+
+>When the .NET Framework was first released, this common pattern was standardized. At that time, the only GUI application type that .NET supported was Windows Forms. However, the framework designers anticipated other models, and they developed a generic solution. ISynchronizeInvoke was born.
+
+ISynchronizeInvoke의 기본 개념은 다음과 같습니다.
+"소스" 스레드는 "타겟" 스레드에서 `delegate`를 큐에 추가하고
+필요에 따라 해당 `delegate`의 작업이 끝나기를 기다리게 하는 것입니다.
+`ISynchronizeInvoke` 역시 "현재 코드"가 "타겟 스레드"에서 실행되고 있는지 여부를 판단할 수 있는 속성이 제공됩니다.
+(이미 실행 중인 경우 `delegate`를 큐에 저장할 필요가 없습니다).
+ **Windows Form**은 `ISynchronizeInvoke`를 이용한 구현만을 제공하고,
+그 패턴은 비동기 구성 요소를 설계하기 위해 개발되었으므로,
+전혀 문제가 되지 않았습니다.
+
+>The idea behind ISynchronizeInvoke is that a “source” thread can queue a delegate to a “target” thread, optionally waiting for that delegate to complete. ISynchronizeInvoke also provided a property to determine whether the current code was already running on the target thread; in this case, queuing up the delegate would be unnecessary. Windows Forms provided the only implementation of ISynchronizeInvoke, and a pattern was developed for designing asynchronous components, so everyone was happy.
+
+**.NET Framework 2.0**에는 전면적인 변경사항들이 포함되었습니다.
+주요 개선점 중 하나는 **ASP.NET**에서 **비동기 페이지** 구현이 가능해 졌습니다.
+**.NET Framework 2.0** 이전에는 모든 **ASP.NET** `request`는 완료 될 때까지 스레드를 가지고 있어야 했습니다.
+참 비효율적이었죠.
+왜냐면 웹 페이지를 만드는 과정에서 **데이터베이스 쿼리**나 **웹 서비스 호출**을 사용하는 경우가 많고,
+웹 페이지 생성 `request`를 처리하는 스레드는 작업이 완료 될 때까지 기다려야 합니다.
+비동기 페이지에서는 `request`를 처리하는 스레드는 각각의 작업을 시작한 다음 **ASP.NET 스레드 풀**로 반환됩니다.
+작업이 완료되면 **ASP.NET 스레드 풀**의 아무 스레드에서든 해당 `request`를 완료할 수 있습니다.
+
+>Version 2.0 of the .NET Framework contained many sweeping changes. One of the major improvements was introducing asynchronous pages to the ASP.NET architecture. Prior to the .NET Framework 2.0, every ASP.NET request needed a thread until the request was completed. This was an inefficient use of threads, because creating a Web page often depends on database queries and calls to Web services, and the thread handling that request would have to wait until each of those operations finished. With asynchronous pages, the thread handling the request could begin each of the operations and then return back to the ASP.NET thread pool; when the operations finished, another thread from the ASP.NET thread pool would complete the request.
+
+그러나 `ISynchronizeInvoke`는 **ASP.NET 비동기 페이지 구조**에는 적합하지 않았습니다.
+`ISynchronizeInvoke` 패턴을 사용하여 개발한 비동기 구성요소는 **ASP.NET** 페이지에서는 제대로 작동하지 않습니다.
+비동기 페이지는 큐에 있는 작업을 원래 스레드로 전달하는 대신에, 페이지 `request` 작업을 완료할 수 있다고 판단되는 작업들의 수만 관리하면 됩니다.
+그래서 많이 심사숙고한 결과, `SynchronizationContext`가 `ISynchronizeInvoke`를 대체하게 되었습니다.
+
+>However, ISynchronizeInvoke wasn’t a good fit for the ASP.NET asynchronous pages architecture. Asynchronous components developed using the ISynchronizeInvoke pattern wouldn’t work correctly within ASP.NET pages because ASP.NET asynchronous pages aren’t associated with a single thread. Instead of queuing work to the original thread, asynchronous pages only need to maintain a count of outstanding operations to determine when the page request can be completed. After much thought and careful design, ISynchronizeInvoke was replaced by SynchronizationContext.
+
+##`SynchronizationContext`의 개념
+
+>##The Concept of SynchronizationContext
+
+ISynchronizeInvoke satisfied two needs:
+determining if synchronization was necessary,
+and queuing a unit of work from one thread to another.
+SynchronizationContext was designed to replace ISynchronizeInvoke,
+but after the design process,
+it turned out to not be an exact replacement.
+
+>ISynchronizeInvoke satisfied two needs: determining if synchronization was necessary, and queuing a unit of work from one thread to another. SynchronizationContext was designed to replace ISynchronizeInvoke, but after the design process, it turned out to not be an exact replacement.
 
 One aspect of SynchronizationContext is that it provides a way to queue a unit of work to a context. Note that this unit of work is queued to a context rather than a specific thread. This distinction is important, because many implementations of SynchronizationContext aren’t based on a single, specific thread. SynchronizationContext does not include a mechanism to determine if synchronization is necessary, because this isn’t always possible.
 
