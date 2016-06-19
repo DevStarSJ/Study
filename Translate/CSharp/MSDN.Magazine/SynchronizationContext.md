@@ -250,9 +250,19 @@ UI 작업용 `SynchronizationContext`인 경우에는 대게 *BackgroundWorker*�
 ###AspNetSynchronizationContext
 **(System.Web.dll: System.Web [internal class])**
 
-The ASP.NET SynchronizationContext is installed on thread pool threads as they execute page code. When a delegate is queued to a captured AspNetSynchronizationContext, it restores the identity and culture of the original page and then executes the delegate directly. The delegate is directly invoked even if it’s “asynchronously” queued by calling Post.
+**ASP.NET** `SynchronizationContext`는 실행된 페이지상의 ThreadPool 스레드에 설치됩니다.
+`delegate`가 `AspNetSynchronizationContext`에 등록되면, 원래 페이지의 ID와 로칼라이제이션 정보 등을 복원한 다음 `delegate`를 직접 실행합니다.
+설령 `delegate`가 `Post`를 통해 "비동기적"으로 전달되더라도 직접적으로 실행됩니다.
 
-Conceptually, the context of AspNetSynchronizationContext is complex. During the lifetime of an asynchronous page, the context starts with just one thread from the ASP.NET thread pool. After the asynchronous requests have started, the context doesn’t include any threads. As the asynchronous requests complete, the thread pool threads executing their completion routines enter the context. These may be the same threads that initiated the requests but more likely would be whatever threads happen to be free at the time the operations complete.
+>The ASP.NET SynchronizationContext is installed on thread pool threads as they execute page code. When a delegate is queued to a captured AspNetSynchronizationContext, it restores the identity and culture of the original page and then executes the delegate directly. The delegate is directly invoked even if it’s “asynchronously” queued by calling Post.
+
+`AspNetSynchronizationContext`의 `context`는 개념은 복잡합니다.
+비동기 페이지가 실행되는 동안  `context`는 **ASP.NET** ThreadPool에서 하나의 스레드로 시작합니다.
+비동기 `request`가 시작된 다음에, `context`는 어느 스레드도 포함하지 않게 됩니다.
+비동기 `request`가 완료되면, ThreadPool 스레드들은 실행을 완료한 다음 `context`에 들어갑니다.
+`request`를 전달받은 스레드들은 같은 스레드 일수도 있지만, 대부분의 경우에는 작업완료 시점에 사용되고 있지 않는 스레드입니다.
+
+>Conceptually, the context of AspNetSynchronizationContext is complex. During the lifetime of an asynchronous page, the context starts with just one thread from the ASP.NET thread pool. After the asynchronous requests have started, the context doesn’t include any threads. As the asynchronous requests complete, the thread pool threads executing their completion routines enter the context. These may be the same threads that initiated the requests but more likely would be whatever threads happen to be free at the time the operations complete.
 
 If multiple operations complete at once for the same application, AspNetSynchronizationContext will ensure that they execute one at a time. They may execute on any thread, but that thread will have the identity and culture of the original page.
 
