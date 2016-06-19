@@ -131,6 +131,7 @@ class SynchronizationContext
 ```
 
 >####Figure 1 Aspects of the SynchronizationContext API
+
 ```C#
 class SynchronizationContext
 {
