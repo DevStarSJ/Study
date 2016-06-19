@@ -110,76 +110,84 @@ SynchronizationContext에가 ISynchronizeInvoke를 대체하도록 설계하지�
 
 >There are other aspects of SynchronizationContext, but they’re less important to most programmers. The most important aspects are illustrated in Figure 1.
 
-####그림 1. `SynchronizationContext` API의 특징
+####그림 1. `SynchronizationContext` API의 주요 특징
 ```C#
-// The important aspects of the SynchronizationContext APIclass SynchronizationContext
-
+class SynchronizationContext
 {
-
   // context에 작업을 전달
-
   void Post(..); // (비동기)
-
   void Send(..); // (동기)
 
   // 비동기 작업 수를 계산
-
   void OperationStarted();
-
   void OperationCompleted();
 
   // 각각의 스레드는 current context를 가짐
-
   // "Current"가 null이면 "new SynchronizationContext()"
 
   static SynchronizationContext Current { get; }
-
   static void SetSynchronizationContext(SynchronizationContext);
 }
 ```
 
 >####Figure 1 Aspects of the SynchronizationContext API
 ```C#
-// The important aspects of the SynchronizationContext APIclass SynchronizationContext
-
+class SynchronizationContext
 {
-
   // Dispatch work to the context.
-
   void Post(..); // (asynchronously)
-
   void Send(..); // (synchronously)
 
   // Keep track of the number of asynchronous operations.
-
   void OperationStarted();
-
   void OperationCompleted();
 
   // Each thread has a current context.
-
   // If "Current" is null, then the thread's current context is
-
-
   // "new SynchronizationContext()", by convention.
 
   static SynchronizationContext Current { get; }
-
   static void SetSynchronizationContext(SynchronizationContext);
 }
 ```
 
-##The Implementations of SynchronizationContext
+##`SynchronizationContext` 구현
 
-The actual “context” of the SynchronizationContext isn’t clearly defined. Different frameworks and hosts are free to define their own context. Understanding these different implementations and their limitations clarifies exactly what the SynchronizationContext concept does and doesn’t guarantee. I’ll briefly discuss some of these implementations.
+>##The Implementations of SynchronizationContext
+
+`SynchronizationContext`의 실제 "context"를 명확하게 정의하긴 힘듭니다.
+각각의 프레임워크와 호스트에서 그들만의 `context`를 정의할 수 있습니다.
+이런 구현과 한계에 관한 차이점을 정확하게 이해하는 것이 `SynchronizationContext`이 보장하는 것과 보장해 주지 않는 것에 대해서 명확하게 이해하는데 도움이 됩니다.
+이 각각의 차이점에 대해서 간략하게 살펴보도록 하겠습니다.
+
+>The actual “context” of the SynchronizationContext isn’t clearly defined. Different frameworks and hosts are free to define their own context. Understanding these different implementations and their limitations clarifies exactly what the SynchronizationContext concept does and doesn’t guarantee. I’ll briefly discuss some of these implementations.
 
 ###WindowsFormsSynchronizationContext
-(System.Windows.Forms.dll: System.Windows.Forms) Windows Forms apps will create and install a WindowsFormsSynchronizationContext as the current context for any thread that creates UI controls. This SynchronizationContext uses the ISynchronizeInvoke methods on a UI control, which passes the delegates to the underlying Win32 message loop. The context for WindowsFormsSynchronizationContext is a single UI thread.
+**(System.Windows.Forms.dll: System.Windows.Forms)**
 
-All delegates queued to the WindowsFormsSynchronizationContext are executed one at a time; they’re executed by a specific UI thread in the order they were queued. The current implementation creates one WindowsFormsSynchronizationContext for each UI thread.
+>###WindowsFormsSynchronizationContext
+**(System.Windows.Forms.dll: System.Windows.Forms)**
+
+윈도우 앱은 UI 컨트럴을 다루는 스레드의 `current context`로 `WindowsFormsSynchronizationContext`를 생성합니다.
+`WindowsFormsSynchronizationContext`는 UI 컨트럴용으로 `ISynchronizeInvoke` 메서드를 사용합니다.
+`ISynchronizeInvoke` 메서드는 `Win32 메세지 루프`로 `delegate`를 전달하는 역할을 수행합니다
+`WindowsFormsSynchronizationContext`의 `context`는 단일 UI 스레드 입니다.
+
+>Windows Forms apps will create and install a WindowsFormsSynchronizationContext as the current context for any thread that creates UI controls. This SynchronizationContext uses the ISynchronizeInvoke methods on a UI control, which passes the delegates to the underlying Win32 message loop. The context for WindowsFormsSynchronizationContext is a single UI thread.
+
+`WindowsFormsSynchronizationContext` 큐에 등록된 모든 `delegate`는 한 번에 하나씩 실행됩니다.
+따라서 큐에 추가된 순서대로 특정 UI 스레드에서 실행 됩니다.
+각각의 UI 스레드 별로 `WindowsFormsSynchronizationContext`를 하나씩 만듭니다.
+
+>All delegates queued to the WindowsFormsSynchronizationContext are executed one at a time; they’re executed by a specific UI thread in the order they were queued. The current implementation creates one WindowsFormsSynchronizationContext for each UI thread.
 
 ###DispatcherSynchronizationContext
-(WindowsBase.dll: System.Windows.Threading) WPF and Silverlight applications use a DispatcherSynchronizationContext, which queues delegates to the UI thread’s Dispatcher with “Normal” priority. This SynchronizationContext is installed as the current context when a thread begins its Dispatcher loop by calling Dispatcher.Run. The context for DispatcherSynchronizationContext is a single UI thread.
+(WindowsBase.dll: System.Windows.Threading)
+
+>###DispatcherSynchronizationContext
+(WindowsBase.dll: System.Windows.Threading)
+
+WPF and Silverlight applications use a DispatcherSynchronizationContext, which queues delegates to the UI thread’s Dispatcher with “Normal” priority. This SynchronizationContext is installed as the current context when a thread begins its Dispatcher loop by calling Dispatcher.Run. The context for DispatcherSynchronizationContext is a single UI thread.
 
 All delegates queued to the DispatcherSynchronizationContext are executed one at a time by a specific UI thread in the order they were queued. The current implementation creates one DispatcherSynchronizationContext for each top-level window, even if they all share the same underlying Dispatcher.
 
