@@ -166,9 +166,6 @@ class SynchronizationContext
 ###WindowsFormsSynchronizationContext
 **(System.Windows.Forms.dll: System.Windows.Forms)**
 
->###WindowsFormsSynchronizationContext
-**(System.Windows.Forms.dll: System.Windows.Forms)**
-
 윈도우 앱은 UI 컨트럴을 다루는 스레드의 `current context`로 `WindowsFormsSynchronizationContext`를 생성합니다.
 `WindowsFormsSynchronizationContext`는 UI 컨트럴용으로 `ISynchronizeInvoke` 메서드를 사용합니다.
 `ISynchronizeInvoke` 메서드는 `Win32 메세지 루프`로 `delegate`를 전달하는 역할을 수행합니다
@@ -185,15 +182,23 @@ class SynchronizationContext
 ###DispatcherSynchronizationContext
 (WindowsBase.dll: System.Windows.Threading)
 
->###DispatcherSynchronizationContext
-(WindowsBase.dll: System.Windows.Threading)
+WPF와 실버라이트 앱은 `DispatcherSynchronizationContext`를 사용하는데,
+그것은 `delegate`를 UI 스레드의 디스패처에게 "일반적인" 우선순위로 큐를 통해 전달합니다.
+이 `SynchronizationContext`는 `Dispatcher.Run`을 통해 스레드가 디스패처 루프를 시작할때 `current context`처럼 설정됩니다.
+`DispatcherSynchronizationContext`의 `context`는 단일 UI 스레드입니다.
 
-WPF and Silverlight applications use a DispatcherSynchronizationContext, which queues delegates to the UI thread’s Dispatcher with “Normal” priority. This SynchronizationContext is installed as the current context when a thread begins its Dispatcher loop by calling Dispatcher.Run. The context for DispatcherSynchronizationContext is a single UI thread.
+>WPF and Silverlight applications use a DispatcherSynchronizationContext, which queues delegates to the UI thread’s Dispatcher with “Normal” priority. This SynchronizationContext is installed as the current context when a thread begins its Dispatcher loop by calling Dispatcher.Run. The context for DispatcherSynchronizationContext is a single UI thread.
 
-All delegates queued to the DispatcherSynchronizationContext are executed one at a time by a specific UI thread in the order they were queued. The current implementation creates one DispatcherSynchronizationContext for each top-level window, even if they all share the same underlying Dispatcher.
+`DispatcherSynchronizationContext` 큐에 등록된 모든 `delegate`는 등록된 순서대로 한 번에 하나씩 UI 스레드에서 실행됩니다.
+각각의 최상위 Window 마다 하나의 `DispatcherSynchronizationContext`를 만듭니다.
+(모든 최상위 Windows가 같은 Dispatcher를 공유 하는 경우에도 마찬가지입니다.)
+
+>All delegates queued to the DispatcherSynchronizationContext are executed one at a time by a specific UI thread in the order they were queued. The current implementation creates one DispatcherSynchronizationContext for each top-level window, even if they all share the same underlying Dispatcher.
 
 ###Default (ThreadPool) SynchronizationContext
-(mscorlib.dll: System.Threading) The default SynchronizationContext is a default-constructed SynchronizationContext object. By convention, if a thread’s current SynchronizationContext is null, then it implicitly has a default SynchronizationContext.
+(mscorlib.dll: System.Threading)
+
+The default SynchronizationContext is a default-constructed SynchronizationContext object. By convention, if a thread’s current SynchronizationContext is null, then it implicitly has a default SynchronizationContext.
 
 The default SynchronizationContext queues its asynchronous delegates to the ThreadPool but executes its synchronous delegates directly on the calling thread. Therefore, its context covers all ThreadPool threads as well as any thread that calls Send. The context “borrows” threads that call Send, bringing them into its context until the delegate completes. In this sense, the default context may include any thread in the process.
 
