@@ -40,7 +40,7 @@ Windows 프로그램은 **메시지 루프**를 중심으로 동작하기 때문
 
 >When the .NET Framework was first released, this common pattern was standardized. At that time, the only GUI application type that .NET supported was Windows Forms. However, the framework designers anticipated other models, and they developed a generic solution. ISynchronizeInvoke was born.
 
-ISynchronizeInvoke의 기본 개념은 다음과 같습니다.
+`ISynchronizeInvoke`의 기본 개념은 다음과 같습니다.
 "소스" 스레드는 "타겟" 스레드에서 `delegate`를 큐에 추가하고
 필요에 따라 해당 `delegate`의 작업이 끝나기를 기다리게 하는 것입니다.
 `ISynchronizeInvoke` 역시 "현재 코드"가 "타겟 스레드"에서 실행되고 있는지 여부를 판단할 수 있는 속성이 제공됩니다.
@@ -204,9 +204,8 @@ WPF와 실버라이트 앱은 `DispatcherSynchronizationContext`를 사용하는
 
 >The default SynchronizationContext queues its asynchronous delegates to the ThreadPool but executes its synchronous delegates directly on the calling thread. Therefore, its context covers all ThreadPool threads as well as any thread that calls Send. The context “borrows” threads that call Send, bringing them into its context until the delegate completes. In this sense, the default context may include any thread in the process.
 
-기본 SynchronizationContext는 ASP.NET에서 호스팅하지 않는 경우 ThreadPool의 스레드에 적용됩니다.
-기본 SynchronizationContext는 자식 스레드가 따로 `SynchronizationContext`를 설정하지 않은 경우 (Thread 클래스의 인스턴스가 아니라) 자식 스레드에 적용됩니다.
-자식 스레드가 자신의 SynchronizationContext에를 설정하지 않으면 기본 SynchronizationContext에 또한 암시 적으로 명시 적 자식 스레드 (Thread 클래스의 인스턴스)에 적용됩니다.
+기본 `SynchronizationContext`는 **ASP.NET**에서 호스팅하지 않는 경우 ThreadPool의 스레드에 적용됩니다.
+기본 `SynchronizationContext`는 자식 스레드가 따로 `SynchronizationContext`를 설정하지 않은 경우 (Thread 클래스의 인스턴스가 아니라) 자식 스레드에 적용됩니다.
 그리고, UI 앱은 보통 2개의 동기 `context`를 사용합니다.
 `UI SynchronizationContext`는 UI 스레드를 동작시키며, 기본 `SynchronizationContext`는 ThreadPool 스레드를 수용합니다.
 
