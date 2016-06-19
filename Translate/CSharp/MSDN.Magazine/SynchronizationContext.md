@@ -73,12 +73,6 @@ ISynchronizeInvoke의 기본 개념은 다음과 같습니다.
 
 >##The Concept of SynchronizationContext
 
-ISynchronizeInvoke 두 가지 요구 사항을 만족:
- 동기화가 필요했다 여부를 결정하고,
-다른 하나의 스레드에서 작업 단위를 대기.
-SynchronizationContext에가 ISynchronizeInvoke를 대체하도록 설계하지만,
-설계 공정 후에는 정확한 대체하지 판명되었다.
-
 `ISynchronizeInvoke`에는 2가지 요구조건이 있는데,
 동기화가 필요한지 판단 가능한지와
 스레드 간의 작업을 queue로 전달가능하냐는 것입니다.
@@ -198,17 +192,38 @@ WPF와 실버라이트 앱은 `DispatcherSynchronizationContext`를 사용하는
 ###Default (ThreadPool) SynchronizationContext
 (mscorlib.dll: System.Threading)
 
-The default SynchronizationContext is a default-constructed SynchronizationContext object. By convention, if a thread’s current SynchronizationContext is null, then it implicitly has a default SynchronizationContext.
+`SynchronizationContext`이 기본입니다.
+스래드의 현재 `SynchronizationContext`가 `null`인 경우 기본 `SynchronizationContext`를 가집니다.
 
-The default SynchronizationContext queues its asynchronous delegates to the ThreadPool but executes its synchronous delegates directly on the calling thread. Therefore, its context covers all ThreadPool threads as well as any thread that calls Send. The context “borrows” threads that call Send, bringing them into its context until the delegate completes. In this sense, the default context may include any thread in the process.
+>The default SynchronizationContext is a default-constructed SynchronizationContext object. By convention, if a thread’s current SynchronizationContext is null, then it implicitly has a default SynchronizationContext.
 
-The default SynchronizationContext is applied to ThreadPool threads unless the code is hosted by ASP.NET. The default SynchronizationContext is also implicitly applied to explicit child threads (instances of the Thread class) unless the child thread sets its own SynchronizationContext. Thus, UI applications usually have two synchronization contexts: the UI SynchronizationContext covering the UI thread, and the default SynchronizationContext covering the ThreadPool threads.
+기본 `SynchronizationContext`는 비동기 `delegate`는 ThreadPool에 등록하고, 동기 `delegate`는 호출 스레드에서 직접 실행 합니다.
+따라서 그 `context`는 `Send`를 실행한 스레드 만큼이나 모든 ThreadPool의 스레드를 대상으로 합니다.
+`context`는 `Send`를 실행한 스레드를 "빌려서" `delegate`가 완료될때까지 `context` 내부에서 사용합니다.
+즉, 기본 `context`는 프로세스 상의 어떤 스레드에서도 실행 될 수 있습니다.
 
-Many event-based asynchronous components don’t work as expected with the default SynchronizationContext. An infamous example is a UI application where one BackgroundWorker starts another BackgroundWorker. Each BackgroundWorker captures and uses the SynchronizationContext of the thread that calls RunWorkerAsync and later executes its RunWorkerCompleted event in that context. In the case of a single BackgroundWorker, this is usually a UI-based SynchronizationContext, so RunWorkerCompleted is executed in the UI context captured by RunWorkerAsync (see Figure 2).
+>The default SynchronizationContext queues its asynchronous delegates to the ThreadPool but executes its synchronous delegates directly on the calling thread. Therefore, its context covers all ThreadPool threads as well as any thread that calls Send. The context “borrows” threads that call Send, bringing them into its context until the delegate completes. In this sense, the default context may include any thread in the process.
+
+기본 SynchronizationContext는 ASP.NET에서 호스팅하지 않는 경우 ThreadPool의 스레드에 적용됩니다.
+기본 SynchronizationContext는 자식 스레드가 따로 `SynchronizationContext`를 설정하지 않은 경우 (Thread 클래스의 인스턴스가 아니라) 자식 스레드에 적용됩니다.
+자식 스레드가 자신의 SynchronizationContext에를 설정하지 않으면 기본 SynchronizationContext에 또한 암시 적으로 명시 적 자식 스레드 (Thread 클래스의 인스턴스)에 적용됩니다.
+그리고, UI 앱은 보통 2개의 동기 `context`를 사용합니다.
+`UI SynchronizationContext`는 UI 스레드를 동작시키며, 기본 `SynchronizationContext`는 ThreadPool 스레드를 수용합니다.
+
+>The default SynchronizationContext is applied to ThreadPool threads unless the code is hosted by ASP.NET. The default SynchronizationContext is also implicitly applied to explicit child threads (instances of the Thread class) unless the child thread sets its own SynchronizationContext. Thus, UI applications usually have two synchronization contexts: the UI SynchronizationContext covering the UI thread, and the default SynchronizationContext covering the ThreadPool threads.
+
+기본 `SynchronizationContext`에서는 이벤트 기반 비동기 요소들이 거의 제대로 작동하지 않습니다.
+대표적인 예로 UI 앱에서 백그라운드 작업이 다른 백그라운드 작업을 시작하는 것을 들 수 있습니다.
+각 백그라운드 작업은 `RunWorkerAsync`를 호출하는 스레드의 `SynchronizationContext`에 의해서 동작하고, 그 후에 해당 `context`안에서 `RunWorkerCompleted event`를 실행합니다.
+UI 작업용 `SynchronizationContext`인 경우에는 대게 백그라운드 작업이 하나여서, `RunWorkerAsync`로 획득한 UI `context`가 `RunWorkerCompleted`를 실행합니다. (그림 2 참고)
+
+>Many event-based asynchronous components don’t work as expected with the default SynchronizationContext. An infamous example is a UI application where one BackgroundWorker starts another BackgroundWorker. Each BackgroundWorker captures and uses the SynchronizationContext of the thread that calls RunWorkerAsync and later executes its RunWorkerCompleted event in that context. In the case of a single BackgroundWorker, this is usually a UI-based SynchronizationContext, so RunWorkerCompleted is executed in the UI context captured by RunWorkerAsync (see Figure 2).
 
 ![image: A Single BackgroundWorker in a UI Context](https://github.com/DevStarSJ/Study/blob/master/Translate/CSharp/MSDN.Magazine/image/SynchronizationContext.01.jpg?raw=true)
 
-####Figure 2 A Single BackgroundWorker in a UI Context
+####그림 2 UI `Context`에 백그라운드 작업이 하나인 경우
+
+>####Figure 2 A Single BackgroundWorker in a UI Context
 
 However, if the BackgroundWorker starts another BackgroundWorker from its DoWork handler, then the nested BackgroundWorker doesn’t capture the UI SynchronizationContext. DoWork is executed by a ThreadPool thread with the default SynchronizationContext. In this case, the nested RunWorkerAsync will capture the default SynchronizationContext, so it will execute its RunWorkerCompleted on a ThreadPool thread instead of a UI thread (see Figure 3).
 
