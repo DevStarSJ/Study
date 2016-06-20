@@ -349,15 +349,38 @@ UI 기반 `SynchronizationContext` 구현은 모든 조건들에 대해서 확�
 
 >##AsyncOperationManager and AsyncOperation
 
-The AsyncOperationManager and AsyncOperation classes in the .NET Framework are lightweight wrappers around the SynchronizationContext abstraction. AsyncOperationManager captures the current SynchronizationContext the first time it creates an AsyncOperation, substituting a default SynchronizationContext if the current one is null. AsyncOperation posts delegates asynchronously to the captured SynchronizationContext.
 
-Most event-based asynchronous components use AsyncOperationManager and AsyncOperation in their implementation. These work well for asynchronous operations that have a defined point of completion—that is, the asynchronous operation begins at one point and ends with an event at another. Other asynchronous notifications may not have a defined point of completion; these may be a type of subscription, which begins at one point and then continues indefinitely. For these types of operations, SynchronizationContext may be captured and used directly.
+**.NET Framework**에 있는 `AsyncOperationManager` 클래스와 `AsyncOperation` 클래스는 `SynchronizationContext`를 추상화한 가벼운 래퍼입니다.
+`AsyncOperationManager`는 `AsyncOperation`이 처음 만들어질 때 현재 `SynchronizationContext`를 캡처하는데, 만약 `SynchronizationContext`가 *null*이면 기본 `SynchronizationContext`로 생성합니다.
+`AsyncOperation`은 `SynchronizationContext`에 캡처된 `delegate`를 비동기적으로 배치합니다.
 
-New components shouldn’t use the event-based asynchronous pattern. The Visual Studio asynchronous Community Technology Preview (CTP) includes a document describing the task-based asynchronous pattern, in which components return Task and Task<TResult> objects instead of raising events through SynchronizationContext. Task-based APIs are the future of asynchronous programming in .NET.
+>The AsyncOperationManager and AsyncOperation classes in the .NET Framework are lightweight wrappers around the SynchronizationContext abstraction. AsyncOperationManager captures the current SynchronizationContext the first time it creates an AsyncOperation, substituting a default SynchronizationContext if the current one is null. AsyncOperation posts delegates asynchronously to the captured SynchronizationContext.
 
-##Examples of Library Support for SynchronizationContext
+
+대부분의 이벤트 기반 비동기 구성 요소는 해당 구현에서 `AsyncOperationManager` 클래스와 `AsyncOperation` 클래스를 사용합니다.
+두 클래스는 완료되는 시점이 결정된 비동기작업, 즉, 한 시점에서 시작한 후 다른 시점에서 이벤트와 함께 끝나는 경우에는 제대로 작동합니다.
+다른 비동기 알림은 완료시점이 명확하지 않을 수 있습니다.
+예를 들어, 한 시점에 시작하여 계속 지속되는 구독(subscription) 같은 경우입니다.
+이러한 작업에서는 `SynchronizationContext`를 직접 캡쳐하고 사용해야 합니다.
+
+>Most event-based asynchronous components use AsyncOperationManager and AsyncOperation in their implementation. These work well for asynchronous operations that have a defined point of completion—that is, the asynchronous operation begins at one point and ends with an event at another. Other asynchronous notifications may not have a defined point of completion; these may be a type of subscription, which begins at one point and then continues indefinitely. For these types of operations, SynchronizationContext may be captured and used directly.
+
+새 구성 요소는 이벤트 기반 비동기 패턴을 사용하지 않는 것이 좋습니다.
+**Visual Studio Async CTP (Community Technology Preview)**에는  작업 기반 비동기 패턴에 대한 설명서가 포함 되어 있으며,
+이 패턴은 `SynchronizationContext`로 이벤트를 발생시키지 않고도 구성 요소에서 `Task` 및 `Task<TResult>`개체를 반환합니다.
+앞으로는 **작업 기반 API**가 .NET에서의 비동기 프로그래밍의 대표가 될 것입니다.
+
+>New components shouldn’t use the event-based asynchronous pattern. The Visual Studio asynchronous Community Technology Preview (CTP) includes a document describing the task-based asynchronous pattern, in which components return Task and Task<TResult> objects instead of raising events through SynchronizationContext. Task-based APIs are the future of asynchronous programming in .NET.
+
+
+###`SynchronizationContext`를 지원하는 라이러리의 예
+
+>##Examples of Library Support for SynchronizationContext
+
 
 Simple components such as BackgroundWorker and WebClient are implicitly portable by themselves, hiding the SynchronizationContext capture and usage. Many libraries have a more visible use of SynchronizationContext. By exposing APIs using SynchronizationContext, libraries not only gain framework independence, they also provide an extensibility point for advanced end users.
+
+>Simple components such as BackgroundWorker and WebClient are implicitly portable by themselves, hiding the SynchronizationContext capture and usage. Many libraries have a more visible use of SynchronizationContext. By exposing APIs using SynchronizationContext, libraries not only gain framework independence, they also provide an extensibility point for advanced end users.
 
 In addition to the libraries I’ll discuss now, the current SynchronizationContext is considered to be part of the ExecutionContext. Any system that captures a thread’s ExecutionContext captures the current SynchronizationContext. When the ExecutionContext is restored, the SynchronizationContext is usually restored as well.
 
