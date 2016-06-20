@@ -375,23 +375,44 @@ UI 기반 `SynchronizationContext` 구현은 모든 조건들에 대해서 확�
 
 ###`SynchronizationContext`를 지원하는 라이러리의 예
 
->##Examples of Library Support for SynchronizationContext
+>###Examples of Library Support for SynchronizationContext
 
-
-Simple components such as BackgroundWorker and WebClient are implicitly portable by themselves, hiding the SynchronizationContext capture and usage. Many libraries have a more visible use of SynchronizationContext. By exposing APIs using SynchronizationContext, libraries not only gain framework independence, they also provide an extensibility point for advanced end users.
+`BackgroundWorker`와 `WebClient` 같은 간단한 구성 요소는 `SynchronizationContext`의 캡쳐와 사용을 숨기면서 스스로 암시적으로 이식이 가능합니다.
+그러나 대부분의 라이브러리는 `SynchronizationContext`를 좀 더 명시적으로 사용합니다.
+`SynchronizationContext`를 사용하는 API를 노출시킴으로서 해당 라이브러리는 프레임워크에 의존적이지 않게 되는 것뿐 아니라, 고급 사용자들에게 확장성을 제공할 수 있게 됩니다.
 
 >Simple components such as BackgroundWorker and WebClient are implicitly portable by themselves, hiding the SynchronizationContext capture and usage. Many libraries have a more visible use of SynchronizationContext. By exposing APIs using SynchronizationContext, libraries not only gain framework independence, they also provide an extensibility point for advanced end users.
 
-In addition to the libraries I’ll discuss now, the current SynchronizationContext is considered to be part of the ExecutionContext. Any system that captures a thread’s ExecutionContext captures the current SynchronizationContext. When the ExecutionContext is restored, the SynchronizationContext is usually restored as well.
 
-###Windows Communication Foundation (WCF):UseSynchronizationContext
-WCF has two attributes that are used to configure server and client behavior: ServiceBehaviorAttribute and CallbackBehaviorAttribute. Both of these attributes have a Boolean property: UseSynchronizationContext. The default value of this attribute is true, which means that the current SynchronizationContext is captured when the communication channel is created, and this captured SynchronizationContext is used to queue the contract methods.
+여기서 소개 하는 라이브러리에서는 *current* `SynchronizationContext`는 `ExecutionContext`의 일부로 간주하겠습니다.
+스레드의 `ExecutionContext`를 캡처하는 모든 시스템은 *current* `SynchronizationContext`를 캡처합니다.
+`ExecutionContext`가 복원되면 `SynchronizationContext`도 복원됩니다.
 
-Normally, this behavior is exactly what is needed: Servers use the default SynchronizationContext, and client callbacks use the appropriate UI SynchronizationContext. However, this can cause problems when re-entrancy is desired, such as a client invoking a server method that invokes a client callback. In this and similar cases, the WCF automatic usage of SynchronizationContext may be disabled by setting UseSynchronizationContext to false.
+>In addition to the libraries I’ll discuss now, the current SynchronizationContext is considered to be part of the ExecutionContext. Any system that captures a thread’s ExecutionContext captures the current SynchronizationContext. When the ExecutionContext is restored, the SynchronizationContext is usually restored as well.
 
-This is just a brief description of how WCF uses SynchronizationContext. See the article “Synchronization Contexts in WCF” (<msdn.microsoft.com/magazine/cc163321>) in the November 2007 issue of MSDN Magazine for more details.
+##Windows Communication Foundation (WCF):UseSynchronizationContext
+
+
+WCF는 *configure server*와 *client behavior*라는 2개의 속성을 가집니다. (`ServiceBehaviorAttribute`, `CallbackBehaviorAttribute`)
+두 속성 다 `UseSynchronizationContext`라는 *bool* 속성을 가집니다 
+이 속성의 기본값은 *true*이므로 통신 채널이 생성될 때 *current* `SynchronizationContext`를 캡처하고, 이 캡처된 `SynchronizationContext`은 *contract method*를 큐에 저장 됩니다.
+
+>WCF has two attributes that are used to configure server and client behavior: ServiceBehaviorAttribute and CallbackBehaviorAttribute. Both of these attributes have a Boolean property: UseSynchronizationContext. The default value of this attribute is true, which means that the current SynchronizationContext is captured when the communication channel is created, and this captured SynchronizationContext is used to queue the contract methods.
+
+
+일반적으로 이것은 정확하게 원하는 동작입니다. 즉, 서버는 기본 `SynchronizationContext`를 사용하고, 클라이언트 콜백은 `SynchronizationContext`의 적절한 UI를 사용합니다.
+그러나 클라이언트 콜백을 호출하는 서버 메서드를 클라이언트가 호출하는 경우와 같이 재진입성이 요구될 경우 문제가 발생할 수 있습니다.
+이 경우, `UseSynchronizationContext` 속성을 *false*로 설정하여 WCF에 의해 `SynchronizationContext`를 자동으로 사용할 수 없도록 설정할 수 있습니다.
+
+>Normally, this behavior is exactly what is needed: Servers use the default SynchronizationContext, and client callbacks use the appropriate UI SynchronizationContext. However, this can cause problems when re-entrancy is desired, such as a client invoking a server method that invokes a client callback. In this and similar cases, the WCF automatic usage of SynchronizationContext may be disabled by setting UseSynchronizationContext to false.
+
+여기서는 **WCF**가 `SynchronizationContext`를 사용하는 방법에 대해서 간단하게만 살펴보았는데,
+자세한 내용을 알고 싶은 분들은 2007년 11월에 **MSDN 매거진**에 수록된 **“Synchronization Contexts in WCF”** (<msdn.microsoft.com/magazine/cc163321>)를 보시기 바랍니다.
+
+>This is just a brief description of how WCF uses SynchronizationContext. See the article “Synchronization Contexts in WCF” (<msdn.microsoft.com/magazine/cc163321>) in the November 2007 issue of MSDN Magazine for more details.
 
 ###Windows Workflow Foundation (WF): WorkflowInstance.SynchronizationContext
+
 WF hosts originally used WorkflowSchedulerService and derived types to control how workflow activities were scheduled on threads. Part of the .NET Framework 4 upgrade included the SynchronizationContext property on the WorkflowInstance class and its derived WorkflowApplication class.
 
 The SynchronizationContext may be set directly if the hosting process creates its own WorkflowInstance. SynchronizationContext is also used by WorkflowInvoker.InvokeAsync, which captures the current SynchronizationContext and passes it to its internal WorkflowApplication. This SynchronizationContext is then used to post the workflow completion event as well as the workflow activities.
