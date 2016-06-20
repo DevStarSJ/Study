@@ -407,9 +407,9 @@ WCF는 *configure server*와 *client behavior*라는 2개의 속성을 가집니
 >Normally, this behavior is exactly what is needed: Servers use the default SynchronizationContext, and client callbacks use the appropriate UI SynchronizationContext. However, this can cause problems when re-entrancy is desired, such as a client invoking a server method that invokes a client callback. In this and similar cases, the WCF automatic usage of SynchronizationContext may be disabled by setting UseSynchronizationContext to false.
 
 여기서는 **WCF**가 `SynchronizationContext`를 사용하는 방법에 대해서 간단하게만 살펴보았는데,
-자세한 내용을 알고 싶은 분들은 2007년 11월에 **MSDN 매거진**에 수록된 **“Synchronization Contexts in WCF”** (<msdn.microsoft.com/magazine/cc163321>)를 보시기 바랍니다.
+자세한 내용을 알고 싶은 분들은 2007년 11월에 **MSDN 매거진**에 수록된 **“Synchronization Contexts in WCF”** (<https://msdn.microsoft.com/magazine/cc163321>)를 보시기 바랍니다.
 
->This is just a brief description of how WCF uses SynchronizationContext. See the article “Synchronization Contexts in WCF” (<msdn.microsoft.com/magazine/cc163321>) in the November 2007 issue of MSDN Magazine for more details.
+>This is just a brief description of how WCF uses SynchronizationContext. See the article “Synchronization Contexts in WCF” (<https://msdn.microsoft.com/magazine/cc163321>) in the November 2007 issue of MSDN Magazine for more details.
 
 ###Windows Workflow Foundation (WF): WorkflowInstance.SynchronizationContext
 
