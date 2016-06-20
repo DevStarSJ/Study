@@ -296,24 +296,58 @@ UI 작업용 `SynchronizationContext`인 경우에는 대게 *BackgroundWorker*�
 >SynchronizationContext provides a means for writing components that may work within many different frameworks. BackgroundWorker and WebClient are two examples that are equally at home in Windows Forms, WPF, Silverlight, console and ASP.NET apps. However, there are some points that must be kept in mind when designing such reusable components.
 
 
-Generally speaking, SynchronizationContext implementations aren’t equality-comparable. This means that there’s no equivalent to ISynchronizeInvoke.InvokeRequired. However, this isn’t a tremendous drawback; code is cleaner and easier to verify if it always executes within a known context instead of attempting to handle multiple contexts.
+일반적으로는 `SynchronizationContext`의 구현은 평등성을 비교(equality-comparable)할 수 없습니다.
+즉, `ISynchronizeInvoke.InvokeRequired`에 대해서 동등한것은 없습니다.
+하지만, 이것이 큰 단점은 아닙니다.
+코드는 더 깔끔하고 다른 컨텍스트에서 실행되는 대신에 이미 알려진 컨텍스트에서 항상 실행된다는 것을 확인하기 쉽게 됩니다.
 
-Not all SynchronizationContext implementations guarantee the order of delegate execution or synchronization of delegates. The UI-based SynchronizationContext implementations do satisfy these conditions, but the ASP.NET SynchronizationContext only provides synchronization. The default SynchronizationContext doesn’t guarantee either order of execution or synchronization.
+>Generally speaking, SynchronizationContext implementations aren’t equality-comparable. This means that there’s no equivalent to ISynchronizeInvoke.InvokeRequired. However, this isn’t a tremendous drawback; code is cleaner and easier to verify if it always executes within a known context instead of attempting to handle multiple contexts.
 
-There isn’t a 1:1 correspondence between SynchronizationContext instances and threads. The WindowsFormsSynchronizationContext does have a 1:1 mapping to a thread (as long as SynchronizationContext.CreateCopy isn’t invoked), but this isn’t true of any of the other implementations. In general, it’s best to not assume that any context instance will run on any specific thread.
 
-Finally, the SynchronizationContext.Post method isn’t necessarily asynchronous. Most implementations do implement it asynchronously, but AspNetSynchronizationContext is a notable exception. This may cause unexpected re-entrancy issues. A summary of these different implementations can be seen in Figure 4.
+모든 `SynchronizationContext`의 구현이 `delegate`의 실행 순서나 동기화에 대해서 보장하지는 않습니다.
+UI 기반 `SynchronizationContext` 구현은 모든 조건들에 대해서 확실히 보장하지만, **ASP.NET**의 `SynchronizationContext`는 동기화 순서만 보장합니다.
+기본 `SynchronizationContext`는 둘 다 보장하지 않습니다.
 
-####Figure 4 Summary of SynchronizationContext Implementations
+>Not all SynchronizationContext implementations guarantee the order of delegate execution or synchronization of delegates. The UI-based SynchronizationContext implementations do satisfy these conditions, but the ASP.NET SynchronizationContext only provides synchronization. The default SynchronizationContext doesn’t guarantee either order of execution or synchronization.
 
-|                 | Specific Thread Used to Execute Delegates | Exclusive (Delegates Execute One at a Time) | Ordered (Delegates Execute in Queue Order) | Send May Invoke Delegate Directly | Post May Invoke Delegate Directly |
+
+`SynchronizationContext` 객체와 스레드가 1:1로 대응되지는 않습니다.
+`WindowsFormsSynchronizationContext`는 (`SynchronizationContext.CreateCopy`가 호출되지 않는 동안에는) 스레드와 1:1로 매핑됩니다. 
+하지만 다른 컨텍스트들은 그렇지 않습니다.
+일반적으로, 특정 컨택스트가 특정 스레드에서 실행된다는 가정은 하지 않는게 좋습니다.
+
+>There isn’t a 1:1 correspondence between SynchronizationContext instances and threads. The WindowsFormsSynchronizationContext does have a 1:1 mapping to a thread (as long as SynchronizationContext.CreateCopy isn’t invoked), but this isn’t true of any of the other implementations. In general, it’s best to not assume that any context instance will run on any specific thread.
+
+마지막으로, `SynchronizationContext.Post` 메서드가 꼭 비동기적이어야 할 필요는 없습니다.
+대부분의 경우 비동기적으로 구현하고 있지만 `AspNetSynchronizationContext`은 두드러지는 예외입니다.
+따라서 예기치 않은 재진입(re-entrancy) 문제가 발생할 수도 있습니다.
+이러한 차이점들에 대해서 **그림 4**에서 살펴보도록 하겠습니다.
+
+>Finally, the SynchronizationContext.Post method isn’t necessarily asynchronous. Most implementations do implement it asynchronously, but AspNetSynchronizationContext is a notable exception. This may cause unexpected re-entrancy issues. A summary of these different implementations can be seen in Figure 4.
+
+
+####그림 4 SynchronizationContext 종류별 요약
+
+|                 | `delegate`를 실행한 특정 스레드 | 배타적 (`delegate`가 한번에 하나씩 실행) | 순서대로 (`delegate`가 등록된 순서대로 실행) | `Send`가 `delegate`를 직접 수행 | `Post`가 `delegate`를 직접 수행 |
+|-----------------|-------------------------------|----------------------------------------|-------------------------------------------|--------------------------------|--------------------------------|
+| Windows Forms   | Yes                           | Yes                                    | Yes                                       | UI 스레드에서 호출하는 경우      | Never                          |
+| WPF/Silverlight | Yes                           | Yes                                    | Yes                                       | UI 스레드에서 호출하는 경우      | Never                          |
+| Default         | No                            | No                                     | No                                        | Always                         | Never                          |
+| ASP.NET         | No                            | Yes                                    | No                                        | Always                         | Always                         |
+
+>####Figure 4 Summary of SynchronizationContext Implementations
+>
+>|                 | Specific Thread Used to Execute Delegates | Exclusive (Delegates Execute One at a Time) | Ordered (Delegates Execute in Queue Order) | Send May Invoke Delegate Directly | Post May Invoke Delegate Directly |
 |-----------------|-------------------------------------------|---------------------------------------------|--------------------------------------------|-----------------------------------|-----------------------------------|
 | Windows Forms   | Yes                                       | Yes                                         | Yes                                        | If called from UI thread          | Never                             |
 | WPF/Silverlight | Yes                                       | Yes                                         | Yes                                        | If called from UI thread          | Never                             |
 | Default         | No                                        | No                                          | No                                         | Always                            | Never                             |
 | ASP.NET         | No                                        | Yes                                         | No                                         | Always                            | Always                            |
 
-##AsyncOperationManager and AsyncOperation
+
+##AsyncOperationManager 와 AsyncOperation
+
+>##AsyncOperationManager and AsyncOperation
 
 The AsyncOperationManager and AsyncOperation classes in the .NET Framework are lightweight wrappers around the SynchronizationContext abstraction. AsyncOperationManager captures the current SynchronizationContext the first time it creates an AsyncOperation, substituting a default SynchronizationContext if the current one is null. AsyncOperation posts delegates asynchronously to the captured SynchronizationContext.
 
