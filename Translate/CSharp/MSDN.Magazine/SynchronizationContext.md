@@ -1,7 +1,3 @@
-원본 : <https://msdn.microsoft.com/en-us/magazine/gg598924.aspx>
-
-FEBRUARY 2011 VOLUME 26 NUMBER 02
-
 #병렬 컴퓨팅 - SynchronizationContext에 관한 모든것
 
 >#Parallel Computing - It's All About the SynchronizationContext
@@ -411,14 +407,32 @@ WCF는 *configure server*와 *client behavior*라는 2개의 속성을 가집니
 
 >This is just a brief description of how WCF uses SynchronizationContext. See the article “Synchronization Contexts in WCF” (<https://msdn.microsoft.com/magazine/cc163321>) in the November 2007 issue of MSDN Magazine for more details.
 
+
 ###Windows Workflow Foundation (WF): WorkflowInstance.SynchronizationContext
 
-WF hosts originally used WorkflowSchedulerService and derived types to control how workflow activities were scheduled on threads. Part of the .NET Framework 4 upgrade included the SynchronizationContext property on the WorkflowInstance class and its derived WorkflowApplication class.
 
-The SynchronizationContext may be set directly if the hosting process creates its own WorkflowInstance. SynchronizationContext is also used by WorkflowInvoker.InvokeAsync, which captures the current SynchronizationContext and passes it to its internal WorkflowApplication. This SynchronizationContext is then used to post the workflow completion event as well as the workflow activities.
+원래는 WF 호스트는 WorkflowSchedulerService와 파생 형식을 사용하여 스레드에서 워크플로 작업의 일정을 설정하는 방법을 제어하고 있었습니다.
+**.NET Framework 4**로 업그레이드의 일환으로, 이 `WorkflowInstance` 클래스와 이것의 파생 클레스인 `WorkflowApplication`에 `SynchronizationContext` 속성이 포함이 포함되었습니다.
+
+>WF hosts originally used WorkflowSchedulerService and derived types to control how workflow activities were scheduled on threads. Part of the .NET Framework 4 upgrade included the SynchronizationContext property on the WorkflowInstance class and its derived WorkflowApplication class.
+
+
+호스팅 프로세스가 자체 `WorkflowInstance`를 만들면 `SynchronizationContext`를 직접 설정할 수 있습니다.
+`SynchronizationContext`는 `WorkflowInvoker.InvokeAsync` 메서드에서 사용되는데,
+이 메서드는 현재 `SynchronizationContext`를 캡처하여 내부 `WorkflowApplication`에 전달합니다.
+그런 다음 워크플로 작업와 워크플로 완료 이벤트를 게시하는데 `SynchronizationContext`를 사용합니다.
+
+>The SynchronizationContext may be set directly if the hosting process creates its own WorkflowInstance. SynchronizationContext is also used by WorkflowInvoker.InvokeAsync, which captures the current SynchronizationContext and passes it to its internal WorkflowApplication. This SynchronizationContext is then used to post the workflow completion event as well as the workflow activities.
+
 
 ###Task Parallel Library (TPL): TaskScheduler.FromCurrentSynchronizationContext and CancellationToken.Register
-The TPL uses task objects as its units of work and executes them via a TaskScheduler. The default TaskScheduler acts like the default SynchronizationContext, queuing the tasks to the ThreadPool. There’s another TaskScheduler provided by the TPL queue that queues tasks to a SynchronizationContext. Progress reporting with UI updates may be done with a nested task, as shown in Figure 5.
+
+TPL은 `task` 개체 단위로 `TaskScheduler`를 통해 실행합니다.
+기본 `TaskScheduler`의 동작은 기본 `SynchronizationContext`와 유사해서 `task`들을 `ThreadPool` 큐에 추가합니다.
+TPL이 제공하는 다른 형태의 `TaskScheduler`는 `task`를 `SynchronizationContext` 큐에 등록합니다.
+중첩된 `task`를 사용하여 UI를 업데이트 하는 동안 진행 상황을 보고할 수 있습니다 (그림 5 참조).
+
+>The TPL uses task objects as its units of work and executes them via a TaskScheduler. The default TaskScheduler acts like the default SynchronizationContext, queuing the tasks to the ThreadPool. There’s another TaskScheduler provided by the TPL queue that queues tasks to a SynchronizationContext. Progress reporting with UI updates may be done with a nested task, as shown in Figure 5.
 
 ####Figure 5 Progress Reporting with UI Updates
 ```C#
@@ -431,19 +445,17 @@ private void button1_Click(object sender, EventArgs e)
   Task.Factory.StartNew(() =>
   {
     // We are running on a ThreadPool thread here.
-
-  
     ; // Do some work.
 
-  // Report progress to the UI.
+    // Report progress to the UI.
     Task reportProgressTask = Task.Factory.StartNew(() =>
-      {
-        // We are running on the UI thread here.
-        ; // Update the UI with our progress.
-      },
-      CancellationToken.None,
-      TaskCreationOptions.None,
-      taskScheduler);
+    {
+      // We are running on the UI thread here.
+      ; // Update the UI with our progress.
+    }, CancellationToken.None,
+       TaskCreationOptions.None,
+       taskScheduler);
+
     reportProgressTask.Wait();
   
     ; // Do more work.
@@ -451,15 +463,38 @@ private void button1_Click(object sender, EventArgs e)
 }
 ```
 
-The CancellationToken class is used for any type of cancellation in the .NET Framework 4. To integrate with existing forms of cancellation, this class allows registering a delegate to invoke when cancellation is requested. When the delegate is registered, a SynchronizationContext may be passed. When the cancellation is requested, CancellationToken queues the delegate to the SynchronizationContext instead of executing it directly.
+`CancellationToken` 클래스는 **.NET Framework 4**에서 취소작업과 관련된 모든 곳에서 사용됩니다.
+기존에 존재하던 취소 형태와 통합하기 위해서, 이 클래스는 취소 요청이 있을 경우 실행되도록 `delegate`에 등록하는 것도 가능합니다.
+`delegate`에 등록된 경우 `SynchronizationContext`로 전달될 수 있습니다.
+취소 요청을 하면, `CancellationToken`이 `delegate`를 직접 실행하지 않고 `SynchronizationContext` 큐에 추가합니다.
+
+>The CancellationToken class is used for any type of cancellation in the .NET Framework 4. To integrate with existing forms of cancellation, this class allows registering a delegate to invoke when cancellation is requested. When the delegate is registered, a SynchronizationContext may be passed. When the cancellation is requested, CancellationToken queues the delegate to the SynchronizationContext instead of executing it directly.
+
 
 ###Microsoft Reactive Extensions (Rx): ObserveOn, SubscribeOn and SynchronizationContextScheduler
-Rx is a library that treats events as streams of data. The ObserveOn operator queues events through a SynchronizationContext, and the SubscribeOn operator queues the subscriptions to those events through a SynchronizationContext. ObserveOn is commonly used to update the UI with incoming events, and SubscribeOn is used to consume events from UI objects.
 
-Rx also has its own way of queuing units of work: the IScheduler interface. Rx includes SynchronizationContextScheduler, an implementation of IScheduler that queues to a SynchronizationContext.
+
+**Rx**는 데이터 스트림을 이벤트처럼 처리하는 라이브러리 입니다.
+`ObserveOn` 연산은 이븐트를 `SynchronizationContext` 큐에 추가하며,
+`SubscribeOn` 연산은 `SynchronizationContext`를 통해 해당 이벤트에 전달된 구독(subscription)을 큐에 추가합니다.
+일반적으로 `ObserveOn` 연산은 이벤트를 통한 UI 업데이트에 사용되며, `SubscribeOn`는 UI 개체에서 발생한 이벤트를 처리하는데 사용됩니다.
+
+>Rx is a library that treats events as streams of data. The ObserveOn operator queues events through a SynchronizationContext, and the SubscribeOn operator queues the subscriptions to those events through a SynchronizationContext. ObserveOn is commonly used to update the UI with incoming events, and SubscribeOn is used to consume events from UI objects.
+
+
+**Rx**는 `IScheduler` 인터페이스를 이용하여 작업 단위를 큐에 추가하는 독자적인 방법도 가집니다.
+`SynchronizationContext`의 큐로 작업을 추가하도록 `IScheduler`를 구현한 `SynchronizationContextScheduler`를 포함하고 있습니다.
+
+>Rx also has its own way of queuing units of work: the IScheduler interface. Rx includes SynchronizationContextScheduler, an implementation of IScheduler that queues to a SynchronizationContext.
 
 ###Visual Studio Async CTP: await, ConfigureAwait, SwitchTo and EventProgress<T>
-The Visual Studio support for asynchronous code transformations was announced at the Microsoft Professional Developers Conference 2010. By default, the current SynchronizationContext is captured at an await point, and this SynchronizationContext is used to resume after the await (more precisely, it captures the current SynchronizationContext unless it is null, in which case it captures the current TaskScheduler):
+
+
+*Microsoft Professional Developers Conference 2010*에서 선보인였듯이 *Visual Studio*가 비동기 코드변환을 지원하게 되었습니다.
+기본적으로 현재 `SynchronizationContext`가 `await` 지점에서 캡쳐하고, 준비가 되면 다시 수행을 시작합니다.
+(더 정확하게는, 현재 `SynchronizationContext`이 `null`이 아닌 경우에만 캡쳐합니다. 이 경우 현재 `TaskScheduler`를 캡쳐합니다.)
+
+>The Visual Studio support for asynchronous code transformations was announced at the Microsoft Professional Developers Conference 2010. By default, the current SynchronizationContext is captured at an await point, and this SynchronizationContext is used to resume after the await (more precisely, it captures the current SynchronizationContext unless it is null, in which case it captures the current TaskScheduler):
 
 ```C#
 private async void button1_Click(object sender, EventArgs e)
@@ -471,18 +506,38 @@ private async void button1_Click(object sender, EventArgs e)
 }
 ```
 
-ConfigureAwait provides a means to avoid the default SynchronizationContext capturing behavior; passing false for the flowContext parameter prevents the SynchronizationContext from being used to resume execution after the await. There’s also an extension method on SynchronizationContext instances called SwitchTo; this allows any async method to change to a different SynchronizationContext by invoking SwitchTo and awaiting the result.
+`ConfigureAwait`는 기본 `SynchronizationContext`의 캡처 동작을 방지하는 방법을 제공합니다.
+즉, `flowContext` 매개 변수로 *false*를 전달하면 대기 후 실행을 다시 시작하기 위해 `SynchronizationContext`를 사용하지 않아도 됩니다.
+SynchronizationContext 인스턴스에는 `SwitchTo` 라는 확장 메서드도 있는데,
+`async` 메소드가 `SwitchTo` 메서드로 실행하고 결과를 기다리는 경우 다른 `SynchronizationContext에`에서 수행하도록 해줍니다.
 
-The asynchronous CTP introduces a common pattern for reporting progress from asynchronous operations: the IProgress<T> interface and its implementation EventProgress<T>. This class captures the current SynchronizationContext when it’s constructed and raises its ProgressChanged event in that context.
+>ConfigureAwait provides a means to avoid the default SynchronizationContext capturing behavior; passing false for the flowContext parameter prevents the SynchronizationContext from being used to resume execution after the await. There’s also an extension method on SynchronizationContext instances called SwitchTo; this allows any async method to change to a different SynchronizationContext by invoking SwitchTo and awaiting the result.
 
-In addition to this support, void-returning async methods will increment the asynchronous operation count at their start and decrement it at their end. This behavior makes void-returning async methods act like top-level asynchronous operations.
+또한 `IProgress<T>` 인터페이스와 이것의 구현인 `EventProgress<T>` 라는 비동기 연산을 통해서 진행 상황을 보고하는 일반적인 패턴을 소개하고 있습니다.
+이 클래스는 생성시 현재 `SynchronizationContext`를 캡처하여 `ProgressChanged` 이벤트를 해당 컨텍스트 내에서 발생 시킵니다.
 
-##Limitations and Guarantees
+>The asynchronous CTP introduces a common pattern for reporting progress from asynchronous operations: the IProgress<T> interface and its implementation EventProgress<T>. This class captures the current SynchronizationContext when it’s constructed and raises its ProgressChanged event in that context.
 
-Understanding SynchronizationContext is helpful for any programmer. Existing cross-framework components use it to synchronize their events. Libraries may expose it to allow advanced flexibility. The savvy coder who understands the limitations and guarantees of SynchronizationContext is better able to write and consume such classes.
+
+이러한 시원외에도, *void*를 반환하는 `async` 메서드인 시작될 때  경우 비동기 작업 카운트를 증가시키며, 종료시 감소시킵니다. 
+비동기 메서드가 void를 반환 하는 메서드의 시작 되는 비동기 작업의 수를 증가 하 고 끝낼 때마다 감소 합니다.
+즉, void 반환 `async` 메서드는 최상위 비동기 작업처럼 실행됩니다.
+
+>In addition to this support, void-returning async methods will increment the asynchronous operation count at their start and decrement it at their end. This behavior makes void-returning async methods act like top-level asynchronous operations.
+
+##제한 사항 및 보장되는 사항
+
+>##Limitations and Guarantees
+
+
+`SynchronizationContext`를 이해하면 개발하는데 도움이 됩니다.
+현존하는 크로스플랫폼 구성요소들은 이벤트 동기화에 `SynchronizationContext`를 사용합니다.
+라이브러리를 더 향상된 유연성을 제공하기 위해 `SynchronizationContext`를 공개할 것입니다.
+SynchronizationContext에 대한 제한 사항 및 보장 사항을 이해 하면 이러한 클래스를 더 잘 만들어 사용할 수 있습니다.
+
+>Understanding SynchronizationContext is helpful for any programmer. Existing cross-framework components use it to synchronize their events. Libraries may expose it to allow advanced flexibility. The savvy coder who understands the limitations and guarantees of SynchronizationContext is better able to write and consume such classes.
 
 ---------
 
-Stephen Cleary has had an interest in multithreading ever since he first heard of the concept. He’s completed many business-critical multitasking systems for major clients including Syracuse News, R. R. Donnelley and BlueScope Steel. He regularly speaks at .NET user groups, BarCamps and Day of .NET events near his home in Northern Michigan, usually on a multithreading topic. He maintains a programming blog at nitoprograms.com.
-
-Thanks to the following technical expert for reviewing this article: Eric Eilebrecht
+원문 : <https://msdn.microsoft.com/en-us/magazine/gg598924.aspx> FEBRUARY 2011 VOLUME 26 NUMBER 02
+저자 : **Stephen Cleary** <http://blog.stephencleary.com/>
