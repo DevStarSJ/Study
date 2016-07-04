@@ -3,6 +3,7 @@
 `.NET Core`를 **Ubuntu**에 설치하는 과정에 대해서 소개해드리겠습니다.
 
 **Ubuntu** 설치는 필자의 경우는 *Microsoft Azure*에 설치하였습니다.
+(참고로 **Azure**에 **Ubuntu**설치시 SSH (22)번 빼고는 모두 막혀있습니다. Portal에서 원하시는 포트를 열어야 합니다.)
 
 ##1. **.NET Core** 설치 후 *Hello World* 출력해보기
 
