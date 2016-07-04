@@ -216,7 +216,7 @@ sudo vi /etc/nginx/sites-available/default
 
 버전별로 내용이 조금 다룰수 있는데 눈여겨 볼 부분은 다음과 같습니다.
 
-###1. 외부에서 접속할 Port 설정
+###4.1 외부에서 접속할 Port 설정
 
 아래 `80`부분을 원하는 Port로 설정하면 됩니다.
 ```
@@ -225,7 +225,7 @@ server {
     listen [::]:80 default_server ipv6only=on;
 ```
 
-###2. 내부로 연결한 주소 설정
+###4.2 내부로 연결한 주소 설정
 
 `location`부분을 아래와 같이 설정합니다.
 
