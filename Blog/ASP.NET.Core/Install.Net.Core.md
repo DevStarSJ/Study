@@ -221,7 +221,8 @@ sudo vi /etc/nginx/sites-available/default
 아래 `80`부분을 원하는 Port로 설정하면 됩니다.
 ```
 server {
-        listen 80 default_server;
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
 ```
 
 ###2. 내부로 연결한 주소 설정
@@ -257,9 +258,6 @@ sudo service nginx start
 sudo nginx -s reload
 ```
 
+이제 외부에서 Web App으로 접근이 가능합니다
 
-`Yeoman`을 이용해서 ASP.NET Core Web App을 생성해보겠습니다.
-
-```
-
-```
+![그림](./image/install.ubuntu.05.png)
