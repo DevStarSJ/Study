@@ -21,13 +21,13 @@ cd /root/SmartController.Web && mono bin/Debug/net451/win7-x64/SmartController.W
 ### 3. Test starting the script
 
 ```
-~# sudo chmod 755 /etc/init.d/runSC start
+~# sudo /etc/init.d/runSC start
 ```
 
 ### 4. Test stopping
 
 ```
-~# sudo chmod 755 /etc/init.d/runSC stop
+~# sudo /etc/init.d/runSC stop
 ```
 
 ### 5. Regist your script in /etc/rc.local
