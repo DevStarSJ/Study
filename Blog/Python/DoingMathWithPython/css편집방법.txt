@@ -1,0 +1,3 @@
+C:\Python\Anaconda3\Lib\site-packages\notebook\static\style\style.min.css
+
+
