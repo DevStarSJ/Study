@@ -10217,20 +10217,16 @@ div.output_unrecognized a:hover {
 }
 .rendered_html pre,
 .rendered_html code {
-		/* border: 0; */
-		background-color: #fcf2f2;
-		border-color: #dFb5b4;
-		/* color: #000; */
-		font-size: 100%;
-		padding: 0.2em;
+	font-family: Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+
 }
 p code {
-		border: 1;
-		/* background-color: #fcf2f2; */
-		/* border-color: #dFb5b4; */
-		color: #ee4444;
-		/* padding: 0.2em; */
-		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: solid 1px #e1e4e5;
+    white-space: nowrap;
+    background: #fff;
+    color: #E74C3C;
+    padding: 0 5px;
+    overflow-x: auto;
 }
 blockquote {
 		background-color: #fcf2f2;
