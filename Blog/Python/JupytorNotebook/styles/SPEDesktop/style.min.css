@@ -10113,42 +10113,40 @@ div.output_unrecognized a:hover {
   text-decoration: underline;
 }
 .rendered_html h1 {
-  font-size: 185.7%;
+  font-size: 250%;
   margin: 1.08em 0 0 0;
   font-weight: bold;
   line-height: 1.0;
 }
 .rendered_html h2 {
-  font-size: 157.1%;
+  font-size: 200%;
   margin: 1.27em 0 0 0;
   font-weight: bold;
   line-height: 1.0;
 }
 .rendered_html h3 {
-  font-size: 128.6%;
+  font-size: 180%;
   margin: 1.55em 0 0 0;
   font-weight: bold;
   line-height: 1.0;
 }
 .rendered_html h4 {
-  font-size: 100%;
+  font-size: 150%;
   margin: 2em 0 0 0;
   font-weight: bold;
   line-height: 1.0;
 }
 .rendered_html h5 {
-  font-size: 100%;
+  font-size: 130%;
   margin: 2em 0 0 0;
   font-weight: bold;
   line-height: 1.0;
-  font-style: italic;
 }
 .rendered_html h6 {
-  font-size: 100%;
+  font-size: 110%;
   margin: 2em 0 0 0;
   font-weight: bold;
   line-height: 1.0;
-  font-style: italic;
 }
 .rendered_html h1:first-child {
   margin-top: 0.538em;
@@ -10220,7 +10218,8 @@ div.output_unrecognized a:hover {
 	font-family: Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
 
 }
-p code {
+p code,
+li code {
     border: solid 1px #e1e4e5;
     white-space: nowrap;
     background: #fff;
