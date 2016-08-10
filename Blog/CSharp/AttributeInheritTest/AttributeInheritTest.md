@@ -1,5 +1,9 @@
 # C# Attribute 상속 후 override 할 경우 부모 값도 잘 가져오는지 확인
 
+C# Attribute class 생성 및 사용, 상속시에 동작 등에 대해서 확인 가능한 예제코드 입니다.
+
+코드 다운로드 : <https://github.com/DevStarSJ/Study/tree/master/Blog/CSharp/AttributeInheritTest>
+
 ## Step 1. Attribute 존재여부 검사
 
 #### AttributeInheritTest.01.cs
