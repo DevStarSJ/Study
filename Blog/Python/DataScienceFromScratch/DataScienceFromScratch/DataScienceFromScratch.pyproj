@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7336388e-2621-43e1-b8c9-8438340d2e30</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DataScienceFromScratch.py</StartupFile>
+    <StartupFile>player__.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="calc.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataScienceFromScratch.py" />
+    <Compile Include="player.py" />
+    <Compile Include="player__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
