@@ -19,7 +19,8 @@ class SingleTcpHandler(socketserver.BaseRequestHandler):
             print(text)
 
             self.request.send('OK'.encode(ENCODING))
-            #self.request.close()
+
+        self.request.close()
 
 class SimpleServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     deamon_threads = True
