@@ -1,7 +1,7 @@
 import socket
 
 HOST = 'localhost'
-PORT = 9099
+PORT = 9090
 BUFFER_SIZE = 1024
 ADDR = (HOST, PORT)
 
