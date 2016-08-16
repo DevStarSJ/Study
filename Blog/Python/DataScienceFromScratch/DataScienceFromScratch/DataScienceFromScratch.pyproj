@@ -30,6 +30,9 @@
     <Compile Include="tcp_async_server.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tcp_async_server_not_working_style2.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tcp_client.py">
       <SubType>Code</SubType>
     </Compile>
