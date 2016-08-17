@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7336388e-2621-43e1-b8c9-8438340d2e30</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>audience_server.py</StartupFile>
+    <StartupFile>tcp_async_server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

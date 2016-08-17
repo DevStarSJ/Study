@@ -18,7 +18,7 @@ class SingleTcpHandler(socketserver.BaseRequestHandler):
             text = data.decode(ENCODING)
             print(text)
 
-            self.request.send('OK'.encode(ENCODING))
+            self.request.sendall('OK'.encode(ENCODING))
 
         self.request.close()
 
