@@ -9,27 +9,25 @@ BUFFER_SIZE = 1024
 ADDR = (HOST, PORT)
 ENCODING = 'utf-8'
 
-s = socket(AF_INET, SOCK_STREAM)
-s.connect(ADDR)
+sock = socket(AF_INET, SOCK_STREAM)
+sock.connect(ADDR)
 
 def Listener():
     try:
         while True:
-            data = s.recv(BUFFER_SIZE).decode(ENCODING)
+            data = sock.recv(BUFFER_SIZE).decode(ENCODING)
             print('>', data)
     except ConnectionAbortedError:
         pass
 
-t = Thread(target=Listener)
-t.start()
+listener_thread = Thread(target=Listener)
+listener_thread.start()
 
 try:
     while True:
         message = input('>')
-        s.send(message.encode(ENCODING))
+        sock.send(message.encode(ENCODING))
 except EOFError:
     pass
 finally:
-    s.close()
-
-
+    sock.close()

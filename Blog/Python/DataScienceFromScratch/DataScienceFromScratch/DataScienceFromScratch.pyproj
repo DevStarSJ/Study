@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7336388e-2621-43e1-b8c9-8438340d2e30</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>asyncio_chat_server.py</StartupFile>
+    <StartupFile>chat_server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,50 +22,53 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="asyncio_chat_server.py">
+    <Compile Include="chat_server.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="audience_server.py">
+    <Compile Include="backup\audience_server.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="audience_tcp_handler.py">
+    <Compile Include="backup\audience_tcp_handler.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataScienceFromScratch.py" />
-    <Compile Include="multiprocessing_server.py">
+    <Compile Include="backup\DataScienceFromScratch.py" />
+    <Compile Include="backup\multiprocessing_server.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="player.py" />
-    <Compile Include="player__.py">
+    <Compile Include="backup\player.py" />
+    <Compile Include="backup\player__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_async_server.py">
+    <Compile Include="backup\tcp_async_server.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_async_server_not_working_style2.py">
+    <Compile Include="backup\tcp_async_server_not_working_style2.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_chat_client.py">
+    <Compile Include="backup\tcp_chat_client.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_chat_client2.py">
+    <Compile Include="chat_client.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_client.py">
+    <Compile Include="backup\tcp_client.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_client_audience.py">
+    <Compile Include="backup\tcp_client_audience.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_echo_async_server.py">
+    <Compile Include="backup\tcp_echo_async_server.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_server.py">
+    <Compile Include="backup\tcp_server.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tcp_source.py">
+    <Compile Include="backup\tcp_source.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="backup\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

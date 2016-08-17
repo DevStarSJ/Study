@@ -63,10 +63,10 @@ class Server(object):
             self._peers.append(peer)
             self.broadcast('Peer %s connected!\n' % (peer.name,))
 
-def main():
+def run_server(port):
     loop = get_event_loop()
-    Server(loop, PORT)
+    Server(loop, port)
     loop.run_forever()
 
 if __name__ == '__main__':
-    main()
+    run_server(PORT)
