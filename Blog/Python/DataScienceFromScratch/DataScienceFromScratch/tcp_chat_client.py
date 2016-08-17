@@ -1,8 +1,6 @@
-import socket
-import subprocess
-import sys
-import multiprocessing
-import uuid
+#http://stackoverflow.com/questions/31639824/python-3-4-asynchio-chat-server-client-how
+
+from socket import *
 from threading import Thread
 
 HOST = 'localhost'
@@ -11,37 +9,27 @@ BUFFER_SIZE = 1024
 ADDR = (HOST, PORT)
 ENCODING = 'utf-8'
 
-list_process = []
+s = socket(AF_INET, SOCK_STREAM)
+s.connect(ADDR)
 
-tcp_client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-tcp_client_socket.connect(ADDR)
+def Listener():
+    try:
+        while True:
+            data = s.recv(BUFFER_SIZE).decode(ENCODING)
+            print('>', data)
+    except ConnectionAbortedError:
+        pass
 
-def send_work():
+t = Thread(target=Listener)
+t.start()
+
+try:
     while True:
-        data = input('> ')
-        if not data:
-            break;
-        tcp_client_socket.send(data.encode(ENCODING))
-    
+        message = input('>')
+        s.send(message.encode(ENCODING))
+except EOFError:
+    pass
+finally:
+    s.close()
 
-def receive_work():
-    while True:
-        received = tcp_client_socket.recv(BUFFER_SIZE)
-        if not received:
-            break;
-        print(received)
 
-if __name__ == "__main__":
-    process1 = multiprocessing.Process(target=send_work)
-    #process2 = multiprocessing.Process(target=receive_work)
-
-    list_process.append(process1)
-    #list_process.append(process2)
-
-    for p in list_process:
-        p.start()
-
-    for p in list_process:
-        p.join()
-
-    tcp_client_socket.close()
