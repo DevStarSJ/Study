@@ -1,6 +1,12 @@
 from socket import socket, SO_REUSEADDR, SOL_SOCKET
 from asyncio import Task, coroutine, get_event_loop
 
+HOST = 'localhost'
+PORT = 9090
+ADDR = (HOST, PORT)
+ENCODING = 'utf-8'
+BUFFER_SIZE = 1024
+
 class Peer(object):
     def __init__(self, server, sock, name):
         self.loop = server.loop
@@ -10,7 +16,7 @@ class Peer(object):
         Task(self._peer_handler())
 
     def send(self, data):
-        return self.loop.sock_sendall(self._sock, data.encode('utf8'))
+        return self.loop.sock_sendall(self._sock, data.encode(ENCODING))
 
     @coroutine
     def _peer_handler(self):
@@ -24,10 +30,10 @@ class Peer(object):
     @coroutine
     def _peer_loop(self):
         while True:
-            buf = yield from self.loop.sock_recv(self._sock, 1024)
+            buf = yield from self.loop.sock_recv(self._sock, BUFFER_SIZE)
             if buf == b'':
                 break
-            self._server.broadcast('%s: %s' % (self.name, buf.decode('utf8')))
+            self._server.broadcast('%s: %s' % (self.name, buf.decode(ENCODING)))
 
 class Server(object):
     def __init__(self, loop, port):
@@ -43,3 +49,24 @@ class Server(object):
     def remove(self, peer):
         self._peers.remove(peer)
         self.broadcast('Peer %s quit!\n' % (peer.name))
+
+    def broadcast(self, message):
+        for peer in self._peers:
+            peer.send(message)
+
+    @coroutine
+    def _server(self):
+        while True:
+            peer_sock, peer_name = yield from self.loop.sock_accept(self._serv_sock)
+            peer_sock.setblocking(0)
+            peer = Peer(self, peer_sock, peer_name)
+            self._peers.append(peer)
+            self.broadcast('Peer %s connected!\n' % (peer.name,))
+
+def main():
+    loop = get_event_loop()
+    Server(loop, PORT)
+    loop.run_forever()
+
+if __name__ == '__main__':
+    main()

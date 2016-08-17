@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7336388e-2621-43e1-b8c9-8438340d2e30</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>tcp_async_server.py</StartupFile>
+    <StartupFile>asyncio_chat_server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -43,6 +43,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tcp_async_server_not_working_style2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tcp_chat_client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tcp_chat_client2.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tcp_client.py">
