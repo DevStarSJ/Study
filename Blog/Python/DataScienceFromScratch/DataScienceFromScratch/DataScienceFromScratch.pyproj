@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="asyncio_chat_server.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="audience_server.py">
       <SubType>Code</SubType>
     </Compile>
