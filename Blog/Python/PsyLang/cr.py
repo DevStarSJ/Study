@@ -10,7 +10,7 @@ def tagging():
         analize(fn)
         
     print('done')
-        
+
 def analize(fn):
     src_fn = 'data/%s' % fn
     dst_fn = 'tags/%s' % fn
