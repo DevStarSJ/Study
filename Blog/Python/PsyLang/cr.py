@@ -33,7 +33,7 @@ def analize_tag(src_fn, dst_fn):
     singer = f.readline().strip()
     text = ''
     for line in f:
-        text += line + '|'
+        text += line.strip() + '|'
         
     f.close()
     
