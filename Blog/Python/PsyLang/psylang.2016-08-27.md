@@ -1,4 +1,4 @@
-# PsyLen 2016-08-27
+# PsyLang 2016-08-27
 
 ## 1. Michael Quiz
 
