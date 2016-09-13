@@ -1,0 +1,16 @@
+{
+	// jsconfig.json 형식에 대한 설명서는 https://go.microsoft.com/fwlink/?LinkId=759670
+	//를 참조하세요.
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": [
+		"node_modules",
+		"bower_components",
+		"jspm_packages",
+		"tmp",
+		"temp"
+	]
+}
