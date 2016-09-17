@@ -1,5 +1,0 @@
-- [ASP.NET Core](.)
-  - [SignalR in .NET Core](SignalR/README.md) - 2016-05-09
-  - [WebSockets in .NET Core](WebSocket/README.md) - 2016-05-11
-  - [.NET Core Install for Ubuntu 14.04](Install.Net.Core.md) - 2016-07-04
-  - [Visual Studio와 Git을 이용하여 Web App 배포하기](VS.Git.md) - 2016-07-04
