@@ -6,15 +6,15 @@ ToolkitPro의 Chart Control 인 CXTPChartContorl의 간단한 사용법을 소�
 
 먼저 MFC Application Project를 생성하여 Dialog로 생성해 주세요.  
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.01.png?raw=true)
+![image](image/XTPChart.01.png)
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.02.png?raw=true)
+![image](image/XTPChart.02.png)
 
 물론 ToolkitPro를 사용하려면
 
 `stdafx.h`에 ToolkitPro 헤더파일을 추가해 주세요.
 ```C++
-#include <XTToolkitPro.h> 
+#include <XTToolkitPro.h>
 ```
 
 ####1.Resource File (.rc)에서 Dialog Design에 찾아서 아래와 같이 Control을 타이핑
@@ -29,7 +29,7 @@ CONTROL         "Chart", IDC_CHARTCONTROL, "XTPChartControl", WS_TABSTOP, 7, 7, 
 
 Resource View에서 마우스로 대충 크기 변환해주세요. 대충 아래와 같은 모양이 됩니다.
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.03.png?raw=true)
+![image](image/XTPChart.03.png)
 
 ```
 IDD_XTPCHARTSAMPLE_DIALOG DIALOGEX 0, 0, 427, 287
@@ -46,7 +46,7 @@ END
 
 ####3. 컨트럴에 마우스 우 클릭 Add Variable 누른 뒤 그림대로 추가해주세요.
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.04.png?raw=true)
+![image](image/XTPChart.04.png)
 
 위와 같이 하지 않고 직접 코딩하여도 됩니다.
 
@@ -106,7 +106,7 @@ pPoints->Add(new CXTPChartSeriesPoint(3, 0.5));
 
 실행시키면 다음과 같은 화면이 나옵니다.
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.05.png?raw=true)
+![image](image/XTPChart.05.png)
 
 여기에서 Series를 하나 더 추가해 보겠습니다.
 
@@ -123,7 +123,7 @@ pPoints->Add(new CXTPChartSeriesPoint(2, 3));
 pPoints->Add(new CXTPChartSeriesPoint(3, 1));
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.06.png?raw=true)
+![image](image/XTPChart.06.png)
 
 Series의 Label을 설정하려면 다음과 같이 하면 됩니다.  
 소숫점 1자리까지 나오게 하는 예제 입니다.
@@ -138,7 +138,7 @@ for (int i = 0; i < pCollection->GetCount(); i++)
 }
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.07.png?raw=true)
+![image](image/XTPChart.07.png)
 
 Point Label 자체를 안보이게 하려면 다음 문장을 추가하면 됩니다.
 
@@ -146,7 +146,7 @@ Point Label 자체를 안보이게 하려면 다음 문장을 추가하면 됩�
 pLabel->SetVisible(FALSE);
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.08.png?raw=true)
+![image](image/XTPChart.08.png)
 
 * 범주 보이게 하기
 
@@ -154,7 +154,7 @@ pLabel->SetVisible(FALSE);
 pContent->GetLegend()->SetVisible(TRUE);
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.09.png?raw=true)
+![image](image/XTPChart.09.png)
 
 * Series의 통계값 계산
 
@@ -189,7 +189,7 @@ pTitle2->SetText(_T("Y-Value"));
 pTitle2->SetVisible(TRUE);
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.10.png?raw=true)
+![image](image/XTPChart.10.png)
 
 * Series Marker 안보이게 하기
 
@@ -199,11 +199,11 @@ for (int i = 0; i < pCollection->GetCount(); i++)
 	CXTPChartPointSeriesStyle* pStyle = (CXTPChartPointSeriesStyle*)pCollection->GetAt(i)->GetStyle();
 	pStyle->GetMarker()->SetVisible(FALSE);
 	//pStyle->GetMarker()->SetSize(20); // Maeker Size 조정
-	//pStyle->GetMarker()->SetType(xtpChartMarkerCircle); // enum XTPChartMarkerType 
+	//pStyle->GetMarker()->SetType(xtpChartMarkerCircle); // enum XTPChartMarkerType
 }
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.11.png?raw=true)
+![image](image/XTPChart.11.png)
 
 * 마우스 휠을 이용한 Zoom 허용 및 Scroll 허용
 
@@ -212,7 +212,7 @@ pD2D->SetAllowZoom(TRUE);	// 마우스 휠을 이용한 Zoom 허용
 pD2D->SetAllowScroll(TRUE); // Scroll 허용
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/XTPChart.12.png?raw=true)
+![image](image/XTPChart.12.png)
 
 * Chart Image 저장
 
@@ -220,7 +220,7 @@ pD2D->SetAllowScroll(TRUE); // Scroll 허용
 m_wndChartControl.SaveAsImage(_T("D:\\A.PNG"),CSize(600,400));
 ```
 
-![image](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/XTPChartSample/image/A.PNG?raw=true)
+![image](image/A.PNG)
 
 ###위 설명한 내용의 Full Source
 
@@ -326,7 +326,7 @@ void CXTPChartSampleDlg::InitChart()
 			CXTPChartPointSeriesStyle* pStyle = (CXTPChartPointSeriesStyle*)pCollection->GetAt(i)->GetStyle();
 			pStyle->GetMarker()->SetVisible(FALSE);
 			//pStyle->GetMarker()->SetSize(20); // Maeker Size 조정
-			//pStyle->GetMarker()->SetType(xtpChartMarkerCircle); // enum XTPChartMarkerType 
+			//pStyle->GetMarker()->SetType(xtpChartMarkerCircle); // enum XTPChartMarkerType
 		}
 
 		pD2D->SetAllowZoom(TRUE);	// 마우스 휠을 이용한 Zoom 허용

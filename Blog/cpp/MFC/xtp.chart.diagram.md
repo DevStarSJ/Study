@@ -17,7 +17,7 @@ AxisRange를 이용해서 SetViewMin/MaxValue로 범위를 지정하면....
 그 값으로 계산을 해서 다시 SetViewMin/MaxValue로 값을 넣어야 합니다.  
 자동으로 수정이 안됩니다. ;;;  
 
-![Table 3.1](https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/image/small.XTP.diagram.png?raw=true) 
+![Table 3.1](image/small.XTP.diagram.png)
 
 자세한 설명은 생략하겠습니다. 혹시나 Chart를 많이 안써보신 분들이 있을 수 있으니 대략적인 용어 및 뜻만 표기하겠습니다.
 
@@ -43,4 +43,4 @@ AxisRange를 이용해서 SetViewMin/MaxValue로 범위를 지정하면....
 위 그림은 Posting 목적으로 해상도를 줄여 놓았습니다.  
 원래 크기대로 보실려면 아래 Link를 눌러주세요.
 
-<https://github.com/DevStarSJ/Study/blob/master/Blog/cpp/MFC/image/XTP.diagram.png?raw=true>
+<image/XTP.diagram.png>
