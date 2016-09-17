@@ -1,0 +1,44 @@
+- [Database](.)
+  - [NoSQL](NoSQL)
+    - [Hadoop](NoSQL/Hadoop)
+      - [Hadoop Installation for CentOS 6](NoSQL/Hadoop/Install.CentOS6.md) - 2015-10-19
+      - [Spark Installation for CentOS 6](NoSQL/Hadoop/Spark.Install.CentOS6.md) - 2015-10-22
+      - [Hive Installation for CentOS 6](NoSQL/Hadoop/Hive.Install.CentOS6.md) (실패) - 2015-10-24
+      - [Hadoop Installation for Windows](NoSQL/Hadoop/Install.Windows.md) (실패) - 2015-10-24
+    - [MongoDB 스터디 중 필기](NoSQL/MongoDB)
+      - [Replication](NoSQL/MongoDB/Replication.md) - 2016-08-24
+    - [Oracle](Oracle)
+      - [SQLP Guide](Oracle/sqlp)
+        - 1과목 데이터 모델링의 이해 (10점 / 10문제)
+          - [1장 데이터 모델링의 이해](Oracle/sqlp/01.01.modeling.md) - 2016-01-20
+          - [2장 데이터 모델링과 성능](Oracle/sqlp/01.02.modeling_performance.md) - 2016-01-20
+        - 2과목 SQL 기본 및 활용 (20점 / 20문제)
+          - [1장 SQL 기본](Oracle/sqlp/02.01.sql.basic.md) - 2016-01-21
+          - 2장 SQL 활용
+            - [2.1 SET, Hierarchical Query, Sub-query](Oracle/sqlp/02.02.sql.adv.md) - 2016-01-23
+            - [2.2 GROUP function](Oracle/sqlp/02.03.group.md) - 2016-01-25
+            - [2.3 Window function](Oracle/sqlp/02.04.window.md) - 2016-01-25
+            - [2.4 DCL](Oracle/sqlp/02.05.dcl.md) - 2016-01-26
+            - [2.5 PL/SQL](Oracle/sqlp/02.06.plsql.md) - 2016-01-26
+          - 3장 SQL 최적화 기본 원리
+            - [3.1 Optimizer, Execution Plan](Oracle/sqlp/02.07.optimizer.md) - 2016-01-27
+        - 3과목 SQL 고급 활용 및 튜닝 (40점 / 40문제 + 30점 / 주관식 2문제)
+          - 1장 Architecture 기반 Tuning 원리
+            - [3.1 Database Architecture](Oracle/sqlp/03.01.architecture.md) - 2016-01-29
+            - [3.2 SQL Parsing, 3.3 DB Call, 3.4 Block I/O](Oracle/sqlp/03.02.sql.parsing.md) - 2016-02-01
+          - [2장 Lock과 Transaction 동시성 제어](Oracle/sqlp/03.03.lock.md) - 2016-02-02
+          - [3장 Optimizer 원리](Oracle/sqlp/03.04.optimizer.md) - 2016-02-04
+          - 4장 INDEX와 JOIN
+            - [4.1, 4.2 INDEX](Oracle/sqlp/03.05.index.md) - 2016-02-05
+            - [4.3 JOIN](Oracle/sqlp/03.06.join.md) - 2016-02-06
+            - [4.4 고급 Join 기법](Oracle/sqlp/03.07.join.adv.md) - 2016-02-07
+          - 5장 고급 SQL Tuning
+            - [5.1 One SQL 구현기법](Oracle/sqlp/04.01.onesql.md) - 2016-02-09
+            - [5.2 Sort Tuning](Oracle/sqlp/04.02.sort.md) - 2016-02-09
+            - [5.3 DML Tuning](Oracle/sqlp/04.03.dml.md) - 2016-02-11
+            - [5.4 Partition 활용, 5.5 Batch Program Tuning](Oracle/sqlp/04.04.partition.md) - 2016-02-11
+        - 핵심정리
+          - [1. 외워야할 SQL문법들](Oracle/sqlp/05.01.sql.md) - 2016-02-13
+        - [20회 SQLP 시험후기 2016-03-05](Oracle/sqlp/sqlp.20.after.md) - 2016-03-05
+      - [Oracle Hint](Oracle/oracle.hint.md) - 2016-02-26
+      - [Oracle Plan, Trace 읽는 법](Oracle/read.plan.trace.md) - 2016-02-20

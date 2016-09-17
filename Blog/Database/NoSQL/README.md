@@ -1,4 +1,4 @@
-- [BigData](.)
+- [NoSQL](.)
   - [Hadoop](Hadoop)
     - [Hadoop Installation for CentOS 6](Hadoop/Install.CentOS6.md) - 2015-10-19
     - [Spark Installation for CentOS 6](Hadoop/Spark.Install.CentOS6.md) - 2015-10-22

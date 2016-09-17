@@ -1,0 +1,35 @@
+- [Oracle](.)
+  - [SQLP Guide](sqlp)
+    - 1과목 데이터 모델링의 이해 (10점 / 10문제)
+      - [1장 데이터 모델링의 이해](sqlp/01.01.modeling.md) - 2016-01-20
+      - [2장 데이터 모델링과 성능](sqlp/01.02.modeling_performance.md) - 2016-01-20
+    - 2과목 SQL 기본 및 활용 (20점 / 20문제)
+      - [1장 SQL 기본](sqlp/02.01.sql.basic.md) - 2016-01-21
+      - 2장 SQL 활용
+        - [2.1 SET, Hierarchical Query, Sub-query](sqlp/02.02.sql.adv.md) - 2016-01-23
+        - [2.2 GROUP function](sqlp/02.03.group.md) - 2016-01-25
+        - [2.3 Window function](sqlp/02.04.window.md) - 2016-01-25
+        - [2.4 DCL](sqlp/02.05.dcl.md) - 2016-01-26
+        - [2.5 PL/SQL](sqlp/02.06.plsql.md) - 2016-01-26
+      - 3장 SQL 최적화 기본 원리
+        - [3.1 Optimizer, Execution Plan](sqlp/02.07.optimizer.md) - 2016-01-27
+    - 3과목 SQL 고급 활용 및 튜닝 (40점 / 40문제 + 30점 / 주관식 2문제)
+      - 1장 Architecture 기반 Tuning 원리
+        - [3.1 Database Architecture](sqlp/03.01.architecture.md) - 2016-01-29
+        - [3.2 SQL Parsing, 3.3 DB Call, 3.4 Block I/O](sqlp/03.02.sql.parsing.md) - 2016-02-01
+      - [2장 Lock과 Transaction 동시성 제어](sqlp/03.03.lock.md) - 2016-02-02
+      - [3장 Optimizer 원리](sqlp/03.04.optimizer.md) - 2016-02-04
+      - 4장 INDEX와 JOIN
+        - [4.1, 4.2 INDEX](sqlp/03.05.index.md) - 2016-02-05
+        - [4.3 JOIN](sqlp/03.06.join.md) - 2016-02-06
+        - [4.4 고급 Join 기법](sqlp/03.07.join.adv.md) - 2016-02-07
+      - 5장 고급 SQL Tuning
+        - [5.1 One SQL 구현기법](sqlp/04.01.onesql.md) - 2016-02-09
+        - [5.2 Sort Tuning](sqlp/04.02.sort.md) - 2016-02-09
+        - [5.3 DML Tuning](sqlp/04.03.dml.md) - 2016-02-11
+        - [5.4 Partition 활용, 5.5 Batch Program Tuning](sqlp/04.04.partition.md) - 2016-02-11
+    - 핵심정리
+      - [1. 외워야할 SQL문법들](sqlp/05.01.sql.md) - 2016-02-13
+    - [20회 SQLP 시험후기 2016-03-05](sqlp/sqlp.20.after.md) - 2016-03-05
+  - [Oracle Hint](oracle.hint.md) - 2016-02-26
+  - [Oracle Plan, Trace 읽는 법](read.plan.trace.md) - 2016-02-20
