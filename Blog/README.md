@@ -39,3 +39,7 @@
     - [Hadoop Installation for Windows](BigData/Hadoop/Install.Windows.md) (실패) - 2015-10-24
   - [MongoDB 스터디 중 필기](BigData/MongoDB)
     - [Replication](BigData/MongoDB/Replication.md) - 2016-08-24
+
+- [CI](CI)
+  - [Jenkins 설치 (Windows, MSBuild)](CI/jenkins.md) - 2015-11-10
+  - [Symbol Repository 생성 및 관리](CI/symbolRepository.md) - 2016-04-04
