@@ -1,0 +1,5 @@
+- [싸이랭 스터디 자료](.)
+  - [2016-08-27 Michael Quiz](psylang.2016-08-27.md) - 2016-08-27
+  - [2016-08-27 Python 실습 (File Parsing)](PsyLang.2016-08-27.ipynb) - 2016-08-27
+  - [2016-09-10 Michael Quiz](psylnag.2016-09-10.md) - 2016-09-10
+  - [2016-09-10 Python 실습 (NLTK)](nltk.in.20mins.ipynb) - 2016-09-10

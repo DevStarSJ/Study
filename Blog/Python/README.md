@@ -1,0 +1,36 @@
+- [Python](.)
+  - [Doing Math with Python 파이썬으로 풀어보는 수학](DoingMathWithPython)
+    - [01. 숫자, 연산](DoingMathWithPython/DoingMathWithPython.Ch01.ipynb) - 2016-07-09
+    - [02. 그래프로 데이터 가시화](DoingMathWithPython/DoingMathWithPython.Ch02.ipynb) - 2016-07-12
+    - [03. 통계값을 이용한 데이터 설명](DoingMathWithPython/DoingMathWithPython.Ch03.ipynb) - 2016-07-16
+    - [04. SymPy를 이용한 대수와 부호 수학](DoingMathWithPython/DoingMathWithPython.Ch04.ipynb) - 2016-07-18
+    - [05. 집합과 확률](DoingMathWithPython/DoingMathWithPython.Ch05.ipynb) - 2016-07-24
+    - [06. 기하학적 형상과 프랙탈 그리기](DoingMathWithPython/DoingMathWithPython.Ch06.ipynb) - 2016-07-28
+    - [07. 미적분 문제 풀기](DoingMathWithPython/DoingMathWithPython.Ch07.ipynb) - 2016-07-31
+  - [밑바닥부터 시작하는 데이터 과학](DataScienceFromScratch)
+    - [01. 들어가며](DataScienceFromScratch/DataScienceFromScratch.ch.01.ipynb) - 2016-08-07
+    - [03. 데이터 시각화](DataScienceFromScratch/DataScienceFromScratch.ch.03.visualizing_data.ipynb) - 2016-08-11
+    - [04. 선형 대수 (Linear Algebra)](DataScienceFromScratch/DataScienceFromScratch.ch.04.linear_algebra.ipynb) - 2016-08-19
+    - [05. 통계 (Statistics)](DataScienceFromScratch/DataScienceFromScratch.ch.05.statistics.ipynb) - 2016-08-20
+    - [06. 확률 (Probability)](DataScienceFromScratch/DataScienceFromScratch.ch.06.Properbility.ipynb) - 2016-08-20
+    - [07. 가설과 추론 (Hypothesis and Inference)](DataScienceFromScratch/DataScienceFromScratch.ch.07.hypothesis_and_inference.ipynb) - 2016-08-31
+    - [08. 경사 하강법 (Gradient Descent)](DataScienceFromScratch/DataScienceFromScratch.ch.08.gradient_descent.ipynb) (미완성) - 2016-09-10
+  - [Python Socket](Socket)
+    - [Simple Echo Server](Socket/01.simple.md) - 2016-08-19
+    - [Chat Server/Client](Socket/02.chat.md) - 2016-08-19
+  - [Tips](Tips)
+    - [Running Multiple Coroutines Concurrently](Tips/RunMultipleCoroutinesConcurrently.md) - 2016-08-19
+  - [Jupyter Notebook](JupyterNotebook)
+    - [Jupyter notebook markdown에 내가 원하는 css 적용하기 (Windows)](JupyterNotebook/custom.css.md) - 2016-08-08
+    - [Jupyter notebook markdown에 내가 원하는 css 적용하기 (Linux / Mac OS)](JupyterNotebook/custom.css.mac.md) - 2016-08-27
+  - [알고파](Algopy)
+    - [2016-08-24 실습](Algopy/2016-08-24.ipynb) - 2016-08-24
+    - [2016-08-31 실습](Algopy/2016-08-31.ipynb) - 2016-08-31
+    - [2016-09-11 실습](Algopy/2016-09-11.ipynb) - 2016-09-11
+  - [싸이랭 스터디 자료](PsyLang)
+    - [2016-08-27 Michael Quiz](PsyLang/psylang.2016-08-27.md) - 2016-08-27
+    - [2016-08-27 Python 실습 (File Parsing)](PsyLang/PsyLang.2016-08-27.ipynb) - 2016-08-27
+    - [2016-09-10 Michael Quiz](PsyLang/psylnag.2016-09-10.md) - 2016-09-10
+    - [2016-09-10 Python 실습 (NLTK)](PsyLang/nltk.in.20mins.ipynb) - 2016-09-10
+  - [ThinkStats 프로그래머를 위한 통계 및 데이터 분석](ThinkStats)
+    - [챕터 2까지 실습](ThinkStats/first.ipynb) - 2016-09-16

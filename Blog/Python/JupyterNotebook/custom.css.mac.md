@@ -1,4 +1,4 @@
-# Jupyter notebook markdown에 내가 원하는 css 적용하기  (Linux / Mac OS)
+# Jupyter notebook markdown에 내가 원하는 css 적용하기 (Linux / Mac OS)
 
 `Windows`에서 설정하는 방법에 대해서는 저번에 포스팅 한 적이 있습니다.
 
@@ -213,4 +213,3 @@ blockquote {
 
 버전에 따라, 설치한 방법에 따라 위치가 달라질 수는 있지만, **anaconda** 밑에 있는 **python3.5** 이하에 있는 **style.min.css**를 수정해야 합니다.
 **notebook** 아래에도 같은 파일이 같은 내용으로 존재하지만, 저 파일을 먼저 적용하고 그 다음에 적용하기 때문에 같은 **tag**가 둘 다 존재할 경우 뒤에 읽는건 무시됩니다.
-
