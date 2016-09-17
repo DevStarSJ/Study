@@ -22,5 +22,5 @@
     - [Q.20.SelectionSort](Algorithm/Top20CodingInterview/Q.20.SelectionSort) (C#) - 2016-04-01
 
 - [ASP.NET Core](ASP.NET.Core)
-  - [.NET Core Install for Ubuntu 14.04](ASP.NET Core/Install.Net.Core.md) - 2016-07-04
-  - [Visual Studio와 Git을 이용하여 Web App 배포하기](ASP.NET Core/VS.Git.md) - 2016-07-04
+  - [.NET Core Install for Ubuntu 14.04](ASP.NET.Core/Install.Net.Core.md) - 2016-07-04
+  - [Visual Studio와 Git을 이용하여 Web App 배포하기](ASP.NET.Core/VS.Git.md) - 2016-07-04
