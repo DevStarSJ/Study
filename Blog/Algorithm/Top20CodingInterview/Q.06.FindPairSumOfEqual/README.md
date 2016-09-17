@@ -10,7 +10,7 @@ How to find all pairs of elements in an integer array, whose sum is equal to a g
 
 기본적인 for문을 사용할 수 있는지를 묻는 문제로 판단됩니다.
 
-###C Sharp
+###C\# 
 
 ```C#
 using System.Collections.Generic;
