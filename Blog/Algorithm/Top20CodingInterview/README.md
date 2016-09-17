@@ -1,21 +1,21 @@
 - [Top 20 Coding Interview](README.md)
-  - [Q.01.Majority](Q.01.Majority) (C#, C++, Python, Java)
-  - [Q.02.DetectCirculation](Q.02.DetectCirculation) (C#, C++, Python, Java)
-  - [Q.03.MergeSortedLinkedList](Q.03.MergeSortedLinkedList) (C#, C++, Python, Java)
-  - [Q.04.Anagram](Q.04.Anagram) (C#)
-  - [Q.05.SwapNumber](Q.05.SwapNumber) (C#)
-  - [Q.06.FindPairSumOfEqual](Q.06.FindPairSumOfEqual) (C#)
-  - [Q.07.FibonacciSeries](Q.07.FibonacciSeries) (C#)
-  - [Q.08.CountSetBits](Q.08.CountSetBits) (C#)
-  - [Q.09.RemoveDuplicateChar](Q.09.RemoveDuplicateChar) (C#)
-  - [Q.10.FindEndOf3thInSinglePath](Q.10.FindEndOf3thInSinglePath) (C#)
-  - [Q.11.RecursiveFactorial](Q.11.RecursiveFactorial) (C#)
-  - [Q.12.ArmstrongNumber](Q.12.ArmstrongNumber) (C#)
-  - [Q.13.PrimeNumber](Q.13.PrimeNumber) (C#)
-  - [Q.14.Palindrome](Q.14.Palindrome) (C#)
-  - [Q.15.CheckDuplicates](Q.15.CheckDuplicates) (C#)
-  - [Q.16.ReverseLinkedList](Q.16.ReverseLinkedList) (C#)
-  - [Q.17.RotateArray](Q.17.RotateArray) (C#)
-  - [Q.18.RemoveDuplicatesInSortedLinkedList](Q.18.RemoveDuplicatesInSortedLinkedList) (C#)
-  - [Q.19.SumDigits](Q.19.SumDigits) (C#)
-  - [Q.20.SelectionSort](Q.20.SelectionSort) (C#)
+  - [Q.01.Majority](Q.01.Majority) (C#, C++, Python, Java) - 2016-03-11
+  - [Q.02.DetectCirculation](Q.02.DetectCirculation) (C#, C++, Python, Java) - 2016-03-12
+  - [Q.03.MergeSortedLinkedList](Q.03.MergeSortedLinkedList) (C#, C++, Python, Java) - 2016-03-13
+  - [Q.04.Anagram](Q.04.Anagram) (C#) - 2016-03-13
+  - [Q.05.SwapNumber](Q.05.SwapNumber) (C#) - 2016-03-13
+  - [Q.06.FindPairSumOfEqual](Q.06.FindPairSumOfEqual) (C#) - 2016-03-13
+  - [Q.07.FibonacciSeries](Q.07.FibonacciSeries) (C#) - 2016-03-13
+  - [Q.08.CountSetBits](Q.08.CountSetBits) (C#) - 2016-03-13
+  - [Q.09.RemoveDuplicateChar](Q.09.RemoveDuplicateChar) (C#) - 2016-03-14
+  - [Q.10.FindEndOf3thInSinglePath](Q.10.FindEndOf3thInSinglePath) (C#) - 2016-03-14
+  - [Q.11.RecursiveFactorial](Q.11.RecursiveFactorial) (C#) - 2016-03-14
+  - [Q.12.ArmstrongNumber](Q.12.ArmstrongNumber) (C#) - 2016-03-14
+  - [Q.13.PrimeNumber](Q.13.PrimeNumber) (C#) - 2016-03-14
+  - [Q.14.Palindrome](Q.14.Palindrome) (C#) - 2016-03-14
+  - [Q.15.CheckDuplicates](Q.15.CheckDuplicates) (C#) - 2016-03-27
+  - [Q.16.ReverseLinkedList](Q.16.ReverseLinkedList) (C#) - 2016-03-30
+  - [Q.17.RotateArray](Q.17.RotateArray) (C#) - 2016-03-30
+  - [Q.18.RemoveDuplicatesInSortedLinkedList](Q.18.RemoveDuplicatesInSortedLinkedList) (C#) - 2016-04-01
+  - [Q.19.SumDigits](Q.19.SumDigits) (C#) - 2016-04-01
+  - [Q.20.SelectionSort](Q.20.SelectionSort) (C#) - 2016-04-01

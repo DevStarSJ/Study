@@ -1,4 +1,26 @@
+- [Algorithm](Algorithm)
+  - [Top 20 Coding Interview](Algorithm/Top20CodingInterview)
+    - [Q.01.Majority](Algorithm/Top20CodingInterview/Q.01.Majority) (C#, C++, Python, Java) - 2016-03-11
+    - [Q.02.DetectCirculation](Algorithm/Top20CodingInterview/Q.02.DetectCirculation) (C#, C++, Python, Java) - 2016-03-12
+    - [Q.03.MergeSortedLinkedList](Algorithm/Top20CodingInterview/Q.03.MergeSortedLinkedList) (C#, C++, Python, Java) - 2016-03-13
+    - [Q.04.Anagram](Algorithm/Top20CodingInterview/Q.04.Anagram) (C#) - 2016-03-13
+    - [Q.05.SwapNumber](Algorithm/Top20CodingInterview/Q.05.SwapNumber) (C#) - 2016-03-13
+    - [Q.06.FindPairSumOfEqual](Algorithm/Top20CodingInterview/Q.06.FindPairSumOfEqual) (C#) - 2016-03-13
+    - [Q.07.FibonacciSeries](Algorithm/Top20CodingInterview/Q.07.FibonacciSeries) (C#) - 2016-03-13
+    - [Q.08.CountSetBits](Algorithm/Top20CodingInterview/Q.08.CountSetBits) (C#) - 2016-03-13
+    - [Q.09.RemoveDuplicateChar](Algorithm/Top20CodingInterview/Q.09.RemoveDuplicateChar) (C#) - 2016-03-14
+    - [Q.10.FindEndOf3thInSinglePath](Algorithm/Top20CodingInterview/Q.10.FindEndOf3thInSinglePath) (C#) - 2016-03-14
+    - [Q.11.RecursiveFactorial](Algorithm/Top20CodingInterview/Q.11.RecursiveFactorial) (C#) - 2016-03-14
+    - [Q.12.ArmstrongNumber](Algorithm/Top20CodingInterview/Q.12.ArmstrongNumber) (C#) - 2016-03-14
+    - [Q.13.PrimeNumber](Algorithm/Top20CodingInterview/Q.13.PrimeNumber) (C#) - 2016-03-14
+    - [Q.14.Palindrome](Algorithm/Top20CodingInterview/Q.14.Palindrome) (C#) - 2016-03-14
+    - [Q.15.CheckDuplicates](Algorithm/Top20CodingInterview/Q.15.CheckDuplicates) (C#) - 2016-03-27
+    - [Q.16.ReverseLinkedList](Algorithm/Top20CodingInterview/Q.16.ReverseLinkedList) (C#) - 2016-03-30
+    - [Q.17.RotateArray](Algorithm/Top20CodingInterview/Q.17.RotateArray) (C#) - 2016-03-30
+    - [Q.18.RemoveDuplicatesInSortedLinkedList](Algorithm/Top20CodingInterview/Q.18.RemoveDuplicatesInSortedLinkedList) (C#) - 2016-04-01
+    - [Q.19.SumDigits](Algorithm/Top20CodingInterview/Q.19.SumDigits) (C#) - 2016-04-01
+    - [Q.20.SelectionSort](Algorithm/Top20CodingInterview/Q.20.SelectionSort) (C#) - 2016-04-01
 
-- [ASP.NET Core](ASP.NET Core/README.md)
-  - [.NET Core Install for Ubuntu 14.04](ASP.NET Core/Install.Net.Core.md)
-  - [Visual Studio와 Git을 이용하여 Web App 배포하기](ASP.NET Core/VS.Git.md)
+- [ASP.NET Core](ASP.NET Core)
+  - [.NET Core Install for Ubuntu 14.04](ASP.NET Core/Install.Net.Core.md) - 2016-07-04
+  - [Visual Studio와 Git을 이용하여 Web App 배포하기](ASP.NET Core/VS.Git.md) - 2016-07-04

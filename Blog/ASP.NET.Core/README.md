@@ -1,3 +1,3 @@
 - [ASP.NET Core](README.md)
-  - [.NET Core Install for Ubuntu 14.04](Install.Net.Core.md)
-  - [Visual Studio와 Git을 이용하여 Web App 배포하기](VS.Git.md)
+  - [.NET Core Install for Ubuntu 14.04](Install.Net.Core.md) - 2016-07-04
+  - [Visual Studio와 Git을 이용하여 Web App 배포하기](VS.Git.md) - 2016-07-04
