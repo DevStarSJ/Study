@@ -43,3 +43,15 @@
 - [CI](CI)
   - [Jenkins 설치 (Windows, MSBuild)](CI/jenkins.md) - 2015-11-10
   - [Symbol Repository 생성 및 관리](CI/symbolRepository.md) - 2016-04-04
+
+
+- [Conference](Conference)
+  - [2015](Conference/2015)
+    - [Data Grand Conference 2015](Conference/2015/DGC.md) - 2015-10-23
+    - [Microsoft Tech Days 2015](Conference/2015/TechDays2015.md) - 2015-10-27
+    - [집중훈련 사랑의 교회 2015-11-13](Conference/2015/2015-11-13_Training.md) - 2015-11-13
+    - [집중훈련 사랑의 교회 2015-11-20](Conference/2015/2015-11-20_Training.md) - 2015-11-20
+  - [2016](Conference/2016)
+    - [윈도우 앱 개발 그룹(Facebook) 6월 오프라인 모임](Conference/2016/WinApp.FB/2016-06-22.md) - 2016-06-22
+    - [바벨피쉬 딥엘라스틱 스터디 2차-1회](Conference/2016/BabelFish.FB/2016-06-23.md) - 2016-06-23
+    - [나는 프로그래머다 meetup](Conference/2016/2016-06-24.IamProgrammer.md) - 2016-06-24

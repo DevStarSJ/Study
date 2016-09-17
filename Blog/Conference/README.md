@@ -1,7 +1,10 @@
-##[2015 Data Grand Conference](https://github.com/DevStarSJ/Study/tree/master/Blog/Conference/2015/DGC.md)
-
-##[Microsoft TechDays 2015](https://github.com/DevStarSJ/Study/tree/master/Blog/Conference/2015/TechDays2015.md)
-
-##[2015-11-13일 말씀](https://github.com/DevStarSJ/Study/tree/master/Blog/Conference/2015/2015-11-13_Training.md)
-
-##[2015-11-20일 말씀](https://github.com/DevStarSJ/Study/tree/master/Blog/Conference/2015/2015-11-20_Training.md)
+- [Conference](.)
+  - [2015](2015)
+    - [Data Grand Conference 2015](2015/DGC.md) - 2015-10-23
+    - [Microsoft Tech Days 2015](2015/TechDays2015.md) - 2015-10-27
+    - [집중훈련 사랑의 교회 2015-11-13](2015/2015-11-13_Training.md) - 2015-11-13
+    - [집중훈련 사랑의 교회 2015-11-20](2015/2015-11-20_Training.md) - 2015-11-20
+  - [2016](2016)
+    - [윈도우 앱 개발 그룹(Facebook) 6월 오프라인 모임](2016/WinApp.FB/2016-06-22.md) - 2016-06-22
+    - [바벨피쉬 딥엘라스틱 스터디 2차-1회](2016/BabelFish.FB/2016-06-23.md) - 2016-06-23
+    - [나는 프로그래머다 meetup](2016/2016-06-24.IamProgrammer.md) - 2016-06-24
