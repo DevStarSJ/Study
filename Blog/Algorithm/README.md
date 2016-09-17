@@ -1,4 +1,4 @@
-- [Algorithm](README.md)
+- [Algorithm](.)
   - [Top 20 Coding Interview](Top20CodingInterview)
     - [Q.01.Majority](Top20CodingInterview/Q.01.Majority) (C#, C++, Python, Java) - 2016-03-11
     - [Q.02.DetectCirculation](Top20CodingInterview/Q.02.DetectCirculation) (C#, C++, Python, Java) - 2016-03-12

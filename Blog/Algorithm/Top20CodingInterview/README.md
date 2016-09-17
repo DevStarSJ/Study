@@ -1,4 +1,4 @@
-- [Top 20 Coding Interview](README.md)
+- [Top 20 Coding Interview](.)
   - [Q.01.Majority](Q.01.Majority) (C#, C++, Python, Java) - 2016-03-11
   - [Q.02.DetectCirculation](Q.02.DetectCirculation) (C#, C++, Python, Java) - 2016-03-12
   - [Q.03.MergeSortedLinkedList](Q.03.MergeSortedLinkedList) (C#, C++, Python, Java) - 2016-03-13

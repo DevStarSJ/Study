@@ -1,0 +1,2 @@
+- [Apple 사용팁](.)
+  - [macOS(OSX)에서 일반 마우스로 매직마우스의 제스쳐(gesture) 기능 사용하기](macOS.set.mouse.md) - 2016-09-16

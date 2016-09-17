@@ -24,3 +24,6 @@
 - [ASP.NET Core](ASP.NET Core)
   - [.NET Core Install for Ubuntu 14.04](ASP.NET Core/Install.Net.Core.md) - 2016-07-04
   - [Visual Studio와 Git을 이용하여 Web App 배포하기](ASP.NET Core/VS.Git.md) - 2016-07-04
+
+  - [Apple 사용팁](Apple)
+    - [macOS(OSX)에서 일반 마우스로 매직마우스의 제스쳐(gesture) 기능 사용하기](Apple/macOS.set.mouse.md) - 2016-09-16
