@@ -22,7 +22,7 @@
     - [Q.20.SelectionSort](Algorithm/Top20CodingInterview/Q.20.SelectionSort) (C#) - 2016-04-01
 
 
-- [ASP.NET Core](.)
+- [ASP.NET Core](ASP.NET.Core)
   - [.NET Core Install for Ubuntu 14.04](ASP.NET.Core/Install.Net.Core.md) - 2016-07-04
   - [Visual Studio와 Git을 이용하여 Web App 배포하기](ASP.NET.Core/VS.Git.md) - 2016-07-04
 
@@ -55,3 +55,12 @@
     - [윈도우 앱 개발 그룹(Facebook) 6월 오프라인 모임](Conference/2016/WinApp.FB/2016-06-22.md) - 2016-06-22
     - [바벨피쉬 딥엘라스틱 스터디 2차-1회](Conference/2016/BabelFish.FB/2016-06-23.md) - 2016-06-23
     - [나는 프로그래머다 meetup](Conference/2016/2016-06-24.IamProgrammer.md) - 2016-06-24
+
+
+- [C#](CSharp)
+  - [Example](CSharp/Example)
+    - [Newtonsoft.Json 사용법](CSharp/Example/Newtonsoft_Json) - 2016-06-12
+    - [Client WebSocket Example without ASP.NET](CSharp/Example/ClientWebSocketExample.md) - 2016-08-31
+  - [Using async method in static constructor](CSharp/StaticConstructorAsync) - 2016-06-12
+  - [Entity Framework Code First (Table 생성 및 수정)](CSharp/EntityFramework/CodeFirst.Migration) - 2016-06-12
+  - [C# Attribute 상속 후 override 할 경우 부모 값도 잘 가져오는지 확인](CSharp/AttributeInheritTest) - 2016-08-10

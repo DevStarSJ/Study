@@ -94,7 +94,7 @@ class Program
 
 ###1. async한 구현의 method를 추가
 
-위 예제의 경우 `GetNamesAsync()` method와 같은 기능을 하는 sync한 metho인 `GetNames()`를 추가하는 방법이 있습니다.  
+위 예제의 경우 `GetNamesAsync()` method와 같은 기능을 하는 sync한 method인 `GetNames()`를 추가하는 방법이 있습니다.  
 동일한 구현이 2개가 되므로 별로 추천드리는 방법은 아닙니다.  
 
 참고로 아래 예제도 썩 그렇게 좋은 예제코드는 아닙니다.
@@ -248,7 +248,3 @@ class Program
     }
 }
 ```
-
-
-
-
