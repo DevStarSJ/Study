@@ -64,3 +64,9 @@
   - [Using async method in static constructor](CSharp/StaticConstructorAsync) - 2016-06-12
   - [Entity Framework Code First (Table 생성 및 수정)](CSharp/EntityFramework/CodeFirst.Migration) - 2016-06-12
   - [C# Attribute 상속 후 override 할 경우 부모 값도 잘 가져오는지 확인](CSharp/AttributeInheritTest) - 2016-08-10
+
+
+- [Front-end](Front-end)
+  - [TypeScript](Front-end/TypeScript)
+    - [TypeScript Pro Chapter 3 Object Orientation in TypeScript](Front-end/TypeScript/03.ObjectOrientationInTypeScript.md)
+    - [TypeScript Pro Chapter 7 Exceptions, Memory, and Performance](Front-end/TypeScript/07.Exceptions, Memory, and Performance.md)
