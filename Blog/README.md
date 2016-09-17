@@ -141,3 +141,14 @@
     - [2016-09-10 Python 실습 (NLTK)](Python/PsyLang/nltk.in.20mins.ipynb) - 2016-09-10
   - [ThinkStats 프로그래머를 위한 통계 및 데이터 분석](Python/ThinkStats)
     - [챕터 2까지 실습](Python/ThinkStats/first.ipynb) - 2016-09-16
+
+
+- [서평](Review/Books)
+  - [한빛미디어. Java Network소녀 Netty](Review/Books/hanbit.netty.md) - 2015-10-29
+  - [한빛미디어. 팟캐스트 나는 프로그래머다: 뉴욕, 서울, 도쿄 개발자의 촌철살인 IT 이야기](Review/Books/hanbit.naProDa.md) - 2015-11-22
+  - [못난이 목사 세계를 향해 날다](Review/Books/motmok.md) - 2015-11-29
+  - [선대인의 빅픽처 : 저성장 시대의 생존 경제학](Review/Books/BigPicture.md) - 2015-12-27
+  - [훌륭한 프로그래머가 되는 법 : Becoming a Better Programmer](Review/Books/hanbit.BBP.md) - 2015-12-24
+  - [소프트 스킬 : 평범한 개발자의 비범한 인생 전략 71가지](Review/Books/softskill.md) - 2016-03-11
+  - [파이썬으로 풀어보는 수학 (Doing Math With Python)](Review/Books/DoingMathWithPython.md) - 2016-09-03
+  - [밑바닥부터 시작하는 데이터 과학 (Data Science With Scratch)](Review/Books/DataScienceWithScratch.md) - 2016-09-03
