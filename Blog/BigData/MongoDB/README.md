@@ -1,1 +1,2 @@
-# [Replication](https://github.com/DevStarSJ/Study/tree/master/Blog/BigData/MongoDB/Replication.md)  
+- [MongoDB 스터디 중 필기](.)
+  - [Replication](Replication.md) - 2016-08-24

@@ -29,3 +29,13 @@
 
 - [Apple 사용팁](Apple)
   - [macOS(OSX)에서 일반 마우스로 매직마우스의 제스쳐(gesture) 기능 사용하기](Apple/macOS.set.mouse.md) - 2016-09-16
+
+
+- [BigData](BigData)
+  - [Hadoop](BigData/Hadoop)
+    - [Hadoop Installation for CentOS 6](BigData/Hadoop/Install.CentOS6.md) - 2015-10-19
+    - [Spark Installation for CentOS 6](BigData/Hadoop/Spark.Install.CentOS6.md) - 2015-10-22
+    - [Hive Installation for CentOS 6](BigData/Hadoop/Hive.Install.CentOS6.md) (실패) - 2015-10-24
+    - [Hadoop Installation for Windows](BigData/Hadoop/Install.Windows.md) (실패) - 2015-10-24
+  - [MongoDB 스터디 중 필기](BigData/MongoDB)
+    - [Replication](BigData/MongoDB/Replication.md) - 2016-08-24
