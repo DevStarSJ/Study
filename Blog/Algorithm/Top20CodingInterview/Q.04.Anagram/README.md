@@ -10,7 +10,7 @@ Write a Program which checks if two Strings are Anagram or not?
 
 <https://en.wikipedia.org/wiki/Anagram>
 
-### C#
+### C #
 
 ```C#
 using System.Collections.Generic;
