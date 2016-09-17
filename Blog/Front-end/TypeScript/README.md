@@ -1,3 +1,3 @@
 - [TypeScript](.)
-  - [TypeScript Pro Chapter 3 Object Orientation in TypeScript](03.ObjectOrientationInTypeScript.md)
-  - [TypeScript Pro Chapter 7 Exceptions, Memory, and Performance](07.Exceptions, Memory, and Performance.md)
+  - [TypeScript Pro Chapter 3 Object Orientation in TypeScript](03.ObjectOrientationInTypeScript.md) - 2016-07-26
+  - [TypeScript Pro Chapter 7 Exceptions, Memory, and Performance](07.Exceptions, Memory, and Performance.md) - 2016-08-22
