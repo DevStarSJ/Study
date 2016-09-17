@@ -6,12 +6,12 @@
 
 - CentOS 6 기준으로 설명드리겠습니다.
 - CentOS 설치에 대해서는 다음 Posting을 참조하시기 바랍니다.
-  - [CentOS 다운로드 받기](https://github.com/icysword/Study/wiki/Linux.CentOS.Download)
-  - [VirtualBox에 CentOS 설치하기](https://github.com/icysword/Study/wiki/Linux.CentOS.VirtualBoxInstall)
-  - [CentOS에 Java 8 설치하기](https://github.com/icysword/Study/wiki/Linux.CentOS.Java8)
+  - [CentOS 다운로드 받기](../../../Linux/CentOS/Download.md)
+  - [VirtualBox에 CentOS 설치하기](../../../Linux/CentOS/VirtualBoxInstall.md)
+  - [CentOS에 Java 8 설치하기](../../../Linux/CentOS/Java8.md)
 - 위 과정까지 먼저 진행을 해 줍니다.
 - 그런 다음 VM Image를 4개 복사합니다.
-  - 복사 방법은 [VirtualBox image 복사하기](https://github.com/icysword/Study/wiki/Linux.CentOS.VMCopy)를 참조하세요.
+  - 복사 방법은 [VirtualBox image 복사하기](../../../Linux/CentOS/VMCopy.md)를 참조하세요.
     - 모두 내부망을 사용해야 하니 NAT말고 추가로 Network 카드를 추가해야 합니다.
   - 각각의 이름을 `hadoop.master` , `hadoop.slave.1` , `hadoop.slave.2` , `hadoop.slave.3` 으로 합니다.
 
@@ -20,7 +20,7 @@
 - 이 부분은 아래 설명한 것과 완벽하게 같게 되지는 않습니다.
   - 각자 Network 환경에 따라 수정하셔야 합니다.
 - 먼저 `ifconfig`를 눌러서 확인해 줍니다.  
-  ![VirtualBox.CentOS.copy.06.png](https://github.com/DevStarSJ/Study/blob/master/Blog/Linux/CentOS/image/VirtualBox.CentOS.copy.06.png?raw=true)  
+  ![VirtualBox.CentOS.copy.06.png](../../../Linux/CentOS/image/VirtualBox.CentOS.copy.06.png)  
   - VM Image를 복사한 경우 Network명칭이 `eth0` , `eth1`이 아니라 `eth2` , `eth5` 이런식으로 다를 수도 있습니다.
   - 위 정보에서 `Network 명칭` , `MAC Address (HWaddr)` , `IP (inet addr)` 정보를 다른 file에 설정해야 하니 어디 적어두시거나 다른 Terminal을 하나 띄우시길 추천 드립니다.
 - `/etc/sysconfig/network-scripts` 내부에 있는 `ifcfg-네트워크명칭` 파일을 복사 및 편집해야 합니다.
@@ -244,12 +244,12 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'hadoop.slave.1,192.168.56.105' (RSA) to the list of known hosts.
 Connection closed by 192.168.56.105
 [root@hadoop network-scripts]# ssh hadoop.slave.1
-root@hadoop.slave.1's password: 
+root@hadoop.slave.1's password:
 [root@hadoop ~]# ssh-keygen -t rsa
 Generating public/private rsa key pair.
-Enter file in which to save the key (/root/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
 Your identification has been saved in /root/.ssh/id_rsa.
 Your public key has been saved in /root/.ssh/id_rsa.pub.
 The key fingerprint is:
@@ -302,7 +302,7 @@ scp .bash_profile root@hadoop.slave.2:~
 scp .bash_profile root@hadoop.slave.3:~
 ```
 1. 디렉토리 복사
-  - 아래 문법을 참고하여 필요한 폴더를 복사하면 됩니다. 
+  - 아래 문법을 참고하여 필요한 폴더를 복사하면 됩니다.
     - hadoop도 master에만 설치한 뒤에 slave에 복사하는 것이 가능합니다.
   ```
 scp -r hadoop-2.6.1 root@hadoop.slave.1:~
@@ -370,6 +370,6 @@ hadoop datanode
 
 - Web Interface로 상태를 확인해 보겠습니다.
   - <http://hadoop.master:50070> : HDFS 확인. NameNode가 안떠있으면 접속되지 않습니다.
-      ![Hadoop.Install.CentOS](https://github.com/DevStarSJ/Study/blob/master/Blog/BigData/Hadoop/image/hadoop.50070.png?raw=true)  
+      ![Hadoop.Install.CentOS](image/hadoop.50070.png)  
   - <http://hadoop.master:8088> : Resource & Node Manager 확인이 가능합니다.
-      ![Hadoop.Install.CentOS](https://github.com/DevStarSJ/Study/blob/master/Blog/BigData/Hadoop/image/hadoop.8088.png?raw=true)  
+      ![Hadoop.Install.CentOS](image/hadoop.8088.png)  
