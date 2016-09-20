@@ -39,7 +39,7 @@ if __name__ == '__main__':
     l = CustomStreamListener()
     try:
         auth = get_api()
-        s = '직방'
+        s = 'note7'
         twitterStreaming = tweepy.Stream(auth, l)
         twitterStreaming.filter(track=[s])
     except KeyboardInterrupt:
