@@ -16,6 +16,7 @@
 3. 생성된 정보 확인
   - `Keys and Access Tokens` 또는 `Test OAuth` 클릭
     - Consumer key : API 키 값
+    
     - Consumer secret : API 비밀번호
   - `Keys and Access Tokens`에서 `Create My Access Token` 클릭
     - Access token : API 접근용 Token
