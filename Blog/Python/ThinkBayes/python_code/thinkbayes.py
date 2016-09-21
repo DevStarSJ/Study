@@ -159,7 +159,7 @@ class _DictWrapper(object):
 
         values: map from value to probability
         """
-        for value, prob in values.iteritems():
+        for value, prob in iter(values.items()):
             self.Set(value, prob)
 
     def InitPmf(self, values):
@@ -228,7 +228,7 @@ class _DictWrapper(object):
         if m is None:
             m = self.MaxLike()
 
-        for x, p in self.d.iteritems():
+        for x, p in iter(self.d.items()):
             if p:
                 self.Set(x, math.log(p / m))
             else:
@@ -248,7 +248,7 @@ class _DictWrapper(object):
         if m is None:
             m = self.MaxLike()
 
-        for x, p in self.d.iteritems():
+        for x, p in iter(self.d.items()):
             self.Set(x, math.exp(p - m))
 
     def GetDict(self):
@@ -282,7 +282,7 @@ class _DictWrapper(object):
 
     def Print(self):
         """Prints the values and freqs/probs in ascending order."""
-        for val, prob in sorted(self.d.iteritems()):
+        for val, prob in sorted(iter(self.d.items())):
             print(val, prob)
 
     def Set(self, x, y=0):
@@ -401,7 +401,7 @@ class Pmf(_DictWrapper):
 
         returns: float probability
         """
-        t = [prob for (val, prob) in self.d.iteritems() if val > x]
+        t = [prob for (val, prob) in iter(self.d.items()) if val > x]
         return sum(t)
 
     def ProbLess(self, x):
@@ -411,7 +411,7 @@ class Pmf(_DictWrapper):
 
         returns: float probability
         """
-        t = [prob for (val, prob) in self.d.iteritems() if val < x]
+        t = [prob for (val, prob) in iter(self.d.items()) if val < x]
         return sum(t)
 
     def __lt__(self, obj):
@@ -511,7 +511,7 @@ class Pmf(_DictWrapper):
 
         target = random.random()
         total = 0.0
-        for x, p in self.d.iteritems():
+        for x, p in iter(self.d.items()):
             total += p
             if total >= target:
                 return x
@@ -526,7 +526,7 @@ class Pmf(_DictWrapper):
             float mean
         """
         mu = 0.0
-        for x, p in self.d.iteritems():
+        for x, p in iter(self.d.items()):
             mu += p * x
         return mu
 
@@ -544,7 +544,7 @@ class Pmf(_DictWrapper):
             mu = self.Mean()
 
         var = 0.0
-        for x, p in self.d.iteritems():
+        for x, p in iter(self.d.items()):
             var += p * (x - mu) ** 2
         return var
 
@@ -1093,7 +1093,7 @@ def MakeCdfFromDict(d, name=''):
     Returns:
         Cdf object
     """
-    return MakeCdfFromItems(d.iteritems(), name)
+    return MakeCdfFromItems(iter(d.items()), name)
 
 
 def MakeCdfFromHist(hist, name=''):
