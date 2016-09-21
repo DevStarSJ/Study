@@ -283,7 +283,7 @@ class _DictWrapper(object):
     def Print(self):
         """Prints the values and freqs/probs in ascending order."""
         for val, prob in sorted(self.d.iteritems()):
-            print val, prob
+            print(val, prob)
 
     def Set(self, x, y=0):
         """Sets the freq/prob associated with the value x.
@@ -324,12 +324,12 @@ class _DictWrapper(object):
 
     def Total(self):
         """Returns the total of the frequencies/probabilities in the map."""
-        total = sum(self.d.itervalues())
+        total = sum(iter(self.d.values()))
         return total
 
     def MaxLike(self):
         """Returns the largest frequency/probability in the map."""
-        return max(self.d.itervalues())
+        return max(iter(self.d.values()))
 
 
 class Hist(_DictWrapper):
@@ -1223,7 +1223,7 @@ class Suite(Pmf):
     def Print(self):
         """Prints the hypotheses and their probabilities."""
         for hypo, prob in sorted(self.Items()):
-            print hypo, prob
+            print(hypo, prob)
 
     def MakeOdds(self):
         """Transforms from probabilities to odds.
