@@ -38,7 +38,7 @@ def RandomSeed(x):
     """
     random.seed(x)
     numpy.random.seed(x)
-    
+
 
 def Odds(p):
     """Computes odds for a given probability.
@@ -74,7 +74,7 @@ def Probability2(yes, no):
     """Computes the probability corresponding to given odds.
 
     Example: yes=2, no=1 means 2:1 odds in favor, or 2/3 probability.
-    
+
     yes, no: int or float odds in favor
     """
     return float(yes) / (yes + no)
@@ -216,7 +216,7 @@ class _DictWrapper(object):
 
     def Log(self, m=None):
         """Log transforms the probabilities.
-        
+
         Removes values with probability 0.
 
         Normalizes so that the largest logprob is 0.
@@ -369,7 +369,7 @@ class Hist(_DictWrapper):
 
 class Pmf(_DictWrapper):
     """Represents a probability mass function.
-    
+
     Values can be any hashable type; probabilities are floating-point.
     Pmfs are not necessarily normalized.
     """
@@ -978,7 +978,7 @@ class Cdf(object):
 
     def Sample(self, n):
         """Generates a random sample from this distribution.
-        
+
         Args:
             n: int length of the sample
         """
@@ -1485,7 +1485,7 @@ def SampleSum(dists, n):
 
     returns: new Pmf of sums
     """
-    pmf = MakePmfFromList(RandomSum(dists) for i in xrange(n))
+    pmf = MakePmfFromList(RandomSum(dists) for _ in range(n))
     return pmf
 
 
@@ -1495,7 +1495,7 @@ def EvalGaussianPdf(x, mu, sigma):
     x: value
     mu: mean
     sigma: standard deviation
-    
+
     returns: float probability density
     """
     return scipy.stats.norm.pdf(x, mu, sigma)
@@ -1503,7 +1503,7 @@ def EvalGaussianPdf(x, mu, sigma):
 
 def MakeGaussianPmf(mu, sigma, num_sigmas, n=201):
     """Makes a PMF discrete approx to a Gaussian distribution.
-    
+
     mu: float mean
     sigma: float standard deviation
     num_sigmas: how many sigmas to extend in each direction
@@ -1528,7 +1528,7 @@ def EvalBinomialPmf(k, n, p):
     Returns the probabily of k successes in n trials with probability p.
     """
     return scipy.stats.binom.pmf(k, n, p)
-    
+
 
 def EvalPoissonPmf(k, lam):
     """Computes the Poisson PMF.
@@ -1592,13 +1592,13 @@ def MakeExponentialPmf(lam, high, n=200):
 
 def StandardGaussianCdf(x):
     """Evaluates the CDF of the standard Gaussian distribution.
-    
+
     See http://en.wikipedia.org/wiki/Normal_distribution
     #Cumulative_distribution_function
 
     Args:
         x: float
-                
+
     Returns:
         float
     """
@@ -1607,14 +1607,14 @@ def StandardGaussianCdf(x):
 
 def GaussianCdf(x, mu=0, sigma=1):
     """Evaluates the CDF of the gaussian distribution.
-    
+
     Args:
         x: float
 
         mu: mean parameter
-        
+
         sigma: standard deviation parameter
-                
+
     Returns:
         float
     """
@@ -1624,15 +1624,15 @@ def GaussianCdf(x, mu=0, sigma=1):
 def GaussianCdfInverse(p, mu=0, sigma=1):
     """Evaluates the inverse CDF of the gaussian distribution.
 
-    See http://en.wikipedia.org/wiki/Normal_distribution#Quantile_function  
+    See http://en.wikipedia.org/wiki/Normal_distribution#Quantile_function
 
     Args:
         p: float
 
         mu: mean parameter
-        
+
         sigma: standard deviation parameter
-                
+
     Returns:
         float
     """
@@ -1827,5 +1827,3 @@ def LogBinomialCoef(n, k):
     Returns: float
     """
     return n * log(n) - k * log(k) - (n - k) * log(n - k)
-
-
