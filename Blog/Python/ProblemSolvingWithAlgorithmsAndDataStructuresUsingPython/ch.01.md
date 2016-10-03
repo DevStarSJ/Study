@@ -6,15 +6,9 @@
 
 ### 1.1 Objectives
 
-<http://interactivepython.org/runestone/static/pythonds/Introduction/Objectives.html>
-
 ### 1.2 Getting Started
 
-<http://interactivepython.org/runestone/static/pythonds/Introduction/GettingStarted.html>
-
 ### 1.3 What is Computer Science ?
-
-<http://interactivepython.org/runestone/static/pythonds/Introduction/WhatIsComputerScience.html>
 
 `Computer Science`는 컴퓨터에 대해서 배우는 학문이 아니라 문제와 그 문제의 풀이방법에 대한 학문이다.
 (하지만 이게 전부가 아니라고 뒤에서 말한다.)
@@ -34,13 +28,9 @@ math.sqrt(16)
 
 ### 1.4 What is Programming ?
 
-<http://interactivepython.org/runestone/static/pythonds/Introduction/WhatIsProgramming.html>
-
 `Programming`은 알고리즘을 컴퓨터가 실행가능한 형태로 규칙에 맞게 작성하는 것이다.
 
 ### 1.5 Why Study Data Structures and Abstract Data Types ?
-
-<http://interactivepython.org/runestone/static/pythonds/Introduction/WhyStudyDataStructuresandAbstractDataTypes.html>
 
 ![image](image/01.01.adt.png)
 
@@ -55,19 +45,13 @@ math.sqrt(16)
 
 ### 1.6 Why Study Algorithms ?
 
-<http://interactivepython.org/runestone/static/pythonds/Introduction/WhyStudyAlgorithms.html>
-
 문제와 그 해법을 알고리즘이라 부른다.
 그것들을 미리 익혀두면 다른 문제를 해결하고자 할때 그 해법들을 쉽게 찾을 수 있다.
 그리고 알고리즘이 없는 문제(현실적인 시간내에 풀이가 불가능한 문제)를 좀 더 쉽게 찾을 수 있다.
 
 ### 1.7 Review of Basic Python
 
-<http://interactivepython.org/runestone/static/pythonds/Introduction/ReviewofBasicPython.html>
-
 ### 1.8 Getting Started with Data
-
-<http://interactivepython.org/runestone/static/pythonds/Introduction/GettingStartedwithData.html>
 
 Python은 `Object-Oriented Programming`을 지원한다.
 OOP란 문제를 Object기반으로 해결하는 방법을 뜻한다.
@@ -229,8 +213,6 @@ capitals = {'Iowa':'DesMoines','Wisconsin':'Madison'}
 
 ### 1.9 Input and Output
 
-<http://interactivepython.org/runestone/static/pythonds/Introduction/InputandOutput.html>
-
 - Input from Keyboard : `input`
 
 ```Python
@@ -269,8 +251,6 @@ print('{1} age is {0} years old.'.format(19, 'My'))
 ```
 
 ### 1.10. Control Structures
-
-<http://interactivepython.org/runestone/static/pythonds/Introduction/ControlStructures.html>
 
 #### Iteration
 
@@ -344,3 +324,148 @@ def square(n):
 ```
 
 ### 1.13. Object-Oriented Programming in Python: Defining Classes
+
+OOP의 핵심은 사용자가 자신만의 class를 만들수 있다는 점이다.
+이렇게 만든 클래스를 이용해서 문제를 푸는데 활용할 수 있다.
+
+#### 1.13.1 A `Fraction` Class
+
+- `Magic Method` : `__add__`와 같이 2개의 언더바로 시작과 끝이 나는 모양의 메서드. 파이썬에서 연산자나 기타 기본 함수 실행시 각각의 클래스에 미리 정의해 놓은 스페셜 메서드를 찾아서 실행시킨다.
+
+<http://www.rafekettler.com/magicmethods.html>
+
+```Python
+# The Greatest Common Divisor
+def gcd(m, n):
+    while m % n != 0:
+        oldm = m
+        oldn = n
+        m = oldn
+        n = oldm % oldn
+
+    return n
+
+class Fraction:
+
+    def __init__(self, top, bottom):
+        self.num = top
+        self.den = bottom
+
+    def show(self):
+        print(self.num, '/', self.den)
+
+    def __str__(self):
+        return str(self.num) + '/' + str(self.den)
+
+    def __add__(self, other):
+        newnum = self.num * other.den + self.den * other.num
+        newden = self.den * other.den
+        common = gcd(newnum, newden)
+
+        return Fraction(newnum//common, newden//common)
+
+    def __eq__(self other):
+        firstnum = self.num * other.den
+        secondnum = other.num * self.den
+
+        return firstnum == secondnum
+```
+
+#### 1.13.2 Inheritance : Logic Gates and Circuits
+
+- `상속(Inheritance)`
+  - `superclass`의 특성을 모두 가지면서 추가적인 특성 (또는 일부 변경한 특성)을 가지는 `subclass`를 생성.
+  -  `IS-A Relationship` : 상속은 IS-A 관계에 있는 것에 사용해야 한다. *list* is a *sequential collection**. 이므로 상속관계로 나타낼수 있다.
+    - `HAS-A Relationship` : 포함하는 관계에 대해서는 상속보다는 `위임(Delegation)`으로 그 관계를 표현하는게 좋다. *Car* has a *Engine*. 이라고 해서 *Engine* 을 상속받아서 *Car* 를 구현하는 것 보다는 *Car* 내부에 *Engine* 객체를 두고 사용하는게 더 좋다.
+
+```Python
+class LogicGate:
+
+    def __init__(self, n):
+        self.label = n
+        self.output = None
+
+    def getLabel(self):
+        return self.label
+
+    def getOutput(self):
+        self.output = self.performGateLogic()
+        return self.out
+```
+
+`performGateLogic` 함수는 아직 구현하지 않았다.
+세부적인 구현에 대해서 부모 클래스에서는 모른다.
+부모 클래스에서는 단지 해당 함수를 이용해서 output을 구한다는 것만 명시해주고, 해당 기능에 대한 구현은 실제로 동작하는 클레스에게 그 책임을 넘긴다.
+(다른 언어에서는 모든 구현이 완료되지 않은 클래스를 `abstract class`라 부르며, 여기에서 사용하는 메서드에 대한 선언을 반드시 해주어야 한다.)
+
+```Python
+class BinaryGate(LogicGate):
+
+    def __init__(self, n):
+        LogicGate.__init__(self, n)
+        self.pinA = None
+        self.pinB = None
+
+    def getPinA(self):
+        return int(input("Enter Pin A input for gate" + self.getLabel() + "-->"))
+
+    def getPinB(self):
+        return int(input("Enter Pin B input for gate" + self.getLabel() + "-->"))
+
+    def setNextPin(self, source):
+        if self.pinA == None:
+            self.pinA = source
+        else:
+            if self.pinB == None:
+                self.pinB = source
+            else:
+               raise RuntimeError("Error: NO EMPTY PINS")
+
+
+class UnaryGate(LogicGate):
+
+    def __init__(self, n):
+        LogicGate.__init__(self, n)
+        #super(UnaryGate, self).__init__(n)
+        self.pin = None
+
+    def getPin(self):
+        return int(input("Enter Pin input for gate" + self.getLabel() + "-->"))
+```
+
+```Python
+class AndGate(BinaryGate):
+
+    def __init__(self,n):
+        BinaryGate.__init__(self,n)
+
+    def performGateLogic(self):
+
+        a = self.getPinA()
+        b = self.getPinB()
+        if a==1 and b==1:
+            return 1
+        else:
+            return 0
+```
+
+
+```Python
+class Connector:
+
+    def __init__(self, fgate, tgate):
+        self.fromgate = fgate
+        self.togate = tgate
+
+        tgate.setNextPin(self)
+
+    def getFrom(self):
+        return self.fromgate
+
+    def getTo(self):
+        return self.togate
+```
+
+```Python
+
+```
