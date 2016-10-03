@@ -465,7 +465,3 @@ class Connector:
     def getTo(self):
         return self.togate
 ```
-
-```Python
-
-```
