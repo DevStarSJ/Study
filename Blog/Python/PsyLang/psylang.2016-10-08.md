@@ -1,0 +1,14 @@
+- zoned out : 멍때렸어.
+- TOLO : You Only Live Once.
+- Let bygones be bygones.
+- Thanks for your input.
+- I made it! : 해냈다.
+- I've made it to Friday. : 드디어 금요일이다.
+- This is ~ : 얼굴이 안보일때. e-mail/phone (Not I am)
+  - in person (face-to-face)
+- any + 단복수 다 가능. 하지만 통상 any + 복수
+  - 단수 : 모든. any device
+- Correct me if I'm wrong.
+  - Is this answer to your question ? (Official)
+  - Does this answer your question ? (Casual)
+- I'm going home.
