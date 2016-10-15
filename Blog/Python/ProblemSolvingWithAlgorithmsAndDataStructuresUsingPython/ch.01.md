@@ -132,7 +132,7 @@ True
 ##### list
 
 - ordered collection of Python objects
-- empty list : ``
+- empty list : `[ ]`
 - mutable
 
 ```Python
