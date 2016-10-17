@@ -1,0 +1,33 @@
+◆ 클러스터링
+* DB 클러스터라 함은 하나의 DB을 복수개의 서버(또는 가상 서버)상에 구축
+  논리적으로 하나의 DB에 데이터를 여러 서버에 걸쳐 저장하는 것
+  분산DB의 위치 분산과 비슷한 양상으로 생각됨. 
+참고 상세 : DB가이드넷.권순용의 DB 이야기 데이터베이스 클러스터를 최적화하자 
+http://www.dbguide.net/knowledge.db?cmd=view&boardUid=145926&boardConfigUid=19
+
+
+◆ OLTP(On-Line Transaction Processing)
+   네트워크상의 여러 이용자가 
+   리얼타임으로 데이터베이스를 갱신하거나 조회 등의 단위작업(Transaction)을 처리하는 것
+   온라인거래처리 - 신용카드 조회업무나 자동현금지급등 금융전산관련 부문
+                   , 항공 예약 시스템에서 많이 이용
+
+◆ OLAP (Online Analysis Processing)
+   OLTP에서 발생한 원시 데이터를 활용할 수 있도록 가공하고 분석하는 과정 
+   정규화된 OLTP용 데이터를 사용자가 쉽게 이해할 수 있고 조작하기 쉬운 형태로 변경되어 존재(DW/MART/CUBE 등 )
+   사용자는 필요한 시점에 정보 매개자 없이 정보원에 직접 접근하여 
+   다양한 각도에서 분석 수행 가능
+
+참고 URL : 
+http://luvbaby.tistory.com/126 
+http://develop.sunshiny.co.kr/530
+
+
+◆ 방법론 별로 관계 읽는 방법 
+   http://cyber.dbguide.net - 교육과정 -  TOOL
+   * 바커스 방법론 : DA# Designer & Modeler 과정-  2강 (데이터아키텍처 솔루션) DA# Modeler 의 55분 시작
+   * 정보공학(IE)방법론 : ERwin Data Modeler R7.x 과정 - Logical Data Modeling -24분 47초 시작
+
+좀더 방법론적인 공부를 원하신다면  
+교육과정 - 데이터아키텍처 - 데이터모델링 고도화 - 6강관계정의 26분 40초 쯤의 기수성설명 파트 보심 되어요.
+※  http://cyber.dbguide.net 는 기존 DB가이드넷 ID/PW랑 동일한걸로 알고 있어요.
