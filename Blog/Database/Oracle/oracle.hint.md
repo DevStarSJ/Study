@@ -18,5 +18,5 @@
   - USE_CONCAT : UNION ALL로 표현
   - NO_EXPAND : 나누지 말고 그대로 실행
 * FULL(테이블) : 해당 테이블을 full scan 한다.
-* PARALLEL(테이블 프로레스수) : 해당 테이블을 명시한 프로레스수 만큼 병렬로 처리한다.
+* PARALLEL(테이블 프로세스수) : 해당 테이블을 명시한 프로레스수 만큼 병렬로 처리한다.
 * APPEND : INSERT를 APPEND 모드로 수행
