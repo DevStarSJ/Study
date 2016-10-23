@@ -4,7 +4,7 @@
   - USE_NL(테이블) : outer table을 테이블(inner table)과 Nested Loop Join 방식으로 JOIN을 시도
 * Semi Join : 1 row만 JOIN에 성공하면 더이상 inner쪽을 보지 않고 outer의 다음 row를 찾음
   - NL_SJ, HASH_SJ, MERGE_SJ
-* Anti Join : 일치하지 않는 data를 추출 (NOT IN, NOT EXISTS, MUNUS)
+* Anti Join : 일치하지 않는 data를 추출 (NOT IN, NOT EXISTS, MINUS)
   - NL_AJ, HASH_AJ, MERGE_AJ
 * Subquery Unnesting 관련
   - UNNEST : 풀어서 JOIN 방식으로 유도
