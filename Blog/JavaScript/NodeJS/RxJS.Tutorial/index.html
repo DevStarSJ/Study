@@ -57,7 +57,40 @@
     btnClickStream
       .withLatestFrom(zipInputStream, (click, zip) => zip)
       .distinct()
-      .forEach(val => console.log('zipcodeStream val', val));
+      //.forEach(val => console.log('zipcodeStream val', val));
+
+  // Create reusable temperature fetching stream
+  // APPID 필
+  const getTemperature = zip =>
+  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${zip},us&units=imperial&appid=8fdc114f949daa789cae36631b244cab`)
+          .then(res => res.json());
+
+  const zipTemperatureStreamFactory = zip =>
+    Rx.Observable
+          .fromPromise(getTemperature(zip))
+          .map(({ main: { temp } }) => ({ temp, zip }));
+
+  // Get new zip at each button click, get its
+  // temperature, and paint it to the screen
+  zipcodeStream
+          .flatMap(zipTemperatureStreamFactory)
+          .forEach(({ zip, temp }) => {
+    const locationEle = document.createElement('div');
+  locationEle.id = `zip-${zip}`;
+  locationEle.classList.add('location');
+  const zipEle = document.createElement('p');
+  zipEle.classList.add('zip');
+  zipEle.innerText = zip;
+  const tempEle = document.createElement('p');
+  tempEle.classList.add('temp');
+  tempEle.innerHTML = `${temp}&deg;F`;
+  locationEle.appendChild(zipEle);
+  locationEle.appendChild(tempEle);
+  appContainer.appendChild(locationEle);
+  zipcodeInput.value = '';
+  });
+
+
   </script>
 </body>
 </html>
