@@ -7,3 +7,5 @@
   - [소프트 스킬 : 평범한 개발자의 비범한 인생 전략 71가지](softskill.md) - 2016-03-11
   - [파이썬으로 풀어보는 수학 (Doing Math With Python)](DoingMathWithPython.md) - 2016-09-03
   - [밑바닥부터 시작하는 데이터 과학 (Data Science With Scratch)](DataScienceWithScratch.md) - 2016-09-03
+  - [Drive : 창조적인 사람들을 움직이는 자발적 동기부여의 힘](Drive.md) - 2016-10-01
+  - [Zero to One : 경쟁하지 말고 독점하라](ZeroToOne.md) - 2016-10-20
