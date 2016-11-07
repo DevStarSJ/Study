@@ -51,3 +51,12 @@ var uf = squel.update()
   .toString();
 
 console.log(uf);
+
+var pq = squel.select()
+  .from(`emp`)
+  .where('id = ?', 10)
+  .where('dept = ?', 20)
+  .field('*')
+  .toParam();
+
+console.log(pq);

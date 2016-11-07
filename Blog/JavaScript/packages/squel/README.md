@@ -157,3 +157,24 @@ INSERT INTO emp (id, name) (SELECT id, name FROM candidates)
 
 
 - 나머지 함수들 `where()`, `limit()`, `order()`, `JOIN 연산` 등은 **SELECT** 와 동일합니다.
+
+## Parameters
+
+위에서 살펴본 예제들은 모두 **Binding Parameters** 를 사용하지 않고 query에 하드코딩 되어 있습니다.
+**parameterized query** 로 생성하려면 `.toString()` 대신에 `.toParam()`을 실행하면 됩니다.
+
+```JavaScript
+var pq = squel.select()
+  .from(`emp`)
+  .where('id = ?', 10)
+  .where('dept = ?', 20)
+  .field('*')
+  .toParam();
+```
+
+```JSON
+{ text: 'SELECT * FROM emp WHERE (id = ?) AND (dept = ?)',
+  values: [ 10, 20 ] }
+```
+
+`?`가 아니라 **numbered parameter** (`$1`, `$2`, ...)를 사용하려면 `toParam()`의 인자로 `{ numberedParameters: true, numberedParametersStartAt: 1 }` 을 전달하면 됩니다.
