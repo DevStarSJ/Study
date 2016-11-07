@@ -21,3 +21,33 @@ var s = squel
   .toString();
 
 console.log(s);
+
+var is = squel
+  .insert()
+  .into('emp')
+  .fromQuery(
+    ['id', 'name'],
+    squel
+      .select()
+      .from('candidates')
+      .field('id')
+      .field('name')
+  )
+  .toString();
+
+console.log(is);
+
+var im = squel.insert()
+  .into('emp')
+  .setFieldsRows([{id:1, name:"Luna"}, {id:2, name:"Star"}])
+  .toString();
+
+console.log(im);
+
+var uf = squel.update()
+  .table('emp')
+  .set('hire_date', 'GETDATE()', { dontQuote: true })
+  .where('dept = ?', 10)
+  .toString();
+
+console.log(uf);
