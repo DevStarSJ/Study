@@ -60,3 +60,12 @@ var pq = squel.select()
   .toParam();
 
 console.log(pq);
+
+const query = squel.select()
+  .from('user_blacklist')
+  .where('phone = ?', 'aaaaa')
+  .limit(1)
+  .field('name, phone, memo, create_at')
+  .toString();
+
+console.log(query);
