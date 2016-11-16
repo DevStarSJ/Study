@@ -83,5 +83,4 @@ module.exports = (userId, header, body) => {
     body: JSON.stringify({ id: userId, header: header, body: body })
   });
 };
-
 ```
