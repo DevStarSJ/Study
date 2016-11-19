@@ -338,3 +338,8 @@ exports.handler = (event, context, callback) => {
 
 - 아웃사이더님 Blog : <https://blog.outsider.ne.kr/1205> , <https://blog.outsider.ne.kr/1206>
 - AWS : <http://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html>
+
+
+- 원문 : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.md>
+
+잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다.
