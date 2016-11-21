@@ -330,9 +330,9 @@ exports.handler = (event, context, callback) => {
       - `path` : URL 상에서 경로로 얻어오는 변수들
     - `header` : HEADER에서 전달해온 값
     - `querystring` : URL 상의 QueryString로 전달된 변수들
-  - `context`
-    - `http-method` : 호출한 METHOD (GET, POST, ...)
-    - `resource-path` : 하나의 Lambda에서 여러 URL을 처리할 경우 경로 정보
+    - `context`
+      - `http-method` : 호출한 METHOD (GET, POST, ...)
+      - `resource-path` : 하나의 Lambda에서 여러 URL을 처리할 경우 경로 정보
 
 ## 참고
 
@@ -342,4 +342,4 @@ exports.handler = (event, context, callback) => {
 
 - 원문 : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.md>
 
-잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다.
+잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다. - <seokjoon.yun@gmail.com>
