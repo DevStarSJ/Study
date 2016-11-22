@@ -15,8 +15,6 @@ http-method(API Gateway에서는 Method로 불림)에 대해서 **Lambda**를 �
 - Lambda 와 API Gateway 연동 #1 (GET, POST) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md>
 - Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md>
 
-<https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md>
-
 ## API Gateway 에 Proxy Resource 등록
 
 먼저 **API Gateway**에 등록된 모든 Resource 및 Method를 삭제한 뒤 다음 단계로 진행해주세요.
