@@ -245,3 +245,7 @@ exports.handler = (event, context, callback) => {
 - **{proxy+}**로 접근할 경우 **Lambda**에서 필요한 요청값들의 변수명 
 
 잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다. - <seokjoon.yun@gmail.com>  
+
+### 다음글
+
+- Lambda Node.JS Packaging : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Node.md>
