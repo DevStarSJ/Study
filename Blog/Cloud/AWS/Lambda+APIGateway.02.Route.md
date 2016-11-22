@@ -8,7 +8,7 @@ Web API를 구현하기 위해서는 여러가지 URL에 대해서 각각 다른
 전편의 내용을 안다는 가정하에 진행하겠습니다.
 처음 이 글부터 보시는 분들은 아래 Link에서 내용을 숙지한 후에 진행해 주세요.
 
-<https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.md>
+<https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md>
 
 ## API Gateway 설정
 
@@ -249,3 +249,6 @@ exports.handler = (event, context, callback) => {
 - **Lambda**내에서 요청한 **URL** 및 **http-method** 별로 다른 작업을 하는 **Node.JS** 코드 작성법 
 
 잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다. - <seokjoon.yun@gmail.com>
+
+### 다음글
+- Lambda 와 API Gateway 연동 #3 (Proxy Resource) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md>
