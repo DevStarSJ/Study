@@ -3,16 +3,16 @@
 AWS Lambda 관련 5번째 포스트 입니다.  
 지난 글들의 목록은 다음과 같습니다.
 
-- Lambda 와 API Gateway 연동 #1 (GET, POST) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md>
-- Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md>
-- Lambda 와 API Gateway 연동 #3 (Proxy Resource) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md>
-- Lambda Node.JS Packaging : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Node.md>
+- [Lambda 와 API Gateway 연동 #1 (GET, POST)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md)
+- [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md)
+- [Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md)
+- [Lambda Node.JS Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Node.md)
 
 이번에는 **Python**으로 구현해 보겠습니다.
 
 ## Previously on Lambda series
 
-`Lambda 와 API Gateway 연동 #3 (Proxy Resource`)까지 진행되었다는 가정하에 진행하겠습니다.  
+[Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md)까지 진행되었다는 가정하에 진행하겠습니다.  
 아직 위 내용들을 보지 않으셨던 분은 아래대로 따라하시면 준비가 끝납니다.
 
 그 과정을 간략하게 살없이 뼈만 간추리면 다음과 같습니다.
@@ -149,7 +149,7 @@ def handler(event, context):
 
 `/test?id=?` 라는 주소로 `GET`, `POST`요청에 대해서 각각 다른 작업을 하는 코드를 작성해 보겠습니다.
 
-각각 함수에 대한 설명은 `Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)` 포스팅을 참고해 주세요.
+각각 함수에 대한 설명은 [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md) 포스팅을 참고해 주세요.
 
 바로 코드 들어갑니다.
 
