@@ -1,4 +1,4 @@
-def handler(event):
+def handler(packages, event):
     user_id = event['queryStringParameters']['id']
     body = event['body']
     header = event['headers']

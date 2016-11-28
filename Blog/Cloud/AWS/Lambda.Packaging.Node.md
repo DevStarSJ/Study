@@ -2,9 +2,9 @@
 
 **Labmda**에 **Node.JS**로 구현하는 내용에 대해서는 아래 3개의 Link를 참고해 주세요.
 
-- Lambda 와 API Gateway 연동 #1 (GET, POST) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md>
-- Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md>
-- Lambda 와 API Gateway 연동 #3 (Proxy Resource) : <https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md>
+- [Lambda 와 API Gateway 연동 #1 (GET, POST)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md)
+- [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md)
+- [Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md)
 
 이제껏 1개의 **Node.JS** 파일에 **npm module**을 하나도 사용하지 않은 예제만 살펴보았는데,
 실제로 개발할 상황에서는 파일도 여러 개로 나눠서 개발하고 **npm module**도 많이 사용할 경우가 많습니다.

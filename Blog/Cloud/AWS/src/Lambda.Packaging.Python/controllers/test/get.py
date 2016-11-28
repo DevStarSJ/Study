@@ -1,3 +1,7 @@
-def handler(event):
-    user_id = event['queryStringParameters']['id']
-    return { 'body': { 'id': user_id, 'name': "test" } }
+def handler(packages, event):
+    requests = packages['requests']
+    
+    request_url = event['queryStringParameters']['url']
+    response = requests.get(request_url)
+
+    return { 'body': { 'url': request_url, 'text': response.text } }

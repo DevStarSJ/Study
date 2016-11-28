@@ -227,3 +227,7 @@ def handler(event, context):
 
 - AWS 공식 가이드 : <http://docs.aws.amazon.com/lambda/latest/dg/python-programming-model-handler-types.html>
 
+### 다음글
+
+- [Lambda Python Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Python.md)
+

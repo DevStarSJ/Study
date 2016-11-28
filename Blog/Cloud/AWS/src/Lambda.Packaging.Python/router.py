@@ -8,10 +8,10 @@ route_map = {
     }
 };
 
-def router(event):
+def router(packages, event):
     controller = route_map[event['path']][event['httpMethod']];
     
     if not controller:
         return { 'body': { 'Error': "Invalid Path" } }
     
-    return controller(event);
+    return controller(packages, event);
