@@ -371,6 +371,134 @@ zip -r sample.zip .
 테스트를 하면 `request_data`안에 데이터들이 추가된 것을 확인 할 수 있습니다.
 
 
+
+### Step 5. 좀 더 새련된 패키징 처리
+
+**Step 4**에서 살펴본 내용만으로는 실제 서비스 가능한 수준의 코드를 만드는데는 몇가지 문제가 있습니다.
+
+1. 압축파일의 크기가 너무 크다. `virtualenv`용 파일은 제외하고 압축하고 싶다.
+2. **pip**를 이용한 모듈을 로컬에 설치했는데, 그럼 `index.py`와 `router.py`같이 루트폴더에 있는 파일들말고 `get.py`나 `post.py`같이 서브폴더에 있는 파일에서는 어떻게 모듈들을 사용해야 할까 ?
+
+첫번째 문제에 대해서는 저도 맥에서 `zip`명령어를 사용해서 어떻게 특정 파일/폴더를 빼고 압축을 할수 있는지에 대해서 못찾았습니다.
+그래서 그냥 `src`라는 폴더를 하나 만들어 그 안에서 작업을 하고 해당 폴더 안에서 `.zip`파일로 패키징해서 올리니 `virtualenv`관련 파일들은 자연스럽게 빠지게 되었습니다.
+
+두번째 문제에 대해서 부모디렉토리의 모듈에 대해서 접근하는 여러가지 방법을 시도해 봤는데 코드가 많이 지저분해더군요.
+코드를 깔끔하게 유지하면서 해결가능한 방법으로는 2가지 정도가 있습니다.
+
+**해당 모듈이 사용되는 최하위 폴더에 설치한다.**
+이 경우에는 해당 폴더의 상위에서는 모두 사용이 가능합니다.
+하지만 그 상위 폴더와 같은 레벨의 다른 폴더에서의 접근은 힘듭니다. 
+그 폴더에서도 사용하려면 그 폴더내의 어딘가에 또 설치를 하는 방법으로 해결을 해야 합니다.
+이 방법은 별로 좋은 방법 같지 않으니 패스하기로 합니다.
+
+**최상위 모듈에서 하위 폴더내 모듈에게 전달한다.**
+개인적으로 추천하는 방법입니다.
+**index.py** 같이 프로그램 내의 시작점에 해당되는 곳에서 사용되는 모든 모듈들의 객체를 선언하여 이것을 하위 폴더내의 모듈을 호출할 때 같이 전달하는 방식입니다.
+설명으로만 느낌이 잘 안오실수 있으니 예제 코드로 살펴보겠습니다.
+
+위 **Step 4** 예제를 조금 변경하여 `/test`경로로 `GET`방식으로 요청한 경우 쿼리 스트링으로 `url`값을 받아서 해당 사이트의 내용을 `requests` 모듈을 이용해서 가져오는 코드로 변경해 보겠습니다.
+
+**Step 4**까지 진행되었다는 가정하에 진행할 경우에는 바로 하면 되지만 새로운 폴더에 작업을 하는 경우라면 아래와 같이 `virtualenv`를 이용한 가상환경으로 들어가서 `pip`를 로컬로 설치해 주신뒤 코드를 작성해 주세요.
+
+```
+virtualenv myvenv
+source myvenv/bin/activate
+mkdir src
+cd src
+```
+
+압축할 때 **myvenv**내의 파일들이 같이 압축되지 않도록 작업을 **src**폴더 내에서 하겠습니다.
+
+```
+mkdir modules
+touch modules/__init__.py
+pip install requests -t modules/
+```
+
+modules을 다른 폴더에서 불러오기 위해서는 해당 폴더내에 `__init__.py` 파일이 있어야 합니다.
+
+```
+mkdir controllers
+cd controllers
+mkdir test
+touch __init__.py
+cd test
+touch __init__.py
+cd ..
+cd ..
+```
+
+`index.py`에서 `requests` 모듈에 대한 객체를 선언하여 그것을 `/controllers/test/get.py`까지 전달하는 코드를 작성해 보겠습니다.
+
+#### index.py
+```Python
+import json
+import modules.requests
+
+from router import router
+
+def handler(event, context):
+    
+    packages = {}
+    packages['requests'] = modules.requests
+    
+    result = router(packages, event);
+
+    return { 'body' : json.dumps(result) }
+```
+
+#### router.py
+
+```Python
+import controllers.test.get
+import controllers.test.post
+
+route_map = {
+    '/test': {
+        'GET': controllers.test.get.handler,
+        'POST': controllers.test.post.handler
+    }
+};
+
+def router(packages, event):
+    controller = route_map[event['path']][event['httpMethod']];
+    
+    if not controller:
+        return { 'body': { 'Error': "Invalid Path" } }
+    
+    return controller(packages, event);
+```
+
+#### controllers/test/post.py
+
+```Python
+def handler(packages, event):
+    user_id = event['queryStringParameters']['id']
+    body = event['body']
+    header = event['headers']
+    return { 'body': { 'id': user_id, 'header': header, 'body': body } }
+```
+
+#### controllers/test/get.py
+
+```Python
+def handler(packages, event):
+    requests = packages['requests']
+    
+    request_url = event['queryStringParameters']['url']
+    response = requests.get('http://' + request_url)
+
+    return { 'body': { 'url': request_url, 'text': response.text } }
+```
+
+
+
+
+
+
+
+
+
 ### 마치며...
 
 이번 포스팅에서 알아본 내용들은 다음과 같습니다.
