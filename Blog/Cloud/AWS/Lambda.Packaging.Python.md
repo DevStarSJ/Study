@@ -447,6 +447,8 @@ def handler(event, context):
     return { 'body' : json.dumps(result) }
 ```
 
+`router.py`에서는 전달받은 `packages`를 그대로 전달해주는 코드만 추가했습니다.
+
 #### router.py
 
 ```Python
@@ -469,6 +471,8 @@ def router(packages, event):
     return controller(packages, event);
 ```
 
+`post.py`에서 외부 모듈을 사용하지는 않지만, 일단 받아줍시다. 공짠데요.
+
 #### controllers/test/post.py
 
 ```Python
@@ -478,6 +482,8 @@ def handler(packages, event):
     header = event['headers']
     return { 'body': { 'id': user_id, 'header': header, 'body': body } }
 ```
+
+`get.py`에서는 전달받은 `packages`에서 `requests` 객체를 가져와서 사용하는 코드가 추가되었습니다.
 
 #### controllers/test/get.py
 
@@ -491,12 +497,13 @@ def handler(packages, event):
     return { 'body': { 'url': request_url, 'text': response.text } }
 ```
 
+이제 `index.py`가 있는 위치로 와서 압축한 뒤에 **Lambda**에 올려 놓고 테스트 해 보겠습니다.
 
+```
+zip -r sample.zip .
+```
 
-
-
-
-
+`https://본인 Lambda 주소.../prod/test?url=www.naver.com` 식으로 브라우저에서 입력하여 결과가 제대로 오는지 확인하시면 됩니다.
 
 
 ### 마치며...
@@ -505,6 +512,7 @@ def handler(packages, event):
 
 - **Lambda**에 **Python** 코드를 패키징해서 올리는 방법
 - **vitrualenv**를 활용해서 원하는 폴더에 **pip**로 모듈을 설치하는 방법
+- 로컬에 **pip**로 설치한 모듈들을 서브 폴더내에서도 활용하는 방법
 
 잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다. - <seokjoon.yun@gmail.com>  
 
