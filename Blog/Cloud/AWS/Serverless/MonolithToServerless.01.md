@@ -1,5 +1,7 @@
 # Monolith to Serverless using AWS Lambda
 
+#### 1편. 서버리스를 하려는 이유
+
 ## 기존 모노리스 API 서버를 AWS Lambda를 이용하여 서버리스로 변경하기
 
 최근 새로 입사한 곳에서 하고 있는 작업이 기존의 모노리스로 운영중이던 API Server를 서버리스로 옮겨가는 작업을 하고 있다.
