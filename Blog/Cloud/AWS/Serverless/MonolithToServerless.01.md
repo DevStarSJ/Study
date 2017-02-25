@@ -88,5 +88,5 @@ Lambda의 경우는 코드가 수행된 시간을 100ms 단위로 올림하여 �
 
 장애 대응 플랜에 대해서는 다음 글에서 좀 더 자세히 설명하겠다.
 
-[다음글 : 2편. 장애 대응 플랜](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Serverless/MonolithToServerless.02.md)
+[다음글 : 2편. 장애 대응 플랜](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Serverless/MonolithToServerless.02.md)  
 [다음글 : 3편. Lambda 배포 후 겪게되는 일들](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Serverless/MonolithToServerless.03.md)
