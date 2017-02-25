@@ -2,7 +2,7 @@
 
 ## 기존 모노리스 API 서버를 AWS Lambda를 이용하여 서버리스로 변경하기
 
-[이전글 : 1편. 서버리스를 하려는 이유](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Serverless/MonolithToServerless.01.md)
+[이전글 : 1편. 서버리스를 하려는 이유](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Serverless/MonolithToServerless.01.md)  
 [이전글 : 2편. 장애 대응 플랜](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Serverless/MonolithToServerless.02.md)
 
 ### 3편. Lambda 배포 후 겪게되는 일들
