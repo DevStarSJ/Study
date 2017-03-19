@@ -105,7 +105,7 @@ lambda.invoke({
 
 > node index.js
 
-```JSON
+```JavaScript
 { StatusCode: 200, Payload: '{"id":"1","name":"Luna"}' }
 ```
 
@@ -140,7 +140,7 @@ lambda.invoke({
 
 위와 같이 코드를 수정 후 호출하면 응답코드가 다르게 전달되는걸 확인할 수 있다.
 
-```JSON
+```JavaScript
 { StatusCode: 202, Payload: '' }
 ```
 
@@ -217,7 +217,7 @@ SNS 콘솔에서 Lambda를 제대로 호출하는지 테스트 해보자.
 
 이제 Lambda 의 CloudFront로 가서 제대로 호출되었는지 살펴보자.
 
-```JSON
+```JavaScript
 { Records: 
 [ { EventSource: 'aws:sns',
 EventVersion: '1.0',
@@ -275,14 +275,14 @@ sns.publish(params, function(err,data){
 
 > node sns.js
 
-```JSON
+```JavaScript
 { ResponseMetadata: { RequestId: '64efe66a-abfa-5a12-8abd-b72d55ebe4ce' },
   MessageId: '207e6adf-277a-5191-a94b-3b98d96b3f4d' }
 ```
 
 Lambda 의 CloudFront로 가서 제대로 호출되었는지 살펴보자.
 
-```JSON
+```JavaScript
 [ { EventSource: 'aws:sns',
 EventVersion: '1.0',
 EventSubscriptionArn: 'arn:aws:sns:{region}:{id}:testSns:1009056c-eb87-4f68-9cb1-de50b0024b90',
@@ -382,14 +382,14 @@ kinesis.putRecord(params, function(err,data){
 
 >node kinesis.js
 
-```JSON
+```JavaScript
 { ShardId: 'shardId-000000000000',
   SequenceNumber: '49571470617410410658004564491315382019801680888626937858' }
 ```
 
 Lambda쪽 실행 결과를 살펴보자.
 
-```JSON
+```JavaScript
 { Records: 
 [ { kinesis: 
 { kinesisSchemaVersion: '1.0',
@@ -438,13 +438,13 @@ exports.handler = (event, context, callback) => {
 
 > node kinesis.js
 
-```JSON
+```JavaScript
 { ShardId: 'shardId-000000000000',
   SequenceNumber: '49571470617410410658004564491322635574719439376016736258' }
 ```
 Lambda쪽 실행 결과를 살펴보자.
 
-```JSON
+```JavaScript
 {
     "event_name": "Kinesis 예제",
     "event_created_at": "2017-03-19T05:05:52.273Z"
