@@ -1,6 +1,6 @@
-# AWS Lambda에 Python Slack Chatbot 만들기
+# AWS Lambda에 Python Slack Chatbot을 통해서 미세먼지 대기정보 알림이 만들기
 
-Lambda를 이용해서 Slack용 Chatbot을 만들어 보았다.  
+Lambda를 이용해서 Slack용 Chatbot을 만들어 보았다.  
 개발언어로는 Python을 사용했다.  
 Lambda에는 Python 2.7만 지원되어서 작업하면서도 불편한 점이 많았다.  
 특히 챗봇이다보니 유니코드(한글) 처리가 필수여서다.  
