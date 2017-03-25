@@ -267,7 +267,7 @@ import boto.sns
 
 URL = 'http://cleanair.seoul.go.kr/air_city.htm?method=measure'
 
-REGION = '{리전}}'
+REGION = '{리전}'
 TOPIC  = '{SNS ARN 주소}'
 
 conn = boto.sns.connect_to_region( REGION )
