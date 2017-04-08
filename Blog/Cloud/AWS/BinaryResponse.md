@@ -91,7 +91,7 @@ JavaScript에서의 switch-case 문에 대한 구현은 개인적으로 위와 �
 
 ## 2. Lambda 배포
 
-위 작성한 코드를 `test.jpg`, `test.png`, `test.pdf` 를 같은 폴더에 복사한 뒤 같이 압축해 주자.
+위 작성한 코드와 `test.jpg`, `test.png`, `test.pdf` 를 같은 폴더에 복사한 뒤 같이 압축해 주자.
 
 ![image](images/BinaryResponse.01.png)
 
