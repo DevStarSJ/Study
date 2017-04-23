@@ -1,3 +1,14 @@
+---
+title: Using SignalR in ASP.NET Core
+date: 2016-09-17 00:00:00
+categories:
+- C#
+- ASP.NET Core
+tags:
+- C#
+- ASP.NET Core
+---
+
 `SignalR`을 `ASP.NET 5 Template`에서 사용하기 위해서는 `Startup.cs`의 `public void Configure(IApplicationBuilder app, ...)`에서 아래와 같은 구문이 필요합니다.
 
 ```C#
