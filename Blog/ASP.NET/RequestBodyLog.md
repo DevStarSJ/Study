@@ -1,4 +1,4 @@
-# Action Method 내에서 Request Body 내용 가져오기
+# Get Request Body in Action Method
 
 ```C#
 string body = "";
