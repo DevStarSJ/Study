@@ -21,7 +21,7 @@ Lambda에는 Python 2.7만 지원되어서 작업하면서도 불편한 점이 �
 
 그 과정을 그림으로 표현하면 아래와 같다.
 
-![image](images/Lambda.Chatbot.01.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Chatbot.01.png?raw=true">
 
 이전에 표스팅한 내용에 있는 것에 대해서는 설명을 생략하겠다.  
 해당 내용에 대해서는 아래 링크를 참고하면 관련 내용이 있다.
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
 > python index.py
 
- ![image](images/Lambda.Chatbot.02.png)
+ <img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Chatbot.02.png?raw=true">
 
  이제 Lambda로 올려서 테스트 해보자.
 
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 }
  ```
 
-  ![image](images/Lambda.Chatbot.03.png)
+  <img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Chatbot.03.png?raw=true">
 
 ## 2. 대기정보를 얻기위해서 웹 크롤링하기
 
@@ -305,7 +305,7 @@ if __name__ == "__main__":
 
 Lambda로 올리기 전에 테스트로 실행해 본 후 정상적으로 실행되는지 확인해 보자.  
 
-![image](images/Lambda.Chatbot.04.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Chatbot.04.png?raw=true">
 
 위 코드 실행 후 Slcak을 통해서 메세지가 전달되었다면 성공한 것이다.  
 위 코드도 폴더 전체를 압축해서 Lambda로 배포하자. 
@@ -323,7 +323,7 @@ CloudWatch의 event를 통해서 특정 시점에 Lambda 를 실행시킬 수 �
 
 이제 설정한 시간에 Lambda가 실행되어서 Slack에 메세지를 전달해 줄 것이다.
 
-![image](images/Lambda.Chatbot.05.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Chatbot.05.png?raw=true">
 
 하루가 지난 시점에 확인해보니 설정한 시간에 꼬박꼬박 실행 중이다.
 

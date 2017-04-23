@@ -8,14 +8,14 @@
 
 Lambda 실행에 메모리를 얼마나 사용하지는지를 볼려면 Lambda 내의 `Test`기능을 이용하면 확인이 가능하다.
 
-![image](images/Lambda.Tips.01.01.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Tips.01.01.png?raw=true">
 
 위 그림을 보면 **1024 MB**로 설정되어 있으며, 실제 사용량은 **29 MB**란 것을 알 수 있다.
 
 Lambda가 실행하는 인스턴스의 성능은 메모리 설정값에 비례해서 CPU 성능도 결정되기 때문에 메모리 사용량이 적다고 무조건 거기에 맞게 설정을 하면 당연히 그만큼 수행시간이 길어 질 수가 있다.
 
-![image](images/Lambda.Tips.01.02.png)
-![image](images/Lambda.Tips.01.03.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Tips.01.02.png?raw=true">
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Cloud/AWS/Lambda/images/Lambda.Tips.01.03.png?raw=true">
 
 메모리를 1/10 정도로 줄이니 수행시간도 10배 정도로 더 늘어난 것을 확인할 수 있다.
 그러므로 최소 과금으로 설정을 하기위해서 메모리를 무조건 수행가능한 최소로 설정하는 것보다는 설정값을 바꿔가면서 테스트를 해보고 결정을 하면 된다.
