@@ -22,11 +22,12 @@ http-method(API Gateway에서는 Method로 불림)에 대해서 **Lambda**를 �
 - `/`에서 `Actions` -> `Create Resource`를 선택
   - `Configure as proxy resource` 를 체크한 후 `Create Resource`를 누름
 
-![image](images/lambda_apigateway.proxy.01.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.proxy.01.png?raw=true">
 
 그럼 다음 그림과 같이 설정 됩니다.
 
-![image](images/lambda_apigateway.proxy.02.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.proxy.02.png?raw=true">
+
 
 - `ANY` 선택
   - `Integration Request` 선택
