@@ -80,7 +80,8 @@ exports.handler = (event, context, callback) => {
   -  Code entry type : `Upload a .ZIP file` 선택
     - `Upload` 버튼을 눌러서 위에서 생성한 `sample.zip`을 올림
 
-![image](images/lambda.packaging.node.01.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda.packaging.node.01.png?raw=true">
+
 
 ## 확인
 

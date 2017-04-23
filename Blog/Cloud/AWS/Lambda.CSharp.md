@@ -34,11 +34,12 @@
 - **Visual C#** -> **AWS Lambda** -> **AWS Lambda Project (.NET Core)** 선택
   - **Name** : `AWSLambdaTest` 라고 입력한 후 **OK** 버튼 클릭
 
-![image](images/aws.lambda.csharp.01.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.01.png?raw=true">
+
 
 - **Select Blueprint** 창에서 **Empty Function**을 선택한 후 **Finish** 버튼 클릭
 
-![image](images/aws.lambda.csharp.02.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.02.png?raw=true">
 
 이제 테스트 프로젝트가 완성되었습니다.
 
@@ -53,11 +54,11 @@
   - **Profile Name** : 아무거나 입력. 화면에 표시될 내용이므로 구분하기 쉽게
   - **Access Key ID** , **Secret Access Key** : AWS에서 발급받은 값으로 입력
 
-![image](images/aws.lambda.csharp.03.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.03.png?raw=true">
 
 로그인이 제대로 되었다면 아래 그림과 같이 **AWS Service** 목록이 나옵니다.
 
-![image](images/aws.lambda.csharp.05.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.05.png?raw=true">
 
 ## Projeject 코드 설명
 
@@ -66,7 +67,7 @@
 설치된 어셈블리 중에 잘못 된게 있으면 노란색 느낌표가 뜹니다.
 그럴 경우 우클릭하여서 **Restore Packages**를 선택해 주세요.
 
-![image](images/aws.lambda.csharp.04.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.04.png?raw=true">
 
 
 자동 생성된 **Function.cs** 파일을 열어보겠습니다.
@@ -88,7 +89,7 @@
 (엯촋 이규원님, 이종인님 감사드립니다.)
 보니깐 **Visual Studio**에는 이미 그런 기능이 있군요.
 
-![image](images/aws.lambda.csharp.15.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.15.png?raw=true">
 
 저렇게 **class**로 만들기 싫다면, 그냥 `Stream`으로 주고 받는 방법도 있습니다.
 아래 내용에서는 `Stream`으로 주고 받는 방법으로 진행하도록 하겠습니다.
@@ -111,7 +112,7 @@ public string FunctionHandler(string input, ILambdaContext context)
 - **Solution Explorer**상의 Project(**AWSLambdaTest**)에서 마우스 우 클릭
   - **Publish to AWS Lambda...** 선택
 
-![image](images/aws.lambda.csharp.06.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.06.png?raw=true">
 
 - **Function Name:** 새로 생성할 (또는 기존에 생성되어 있는 것 중 덮어 쓸) Lambda Function 명칭을 입력
 
@@ -119,7 +120,7 @@ public string FunctionHandler(string input, ILambdaContext context)
 
 - **Next** 버튼 클릭
 
-![image](images/aws.lambda.csharp.07.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.07.png?raw=true">
 
 - **Role Name:** 기존에 만들어 놓은 **role**또는 새로 만들어서 선택
 
@@ -127,16 +128,16 @@ public string FunctionHandler(string input, ILambdaContext context)
 
 - **Upload** 버튼 클릭
 
-![image](images/aws.lambda.csharp.08.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.08.png?raw=true">
 
 이제 기다리면 업로딩이 끝난 뒤 해당 **Lambda**의 설정창이 뜹니다.
 기본적으로 **Test Function** 탭이 선택된 상태인데 **Sample Input**란에 아무거나 입력한 뒤 **Invoke** 버튼을 누르면 입력한 값들이 모두 대문자로 변한 값으로 응답이 오는 것을 확인 할 수 있습니다.
 
-![image](images/aws.lambda.csharp.09.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.09.png?raw=true">
 
 만약 입력하는 문자열이 **JSON** 형식일 경우에는 오류가 발생합니다.
 
-![image](images/aws.lambda.csharp.10.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.10.png?raw=true">
 
 앞에서 살펴 본 코드에 따르면 **JSON**을 읽어서 자동으로 **.NET class**로 변경해주는 작업을 해준다고 했는데, 아마 그 작업을 시도하는 모양입니다.
 
@@ -175,7 +176,7 @@ public string FunctionHandler(Stream stream, ILambdaContext context)
 
 위 다시 배포한 뒤 위에서 오류난 **JSON**으로 테스트 하니 입력한 값을 그대로 문자열로 응답해 줍니다.
 
-![image](images/aws.lambda.csharp.11.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.11.png?raw=true">
 
 하지만 출력한 값이 string라서 이상한 `\r\n`등도 포함되어 있으며 바로 **JSON**으로 파싱도 안됩니다.
 
@@ -189,11 +190,11 @@ public string FunctionHandler(Stream stream, ILambdaContext context)
 
 **Solution Explorer**에서 **Project** 선택한 뒤 우클릭하여 뜬 메뉴에서 **Manage nuget packages...**를 눌러줍니다.
 
-![image](images/aws.lambda.csharp.12.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.12.png?raw=true">
 
 `json`만 입력해도 바로 가장 위에 **Newtonsoft.Json**이 나옵니다.
 
-![image](images/aws.lambda.csharp.13.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.13.png?raw=true">
 
 선택하여 설치해 줍니다.
 
@@ -235,7 +236,7 @@ public Stream FunctionHandler(Stream stream, ILambdaContext context)
 다시 배포한 뒤 테스트 해보니 이쁘게 **JSON** 형식으로 응답이 옵니다.
 추가한 항목에 대해서도 확인됩니다.
 
-![image](images/aws.lambda.csharp.14.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/aws.lambda.csharp.14.png?raw=true">
 
 
 ### 마치며...

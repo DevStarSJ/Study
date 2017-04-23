@@ -81,7 +81,7 @@ API Gateway의 Lambda Proxy Integration를 이용해서 `event`를 받을 예정
 
 이번 예제에서 `body`를 사용하지는 않을 예정이라 `getBody` 함수가 사실상 필요는 없지만, 바이너리로 `body`를 받을 경우에는 해당 코드를 참고해서 처리하면 된다.
 
-![image](images/BinaryResponse.00.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.00.png?raw=true">
 
 위 그림과 같이 `isBase64Encoded` 값을 보고 `body`를 인코딩 해줘야 한다.
 인코딩 여부를 우리가 정할 수 있는지는 잘 모르겠지만, API Gateway에서 알아서 판단하여 인코딩 해주는것 같다.
@@ -93,7 +93,7 @@ JavaScript에서의 switch-case 문에 대한 구현은 개인적으로 위와 �
 
 위 작성한 코드와 `test.jpg`, `test.png`, `test.pdf` 를 같은 폴더에 복사한 뒤 같이 압축해 주자.
 
-![image](images/BinaryResponse.01.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.01.png?raw=true">
 
 > zip -r test.zip .
 
@@ -112,7 +112,7 @@ JavaScript에서의 switch-case 문에 대한 구현은 개인적으로 위와 �
 
 ### 3.1 일단 API 생성
 
-![image](images/BinaryResponse.02.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.02.png?raw=true">
 
 그냥 `binaryTest`로 하나 생성한다.
 
@@ -120,7 +120,7 @@ JavaScript에서의 switch-case 문에 대한 구현은 개인적으로 위와 �
 
 `Action` -> `Create Method` 를 누른 뒤 `proxy resource`를 체크하고 `Create Resource`를 눌러주자.
 
-![image](images/BinaryResponse.03.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.03.png?raw=true">
 
 이번 예제에서는 모든 경로에 대해서 하나의 Lambda를 실행시킬 것이다.
 단, 이 방법은 유효하지 않은 경로 등에 대해서도 모두 Lambda를 실행시키게 되므로 쓸데없는 비용이 발생 할 수도 있다는건 알아둬야 한다.
@@ -128,7 +128,7 @@ Lambda에서 처리 가능한 경로에 대해서만 호출을 할 것이라면 
 
 해당 프락시 리소스에서 실행시킬 Lambda를 설정해 주자.
 
-![image](images/BinaryResponse.04.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.04.png?raw=true">
 
 위에서 생성한 binaryTest Lambda Function으로 설정하자.
 
@@ -136,7 +136,7 @@ Lambda에서 처리 가능한 경로에 대해서만 호출을 할 것이라면 
 
 API Gateway 상의 `Binary Support` 탭을 눌러서 들어가자.
 
-![image](images/BinaryResponse.05.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.05.png?raw=true">
 
 해당 API를 호출할 때 `headers`에서 `Accept`로 요청하는 형태들에 대해서 미리 정의해 줘야 한다.
 
@@ -149,7 +149,7 @@ API Gateway 상의 `Binary Support` 탭을 눌러서 들어가자.
 
 다시 `Resources` 탭으로 가서 `Actions` -> `Deploy API`를 눌러서 배포를 하자.
 
-![image](images/BinaryResponse.06.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.06.png?raw=true">
 
 그냥 늘 하던데로 `prod`라는 이름으로 배포를 했다.
 
@@ -157,7 +157,7 @@ API Gateway 상의 `Binary Support` 탭을 눌러서 들어가자.
 
 배포를 하면 **url**이 생성된다.
 
-![image](images/BinaryResponse.07.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/BinaryResponse.07.png?raw=true">
 
 이 url 뒤에 `/pdf` , `/png` , `/jpg`를 붙여서 호출하여 바이너리 다운로드가 정상적으로 되는지 확인해 보자.
 
