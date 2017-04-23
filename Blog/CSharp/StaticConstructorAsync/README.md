@@ -1,4 +1,14 @@
-#Using async method in static constructor ( C# )
+---
+title: Using async method in static constructor ( C# )
+date: 2016-06-12 02:00:00
+categories:
+- C#
+- C#
+tags:
+- C#
+---
+
+# Using async method in static constructor ( C# )
 
 `static constructor` 내부에서 `async` 함수를 호출할 경우 제대로 동작을 하지 않습니다.  
 (왠만해서는 이런식으로 code가 이루어지지 않도록 해야하지만, 어쩔수 없이 이렇게 사용해야 할 경우가 발생 할 수 있습니다.)  
@@ -92,7 +102,7 @@ class Program
 
 이런 code를 어떻게 고쳐야 하는지 3가지 방법을 살펴보겠습니다.
 
-###1. async한 구현의 method를 추가
+### 1. async한 구현의 method를 추가
 
 위 예제의 경우 `GetNamesAsync()` method와 같은 기능을 하는 sync한 method인 `GetNames()`를 추가하는 방법이 있습니다.  
 동일한 구현이 2개가 되므로 별로 추천드리는 방법은 아닙니다.  
@@ -148,7 +158,7 @@ class Program
 하지만 sync한 작업으로 구현 자체가 될 것을 굳이 `async`로 선언할 일은 잘 없습니다.  
 그러므로 이렇게 해결될 수 있는 일이라면 애초에 `async`로 구현한거 자체가 제대로 된 설계가 아닐 수 있습니다.
 
-###2. async 작업을 별도 class로 분리 (또는 async 작업 호출을 별도 class로 제한)
+### 2. async 작업을 별도 class로 분리 (또는 async 작업 호출을 별도 class로 제한)
 
 `async` 작업을 별도 class로 분리하거나,
 `static constructor`에서 호출하는 `async` 작업을 다른 class의 method로 제한하는 방법이 있습니다.  
@@ -199,7 +209,7 @@ class Program
 }
 ```
 
-###3. 초기화 작업을 별도 Init method로 분리
+### 3. 초기화 작업을 별도 Init method로 분리
 
 개인적으로 이 방법이 가장 깔끔해 보입니다.  
 해당 `class`가 사용되기 전에 `Init()`을 호출한 뒤에 사용하면 됩니다.  

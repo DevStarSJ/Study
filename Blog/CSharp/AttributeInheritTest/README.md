@@ -1,3 +1,13 @@
+---
+title: C# Attribute 상속 후 override 할 경우 부모 값도 잘 가져오는지 확인
+date: 2016-08-10 02:00:00
+categories:
+- C#
+- C#
+tags:
+- C#
+---
+
 # C# Attribute 상속 후 override 할 경우 부모 값도 잘 가져오는지 확인
 
 C# Attribute class 생성 및 사용, 상속시에 동작 등에 대해서 확인 가능한 예제코드 입니다.

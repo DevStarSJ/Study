@@ -1,6 +1,16 @@
-##Entity Framework Code First (Table 생성 및 수정)
+---
+title: Entity Framework Code First (Table 생성 및 수정)
+date: 2016-06-12 02:00:00
+categories:
+- C#
+- C#
+tags:
+- C#
+---
 
-###Code First란 ?
+## Entity Framework Code First (Table 생성 및 수정)
+
+### Code First란 ?
 
 전통적인 방식의 경우 SQL을 이용하여 Database에 Table을 생성한 다음 Application에서 개발을 시작합니다.
 `Code First`방식이란 `Domain Class`의 명세를 이용하여 Application 실행 시 해당 Table이 없는 경우 자동으로 생성을 해주는 방식을 말합니다.
@@ -14,9 +24,9 @@ Entity Framework 4.1 이후부터 지원해주는 방식이며, `Domain Driven D
 
 . Modify Models after Scaffolding
 
-###Code First 실습
+### Code First 실습
 
-####1. Project 생성 및 Entity Framework 설치
+#### 1. Project 생성 및 Entity Framework 설치
 
 - `Visual Studio`에서 `C# Console Application Project`를 하나 생성합니다.
 - `Nuget Package Manager`를 실행합니다. (아래 방법 중 하나로 실행이 가능합니다.)
@@ -24,7 +34,7 @@ Entity Framework 4.1 이후부터 지원해주는 방식이며, `Domain Driven D
   - 상단 Menu에서 `Tools` -> `Nuget Package Manager` -> `Manage Nuget Packages for Solution...`
 - `EntityFramework`를 검색하여 설치합니다. (4.1 이후 버전으로 설치합니다. 이 Post를 작성할 당시 6.1.3 버전이 최신입니다.)
 
-####2. Domain Model 정의
+#### 2. Domain Model 정의
 
 아래와 같이 `School` 과 `Standard`라는 2개의 Domain Model을 정의합니다.
 
@@ -52,7 +62,7 @@ class Standard
 
 `School`은 `Standard`의 참조를 가지고 있으며, `Standard`는 `School`의 집합을 가지고 있습니다.
 
-####3. Entity Framework Context 정의
+#### 3. Entity Framework Context 정의
 
 ```C#
 using System.Data.Entity;
@@ -73,7 +83,7 @@ class SchoolContext : DbContext
 특정 Database로의 접근을 원할 경우 DbContext의 생성자로 `Connection String`를 전달하도록 생성자를 정의해주면 됩니다.
 Console Application Project에서 default일 경우 Visual Studio와 함께 설치된 LocalDB로 연결 됩니다.
 
-####4. Context 실행
+#### 4. Context 실행
 
 ```C#
 class Program
@@ -100,9 +110,9 @@ Database에 따로 Table을 생성하지 않고 위 Code를 실행하면 자동�
 
 개발 또는 운영 중 새로운 Table이 추가 될 경우에는 `Domain Model`을 선언하고 `Context`의 `DbSet Property`를 선언해주면 됩니다.
 
-###Change Models after Scaffolding
+### Change Models after Scaffolding
 
-####1. Domain Model 수정
+#### 1. Domain Model 수정
 
 먼저 `Teacher` Model을 추가한 뒤,
 
@@ -131,7 +141,7 @@ class Student
 }
 ```
 
-####2. Context 실행
+#### 2. Context 실행
 
 `F5`를 눌러서 실행을 하면 오류가 발생합니다.
 
@@ -151,7 +161,7 @@ class Student
 나머지 방법에 대해서는 아래 Posting을 참조하시기 바랍니다.
 <https://blogs.msdn.microsoft.com/webdev/2013/11/01/tips-when-making-changes-in-entity-framework-code-first-models-after-scaffolding>
 
-####3. `Database Initializer` 선언
+#### 3. `Database Initializer` 선언
 
 ```C#
 class SchoolInitializer : DropCreateDatabaseIfModelChanges<SchoolContext>
@@ -166,7 +176,7 @@ class SchoolInitializer : DropCreateDatabaseIfModelChanges<SchoolContext>
 별도의 작업이 필요한 경우 `Seed()` 안에서 정의를 해주면 됩니다.
 현재는 별 다른 작업이 필요 없으므로 `Seed()`를 `Override`하지 않고 삭제해도 됩니다.
 
-####4. `Database Initializer` 실행
+#### 4. `Database Initializer` 실행
 
 Application 실행시 `Database Initializer`를 먼저 실행시켜 주면 오류 없이 Table이 수정됩니다. 
 심지어 DbSet Property에 Teacher를 추가하지 않았는데도 불구하고 Teacher Table이 추가되었습니다.

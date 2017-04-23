@@ -1,9 +1,18 @@
-#Newtonsoft.Json 사용법
+---
+title: Newtonsoft.Json 사용법
+date: 2016-06-12 02:00:00
+categories:
+- C#
+- C#
+tags:
+- C#
+---
+
+# Newtonsoft.Json 사용법
 
 C# 에서 JSON document를 다루기 위해 가장 많이 사용되는 것은 `Newtonsoft.Json`입니다.
 nuget manager에서 `JSON`으로 검색시 가장 먼저 나옵니다.
 그만큼 많이 사용되며, 사용법 또한 간단합니다.
-
 
 
 ##1. 설치 및 namespace
@@ -24,7 +33,7 @@ PM> Install-Package Newtonsoft.Json
 using Newtonsoft.Json.Linq;
 ```
 
-##2. 간단한 특징 설명
+## 2. 간단한 특징 설명
 
 2개의 Object를 이용해서 사용하시면 됩니다.
 
@@ -40,7 +49,7 @@ using Newtonsoft.Json.Linq;
 
 즉, `JObject`나 `Jarray` 자체는 `name`을 가질 수 없으나, 다른 `JObject`에 `value`로 소속될 경우에는 `key`값을 가져야 하며, 다른 `JArray`에 소속될 경우에는 `key`값 없이 입력됩니다
 
-##3. JObject 사용법
+## 3. JObject 사용법
 
 너무나 간단하기 때문에 별도 설명은 필요 없을듯 합니다.
 
@@ -49,9 +58,9 @@ using Newtonsoft.Json.Linq;
 
 바로 예제를 보도록 하겠습니다.
 
-###3.1 Element 추가
+### 3.1 Element 추가
 
-####3.1.1 기본적인 사용법
+#### 3.1.1 기본적인 사용법
 
 ```C#
 var json = new JObject();
@@ -69,7 +78,7 @@ Console.WriteLine(json.ToString());
 }
 ```
 
-####3.1.2 JSON 형식의 문자열로 생성
+#### 3.1.2 JSON 형식의 문자열로 생성
 
 ```C#
 var json2 = JObject.Parse("{ id : \"Luna\" , name : \"Silver\" , age : 19 }");
@@ -86,7 +95,7 @@ Console.WriteLine(json2.ToString());
 }
 ```
 
-####3.1.3 다른 class Object로부터 생성
+#### 3.1.3 다른 class Object로부터 생성
 
 ```C#
 User u = new User { id = "SJ", name = "Philip", age = 25 };
@@ -103,7 +112,7 @@ Console.WriteLine(json3.ToString());
 }
 ```
 
-####3.1.4 무명형식으로 생성
+#### 3.1.4 무명형식으로 생성
 
 ```C#
 var json4 = JObject.FromObject(new { id = "J01", name = "June", age = 23 });
@@ -119,7 +128,7 @@ Console.WriteLine(json4.ToString());
 }
 ```
 
-####3.1.5 다른 JObject를 Element로 추가
+#### 3.1.5 다른 JObject를 Element로 추가
 
 ```C#
 var json5 = JObject.Parse("{ id : \"sjy\" , name : \"seok-joon\" , age : 27 }");
@@ -160,9 +169,9 @@ Console.WriteLine(json5.ToString());
 }
 ```
 
-###3.2 Element값 사용하기
+### 3.2 Element값 사용하기
 
-####3.2.1 Element값 읽기
+#### 3.2.1 Element값 읽기
 
 `[ ]` 연산자에 key값을 넣어주면 해당 value를 얻을 수 있습니다.
 
@@ -176,7 +185,7 @@ Console.WriteLine(json4_name);
 June
 ```
 
-####3.2.2 Element값 삭제하기
+#### 3.2.2 Element값 삭제하기
 
 `.Remove(key)`를 이용해서 삭제가 가능합니다.  
 
@@ -205,13 +214,13 @@ Console.WriteLine(json5.ToString());
 {}
 ```
 
-##4. JArray 사용법
+## 4. JArray 사용법
 
 Element 입력시 key를 가지지 않는 다는 것을 빼고는 JObject와 거의 같습니다.
 
-###4.1 Element 추가하기
+### 4.1 Element 추가하기
 
-####4.1.1 기본적인 사용법
+#### 4.1.1 기본적인 사용법
 
 ```C#
 var jarray = new JArray();
@@ -230,7 +239,7 @@ Console.WriteLine(jarray.ToString());
 ]
 ```
 
-##!#4.1.2 JObject를 Element로 추가
+### 4.1.2 JObject를 Element로 추가
 
 ```C#
 var jFriends = new JArray();
@@ -267,7 +276,7 @@ Console.WriteLine(jFriends.ToString());
 ]
 ```
 
-####4.1.3 JArray를 Element로 추가
+#### 4.1.3 JArray를 Element로 추가
 
 ```C#
 var jarray2 = new JArray();
@@ -309,9 +318,9 @@ Console.WriteLine(jarray2.ToString());
 ]
 ```
 
-###4.2 Element값 사용하기
+### 4.2 Element값 사용하기
 
-####4.2.1 Element값 읽기
+#### 4.2.1 Element값 읽기
 
 `[ ]` 연산자로 읽을 수 있습니다.
 
@@ -345,7 +354,7 @@ Philip
 <NULL>
 ```
 
-####4.2.2 Element값 삭제하기
+#### 4.2.2 Element값 삭제하기
 
 ```C#
 jFriends.Remove(jFriends[1]);
@@ -369,7 +378,7 @@ Console.WriteLine(jFriends.ToString());
 ]
 ```
 
-##5. JObject에 JArray 추가하기
+## 5. JObject에 JArray 추가하기
 
 ```C#
 json2.Add("Friends", jFriends);

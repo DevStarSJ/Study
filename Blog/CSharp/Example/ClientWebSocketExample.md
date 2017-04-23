@@ -1,4 +1,14 @@
-#Client WebSocket Example without ASP.NET
+---
+title: Client WebSocket Example without ASP.NET
+date: 2016-08-31 02:00:00
+categories:
+- C#
+- C#
+tags:
+- C#
+---
+
+# Client WebSocket Example without ASP.NET
 
 ASP.NET을 사용하지 않고 일반적인 C# (Console, Winform) 에서 WebSocket Server에 접속하는 코드 예제 입니다.
 

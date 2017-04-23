@@ -1,3 +1,13 @@
+---
+title: Using the gesture function with a common mouse in macOS
+date: 2016-05-07 00:00:00
+categories:
+- Tips
+- macOS
+tags:
+- macOS
+---
+
 ## macOS(OSX)에서 일반 마우스로 매직마우스의 제스쳐(gesture) 기능 사용하기
 
 맥북프로나 맥북에어의 경우 마우스없이 매직패드만으로도 사용이 편리하다는 분들이 많긴하지만,
@@ -13,7 +23,7 @@
 
 기본적으로 이 기능을 굳이 매직마우스를 사용하지 않고 `키보드 단축키`를 사용하는 것도 가능합니다.
 
-![키보드 단축키](./image/macOS.set.mouse.01.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Apple/image/macOS.set.mouse.01.png?raw=true">
 
 `^`는 `control`키를 뜻합니다.
 `control`키와 방향키 4개를 이용해서 해당 기능들이 기본으로 할당되어 있습니다.
@@ -22,11 +32,11 @@
 
 이 기능들을 마우스 버튼에 할당하려면 `시스템 환경설정` 에서 `Mission Control`에서 가능합니다.
 
-![](./image/macOS.set.mouse.02.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Apple/image/macOS.set.mouse.02.png?raw=true">
 
 아래쪽에보면 키보드로는 기본 단축키들이 할당되어 있습니다.
 
-![](./image/macOS.set.mouse.03.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Apple/image/macOS.set.mouse.03.png?raw=true">
 
 그 오른쪽을 클릭하면 마우스버튼 또는 마우스 버튼 + 특수키(`control` , `alt`, `command`, `shift`) 조합을 이용해서도 가능합니다.
 
@@ -52,11 +62,11 @@
 필자는 **Logitech** 사의 `MX Anywhere 2` 마우스를 사용중인데, 제조사에서 *macOS* 용 드라이버를 따로 제공해 줍니다.
 이렇게 별도의 드라이버를 제공하는 마우스의 경우에는 거기서 설정이 가능한 경우가 많습니다.
 
-![](./image/macOS.set.mouse.04.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Apple/image/macOS.set.mouse.04.png?raw=true">
 
 `MX Anywhere 2`는 가운데 버튼에 `Mission Control`, `왼쪽 Space`, `오른쪽 Space` 이 기본적으로 할당되어 있습니다.
 
-![](./image/macOS.set.mouse.05.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Apple/image/macOS.set.mouse.05.png?raw=true">
 
 - `Mission Control` : 가운데 버튼 클릭 또는 누른체 위로 이동
 - `왼쪽 Space` : 가운데 버튼 누른체 좌로 이동
@@ -65,7 +75,7 @@
 
 `Space 이동`의 경우는 비교적 자주 사용하는 기능이므로 좀 더 빨리 사용하기 위해 마우스 휠을 좌, 우로 클릭하는 것이 더 편리할 것으로 판단되어 그렇게 할당을 하였습니다.
 
-![](./image/macOS.set.mouse.06.png)
+<img src="https://github.com/DevStarSJ/Study/raw/master/Blog/Apple/image/macOS.set.mouse.06.png?raw=true">
 
 ### 마치며...
 
