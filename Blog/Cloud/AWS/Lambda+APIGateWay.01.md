@@ -12,15 +12,15 @@
 
 - `AWS` 로그인 후 `Lambda` 탭으로 이동
 
-![image](images/lambda_apigateway.01.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.01.png?raw=true">
 
 - `Create a Lambda Function` 선택
 
-![image](images/lambda_apigateway.02.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.02.png?raw=true">
 
 - Select blueprint에서 `Blank Function` 선택
 
-![image](images/lambda_apigateway.03.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.03.png?raw=true">
 
 - Configure function 에서 일단 바로 `Next` 선택 (미리 연결할 API Gateway가 있다면 여기서 연결하면 됨)
 - `Configure function`에서 함수 정의
@@ -96,7 +96,7 @@ exports.handler = (event, context, callback) => {
 
 - `AWS` 메인 화면으로 이동 후 `API Gateway` 탭으로 이동
 
-![image](images/lambda_apigateway.04.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.04.png?raw=true">
 
 - `Create API` 선택
   - API name : `testAPI-luna`
@@ -114,7 +114,7 @@ exports.handler = (event, context, callback) => {
     - Lambda Region : 람다를 생성한 region 선택
     - Lambda Function : `testLambda-luna` (좀 전에 생성한 람다명 입력)
 
-![image](images/lambda_apigateway.05.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.05.png?raw=true">
 
   - `Integration Request` 선택
     - `Body Mapping Templates` 선택
@@ -161,7 +161,7 @@ exports.handler = (event, context, callback) => {
   - `Deploy` 버튼 선택
   - `Invoke URL` 복사
 
-![image](images/lambda_apigateway.06.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.06.png?raw=true">
 
 ## 테스트
 
@@ -268,12 +268,12 @@ exports.handler = (event, context, callback) => {
 - `Headers` 탭 선택
   - `headerValue1` : `123` 입력
 
-![image](images/lambda_apigateway.07.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.07.png?raw=true">
 
 - `Body` 탭 선택
   - 위 예제의 **JSON** 입력
 
-![image](images/lambda_apigateway.08.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.08.png?raw=true">
 
 - `Send` 선택
 - 결과
