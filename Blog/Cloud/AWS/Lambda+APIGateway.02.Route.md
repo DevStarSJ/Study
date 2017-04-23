@@ -14,7 +14,8 @@ Web API를 구현하기 위해서는 여러가지 URL에 대해서 각각 다른
 
 아래와 같이 API Gateway를 설정해 주세요.
 
-![image](images/lambda_apigateway.route.01.png)
+<img src="https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/images/lambda_apigateway.route.01.png?raw=true">
+
 
 1편에서 설정한 Path를 그대로 두셔도 되지만, **ANY** 에 대해서 연습할겸 모든 Resource, Method를 삭제한 후 다음 단계대로 추가해 주세요.
 
