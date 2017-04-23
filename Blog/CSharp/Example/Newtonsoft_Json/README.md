@@ -19,8 +19,6 @@ nuget manager에서 `JSON`으로 검색시 가장 먼저 나옵니다.
 
 솔루션 탐색기 (Solution Explorer)에서 마우스 우클릭 하신뒤 `Manage nuget packages...`을 누르셔서 `Browse` 탭에서 `Newtonsoft.Json`을 검색하셔서 `Install`을 누르면 됩니다.
 
-![그림 MVC](https://github.com/DevStarSJ/Study/blob/master/CSharp/Example/Newtonsoft_Json/image/Newtonsoft.Json.01.png?raw=true)
-
 다른 방법으로는 도구(Tools) -> `Nuget package manager` -> `Package Manager Console` 로 가셔서 아래와 같이 입력하시면 됩니다.
 
 ```
