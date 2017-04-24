@@ -3,7 +3,7 @@ title: Oracle Plan,Trace
 date: 2016-02-20 02:00:00
 categories:
 - Database
-- SQLP
+- Oracle
 tags:
 - Database
 - Oracle
