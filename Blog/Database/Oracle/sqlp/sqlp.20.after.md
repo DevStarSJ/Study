@@ -1,20 +1,32 @@
-#20회 SQLP 시험후기
+---
+title: SQLP etc-2 SQLP 시험후기
+date: 2016-03-05 02:00:00
+categories:
+- Database
+- SQLP
+tags:
+- Database
+- Oracle
+- SQLP
+---
+
+# 20회 SQLP 시험후기
 
 ----
-###1. 시험일시
+### 1. 시험일시
 >2016년 3월 5일 오후 1시부터 4시까지
 
-###2. 학습기간
+### 2. 학습기간
 >2016년 1월 10일경부터 약 2달간
 
-###3. 공부방법
+### 3. 공부방법
 
 - SQLP 가이드 1번 읽기 : 2주  
 - SQLP 가이드 Blog에 정리 : 3주 (정리 후 다시 읽어보진 않았음)  
 - 기출문제 풀이 : 나머지 기간동안
   - devdo님 blog의 서술형 기출문제 5회 가량 풀이 : <http://blog.naver.com/oracledo>
 
-###4. 본인소개
+### 4. 본인소개
 - 나이 : 40세
 - IT경력 : 8년차
 - 현재 WareValley에서 Orange라는 DB 관리툴 개발팀에 소속

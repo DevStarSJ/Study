@@ -1,3 +1,15 @@
+---
+title: Oracle hint
+date: 2016-02-26 02:00:00
+categories:
+- Database
+- Oracle
+tags:
+- Database
+- Oracle
+- SQLP
+---
+
 * `LEADING(테이블)` : 해당 Table 부터 읽음
 * `QB_NAME(이름)` : 해당 query block에 이름을 지어준다. 그래서 다른 곳에서 이름@테이블명 으로 해당 테이블을 지정 할 수 있다.
 * JOIN 방법

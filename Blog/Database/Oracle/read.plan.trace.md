@@ -1,4 +1,16 @@
-#Oracle Plan, Trace 읽는 법
+---
+title: Oracle Plan,Trace
+date: 2016-02-20 02:00:00
+categories:
+- Database
+- SQLP
+tags:
+- Database
+- Oracle
+- SQLP
+---
+
+# Oracle Plan, Trace 읽는 법
 
 SQL Tuning을 하기 위해서 가장 기본으로 알아야 하는 것이 Plan과 Trce를 읽는 방법입니다.  
 그래야 어느 곳이 비효율적인지를 알아내서 그 부분을 중심으로 Tuning 전략을 세울 수 있습니다.  
@@ -7,7 +19,7 @@ SQL Tuning을 하기 위해서 가장 기본으로 알아야 하는 것이 Plan�
 - 실행 순서 : Plan, Trace 동일
 - Trace 결과 : Row Source Operation의 각 수치들의 의미 (rows, cr만 알아도 됩니다.)
 
-##1. Plan 읽는 법
+## 1. Plan 읽는 법
 
 - Plan은 SQL을 실행하기 전에 Optimizer에 의해 선택된 최적의 실행 경로 및 계산되어진 예상 Cost를 보여줍니다.
 
@@ -39,7 +51,7 @@ Predicate information (identified by operation id):
   11 - filter("NUM">10)
 -----------------------------------------------------------
 ```
-###1.1 실행순서 (access path)
+### 1.1 실행순서 (access path)
 
 - sibling 사이에서는 먼저 나온 것을 먼저 처리
 - child가 있는 경우 child부터 다 처리하고 parent 처리하기
@@ -58,17 +70,17 @@ Predicate information (identified by operation id):
 - (3)의 child를 다 처리한 후에 자신의 sibling인 (8)을 처리해야하는데, (8)도 child가 있으므로 안쪽부터 처리합니다.
 - (3, 8)이 모두 처리된 후에 (2)부터 쭉 처리하면 됩니다.
 
-###1.2 예상 성능지표 (Cost-based Optimizer Mode에서만 표시)
+### 1.2 예상 성능지표 (Cost-based Optimizer Mode에서만 표시)
 
 - Cost : Cost 예상 지수. 클수록 성능상 (CPU 점유, Disk I/O, 수행시간 등...) 안좋다는 의미입니다.
 - Card : (Computed Cardinality) : CBO상 계산된 예상되는 return row 입니다.
 - Bytes : return row의 byte수 입니다.
 
-###1.3 Predicate information
+### 1.3 Predicate information
 
 각 단계별 filter 조건이 어떻게 적용되었다는 정보를 보여줍니다.  
 
-##2. Trace 읽는 법
+## 2. Trace 읽는 법
 
 - Trace는 실제 실행된 경로와 그 성능상 중요 수치들을 보여줍니다.
 
@@ -99,7 +111,7 @@ Rows     Row Source Operation
       0  TABLE ACCESS FULL EMP (cr=3 pr=0 pw=0 time=0 us cost=2 size=190 card=5
 ```
 
-###2.1 Row Source Operation 읽는법
+### 2.1 Row Source Operation 읽는법
 
 상대적으로 중요한 Row Source Operation 읽는 법부터 소개해드리겠습니다.  
 Plan과 같은 형식으로 실행 경로를 보여 줍니다.  
@@ -115,7 +127,7 @@ Plan과 같은 형식으로 실행 경로를 보여 줍니다.
 - card : (cardinality)
 
 
-###2.2 Call Table
+### 2.2 Call Table
 
 Tunning시 사실상 크게 볼 필요 없습니다.  
 
@@ -131,7 +143,7 @@ Tunning시 사실상 크게 볼 필요 없습니다.
 - Current : Current Mode에서 읽은 Block수 (Table을 액세스하는 시점에 읽은 수정할 Block)
 - Rows : 읽거나 갱신한 처리 건수
 
-##참조 Slide
+## 참조 Slide
 
 좀 더 자세한 사항을 알고 싶으시면 아래 Slide를 참고해주세요.
 
