@@ -1,14 +1,27 @@
+---
+title: Doing Math with Python Chapter 4 Algebra and Symbolic Math with SymPy
+date: 2016-07-18 00:00:00
+categories:
+- Python
+- DoingMathWithPython
+tags:
+- Python
+- Math
+---
 
-# 파이썬으로 풀어보는 수학
+# Doing Math with Python (파이썬으로 풀어보는 수학)
 
 - 원서명 : Doing Math with Python: Use Programming to Explore Algebra, Statistics, Calculus, and More! (ISBN 9781593276409)
 - 지은이 : 아미트 사하(Amit Saha)
 - 원서 및 관련자료 : <https://www.nostarch.com/doingmathwithpython>
 - 번역서 : <http://www.acornpub.co.kr/book/doing-math-with-python>
 
-![책표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
 
-## 4장 SymPy를 이용한 대수와 부호 수학
+This posting is made in `.ipynb`, so the original file can be modified and executed in the **Jupiter Notebook**.
+- Location : <https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython>
+
+## Chapter 4 Algebra and Symbolic Math with SymPy
 
 지금까지는 수학문제와 풀이에 직접 숫자를 대입하여 풀었습니다.  
 하지만 `SymPy`를 이용하여 대수(Algebra)문제를 부호(Symbolic) 수학으로 풀이하는 것이 가능합니다.  

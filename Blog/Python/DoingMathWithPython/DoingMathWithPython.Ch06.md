@@ -1,14 +1,27 @@
+---
+title: Doing Math with Python Chapter 6 Drawing Geometric Shapes and Fractals
+date: 2016-07-28 00:00:00
+categories:
+- Python
+- DoingMathWithPython
+tags:
+- Python
+- Math
+---
 
-# 파이썬으로 풀어보는 수학
+# Doing Math with Python (파이썬으로 풀어보는 수학)
 
 - 원서명 : Doing Math with Python: Use Programming to Explore Algebra, Statistics, Calculus, and More! (ISBN 9781593276409)
 - 지은이 : 아미트 사하(Amit Saha)
 - 원서 및 관련자료 : <https://www.nostarch.com/doingmathwithpython>
 - 번역서 : <http://www.acornpub.co.kr/book/doing-math-with-python>
 
-![책표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
 
-## 6장 기하학적 형상과 프랙탈 그리기
+This posting is made in `.ipynb`, so the original file can be modified and executed in the **Jupiter Notebook**.
+- Location : <https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython>
+
+## Chapter 6 Drawing Geometric Shapes and Fractals
 
 ### 1. MatPlotLib의 패치(patches)로 기하학적 형상 그리기
 

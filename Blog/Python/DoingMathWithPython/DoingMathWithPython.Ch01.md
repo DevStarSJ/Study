@@ -1,5 +1,15 @@
+---
+title: Doing Math with Python Chapter 1 Working with Numbers
+date: 2016-07-09 00:00:00
+categories:
+- Python
+- DoingMathWithPython
+tags:
+- Python
+- Math
+---
 
-# 파이썬으로 풀어보는 수학
+# Doing Math with Python (파이썬으로 풀어보는 수학)
 
 - 원서명 : Doing Math with Python: Use Programming to Explore Algebra, Statistics, Calculus, and More! (ISBN 9781593276409)
 - 지은이 : 아미트 사하(Amit Saha)
@@ -8,10 +18,10 @@
 
 ![책표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
 
-이 포스팅은 ipynb 로 제작되어 있으므로 원본 파일을 Jupyter notebook 에서 수정 및 실행이 가능합니다.
-- 원본파일 : <https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/DoingMathWithPython.Ch01.ipynb>
+This posting is made in `.ipynb`, so the original file can be modified and executed in the **Jupiter Notebook**.
+- Location : <https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython>
 
-## 1장 숫자, 연산
+## Chapter 1 Working with Numbers
 
 ### 1. 사칙연산
 

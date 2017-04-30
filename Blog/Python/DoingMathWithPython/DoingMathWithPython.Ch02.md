@@ -1,14 +1,27 @@
+---
+title: Doing Math with Python Chapter 2 Visualizing Data with Graphs
+date: 2016-07-12 00:00:00
+categories:
+- Python
+- DoingMathWithPython
+tags:
+- Python
+- Math
+---
 
-# 파이썬으로 풀어보는 수학
+# Doing Math with Python (파이썬으로 풀어보는 수학)
 
 - 원서명 : Doing Math with Python: Use Programming to Explore Algebra, Statistics, Calculus, and More! (ISBN 9781593276409)
 - 지은이 : 아미트 사하(Amit Saha)
 - 원서 및 관련자료 : <https://www.nostarch.com/doingmathwithpython>
 - 번역서 : <http://www.acornpub.co.kr/book/doing-math-with-python>
 
-![책표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
 
-## 2장 그래프로 데이터 가시화
+This posting is made in `.ipynb`, so the original file can be modified and executed in the **Jupiter Notebook**.
+- Location : <https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython>
+
+## Chapter 2 Visualizing Data with Graphs
 
 #### 카르테지안 좌표평면 (Cartesian coordinate plane)
 수평선 값은 x축, 수직선 값은 y축 으로 부르는 좌표 평면 (통상적으로 많이 사용하는 2차원을 표현하는 좌표계)
