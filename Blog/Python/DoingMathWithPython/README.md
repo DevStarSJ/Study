@@ -5,7 +5,7 @@
 - 원서 및 관련자료 : <https://www.nostarch.com/doingmathwithpython>
 - 번역서 : <http://www.acornpub.co.kr/book/doing-math-with-python>
 
-![책표지](./image/cover.jpg)
+![책표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
 
 - [Doing Math with Python 파이썬으로 풀어보는 수학](.)
   - [01. 숫자, 연산](DoingMathWithPython.Ch01.ipynb) - 2016-07-09
