@@ -1,3 +1,14 @@
+---
+title: 선대인의 빅픽처 저성장 시대의 생존 경제학
+date: 2016-09-03 00:00:00
+categories:
+- Book
+- Review
+tags:
+- Book
+- Review
+---
+
 # 밑바닥부터 시작하는 데이터 과학
 
 - 원서명 : Data Science from Scratch: First Principles with Python
@@ -6,7 +17,7 @@
 - 번역서 : <http://www.insightbook.co.kr/books/programming-insight>
 - 출판사 예제코드 : <https://github.com/insight-book/data-science-from-scratch>
 
-![책표지](./image/DataScienceWithScratch.cover.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/DataScienceWithScratch.cover.png?raw=true)
 
 관련 스터디 교제라서 사서 본 책입니다.
 

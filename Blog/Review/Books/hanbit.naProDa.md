@@ -1,16 +1,27 @@
+---
+title: 팟캐스트 나는 프로그래머다
+date: 2015-11-22 00:00:00
+categories:
+- Book
+- Review
+tags:
+- Book
+- Review
+---
+
 ### 팟캐스트 나는 프로그래머다: 뉴욕, 서울, 도쿄 개발자의 촌철살인 IT 이야기
 - 한빛미디어
 - 임백준, 정도현, 김호광 지음
 - 책소개 Link : <http://www.hanbit.co.kr/book/look.html?isbn=978-89-6848-228-1>
 
- ![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.01.jpg?raw=true)  
+ ![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.01.jpg?raw=true)  
 
 안녕하세요. 오늘 정말 재미있고 유익한 책 한권을 소개할께요.
 최근 본 개발자 관련 서적중에 가장 재미있는 책입니다.
 위에 제목에 나와 있듯 `팟캐스트 나는 프로그래머다: 뉴욕, 서울, 도쿄 개발자의 촌철살인 IT 이야기` 입니다.
 팟캐스트 방송으로 이미 너무나도 유명한 책이죠.
 
-####팟캐스트 소개
+#### 팟캐스트 소개
 
 저도 아직 제대로 들어보진 않았습니다.
 이런 방송이 있다고는 알고 있었지만요.
@@ -20,7 +31,7 @@
 
 위 Link에서 컨퍼런스 영상 및 팟캐스트 영상 모두 확인이 가능 합니다.
 
-####첫 인상
+#### 첫 인상
 
 겉표지가 귀여우면서도 세련되었습니다.
 캐릭터도 너무 귀엽구요. 개인적으로 데니스님 케릭이 가장 귀여워요. ㅎ
@@ -29,9 +40,9 @@
 저런 말이야 누구나 다 할 수 있지.
 정말 그렇게 다 긁어줄까 ? 라고 의문을 느낄 수 있겠지만, 이미 나프다 컨퍼런스 영상을 본 후라서 정말 그럴꺼라는 확신이 들었습니다.
 
-![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.02.jpg?raw=true)  
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.02.jpg?raw=true)  
 
-####책 구성
+#### 책 구성
 
 실제 팟캐스트 방송에서 얘기한 것을 책으로 옮겨둔 것입니다.
 물론 그 내용이 그대로 대본같이 들어있는 것은 아니겠죠.
@@ -45,9 +56,9 @@
 
 이렇듯 모든 개발자라면 모두 관심있어할 만한 주제부터 해서 힘들어하시는 소외받으신 분들 이야기까지 개발자 분야의 꼭대기에서 바닥까지 모든 것을 다 다룬다고 해야 하나요 ?
 
-![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.03.jpg?raw=true)  
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.03.jpg?raw=true)  
 
-####1부 언어
+#### 1부 언어
 
 Java, Go, Scala 3가지 언어에 대한 내용으로 각각 방송을 진행한 이야기를 소개해 줍니다.
 모든 방송마다 관련 guest를 초대해서 같이 이야기를 나누는 형식으로 진행됩니다.
@@ -72,23 +83,23 @@ Scala 언어의 탄생 배경부터해서 현재 스터디 활동 중이신 분�
 * 즉 모든 제어를 함수의 입/출력을 통해서 해야합니다.
 * 그러므로, Unit Test 작성이 용의하며, bug 발생 가능성도 줄어들며, bug가 발생하더라도 예측하기 쉽습니다.
 
-####2부 기술
+#### 2부 기술
 
 2부에서는 최신 기술들의 흐름에 대해서 알아 볼 수 있었습니다.
 MS의 신기술들, MS Azure, Amazon AWS 등 Cloud 활용시의 장단점을 비롯하여 FinTech의 범위와 국내 해외의 FinTech 현재 상황까지...
 기술적인 부분부터 해서 서비스단의 이야기까지 많은 부분에 대해서 간접적으로 나마 이해하는데 많은 도움이 되었습니다.
 그 동안 여러가지 컨퍼런스에서 직접 봐왔던 분들이 guest로 오셔서 이야기를 진행해주셨는데, 그 분들이 정말 대단한 분들이란 것을 느끼게 되었습니다.
 
-![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.04.jpg?raw=true)  
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/small.hanbit.naProDa.04.jpg?raw=true)  
 
-####3부 삶
+#### 3부 삶
 
 이 부분에서 정말 느낀게 많았습니다.
 MS MVP, 여자 개발자, 개발자 영어, SI 까지 여자 개발자 빼고 나머지 3가지 부분은 제가 관심을 가지고 있다던지, 아니면 직접 겪은 부분이라서 더 관심이 많이 가는 부분이었습니다.
 지금도 온라인으로 영어강좌를 신청해서 듣고 있는데, 영어 학습과 개발자의 삶에 대해서 직접 임작가님의 재밌는 실수담 부터 해서 영어에 대한 두려움을 없에주는 용기도 주었습니다. 
 알게 모르게 일어나고 있는 여자 개발자에 대해서 한국 업체들에서 벌어지는 차별들에 대한 소개와, SI업체의 힘든 현실에 대한 부분도 알지 못했던 현실들이었구요.
 
-####총평
+#### 총평
 
 이야기 하나하나에서 다루는 주제가 개발자들이 관심을 가질 수 있는 주제에 대해서 미리 겪어본 선배님들의 이야기를 들음으로써 나중에 그 분야에 대해서 학습을 할때 시행착오를 덜 겪을 수 있도록 큰 도움을 주는 책으로도 괜찮으리라 봅니다.
 물론 그냥 재미로 보기에도 좋은 책입니다. 너무너무 재미있구요.

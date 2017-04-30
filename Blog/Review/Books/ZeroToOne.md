@@ -1,3 +1,14 @@
+---
+title: Zero to One
+date: 2016-10-20 00:00:00
+categories:
+- Book
+- Review
+tags:
+- Book
+- Review
+---
+
 # Zero to One
 
 경쟁하지 말고 독점하라

@@ -1,16 +1,27 @@
+---
+title: 선대인의 빅픽처 저성장 시대의 생존 경제학
+date: 2015-12-27 00:00:00
+categories:
+- Book
+- Review
+tags:
+- Book
+- Review
+---
+
 ### 선대인의 빅픽처 저성장 시대의 생존 경제학
 - 웅진지식하우스
 - 선대인
 - 책소개 Link : <http://book.naver.com/bookdb/book_detail.nhn?bid=9770144>
 
- ![책 표지](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/BigPicture.jpg?raw=true)  
+ ![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/BigPicture.jpg?raw=true)  
 
 안녕하세요.  
 이번에 소개 드릴 책은 `선대인의 빅픽처 저성장 시대의 생존 경제학`입니다.  
 제목 그대로 요즘같은 저성장 시대에서 개인이 어떤 관점을 가지고 경제를 바라 보아야 할 것인가에 대한 소개와  
 어떻게 투자를 해야 할 것인지에 대한 거시적인 안목을 가지는 방법 및 투자 방법을 한가지 소개해 주고 있습니다.
 
-####BIG PICTURE
+#### BIG PICTURE
 
 세계 시장에 대해서 큰 시각으로 바로 보라는 의미와 주목해야 할 10가지 키워드의 머릿글자라는 2가지 의미로 저자는 소개하였습니다.
 - B : Bio-health Care

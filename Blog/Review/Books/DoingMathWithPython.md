@@ -1,3 +1,15 @@
+---
+title: 파이썬으로 풀어보는 수학
+date: 2016-09-03 00:00:00
+categories:
+- Book
+- Review
+tags:
+- Book
+- Review
+---
+
+
 # 파이썬으로 풀어보는 수학
 
 - 원서명 : Doing Math with Python: Use Programming to Explore Algebra, Statistics, Calculus, and More! (ISBN 9781593276409)
@@ -5,7 +17,7 @@
 - 원서 및 관련자료 : <https://www.nostarch.com/doingmathwithpython>
 - 번역서 : <http://www.acornpub.co.kr/book/doing-math-with-python>
 
-![책표지](./image/DoingMathWithPython.cover.jpg)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Review/Books/image/DoingMathWithPython.cover.jpg?raw=true)
 
 정말 쉽고 재밌는 책입니다.
 수학에 대해서 잘 알지 못해도 풀이 과정을 증명하는 것처럼 풀어서 설명을 해주며,

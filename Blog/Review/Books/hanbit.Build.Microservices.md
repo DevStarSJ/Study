@@ -1,10 +1,21 @@
+---
+title: 마이크로서비스 아키텍처 구축
+date: 2017-03-17 00:00:00
+categories:
+- Book
+- Review
+tags:
+- Book
+- Review
+---
+
 ### 마이크로서비스 아키텍처 구축
 - 한빛미디어
 - 옮긴이 : 정성권
 - 책소개 Link : <http://www.hanbit.co.kr/store/books/look.php?p_code=B8584207882>
 - 원서 : Building Microservices - Sam Newman - O'Reilly Media, Inc. : <http://shop.oreilly.com/product/0636920033158.do>
 
-![책표지](http://www.hanbit.co.kr/data/books/B8584207882_l.jpg)
+![](http://www.hanbit.co.kr/data/books/B8584207882_l.jpg)
 
 요즘 핫한 이슈 중 하나인 마이크로서비스 아키텍쳐에 관한 번역서이다.
 마이크로서비스를 기반으로 개발할 때 또는 기존의 모노리스 시스템을 마이크로서비스로 변경하고자 할때 무엇을 고려해야하는지, 조직을 어떻게 관리해야하는지부터해서 모든 것을 다 다루고 있다.
