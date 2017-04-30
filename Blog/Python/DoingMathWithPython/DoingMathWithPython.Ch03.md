@@ -350,7 +350,7 @@ draw_scatter_plot(scoreOfHighSchool, scoreOfCollegeTest, 'Score of High School',
 ```
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_29_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_29_0.png)
 
 
 **산점도**를 보니 고등학교 성적과 대학입학 성적 사이에 큰 상관이 없는 것을 알 수 있습니다.
@@ -379,7 +379,7 @@ draw_scatter_plot(scoreOfMath, scoreOfCollegeTest, 'Score of Math in High School
 ```
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_33_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_33_0.png)
 
 
 **산점도**를 보니 거의 직선에 가깝게 보입니다.
@@ -455,19 +455,19 @@ draw_scatter_plot(DX, DY,'X','Y')
 ```
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_41_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_41_0.png)
 
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_41_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_41_1.png)
 
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_41_2.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_41_2.png)
 
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_41_3.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_41_3.png)
 
 
 위 4개의 산점도를 보면 모두 다른 데이터 임을 알 수 있습니다.
@@ -576,7 +576,7 @@ draw_scatter_plot(years, data[0],'Years','Population')
 
 
 
-![png](DoingMathWithPython.Ch03_files/DoingMathWithPython.Ch03_47_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch03_47_1.png)
 
 
 ### 2. 퍼센트 위치 계산

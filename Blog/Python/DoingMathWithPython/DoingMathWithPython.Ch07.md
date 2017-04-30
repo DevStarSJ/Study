@@ -435,7 +435,7 @@ plot(y,(x,-5,5))
 ```
 
 
-![png](DoingMathWithPython.Ch07_files/DoingMathWithPython.Ch07_37_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch07_37_0.png)
 
 
 
@@ -677,7 +677,7 @@ plot(R,(theta,deg0,deg90))
 ```
 
 
-![png](DoingMathWithPython.Ch07_files/DoingMathWithPython.Ch07_59_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch07_59_0.png)
 
 
 
@@ -911,7 +911,7 @@ plot(fx,(x,0,5))
 ```
 
 
-![png](DoingMathWithPython.Ch07_files/DoingMathWithPython.Ch07_81_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch07_81_0.png)
 
 
 

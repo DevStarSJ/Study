@@ -73,7 +73,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_8_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_8_0.png)
 
 
 ##### step 2. Marker 표시
@@ -87,7 +87,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_10_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_10_0.png)
 
 
 ##### Step 3. Line 지우기
@@ -101,7 +101,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_12_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_12_0.png)
 
 
 ##### Step 4. 뉴욕시의  연간 평균온도 표시 (X축값을 주지 않고 출력)
@@ -117,7 +117,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_14_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_14_0.png)
 
 
 Y축의 값의 경우 0에서부터 시작을 한 것이 아니라 입력된 값의 최소값(53.4)에서 최고값(57.3)을 기준으로 표시된 것을 확인 할 수 있습니다.
@@ -133,7 +133,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_16_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_16_0.png)
 
 
 ##### Step 5. 뉴욕시의 월간 온도 비교 (한 그래프에 여러개의 시리즈 출력)
@@ -156,7 +156,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_19_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_19_0.png)
 
 
 3개의 시리즈가 하나의 그래프에 출력이 되었습니다.
@@ -176,7 +176,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_21_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_21_0.png)
 
 
 범주를 넣으니 각각의 색깔별 시리즈가 무엇을 의미하는지 확인이 가능해졌습니다.
@@ -200,7 +200,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_23_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_23_0.png)
 
 
 ##### Step 8. 축 조정
@@ -253,7 +253,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_28_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_28_0.png)
 
 
 `inline` 모드로 실행하실 경우에는 주의 사항이 하나 있습니다.
@@ -278,7 +278,7 @@ show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_31_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_31_0.png)
 
 
 ### 2. pyplot을 이용한 그래프 그리기
@@ -309,7 +309,7 @@ if __name__ == '__main__':
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_34_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_34_0.png)
 
 
 `savefig('저장할 파일 경로 및 이름')` : 그래프를 그림으로 저장 (PNG, PDF,SVG등 여러가지 타입을 지원) / `pylab`, `pyplot` 모두 가능
@@ -376,7 +376,7 @@ if __name__ == '__main__':
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_38_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_38_0.png)
 
 
 #### 3.2 포물선 운동
@@ -486,7 +486,7 @@ if __name__ == '__main__':
 
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_42_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_42_1.png)
 
 
 만약 서로 다른 속도로 던진 공들에 대한 궤적을 비교하고 싶으면 어떻게 해야 할까요 ?
@@ -506,7 +506,7 @@ if __name__ == '__main__':
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_44_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_44_0.png)
 
 
 ## 프로그래밍 연습
@@ -532,7 +532,7 @@ plt.show()
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_46_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_46_0.png)
 
 
 ### 2. 이차방정식을 그림으로 탐색해보기
@@ -557,7 +557,7 @@ plt.show()
 
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_48_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_48_1.png)
 
 
 ### 3. 투척 궤적 비교 프로그램 개선
@@ -658,7 +658,7 @@ if __name__ == '__main__':
 
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_52_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_52_1.png)
 
 
 #### 수평막대 차트 예제
@@ -685,7 +685,7 @@ if __name__ == '__main__':
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_54_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_54_0.png)
 
 
 #### 4. 비용 가시화
@@ -731,7 +731,7 @@ if __name__ == '__main__':
 
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_56_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_56_1.png)
 
 
 #### 5. 피보나치 순열과 황금비 간의 관계 탐색
@@ -778,5 +778,5 @@ if __name__ == '__main__':
 ```
 
 
-![png](DoingMathWithPython.Ch02_files/DoingMathWithPython.Ch02_58_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch02_58_0.png)
 

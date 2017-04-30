@@ -473,7 +473,7 @@ plot(expr)
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_48_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_48_0.png)
 
 
 
@@ -509,7 +509,7 @@ plot(expr)
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_51_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_51_0.png)
 
 
 
@@ -525,7 +525,7 @@ plot(expr, (x, -2, 0))
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_52_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_52_0.png)
 
 
 
@@ -554,7 +554,7 @@ plot(expr)
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_54_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_54_0.png)
 
 
 
@@ -659,7 +659,7 @@ p.show()
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_63_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_63_0.png)
 
 
 두 방정식에 대입해서 값이 0으로 나온것으로 봐서 맞게 계산된 것으로 보여집니다.
@@ -684,7 +684,7 @@ plot(2*x + 3)
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_66_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_66_0.png)
 
 
 
@@ -703,7 +703,7 @@ plot(2*x+3, (x, -5, 5))
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_68_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_68_0.png)
 
 
 
@@ -721,7 +721,7 @@ plot(2*x+3, (x, -5, 5), title='Line', xlabel='x', ylabel='2x+3')
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_70_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_70_0.png)
 
 
 
@@ -780,7 +780,7 @@ plot(expr[0])
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_75_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_75_0.png)
 
 
 
@@ -800,7 +800,7 @@ plot(2*x + 3, 3*x + 1)
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_77_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_77_0.png)
 
 
 
@@ -822,7 +822,7 @@ p.show()
 ```
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_79_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_79_0.png)
 
 
 ## 프로그래밍 연습
@@ -859,7 +859,7 @@ p.show()
 
 
 
-![png](DoingMathWithPython.Ch04_files/DoingMathWithPython.Ch04_81_1.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch04_81_1.png)
 
 
 ### 2. 수열합 계산

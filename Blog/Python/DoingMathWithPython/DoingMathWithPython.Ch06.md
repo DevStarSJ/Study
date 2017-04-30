@@ -31,7 +31,7 @@ plt.show()
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_3_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_3_0.png)
 
 
 우리가 명시적으로 생성하지는 않았지만 그래프를 위해 `Figure`객체와 `Axes`객체를 내부적으로 자동생성하여서 그 위에 그래프를 작성한 것입니다.
@@ -105,7 +105,7 @@ plt.show()
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_11_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_11_0.png)
 
 
 패치의 색상을 변경하려면 `fc`(채우기)와 `ec`(테두리)에 색상을 전달하면 됩니다.
@@ -120,7 +120,7 @@ plt.show()
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_13_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_13_0.png)
 
 
 ### 2. 움직이는 그림 만들기
@@ -327,7 +327,7 @@ draw_projectile(5, 45)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_28_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_28_0.png)
 
 
 `plot`상에 그려보니 계산 과정은 제대로 되었다는 것을 확인할 수 있습니다.
@@ -414,7 +414,7 @@ draw_fractal(simple_point, 10)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_32_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_32_0.png)
 
 
 여기서 조금의 변화를 줘보겠습니다.
@@ -432,7 +432,7 @@ draw_fractal(simple_two_point, 10)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_34_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_34_0.png)
 
 
 교제에서는 `random.choice()`를 사용하여 구현을 하였습니다.
@@ -452,7 +452,7 @@ draw_fractal(simple_two_point, 1000, 2)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_36_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_36_0.png)
 
 
 일반적으로 이러한 지그재그 경로를 라인상에서 움직이는 모양을 랜덤워크라고 합니다.
@@ -515,7 +515,7 @@ draw_fractal(barnsley_fractal, 10000, 3)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_41_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_41_0.png)
 
 
 ## 프로그래밍 연습
@@ -557,7 +557,7 @@ draw_patches([s1, s2], 5,5)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_45_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_45_0.png)
 
 
 잘 그려지는군요. 그럼 원을 그리는 함수를 추가해 보겠습니다.
@@ -579,7 +579,7 @@ draw_patches([c1, c2], 3.5, 3.5)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_49_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_49_0.png)
 
 
 잘 그려지는군요.
@@ -610,7 +610,7 @@ draw_patches(make_circles_in_area(0,0,4,4),4,4)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_53_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_53_0.png)
 
 
 이제 위에서 생성한 함수들을 하나로 합쳐서 문제를 해결하는 함수를 만들어 보겠습니다.
@@ -630,7 +630,7 @@ draw_square_and_circles(0,0,4,4)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_55_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_55_0.png)
 
 
 ### 2. 시어핀스키의 삼각형 그리기
@@ -670,7 +670,7 @@ draw_fractal(sierpinski_fractal, 10000, 3)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_57_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_57_0.png)
 
 
 ### 3. 헤논 함수 탐색
@@ -700,7 +700,7 @@ draw_fractal(henon_fractal, 20000, 3, 0, 0)
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_59_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_59_0.png)
 
 
 책 문제대로 시작점을 `1,1`에서 하면 이상한 곳에 점이 찍힙니다.
@@ -798,7 +798,7 @@ draw_image(make_random_colors(5, 5, 10))
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_65_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_65_0.png)
 
 
 `imshow`의 주요 인자에 대한 설명입니다.
@@ -815,7 +815,7 @@ draw_image(make_random_colors(20, 20, 20))
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_67_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_67_0.png)
 
 
 이제 본 문제로 들어가겠습니다.
@@ -875,7 +875,7 @@ plt.show()
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_70_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_70_0.png)
 
 
 아래 위키에 가시면 자세한 설명과 재밌는 그림을 볼 수 있습니다.
@@ -893,7 +893,7 @@ plt.show()
 ```
 
 
-![png](DoingMathWithPython.Ch06_files/DoingMathWithPython.Ch06_72_0.png)
+![png](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/md_files/DoingMathWithPython.Ch06_72_0.png)
 
 
 시간만 오래 걸리지 별차이 없어 보이네요.
