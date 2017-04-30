@@ -3,10 +3,10 @@ title: Doing Math with Python
 date: 2016-07-09 00:00:00
 categories:
 - Python
-- DoingMathWithPython
+- DataScience
 tags:
 - Python
-- Math
+- DataScience
 ---
 
 # Doing Math with Python (파이썬으로 풀어보는 수학)
@@ -19,6 +19,7 @@ tags:
 ![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython/image/cover.jpg?raw=true)
 
 This posting is made in `.ipynb`, so the original file can be modified and executed in the **Jupiter Notebook**.
+
 - Location : <https://github.com/DevStarSJ/Study/blob/master/Blog/Python/DoingMathWithPython>
 
 

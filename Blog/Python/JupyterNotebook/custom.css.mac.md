@@ -1,4 +1,14 @@
-# Jupyter notebook markdown에 내가 원하는 css 적용하기 (Linux / Mac OS)
+---
+title: Jupyter notebook markdown에 내가 원하는 css 적용하기 (Linux / macOS)
+date: 2016-08-27 00:00:00
+categories:
+- Tips
+- JupyterNotebook
+tags:
+- JupyterNotebook
+---
+
+# Jupyter notebook markdown에 내가 원하는 css 적용하기 (Linux / macOS)
 
 `Windows`에서 설정하는 방법에 대해서는 저번에 포스팅 한 적이 있습니다.
 
@@ -15,7 +25,7 @@
 
 맥북 구입후 **Python** 및 **Anaconda**를 설치한 후, 부푼 맘을 가진체 **Jupyter notebook**을 실행해 보았습니다.
 
-![](./image/custom.css.mac.01.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.01.png?raw=true)
 
 역시 맥북용 폰트는 이쁩니다. 그런데, `Windows`에서 설정한 한 `Markdown`의 렌더링결과가 적용되어 있지 않습니다.
 당연한 거지요.
@@ -30,7 +40,7 @@
 
 `Cmd + Opt + I`를 눌러서 적용된 **css**를 다시 찾아봤습니다.
 
-![](./image/custom.css.mac.02.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.02.png?raw=true)
 
 제가 적용한 내용들이 모두 빨간줄 찍찍찍.
 그리고 그 위에 뭔가 다른 **css**가 우선순위가 높게 적용되어 있군요.
@@ -42,13 +52,13 @@
 그래서 좀 더 무식한 방법으로 찾아봤습니다.
 그냥 **html** 자체를 열어봤습니다.
 
-![](./image/custom.css.mac.03.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.03.png?raw=true)
 
 저 내용을 일단 다른 에디터로 열었습니다.
 (필자의 경우는 **Visual Studio Code**를 사용)
 그래서 `.css`로 검색을 했죠.
 
-![](./image/custom.css.mac.04.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.04.png?raw=true)
 
 총 7개가 나왔군요.
 이제 용의자를 확보되었습니다.
@@ -91,11 +101,11 @@ sudo find ~ -name 'jquery-ui.min.css'
 우린 문명인이고 마우스라는 좋은 도구가 있습니다.
 난 도구를 사용할 줄 아는 **사피엔스**니깐요. 도구를 사용하도록 하겠습니다.
 
-![](./image/custom.css.mac.05.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.05.png?raw=true)
 
 저런식으로 찾아서 **css** 파일을 열어서 내용 중 위 그림에서 보았던 `.rendered_html code`가 있는지 검색해 보았습니다.
 
-![](./image/custom.css.mac.06.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.06.png?raw=true)
 
 범인이 아니라는 군요. 혹시 내가 올 줄 알고 미리 증거를 인멸한게 아니냐는 의구심이 들지만, 아직 다른 용의자가 많이 남았기에 그냥 보내주었습니다.
 
@@ -105,7 +115,7 @@ sudo find ~ -name 'jquery-ui.min.css'
 
 용의자들을 한 명씩 찾아가서 증거 (`.rendered_html code`)에 대해서 물어보던 중 한 녀석이 걸렸습니다.
 
-![](./image/custom.css.mac.07.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.07.png?raw=true)
 
 ```
 ~/anaconda/lib/python3.5/site-packages/notebook/static/style/style.min.css
@@ -188,20 +198,20 @@ blockquote {
 
 수정한 내용을 저장하고 **Jupyter notebook** 종료 후 다시 실행해 보았습니다.
 
-![](./image/custom.css.mac.08.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.08.png?raw=true)
 
 바뀌었습니다.
 다른 부분도 살펴보았습니다.
 
-![](./image/custom.css.mac.09.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.09.png?raw=true)
 
 고친 곳이 한곳 더 있는데... 해당 Markdown을 사용한 곳이 없어서 즉석해서 수정을 해 봤습니다.
 
-![](./image/custom.css.mac.10.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.10.png?raw=true)
 
 그런 후 렌더링을 해보니...
 
-![](./image/custom.css.mac.11.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.mac.11.png?raw=true)
 
 원하는대로 되었습니다.
 

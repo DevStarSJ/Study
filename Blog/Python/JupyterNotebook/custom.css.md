@@ -1,3 +1,13 @@
+---
+title: Jupyter notebook markdown에 내가 원하는 css 적용하기
+date: 2016-08-08 00:00:00
+categories:
+- Tips
+- JupyterNotebook
+tags:
+- JupyterNotebook
+---
+
 # Jupyter notebook markdown에 내가 원하는 css 적용하기
 
 요즘 `파이썬`을 공부하는데 `Jupyter notebook`를 많이 사용합니다.
@@ -7,19 +17,19 @@
 바로 **마크다운 렌더링** 결과가 너무나도 안이쁩니다.
 파이썬 소스코드에 대한 **syntax highlighting**은 어느 정도 봐줄만 합니다.
 
-![](./image/custom.css.01.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.01.png?raw=true)
 
 이 화면을 렌더링 했더니...
 
-![](./image/custom.css.02.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.02.png?raw=true)
 
 말이 됩니까 ??? 분명 `inline code`로 처리했는데... 이거 티도 안납니다.
 
-![](./image/custom.css.03.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.03.png?raw=true)
 
 이거 역시 왜 이모양인지...
 
-![](./image/custom.css.04.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.04.png?raw=true)
 
 그래서 찾아봤습니다. `css` 수정을 통해서 해결이 가능한지
 
@@ -36,19 +46,19 @@ css_styling()
 그냥 `css` 파일을 만들어서 위 문장을 `Jupyter notebook`에서 실행하면 된다고 하길래 해봤는데... 진짜로 됩니다.
 하지만, 기본적으로 설정된 `css`에서 해당 내용을 덮어버려서 적용이 되지 않습니다.
 
-![](./image/custom.css.05.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.05.png?raw=true)
 
 `Chrome`에서 `F12`를 눌러서 적용된 `css`를 열어보니깐 죄다 먼저 선언된 `.rendered_heml code`때문에 아래에 제가 설정한 `p code` 부분의 내용들이 적용이 안됩니다.
 더군다나 기본적으로 설정된 `css`에서 너무나도 안이뻐서 저걸 건드리지 않고서는 내가 원하는 모양대로 만드는게 힘들어 보입니다.
 그래서 결국 그 `css`파일 자체를 고치기로 마음 먹었습니다.
 그럴려면 먼저 `css` 파일을 찾아야 겠죠 ?
 
-![](./image/custom.css.06.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.06.png?raw=true)
 
 난 벤자민이 아닌데... 위치가 좀 이상하긴 합니다만, 폴더 구조라던지 눈여겨 볼만한게 있어서 저 정보를 기초로 해서 찾아보았습니다.
 스크린샷에는 못담았는데, 다른 렌더링된 결과에 대해서 `css`를 열어보다가 `style.min.css` 파일을 찾을 수 있었습니다.
 
-![](./image/custom.css.07.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.07.png?raw=true)
 
 ```
 C:\Anaconda3\Lib\site-packages\notebook\static\style
@@ -77,7 +87,7 @@ C:\Anaconda3\Lib\site-packages\notebook\static\style
 
 요즘 업무때문에 자주 들어가는 `ASP.NET Core` 사이트 <https://docs.asp.net/en/latest/tutorials/first-mvc-app/adding-view.html>에 들어가서 `F12`를 눌러서 `css`를 까보았습니다.
 
-![](./image/custom.css.08.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.08.png?raw=true)
 
 ```css
 .rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal {
@@ -112,7 +122,7 @@ pre, code, .rst-content tt, .rst-content code, kbd, samp {
 
 같은 방식으로 `TypeScript` 공식 사이트 <https://www.typescriptlang.org/docs/tutorial.html>에서도 `css` 내용을 가져왔으며,
 
-![](./image/custom.css.09.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.09.png?raw=true)
 
 ```css
 .docs-container li code, .docs-container p code, .docs-container td code {
@@ -124,7 +134,7 @@ pre, code, .rst-content tt, .rst-content code, kbd, samp {
 
 `Pycon 2016`의 `Tutorial` 신청페이지 <https://www.pycon.kr/2016apac/program/tutorial/7>에서도 가져왔습니다.
 
-![](./image/custom.css.10.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.10.png?raw=true)
 
 ```css
 .label-info {
@@ -197,9 +207,9 @@ blockquote {
 아마 실행시 읽어서 계속해서 적용시키는 듯합니다.
 그럼 재 실행해서 화면을 보도록 하겠습니다.
 
-![](./image/custom.css.11.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.11.png?raw=true)
 
-![](./image/custom.css.12.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.12.png?raw=true)
 
 먼가 바뀌기는 했는데, 좀 이상하네요. 선이라든지 글자 크기와 관계된 것은 `.rendered_html pre, .rendered_html code`에서 한번에 해주는 것보다는 따로따로 적용되도록 고쳐줘야 겠습니다.
 `blockquote`는 그대로 두고 위의 2개만 내용을 수정하였습니다.
@@ -219,9 +229,9 @@ p code {
     overflow-x: auto;
 }
 ```
-![](./image/custom.css.13.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.13.png?raw=true)
 
-![](./image/custom.css.14.png)
+![](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/JupyterNotebook/image/custom.css.14.png?raw=true)
 
 이정도만 되어도 기존의 렌더링보다는 훨씬더 마음에 드네요.
 
