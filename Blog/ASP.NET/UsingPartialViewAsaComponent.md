@@ -23,7 +23,7 @@ tags:
 위 3개의 코드들을 각각 별게의 위치에서 불러와야 하는 경우에도 1개의 **Parial View** 파일에 넣어둘 수 있는 방법이 있다.
 
 ### _ButtonComponents.cshtml
-```C#
+```HTML
 @{
 	var section = ViewData["section"] as string;
     ...
