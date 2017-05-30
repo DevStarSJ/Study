@@ -1,6 +1,18 @@
-##MFC UAC 관련 사항 정리
+---
+title: MFC UAC 관련 사항 정리
+date: 2016-02-01 15:28:00
+categories:
+- CPP
+- MFC
+tags:
+- CPP
+- UAC
+- MFC
+---
 
-###Project의 UAC 설정
+## MFC UAC 관련 사항 정리
+
+### Project의 UAC 설정
 
 Project -> Properties -> Linker -> Manifest File -> `UAC Execution Level`
 
@@ -10,7 +22,7 @@ Project -> Properties -> Linker -> Manifest File -> `UAC Execution Level`
  
 * MFC Manifest의 UAC 정보 : <https://msdn.microsoft.com/library/bb384691(v=vs.110).aspx>
 
-###UAC Elevation (UAC Escalation)
+### UAC Elevation (UAC Escalation)
 
 asInvoker 권한의 Application 에서 requireAdministrator를 호출하는 경우 권한 상승을 요구하는 창이 뜹니다.  
 해당 창에서 Administrator권한을 가진 User로 인증을 하면 실행이 가능하게 됩니다.
@@ -20,19 +32,19 @@ MFC에서 다른 Applicationd을 실행할때 `CreateProcess()`함수를 많이 
 
 * ShellExecute : <https://msdn.microsoft.com/ko-kr/library/windows/desktop/bb762153(v=vs.85).aspx>
 
-###UAC 관련 Troubleshooting
+### UAC 관련 Troubleshooting
 
-####1. Project를 asInvoker로 했는데도 계속 방패마크가 남아있으면서 Administrator 권한을 요구하는 경우
+#### Project를 asInvoker로 했는데도 계속 방패마크가 남아있으면서 Administrator 권한을 요구하는 경우
 
-#####1. Project -> Propertise -> Manifest Tool -> Input and Oupput -> `Embed Manifest` 항목을 `Yes`로 설정
+##### 1. Project -> Propertise -> Manifest Tool -> Input and Oupput -> `Embed Manifest` 항목을 `Yes`로 설정
   - 이렇게 했을 경우 Compile시 아래와 같은 오류가 발생할 수 있습니다.
 
 >CVTRES : fatal error CVT1100: duplicate resource.  type:MANIFEST, name:1. language:0x0409  
 LINK : fatal error LNK1123: COFF로 변환하는 동안 오류가 발생했습니다. 파일이 잘못되었거나 손상되었습니다.  
 
-#####2. 위 오류가 발생할 경우 해당 Project의 Resource View로 가서 MANIFEST 관련항목 삭제
+#####2 . 위 오류가 발생할 경우 해당 Project의 Resource View로 가서 MANIFEST 관련항목 삭제
 
-####UAC 권한 문제로 Application 간의 Drag&Drop이 안 될 경우
+#### UAC 권한 문제로 Application 간의 Drag&Drop이 안 될 경우
 
 * 해당 Link 참고 : <http://devluna.blogspot.kr/2014/12/mfc-window7-file-drag-drop.html>
 

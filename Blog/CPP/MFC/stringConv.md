@@ -1,5 +1,16 @@
+---
+title: MFC UAC 관련 사항 정리
+date: 2016-01-29 15:28:00
+categories:
+- CPP
+- MFC
+tags:
+- CPP
+- MFC
+---
+
 MFC (C++) 에서 여러가지 라이브러리를 사용하다보면
-함수의 문자열을 받는 인자의 형식이 Unicode/Ansi , std::string, char*, LPCTSTR 등...
+함수의 문자열을 받는 인자의 형식이 `Unicode/Ansi , std::string, char*, LPCTSTR` 등...
 각각 제멋대로입니다.  
 
 그래서 늘 해당 작업을 할때마다... 구글링...  
@@ -14,7 +25,7 @@ MFC (C++) 에서 여러가지 라이브러리를 사용하다보면
 처음엔 문제 많은 code였는데 feedback 주신분들이 친절히 가르쳐 주셔서 조금씩 보완하고 있는 중입니다.  
 감사드립니다. ^_^
 
-###CString (CStringA, CStringW) to std::string
+### CString (CStringA, CStringW) to std::string
 ```C++
 std::string S2(CString& CS)
 {
@@ -28,7 +39,7 @@ std::string S2(CString& CS)
 }
 ```
 
-###std::string to CString (CStringA, CStringW)
+### std::string to CString (CStringA, CStringW)
 ```C++
 CString S2(std::string& S)
 {
@@ -42,7 +53,7 @@ CString S2(std::string& S)
 }
 ```
 
-###std::wstring to CString (CStringA, CStringW)
+### std::wstring to CString (CStringA, CStringW)
 ```C++
 CString S2(std::wstring& WS)
 {
@@ -56,7 +67,7 @@ CString S2(std::wstring& WS)
 }
 ```
 
-###std::string to/from std::wstring
+### std::string to/from std::wstring
 ```C++
 std::string S3(std::wstring& WS)
 {
@@ -71,7 +82,7 @@ std::wstring S3(std::string& S)
 }
 ```
 
-###CStringA to/from CStringW
+### CStringA to/from CStringW
 ```C++
 CStringA CA
 CStringW CS(CA);
@@ -114,7 +125,7 @@ LPCTSTR S4_LPCTSTR(TCHAR * pChar)
 }
 ```
 
-###CString to char* buffer
+### CString to char* buffer
 ```C++
 void SMEMCPY(char* destBuf, CString & strSrc, int nSize)
 {
@@ -124,7 +135,7 @@ void SMEMCPY(char* destBuf, CString & strSrc, int nSize)
 }
 ```
 
-###전체 Code
+### 전체 Code
 
 <https://gist.github.com/DevStarSJ/c68e55449dc6e68d7376>
 
