@@ -90,7 +90,7 @@ Usage:
 
 ## 예제 코드
 
-`apex`가 설치되어 있고 local p 에 (home)/.aws/credentials에 AWS 접속 정보가 저장되어 있다는 가정 하에 설명하겠다.
+`apex`가 설치되어 있고 local pc 에 (home)/.aws/credentials에 AWS 접속 정보가 저장되어 있다는 가정 하에 설명하겠다.
 
 ### 폴더구조
 ```
