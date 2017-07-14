@@ -1,0 +1,6 @@
+model_checkpoint_path: "save.last.ckpt"
+all_model_checkpoint_paths: "save.2017-07-09 10:16:18.ckpt"
+all_model_checkpoint_paths: "save.2017-07-09 10:16:19.ckpt"
+all_model_checkpoint_paths: "save.2017-07-09 10:16:20.ckpt"
+all_model_checkpoint_paths: "save.2017-07-09 10:16:21.ckpt"
+all_model_checkpoint_paths: "save.last.ckpt"
