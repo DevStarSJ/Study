@@ -5,11 +5,18 @@ import datetime
 import os
 
 SAVER_FOLDER = "./saver"
+BUCKET = 'dev-tensorflow-savedata'
+TRAIN_DATA = "data-04-zoo.csv"
 
 for file in os.listdir(SAVER_FOLDER):
     os.remove(SAVER_FOLDER + "/" + file);
 
-xy = np.loadtxt('data-04-zoo.csv', delimiter=',', dtype=np.float32)
+s3_client = boto3.client('s3')
+# s3 = boto3.resource('s3')
+# s3.Bucket(BUCKET).download_file('hello.txt', '/tmp/hello.txt')
+s3_client.download_file(BUCKET, TRAIN_DATA, TRAIN_DATA)
+
+xy = np.loadtxt(TRAIN_DATA, delimiter=',', dtype=np.float32)
 x_data = xy[:,0:-1]
 y_data = xy[:,[-1]]
 nb_classes = 7
@@ -53,7 +60,7 @@ with tf.Session() as sess:
         print("[{}] Prediction: {} True Y: {}".format(p == int(y), p, int(y)))
 
 
-s3_client = boto3.client('s3')
+#s3_client = boto3.client('s3')
 for file in os.listdir(SAVER_FOLDER):
     print(file)
     s3_client.upload_file(SAVER_FOLDER + "/" + file, 'dev-tensorflow-savedata', file)
