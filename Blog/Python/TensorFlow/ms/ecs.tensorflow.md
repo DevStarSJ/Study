@@ -239,3 +239,7 @@ ECS 설정에 대해서는 자세한 설명은 생략하고 작업 위주로만 
 CloudWatch에 로그를 남기기로 설정했다면 로그도 확인이 가능하다.
 
 ![](images/ecs.tensorflow.03.png)
+
+### 다음글 Lambda를 이용하여 예측 서비스 제공하기
+
+[Using Tensorflow Predict on AWS Lambda Function](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/TensorFlow/ms/lambda.tensorflow.md)
