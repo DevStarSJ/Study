@@ -3,17 +3,17 @@ import numpy as np
 import boto3
 import datetime
 import os
+import json
 
 SAVER_FOLDER = "./saver"
 BUCKET = 'dev-tensorflow-savedata'
 TRAIN_DATA = "data-04-zoo.csv"
+RESULT_FILE = 'result.json'
 
 for file in os.listdir(SAVER_FOLDER):
     os.remove(SAVER_FOLDER + "/" + file);
 
 s3_client = boto3.client('s3')
-# s3 = boto3.resource('s3')
-# s3.Bucket(BUCKET).download_file('hello.txt', '/tmp/hello.txt')
 s3_client.download_file(BUCKET, TRAIN_DATA, TRAIN_DATA)
 
 xy = np.loadtxt(TRAIN_DATA, delimiter=',', dtype=np.float32)
@@ -55,12 +55,19 @@ with tf.Session() as sess:
     saver.save(sess,"./saver/save.last.ckpt")
 
     pred = sess.run(prediction, feed_dict={X: x_data})
-    
-    for p, y in zip(pred, y_data.flatten()):
-        print("[{}] Prediction: {} True Y: {}".format(p == int(y), p, int(y)))
 
+    pw, pb = sess.run([W, b])
+    result = {'W': pw.tolist(), 'b': pb.tolist()}
+    print(result)
 
-#s3_client = boto3.client('s3')
+    with open(RESULT_FILE, 'w') as outfile:
+        json.dump(result, outfile)
+
+    # for p, y in zip(pred, y_data.flatten()):
+    #     print("[{}] Prediction: {} True Y: {}".format(p == int(y), p, int(y)))
+
+s3_client.upload_file(RESULT_FILE, 'dev-tensorflow-savedata', RESULT_FILE)
+
 for file in os.listdir(SAVER_FOLDER):
     print(file)
     s3_client.upload_file(SAVER_FOLDER + "/" + file, 'dev-tensorflow-savedata', file)
