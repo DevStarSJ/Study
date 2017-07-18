@@ -1,6 +1,6 @@
 ---
 title: Using Tensorflow Predict on AWS Lambda Function
-date: 2017-07-14 08:00:00
+date: 2017-07-18 16:37:00
 categories:
 - AWS
 - Lambda
