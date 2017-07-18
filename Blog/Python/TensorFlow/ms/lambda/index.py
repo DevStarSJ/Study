@@ -1,44 +1,73 @@
-import tensorflow as tf
+import boto3
+import json
+import sys
 
-nb_classes = 7
+import functional as F
+import linear as L
 
-X = tf.placeholder(tf.float32, [None, 16])
-Y = tf.placeholder(tf.int32, [None, 1])
+BUCKET_NAME = 'dev-tensorflow-savedata'
+KEY = 'result.json'
+RESULT_FILE = '/tmp/' + KEY
+S3 = boto3.resource('s3')
 
-Y_one_hot = tf.one_hot(Y, nb_classes)
-Y_one_hot = tf.reshape(Y_one_hot, [-1, nb_classes])
+DEBUG = True
+def debug_print(obj):
+    if DEBUG:
+        print(obj)
+    
 
-W = tf.Variable(tf.random_normal([16, nb_classes]), name='weight')
-b = tf.Variable(tf.random_normal([nb_classes]), name='bias')
+def get_predict_data():
+    try:
+        S3.Bucket(BUCKET_NAME).download_file(KEY, RESULT_FILE)
+        with open(RESULT_FILE) as data_file:    
+            return json.load(data_file)
+    except:
+        print(sys.exc_info()[0])
+        return None
+    return None
 
-logits = tf.matmul(X,W) + b
-hypothesis = tf.nn.softmax(logits)
-#cost_i = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=Y_one_hot)
-#cost = tf.reduce_mean(cost_i)
-#optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
+def get_x(event):
+    get_querystring= F.curryr(F.get)('queryStringParameters')
+    get_X = F.curryr(F.get)('X')
 
-prediction = tf.argmax(hypothesis, 1)
-#correct_prediction = tf.equal(prediction, tf.argmax(Y_one_hot, 1))
-#accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-
-saver = tf.train.Saver()
-
-#xy = np.loadtxt('data-04-zoo.csv', delimiter=',', dtype=np.float32)
-#x_data = xy[:,0:-1]
-#y_data = xy[:,[-1]]
-x_data = [[1,0,0,1,0,0,1,1,1,1,0,0,4,0,0,1]]
-y_data =[0]
+    return F.go(event, 
+        get_querystring, 
+        get_X,
+        lambda x: json.loads(x),
+        lambda x: [x])
 
 def handler(event, context):
-    with tf.Session() as sess:
-        sess.run(tf.global_variables_initializer())
-        saver.restore(sess,"./save.last.ckpt")
-                
-        pred = sess.run(prediction, feed_dict={X: x_data})
-        print(pred)
-        
-        for p, y in zip(pred, y_data):
-            print("[{}] Prediction: {} True Y: {}".format(p == y, p, y))
+    debug_print(event)
+
+    predict_data = get_predict_data()
+    debug_print(predict_data)
+    if predict_data is None:
+        return {'statusCode': 500}
+
+    X = get_x(event)
+    if X is None:
+        return {'statusCode': 404}
+
+    W = predict_data['W']
+    b = predict_data['b']
+
+    H = L.matadd(L.matmul(X,W)[0],b)
+    S = [L.sigmoid(x) for x in H]
+    M = L.softmax(S)
+    answer = L.argmax(M)
+
+    debug_print([answer, M])
+    debug_print(sum(M))
+
+    body = { 'answer': answer, 'rating': M }
+
+    response = {
+        'statusCode': 200,
+        'body': json.dumps(body)
+    }
+
+    return response
 
 if __name__ == "__main__":
-    handler(None,None)
+    event = {"queryStringParameters": {"X": "[0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,0]"}}
+    print(handler(event,None))
