@@ -7,7 +7,7 @@ import linear as L
 
 BUCKET_NAME = 'dev-tensorflow-savedata'
 KEY = 'result.json'
-RESULT_FILE = '/tmp/' + KEY
+RESULT_FILE = KEY
 S3 = boto3.resource('s3')
 
 DEBUG = True
@@ -18,7 +18,7 @@ def debug_print(obj):
 
 def get_predict_data():
     try:
-        S3.Bucket(BUCKET_NAME).download_file(KEY, RESULT_FILE)
+        #S3.Bucket(BUCKET_NAME).download_file(KEY, RESULT_FILE)
         with open(RESULT_FILE) as data_file:    
             return json.load(data_file)
     except:
@@ -50,6 +50,8 @@ def handler(event, context):
 
     W = predict_data['W']
     b = predict_data['b']
+
+    print("L.matmul(X,W)[0] = ",L.matmul(X,W)[0]);
 
     H = L.matadd(L.matmul(X,W)[0],b)
     S = [L.sigmoid(x) for x in H]
