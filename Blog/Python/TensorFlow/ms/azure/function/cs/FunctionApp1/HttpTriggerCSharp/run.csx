@@ -1,24 +1,75 @@
 ﻿using System;
 using System.Net;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.File;
+using Newtonsoft.Json;
+
+public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
+{
+	log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+
+	string xStr = req.GetQueryNameValuePairs().FirstOrDefault(q => q.Key == "x").Value;
+	double[] x1 = JsonConvert.DeserializeObject<double[]>(xStr);
+	var x2 = Convert2D(x1);
+
+	PredictModel model = await GetPredictModel(ConnectionString, ShareName, ResultFile);
+
+	var W = DenseMatrix.OfArray(model.W);
+	var X = DenseMatrix.OfArray(x2);
+	var H = ArrayAdd(X.Multiply(W).Row(0).AsArray(), model.b);
+
+	var sigmoid = H.Select(Sigmoid);
+
+	var response = new ResponseModel();
+	response.rating = Softmax(sigmoid).ToArray();
+	response.answer = Argmax(response.rating);
+
+
+	var jsonResponse = JsonConvert.SerializeObject(response);
+
+	return new HttpResponseMessage(HttpStatusCode.OK)
+	{
+		Content = new StringContent(jsonResponse, Encoding.UTF8, "application/json")
+	};
+}
+
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=tensotfolwsavedata;AccountKey=Vm/Mwh6qm1J5w3bGPFDapWBmC2zl4At4yy5HQrand7bTSy3Q6lCJdZdCYmZ3phQ/rrCgChKR0qWsCOcclWpzxQ==;EndpointSuffix=core.windows.net";
+const string ShareName = "tensorflow-savedata";
+const string ResultFile = "result.json";
+
+public class PredictModel
+{
+	public double[,] W { get; set; }
+	public double[] b { get; set; }
+}
+
+public class ResponseModel
+{
+	public int answer { get; set; }
+	public double[] rating { get; set; }
+}
 
 static IEnumerable<double> Softmax(IEnumerable<double> M, double t = 1.0)
 {
 	var E = M.Select(x => Math.Exp(x / t));
 	var total = E.Sum();
-		return E.Select(x => x / total);
+	return E.Select(x => x / total);
 }
 
 static double Sigmoid(double z)
 {
-return 1 / (1 + Math.Pow(Math.E, -1.0 * z));
+	return 1 / (1 + Math.Pow(Math.E, -1.0 * z));
 }
-
 
 static int Argmax(IEnumerable<double> M)
 {
-
 	var max_num = -1.0;
 	var max_index = -1;
 	for (int i = 0; i < M.Count(); i++)
@@ -34,114 +85,54 @@ static int Argmax(IEnumerable<double> M)
 	return max_index;
 }
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+static double[,] Convert2D(double[] d1)
 {
-    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
-
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
-
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
-    name = name ?? data?.name;
-
-	var W = DenseMatrix.OfArray(new double[,]
+	var d2 = new double[1, d1.Length];
+	for (int i = 0; i < d1.Length; i++)
 	{
-		{
-			0.8219811320304871, -0.08279159665107727, -0.4577021300792694, 0.4225083291530609, 0.7442261576652527,
-			1.3791204690933228, -0.23909872770309448
-		},
-		{
-			-1.531314730644226, 4.296647071838379, -0.1442570686340332, 0.9239553213119507, -1.370611310005188,
-			0.22177055478096008, -1.870368480682373
-		},
-		{
-			-2.710503101348877, 0.140792578458786, -0.3722611963748932, 1.8271368741989136, 0.733695924282074,
-			0.19366921484470367, 1.5996872186660767
-		},
-		{
-			2.6469480991363525, -0.8542694449424744, -1.326427936553955, -0.1646355241537094, -0.8870494365692139,
-			-1.091348648071289, -1.444196105003357
-		},
-		{
-			0.46403759717941284, 1.6553683280944824, -1.634045958518982, 0.8823773860931396, -0.006647628732025623,
-			2.006296157836914, -0.7080730199813843
-		},
-		{
-			-1.1306657791137695, 0.1978791207075119, -1.3273801803588867, 1.6953823566436768, 0.6171072125434875,
-			-1.6864047050476074, 0.2248772829771042
-		},
-		{
-			-0.03734538331627846, -0.31807488203048706, 0.5189221501350403, -0.47297853231430054, -1.0810372829437256,
-			-1.4148805141448975, 0.5213679075241089
-		},
-		{
-			0.6338695287704468, -1.8507097959518433, 0.762690544128418, 1.2949576377868652, 1.02003014087677,
-			-2.157043695449829, -2.2528011798858643
-		},
-		{
-			1.1799793243408203, 1.0396764278411865, 0.24082627892494202, -0.414207398891449, 1.1442865133285522,
-			-0.925714910030365, -1.9661142826080322
-		},
-		{
-			-0.528014600276947, -0.2531284987926483, -0.01451947819441557, -1.813904881477356, -0.8636029362678528,
-			-0.3130801022052765, -1.3190263509750366
-		},
-		{
-			-0.7963457107543945, 0.056519169360399246, 0.7081890106201172, -1.272225260734558, 0.5256057381629944,
-			0.5364403128623962, 0.9092203974723816
-		},
-		{
-			0.9358984231948853, 0.4501352608203888, 0.24157832562923431, 2.0742647647857666, 0.5501054525375366,
-			0.22606055438518524, 0.9073166847229004
-		},
-		{
-			0.4521074593067169, 0.1991277039051056, 0.3273245096206665, -1.3709348440170288, 0.8652383685112,
-			1.3495324850082397, 0.7732507586479187
-		},
-		{
-			-1.1986171007156372, 0.2794836461544037, 1.1167898178100586, 0.8658018112182617, -1.73980712890625,
-			-2.64770245552063, -0.09589819610118866
-		},
-		{
-			1.9880988597869873, -0.845406174659729, 1.8538845777511597, 0.299044668674469, -1.1384563446044922,
-			0.14861935377120972, 0.5780363082885742
-		},
-		{
-			2.0615172386169434, 0.34592220187187195, 0.6880594491958618, 0.808847188949585, -1.4546641111373901,
-			-1.4260460138320923, -1.4019904136657715
-		}
-	});
+		d2[0, i] = d1[i];
+	}
+	return d2;
+}
 
-	var B = new double[]
+static double[] ArrayAdd(double[] A, double[] B)
+{
+	return A.Select((a, i) => a + B[i]).ToArray();
+}
+
+static async Task<PredictModel> GetPredictModel(string connectionString, string shareName, string fileName)
+{
+	CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(connectionString);
+	CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+	CloudFileShare share = fileClient.GetShareReference(shareName);
+
+	try
 	{
-		0.9321534037590027, -1.0771855115890503, -0.26158520579338074, -1.5637401342391968, -0.7867579460144043, -0.5193464159965515, 1.1485553979873657
-	};
-
-	var X = DenseMatrix.OfArray(new double[,]
+		await share.CreateIfNotExistsAsync();
+	}
+	catch (Exception)
 	{
-		{0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0}
-	});
-
-	var H = X.Multiply(W).Row(0).AsArray();
-
-	for (int i = 0; i < H.Length; i++)
-	{
-		H[i] += B[i];
+		throw;
 	}
 
-	var sigmoid = H.Select(Sigmoid);
-	var M = Softmax(sigmoid);
-	var rate = M.Select(v => v.ToString()).Aggregate((a, b) => $"{a},{b}");
-	int answer = Argmax(M);
+	CloudFileDirectory root = share.GetRootDirectoryReference();
+	CloudFile file = root.GetFileReference(fileName);
 
-	var hStr = $"answer = {answer} : {rate}";
+	byte[] buffer = new byte[65535];
+	await file.DownloadToByteArrayAsync(buffer, 0);
 
-	return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, $"Hello {name} , Answer = {hStr}");
+	var strJson = System.Text.Encoding.Default.GetString(buffer);
+	return JsonConvert.DeserializeObject<PredictModel>(strJson);
+}
+
+private static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+{
+	try
+	{
+		return CloudStorageAccount.Parse(storageConnectionString);
+	}
+	catch (Exception e)
+	{
+		throw;
+	}
 }

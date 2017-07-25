@@ -2,7 +2,19 @@
   "frameworks": {
     "net46":{
 		"dependencies": {
-			"MathNet.Numerics": "3.20.0" 
+			"MathNet.Numerics": "3.20.0",
+			"Microsoft.Azure.KeyVault.Core": "2.0.4",
+			"Microsoft.Data.Edm":"5.8.2",
+			"Microsoft.Data.OData":"5.8.2",
+			"Microsoft.Data.Services.Client":"5.8.2",
+			"Microsoft.WindowsAzure.ConfigurationManager":"3.2.3",
+			"Newtonsoft.Json":"10.0.3",
+			"System.ComponentModel.EventBasedAsync":"4.3.0",
+			"System.Dynamic.Runtime":"4.3.0",
+			"System.Linq.Queryable":"4.3.0",
+			"System.Net.Requests":"4.3.0",
+			"System.Spatial":"5.8.2",
+			"WindowsAzure.Storage":"8.2.0"
 		}
     }
   }
