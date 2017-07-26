@@ -40,7 +40,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 	};
 }
 
-const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=tensotfolwsavedata;AccountKey=Vm/Mwh6qm1J5w3bGPFDapWBmC2zl4At4yy5HQrand7bTSy3Q6lCJdZdCYmZ3phQ/rrCgChKR0qWsCOcclWpzxQ==;EndpointSuffix=core.windows.net";
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=[NAME];AccountKey=[KEY];EndpointSuffix=[...]";
 const string ShareName = "tensorflow-savedata";
 const string ResultFile = "result.json";
 
