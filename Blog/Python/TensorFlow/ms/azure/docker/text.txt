@@ -1,0 +1,146 @@
+seokjoonyun@Seokjoonui-MacBook-Pro-2 docker (master) $ docker pull drtensorflow.azurecr.io/tensorflow-azure
+Using default tag: latest
+swarm-agent-C24E3CF1000000: Pulling drtensorflow.azurecr.io/tensorflow-azure:latest... : downloaded 
+seokjoonyun@Seokjoonui-MacBook-Pro-2 docker (master) $ docker images
+REPOSITORY                                 TAG                 IMAGE ID            CREATED             SIZE
+drtensorflow.azurecr.io/tensorflow-azure   latest              4f995cec4b17        2 hours ago         1.07GB
+yeasy/simple-web                           latest              4930bcb1860d        31 hours ago        673MB
+seokjoonyun@Seokjoonui-MacBook-Pro-2 docker (master) $ docker run drtensorflow.azurecr.io/tensorflow-azure
+2017-07-26 03:54:19.799504: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-07-26 03:54:19.799555: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-07-26 03:54:19.799567: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+0 [6.2015696, 0.029702971]
+100 [0.62789476, 0.78217822]
+200 [0.3674359, 0.91089112]
+300 [0.26926404, 0.94059408]
+400 [0.21537794, 0.96039605]
+500 [0.18027064, 0.96039605]
+600 [0.15515076, 0.98019803]
+700 [0.13612773, 0.98019803]
+800 [0.1211681, 0.98019803]
+900 [0.1090816, 0.98019803]
+1000 [0.099114299, 0.98019803]
+1100 [0.090760544, 0.99009901]
+1200 [0.083666161, 0.99009901]
+1300 [0.077574179, 0.99009901]
+1400 [0.072292797, 1.0]
+1500 [0.067675792, 1.0]
+1600 [0.063609369, 1.0]
+1700 [0.060003761, 1.0]
+1800 [0.056787204, 1.0]
+1900 [0.053901605, 1.0]
+2000 [0.051299613, 1.0]
+{'W': [[0.7663549184799194, -0.7305431365966797, -0.510034441947937, -0.2504276931285858, -0.4354047179222107, -0.6963736414909363, -0.498923122882843], [-0.1910141408443451, 2.7797088623046875, -1.004128336906433, -0.6296136975288391, -1.1313031911849976, 1.6707608699798584, -1.2913103103637695], [-2.1129062175750732, -0.2804851830005646, 0.119208425283432, 0.10816829651594162, -0.08040907979011536, 1.0340301990509033, 1.1964385509490967], [4.1622819900512695, -0.19786322116851807, -0.9696674942970276, 0.08736345916986465, -0.04901718348264694, 1.3852282762527466, -0.2098354548215866], [-1.3462861776351929, 1.0672613382339478, -1.8837559223175049, -0.725464403629303, -0.9578372240066528, 0.5153292417526245, -1.6920275688171387], [0.24849379062652588, 0.29801762104034424, -0.942388117313385, 1.1639989614486694, 1.27496337890625, -2.125690221786499, 1.0007325410842896], [-4.8241774493362755e-05, -1.0446462631225586, 0.08524087071418762, -1.3611602783203125, -0.4566037058830261, -2.2748067378997803, 0.7767826914787292], [0.7265713214874268, -1.6362704038619995, 0.7132400274276733, -0.07292553037405014, 0.7134034633636475, -0.936847448348999, -2.8825008869171143], [-0.3642483353614807, -0.6662453413009644, 0.202017143368721, 1.3273879289627075, 0.7025389075279236, -0.5089909434318542, -3.290309190750122], [1.0919413566589355, 0.5956108570098877, -0.4950018525123596, -2.026857852935791, 0.34147825837135315, -0.896145761013031, -0.5164147615432739], [-0.5796861052513123, -0.5904053449630737, 1.187849760055542, -0.2612738013267517, 0.6136850118637085, 0.4609082341194153, 1.2775797843933105], [-0.13163447380065918, 0.06577298045158386, -1.8242963552474976, 1.9770474433898926, 0.3966059684753418, -1.7870033979415894, -0.2186666578054428], [-0.0568155013024807, -0.5553377270698547, -0.1724601835012436, -1.2401659488677979, 0.34516218304634094, 1.1470636129379272, 0.10550063848495483], [0.36235570907592773, 1.9975180625915527, 1.3239833116531372, 0.9881814122200012, -1.2097111940383911, -2.721527576446533, -0.3211154341697693], [0.7071285843849182, -0.1670728474855423, 0.7258605360984802, -0.6026837825775146, 0.12616205215454102, -1.2131872177124023, -1.3287760019302368], [0.32214832305908203, -0.19922834634780884, -0.6568337082862854, -0.5348191857337952, -2.113097667694092, -1.8610399961471558, -0.11704233288764954]], 'b': [-0.8928609490394592, 0.32180365920066833, 0.5510361790657043, 0.38076987862586975, -1.0789780616760254, -1.3993465900421143, 1.8120601177215576]}
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 4 True Y: 4
+[True] Prediction: 4 True Y: 4
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 4 True Y: 4
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 2 True Y: 2
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 2 True Y: 2
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 2 True Y: 2
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 4 True Y: 4
+[True] Prediction: 2 True Y: 2
+[True] Prediction: 2 True Y: 2
+[True] Prediction: 3 True Y: 3
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 1 True Y: 1
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 5 True Y: 5
+[True] Prediction: 0 True Y: 0
+[True] Prediction: 6 True Y: 6
+[True] Prediction: 1 True Y: 1
+save.last.ckpt.meta
+save.last.ckpt.data-00000-of-00001
+checkpoint
+save.last.ckpt.index
+save.2017-07-26_035421.ckpt.index
+save.2017-07-26_035421.ckpt.data-00000-of-00001
+save.2017-07-26_035421.ckpt.meta
+seokjoonyun@Seokjoonui-MacBook-Pro-2 docker (master) $ docker images
+REPOSITORY                                 TAG                 IMAGE ID            CREATED             SIZE
+drtensorflow.azurecr.io/tensorflow-azure   latest              4f995cec4b17        2 hours ago         1.07GB
+yeasy/simple-web                           latest              4930bcb1860d        31 hours ago        673MB
+seokjoonyun@Seokjoonui-MacBook-Pro-2 docker (master) $ 
