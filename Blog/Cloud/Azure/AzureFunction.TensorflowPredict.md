@@ -14,6 +14,22 @@ tags:
 
 # Using Tensorflow Predict on Azure Function
 
+## 참고사항
+
+똑같은 구성으로 **AWS**에 배포하는 글은 이전에 작성한게 있으니 참고하면 된다.
+
+- [Deploy Tensorflow Docker Image to AWS ECS](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/TensorFlow/ms/ecs.tensorflow.md)
+
+- [Using Tensorflow Predict on AWS Lambda Function](https://github.com/DevStarSJ/Study/blob/master/Blog/Python/TensorFlow/ms/lambda.tensorflow.md)
+
+이 작업을 시작하게 된 이유와 개념적인 구성에 대한 설명은 위 Link의 글들을 참고하길 바란다
+즉 학습, 저장, 서비스 를 어떻게 동작시키는 것을 목적으로 하였는지에 대한 설명은 이 글에서는 생략하겠다.
+
+Azure에 구성을 한 것은 이 글 포함 2개의 글이 있다.
+
+- [Deploy Tensorflow Docker Image to Azure](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/Azure/AzureContainer.TensorflowDockerImage.md)
+- [Using Tensorflow Predict on Azure Function](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/Azure/AzureFunction.TensorflowPredict.md)
+
 ## 왜 이런 생각을 ???
 
 앞서 **Azure Container Service**에서 **Tensorflow**를 이용하여 학습을 진행하여 그 결과를 **Azure File Storage**에 저장하는 방법에 대해서 글을 적었다.

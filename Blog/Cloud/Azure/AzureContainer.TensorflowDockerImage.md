@@ -27,6 +27,11 @@ tags:
 이 작업을 시작하게 된 이유와 개념적인 구성에 대한 설명은 위 Link의 글들을 참고하길 바란다
 즉 학습, 저장, 서비스 를 어떻게 동작시키는 것을 목적으로 하였는지에 대한 설명은 이 글에서는 생략하겠다.
 
+Azure에 구성을 한 것은 이 글 포함 2개의 글이 있다.
+
+- [Deploy Tensorflow Docker Image to Azure](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/Azure/AzureContainer.TensorflowDockerImage.md)
+- [Using Tensorflow Predict on Azure Function](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/Azure/AzureFunction.TensorflowPredict.md)
+
 ## 구성
 
 이 글에서 다룰 내용은 위 Link에서 구성한 시스템을 **Microsoft Azure**에 그대로 구현하는 것을 그 목적으로 하였다. 최대한 **AWS**용으로 작성한 코드들을 그대로 쓸려고 노력하였으나 플랫폼 특성상 바뀐점이 있다. 크게 바뀐건 **AWS Lambda**에는 **Python**으로 예측 코드를 작성하였는데,**Azure Function**은 **C#** 으로 작성하였다. 그 이유는 뒤에 따로 설명하겠다.
