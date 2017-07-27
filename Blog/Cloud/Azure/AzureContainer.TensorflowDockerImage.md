@@ -318,3 +318,4 @@ docker run acrtensorflow.azurecr.io/tensorflow-azure
 
 ### 다음글 : Azure Function으로 예측 서비스 제공하기
 
+[Using Tensorflow Predict on Azure Function](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/Azure/AzureFunction.TensorflowPredict.md)
