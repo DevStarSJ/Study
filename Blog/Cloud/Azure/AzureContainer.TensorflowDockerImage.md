@@ -53,7 +53,7 @@ tags:
 
 Azure Portal(<https://portal.azure.com>)로 진입한다.
 
-- 우측 상단 `+` 클릭
+- 우측 상단 `+ New` 클릭
   - `Storage >` 선택
     - `Storage Account blob, file, table, queue` 선택
     - ![](images/azure.file.01.png)
@@ -71,31 +71,106 @@ Azure Portal(<https://portal.azure.com>)로 진입한다.
 
 해당 아이콘을 눌러서 들어간다.
 
+`Overview` -> `Files`을 눌러서 들어간 후 File Storage를 하나 생성한다.
 
+![](images/azure.file.04.png)
 
+- `+File share` 를 선택
+  - Name : 원하는 Share Name을 설정 (ex. tensorflow-savedata)
+  - Quota : 테스트니깐 최소값 1GB로 설정
 
+`OK`를 클릭하면 바로 생성 된다.
+
+![](images/azure.file.05.png)
+
+생성된 Share 로 들어가서 일단 수동으로 파일을 1개 Upload 한다.
 
 - `data-04-zoo.csv`를 **Azure File Storage**에 업로드
+
+굳이 지금 할 필요는 없지만 생성한 **Azure Storage** 처음 화면으로 가서 `Account Name`, `Account Key`와 `ConnectionString`을 확인한다.
+**Docker** 에서 실행할 Tensorflow 코드 및 **Azure Function**에서 수행할 예측 서비스 코드에서 필요하다.
+
+![](images/azure.file.06.png)
+
+
+## Azure Container Service 생성
+
+**Azure Cloud**에서 **Docker Image**를 실행하기 위해서 필요한 서비스다.
+실행할 환경으로 생성 한 후에 **Azure Container Registry**에 **Docker Image**를 업로드 한 후 그것을 실행할 용도로 사용된다.
+
+Azure Portal(<https://portal.azure.com>)로 진입한다.
+
+- 우측 상단 `+ New` 클릭
+  - `Containers >` 선택
+    - `Azure Container Service` 선택
+    - ![](images/azure.cs.01.png)
+      - 1. Basics
+        - `Name`: (ex. acs-tensorflow)
+        - `Resource Group` : 비어있는 Recource Group를 요구함. 기존에 생성해 놓은 Recource Group 중 빈 것이 없다면 새로 생성.
+        - `Location` : `Japan West`는 아직 지원하지 않는다. `East US`로 일단 생성
+        - ![](images/azure.cs.02.png)
+      - 2. Master configuration
+        - `Ochestrator` : DC/OS, Kubernetes, Swarm 중 선택이 가능한데, 사실 각 특징에 대해서 잘 모른다. 그냥 `Swarm`으로 선택. (각 방식별 접속 방법이 조금씩 다름)
+        - `DNS name prefix` : 접속시 필요한 url에 추가되는 값이다. Portal에 url 확인이 가능하니 신경쓰지 않아도 된다.
+        - `User name` : 원하는 사용자명을 입력
+        - `SSH public key` : 오른쪽 `i` 아이콘을 누르면 Windows, Linux/Mac 에서 ssh 생성하는 방법이 나온다. 그대로 수행한 후 public key 값을 입력하면 된다. 
+        - ![](images/azure.cs.03.png)
+      - 3. Agent configuration
+        - 실행할 환경을 설정한다. 일단 테스트라 가장 싼것으로 찾아보려 했으나... ;;;
+        - ![](images/azure.cs.04.png)
+      - Summary 창을 보고 확인을 누르면 Dashboard에 생성된다. 시간이 좀 걸리니 기다려야 한다.
+
+## Azure Container Registry 생성
+
+Azure Portal(<https://portal.azure.com>)로 진입한다.
+
+- 우측 상단 `+ New` 클릭
+  - `Containers >` 선택
+    - `Azure Container Register` 선택
+      - `Registry name Name`: (ex. acrtensorflow)
+        - `Resource Group` : 이미 사용중인 Recource Group을 선택해도 됨.
+        - `Location` : `East US`로 일단 생성
+        - ![](images/azure.cr.01.png)
+
+거의 바로 만들어 진다.
+
+해당 메뉴로 들어가서 `Access keys`를 누른후  `Admin user`를 `Enable`로 선택하면 접속에 필요한 **Username**과 **password** 확인이 가능하다.
+
+![](images/azure.cr.02.png)
+
+일단 여기까지 진행한 후 Docker Image를 생성하는 단계로 넘어가겠다.
+
+## Tensorflow 실행 코드 작성
+
+작업할 폴더를 하나 생성하여 그 안에 아래 작업들을 진행한다.
+
 - 코드를 실행할 위치에 `saver`라는 폴더 생성 (`mkdir saver`)  
 
-
 #### run.py
+
+**Python 3.6**으로 작성되었으며 `Azure File Storage`에서 학습데이터를 다운받아서 **Tensorflow**로 학습 후 그 결과를 **Tensorflow Saver File**, **JSON 파일** 형식으로 `Azure File Storage`에 다시 업로드하는 작업을 수행하는 코드이다.
+
 ```Python
 import tensorflow as tf
 import numpy as np
-import boto3
 import datetime
 import os
+import json
+from azure.storage.file import FileService
 
-SAVER_FOLDER = "./saver"
-BUCKET = 'S3버킷명칭'
+SAVER = "saver"
+SAVER_FOLDER = "./" + SAVER
 TRAIN_DATA = "data-04-zoo.csv"
+RESULT_FILE = 'result.json'
+FILE_SHARE = 'tensorflow-savedata'
 
 for file in os.listdir(SAVER_FOLDER):
     os.remove(SAVER_FOLDER + "/" + file);
 
-s3_client = boto3.client('s3')
-s3_client.download_file(BUCKET, TRAIN_DATA, TRAIN_DATA)
+file_service = FileService(account_name='[NAME]', account_key='[KEY]')
+
+file_service.get_file_to_path(FILE_SHARE, None, TRAIN_DATA, TRAIN_DATA)
+file_service.create_directory(FILE_SHARE, SAVER);
 
 xy = np.loadtxt(TRAIN_DATA, delimiter=',', dtype=np.float32)
 x_data = xy[:,0:-1]
@@ -117,7 +192,6 @@ cost_i = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=Y_one_hot
 cost = tf.reduce_mean(cost_i)
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
 
-
 prediction = tf.argmax(hypothesis, 1)
 correct_prediction = tf.equal(prediction, tf.argmax(Y_one_hot, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
@@ -132,38 +206,47 @@ with tf.Session() as sess:
         if step % 100 == 0:
             print(step, sess.run([cost, accuracy], feed_dict={X: x_data, Y: y_data}))
 
-    saver.save(sess,"./saver/save.{}.ckpt".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+    saver.save(sess,"./saver/save.{}.ckpt".format(datetime.datetime.now().strftime("%Y-%m-%d_%H%M%S")))
     saver.save(sess,"./saver/save.last.ckpt")
 
     pred = sess.run(prediction, feed_dict={X: x_data})
-    
+
+    pw, pb = sess.run([W, b])
+    result = {'W': pw.tolist(), 'b': pb.tolist()}
+    print(result)
+
+    with open(RESULT_FILE, 'w') as outfile:
+        json.dump(result, outfile)
+
     for p, y in zip(pred, y_data.flatten()):
         print("[{}] Prediction: {} True Y: {}".format(p == int(y), p, int(y)))
 
+file_service.create_file_from_path(FILE_SHARE, None, RESULT_FILE, RESULT_FILE)
 
-#s3_client = boto3.client('s3')
 for file in os.listdir(SAVER_FOLDER):
     print(file)
-    s3_client.upload_file(SAVER_FOLDER + "/" + file, 'dev-tensorflow-savedata', file)
+    file_service.create_file_from_path(FILE_SHARE, "saver", file, SAVER_FOLDER + "/" + file)
 ``` 
 
-PC에 tensorflow ,numpy, boto3가 설치된 상태라면 바로 실행해볼수도 있다.
+PC에 tensorflow ,numpy, azure가 설치된 상태라면 바로 실행해볼수도 있다.
 
 ```
-pip install tensorflow numpy boto3
+pip install tensorflow numpy azure
 
 python run.py
 ```
 
 ## Docker 이미지 생성
 
-Dokerfile을 생성한다.
+Docker 설치방법에 대해서는 따로 설명하지 않겠다.
+
+위에서 작업한 폴더에 `Dokerfile`을 생성한다.
 
 #### Dockerfile
 ```Dockerfile
 FROM python:3
 
-RUN pip install tensorflow boto3 numpy
+RUN pip install tensorflow azure numpy
 
 WORKDIR /usr/src/app
 
@@ -173,76 +256,65 @@ CMD [ "python", "./run.py" ]
 ```
 
 ```shell
-docker build -t tensorflow-test .
+docker build -t tensorflow-azure .
 ```
 커맨드를 입력하면 Docker Image가 생성된다. 시간이 많이 걸리는 작업이니 미리 실행해 두고 다음단계로 진행하는 것을 추천한다.
 
-## EC2 Container Service 설정
+## Azure Container Registry에 Docker Image 업로드
 
-Docker Image를 서비스해주는 AWS 기능이다. EC2 인스턴스를 띄워놓은 상태에서 ECS에 정의한 Docker Image를 수행시 EC2를 할당받아서 수행한다. 하나의 EC2에서 동시에 여러개의 Docker Image 실행이 가능하기때문에 자원을 더 효율적으로 사용할 수 있다.
+생성해둔 **Azure Container Registry**에 들어가서 `Quick Start` 버튼을 누르면 업로드에 필요한 명령어 들이 나온다.
 
-ECS 설정에 대해서는 자세한 설명은 생략하고 작업 위주로만 순서대로 나열하겠다.
+![](images/azure.cr.02.png)
 
-- 웹에서 AWS ECS 콘솔로 접근
-  - Clusters 탭 선택
-    - ![](images/ecs.tensorflow.01.png)
-    - Create Cluster 버튼 클릭
-      - Cluster name : `test-ecs-cluster`
-      - EC2 instance type : t2.micro (가장 저렴한 인스턴스이다. 일단 테스트니깐 가장 저렴한걸로 구축하자.)
-      - Networking : VPC, Subnets, Security group 설정 (먼저 설정된게 있으면 그것을 사용하면 되고 아니면 새로 생성)
-      - Container Instance IAM role : S3, CloudWatch 등에 접근이 가능한 Role을 선택 or 생성 (Role 에 AmazonS3FullAccess Policy를 Attach)
-      - Create 버튼 클릭
-  - Repositories 탭 선택
-    - Create repository 버튼 클릭
-      - Repository name : `tensorflow-test`
-      - Next Step 클릭
-      - `Build, tag, and push Docker image 의 설명이 나옴`
-        - AWS CLI 필요가 이미 설치되어 있어야 한다. 터미널 창을 연다.
-        - 해당 PC에 AWS 계정이 여러개라면  `aws configure`를 이용해서 `[default]` 를 재정의 하던지 `aws` 명령어에 `--profile 프로필명`을 뒤에 붙여주어야 한다.
-        - 맥이라면 1, Windows라면 2 에 적힌 커맨드를 입력 : ex 맥일 경우 `aws ecr get-login --no-include-email --region ap-northeast-1`
-          - 만약 오류가 나면 AWS CLI를 업데이트 해야함
-        - 입력후 나온 커맨드를 복사후 실행 (로그인 스크립트)
-      - 3번에 적힌 문장 실행 : 도커 빌드 `docker build -t tensorflow-test .` (하지만 앞에서 미리 실행해 놓았다면 안해도 됨)
-      - 위까지 다 성공했으면 4번, 5번을 차례대로 실행 : 태깅하고 Repository에 Push하는 기능이다.
-  - Task Definitions 탭 선택
-    - Create new task definition 클릭
-      - Task Definition Name : `ts-test`
-      - Task Role : 선택하거나 생성 (Role 에 AmazonS3FullAccess Policy를 Attach)
-      - Add container 클릭
-        - Container name : `ts-test-container`
-        - Image : Repository 탭에서 `tensorflow-test`를 선택하여 `Repository URI`에 적힌 값을 입력
-        - Memory Limits 설정 : ex) 128
-        - CPU units 설정 : EC2 CPU 1개당 1024 개의 unit 이 생성됨. 할당한 숫자에 비례하여 실행됨
-        - 로그를 남기고 싶다면 Log configuration 을 설정해야 한다.
-          - Log configuration : `awslogs`
-            - awslogs-group : `/aws/ecs/ts-test`
-            - awslogs-region : 각자 입력 (ex. ap-northeast-1)
-        - Add 클릭
-      - Create 클릭
+- 3번 항목의 Login을 수행한다.
+  - `docker login acrtensorflow.azurecr.io`
+    - `Access keys`에서 확인한 **Username**과 **password**로 접속
+- 4번 항목을 참고하여 좀 전에 만들어 놓은 **Docker Image**를 **Tag** 하고 **Push** 하는 과정을 수행한다.
+  - `docker tag tensorflow-azure acrtensorflow.azurecr.io/tensorflow-azure`
+  - `docker push acrtensorflow.azurecr.io/tensorflow-azure`
 
-로그를 남기기로 설정했다면 아래와 같이 CloudWatch에 로그를 만들어야 한다.
+이제 **Docker Image**가 **Azure Container Registry** 업로딩 되었다.
 
-- CloudWatch 콘솔로 접근
-  - Logs 선택
-    - Action -> Create Log Group
-      - Name : /aws/ecs/ts-test
+5번 항목에 있는 **pull** 명령어는 **Docker Container Servie**에 접속한 후 실행하면 된다.
 
-실행 방법이 여러가지가 있는데 일단 간단하게 콘솔에서 실행해 보겠다.
+```
+docker pull acrtensorflow.azurecr.io/tensorflow-azure
 
-- Cluster 선택
-  - `test-ecs-cluster` 선택
-    - Tasks 탭
-      - Run new Task 클릭
-        - ts-test 선택
-        - Run Task 버튼 클릭
+docker run acrtensorflow.azurecr.io/tensorflow-azure
+```
 
-작업이 정상적으로 수행완료가 되었다면 S3에 학습결과가 있는지 확인을 하면 된다.  
+## Azure Container Service에서 Docker Image 실행
 
-![](images/ecs.tensorflow.04.png)
+<https://docs.microsoft.com/ko-kr/azure/container-service/container-service-connect>
 
-CloudWatch에 로그를 남기기로 설정했다면 로그도 확인이 가능하다.
+위 Link를 참고해서 생성한 **Azure Container Service**의 설정에 맞게끔 접속하면 된다.
 
-![](images/ecs.tensorflow.03.png)
+참고로 위에 설정한 값으로 접속을 하려면 아래 명령어로 접속이 가능하다. (ssh 파일 위치를 `~/.ssh` 에 생성했다고 가정)
 
-### 다음글 Lambda를 이용하여 예측 서비스 제공하기
+```
+ssh -fNL 2375:localhost:2375 -p 2200 sj@acsmgmt.eastus.cloudapp.azure.com -i ~/.ssh/sj
+
+export DOCKER_HOST=:2375
+```
+
+이제 `docker images`를 입력하면 내 PC 의 목록이 아닌 **Azure Container Service** 상에서의 목록이 출력된다.
+
+아직 한번도 **Azure Container Service**에서 **Docker Image**를 가져오지 않았다면 일단 로그인하여서 가져와야 한다.
+
+- `docker login acrtensorflow.azurecr.io`
+  - `Access keys`에서 확인한 **Username**과 **password**로 접속
+- `docker pull acrtensorflow.azurecr.io/tensorflow-azure`
+
+이제 실행을 해보자.
+
+```
+docker run acrtensorflow.azurecr.io/tensorflow-azure
+```
+
+이제 내 PC가 아니라 **Azure Cloud** 상에서 실행이 되는 것이다.
+
+실행 후 **Azure File Storage** 에 파일들이 정상적으로 생성되었는지 확인해보면 된다.
+
+
+### 다음글 : Azure Function으로 예측 서비스 제공하기
 
