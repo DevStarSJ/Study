@@ -1,3 +1,13 @@
+---
+title: Install Jenkins
+date: 2015-11-10 00:00:00
+categories:
+- DevOps
+tags:
+- DevOps
+- CI/CD
+---
+
 # Install Jenkins
 
 ### 1. Jenkins 란 ?

@@ -1,3 +1,15 @@
+---
+title: Monolith to Serverless using AWS Lambda (1)
+date: 2017-02-23 00:00:00
+categories:
+- AWS
+- Lambda
+tags:
+- AWS
+- Lambda
+- Serverless
+---
+
 # Monolith to Serverless using AWS Lambda
 
 ## 기존 모노리스 API 서버를 AWS Lambda를 이용하여 서버리스로 변경하기

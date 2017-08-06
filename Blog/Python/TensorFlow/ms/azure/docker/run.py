@@ -5,8 +5,8 @@ import os
 import json
 from azure.storage.file import FileService
 
-SAVER_FOLDER = "./saver"
-BUCKET = 'dev-tensorflow-savedata'
+SAVER = "saver"
+SAVER_FOLDER = "./" + SAVER
 TRAIN_DATA = "data-04-zoo.csv"
 RESULT_FILE = 'result.json'
 FILE_SHARE = 'tensorflow-savedata'
@@ -14,9 +14,10 @@ FILE_SHARE = 'tensorflow-savedata'
 for file in os.listdir(SAVER_FOLDER):
     os.remove(SAVER_FOLDER + "/" + file);
 
-file_service = FileService(account_name='[NAME]', account_key='[KEY]')
+file_service = FileService(account_name='tensotfolwsavedata', account_key='Vm/Mwh6qm1J5w3bGPFDapWBmC2zl4At4yy5HQrand7bTSy3Q6lCJdZdCYmZ3phQ/rrCgChKR0qWsCOcclWpzxQ==')
 
 file_service.get_file_to_path(FILE_SHARE, None, TRAIN_DATA, TRAIN_DATA)
+file_service.create_directory(FILE_SHARE, SAVER);
 
 xy = np.loadtxt(TRAIN_DATA, delimiter=',', dtype=np.float32)
 x_data = xy[:,0:-1]
