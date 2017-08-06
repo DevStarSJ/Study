@@ -246,6 +246,14 @@ const a = process.env.KEY;
 
 위 Link 예제를 다운받아서 실행하면서 코드를 보면 쉽게 이해가 된다.
 
+**Lambda** 배포시 실행할 함수를 `lambda.handler`로 설정해야 한다.
+
+Local PC에서 테스트 할때는 `app.local.js`를 실행하면 된다.
+
+```
+node app.local.js
+```
+
 Error Handling 부분이 빠져 있는데, 그건 위에 설명하면서 적어놓은 코드 조각으로 충분할 거라 생각된다.
 
 API Gateway 와 Lambda의 연결에 대해서는 예전에 포스팅 해놓은 글을 참고해 주길 바란다.
@@ -344,3 +352,25 @@ const port = 3000;
 app.listen(port);
 console.log(`listening on http://localhost:${port}`)
 ```
+
+위에 적어놓은 `app.local.ts`, `lambda.ts`는 거의 수정할 필요가 없다.
+단 `lambda.ts`에서 `binaryMimeTypes`는 제공해주는 `Content-Type`에 맞게 추가 및 삭제하면 된다.
+
+`app.ts`의 경우에도 해당 코드 아래에 `app.use`를 통한 Middleware 설정 및 `app.get`, `app.post` 등의 Route 설정을 하면 된다.
+
+## 마치며...
+
+그 동안 **AWS Lambda** 관련 작업을 많이해서 사실상 **aws-serverless-express** 없이도 작업하는데 큰 불편함이 없었다.
+처음에는 **Lambda**에 배포하지 않고도 Local PC에서 Browser로 접속해서 테스트가 가능하는 점에서 시작하였다.
+작업을 조금씩 하다보니 예전에 작성해 놓은 코드들이 많이 삭제되어야 해서 시원섭한한 느낌적인 느낌을 받았으며,
+**Express** 형태에 맞게 수정되어야 할 코드들이 많이 생겨서 여간 귀찮은게 아니었다.
+하지만 삭제 및 수정되어야 할 코드들은 대부분 중요한 로직 코드가 아니라서 앞으로 유지보수 차원에서 생각하자면 오히려 앞으로 코드 읽기도 편해지고, 버그가 발생한 가능성이 있는 코드를 보는 측면에서 생각하더라도 훨씬 봐야할 코드 량이 줄어들게 된다.
+
+난 사실 **Express**에 대한 경험이 없고 바로 **Lambda**로 **Node.js** 및 **TypeScript** 작업을 처음 시작한 경우인데, **aws-serverless-express**를 사용하면서 **Express**를 경험하게 되어서 이제 **Express**를 이용한 **Node.js** Server 개발에 대한 기술도 확보하게 된 셈이다.
+
+새로 합류하시는 분들에게도 **Lambda** 작업시 편리할 것 같단 생각이 든다.
+
+아직 **aws-serverless-express**로 작업한 시간이 그리 길지 않으므로, 아직 확인되지 않은 사항들이 있을 수 있다.
+새로운 공유할 사항이 발견되면 해당 글을 수정 또는 추가 글을 올리는 등의 방법으로 공유할 예정이다.
+
+혹시 질문할 내용이 있는 경우에는 언제든지 문의해주길 바란다.
