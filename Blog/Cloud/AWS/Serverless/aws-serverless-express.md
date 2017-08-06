@@ -83,7 +83,7 @@ tags:
 }
 ```
 
-하지만 요즘은 대부분 **ambda Proxy Integration**를 사용하기 때문에 주로 아래와 같은 형태의 event를 전달받는다.
+하지만 요즘은 대부분 **Lambda Proxy Integration**를 사용하기 때문에 주로 아래와 같은 형태의 event를 전달받는다.
 
 ```JSON
 {
@@ -121,7 +121,7 @@ tags:
 **AWS Lambda**에서 작업하기 위해서는 이런 구조들에 대해서 파악을 하고 작업을 해야한다.
 **aws-serverless-express**에서는 이런것에 대해서 알 필요가 없이 Framework단에서 이런 event를 **Express**의 **Request** 타입으로 전달해준다.
 **Lambda**에서 작업하기 위해서 event 형태에 대해서 배울 필요가 없어진다.
-**Node.js** 개발자들이 **AWS Lambda** 개발을 히기위한 러닝커브가 많이 줄어든 것이다.
+**Node.js** 개발자들이 **AWS Lambda** 개발을 하기위한 러닝커브가 많이 줄어든 것이다.
 
 **Request** 뿐만 아니라 **Response** 또한 **Express**와 동일하게 작업이 가능하다.
 Error 발생 사항에 대한 statusCode 전달 형태, Binary Response일 경우 Base64로 Encoding하여 body에 string 형태로 저장 등 Lambda만의 방식으로 작업을 할 필요가 없어진다.
