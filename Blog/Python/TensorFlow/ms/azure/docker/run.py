@@ -9,12 +9,12 @@ SAVER = "saver"
 SAVER_FOLDER = "./" + SAVER
 TRAIN_DATA = "data-04-zoo.csv"
 RESULT_FILE = 'result.json'
-FILE_SHARE = 'tensorflow-savedata'
+FILE_SHARE = 'meltingpang-savedata'
 
 for file in os.listdir(SAVER_FOLDER):
     os.remove(SAVER_FOLDER + "/" + file);
 
-file_service = FileService(account_name='tensotfolwsavedata', account_key='Vm/Mwh6qm1J5w3bGPFDapWBmC2zl4At4yy5HQrand7bTSy3Q6lCJdZdCYmZ3phQ/rrCgChKR0qWsCOcclWpzxQ==')
+file_service = FileService(account_name='meltingpang', account_key='aS/W8kwqNXDicJgQNnobqkWItcr9vNW3+KO8n+V5qRqY0X3Z+XGBS1sUeLfYtyneUwaose59rbhEziPpFs2qKw==')
 
 file_service.get_file_to_path(FILE_SHARE, None, TRAIN_DATA, TRAIN_DATA)
 file_service.create_directory(FILE_SHARE, SAVER);
