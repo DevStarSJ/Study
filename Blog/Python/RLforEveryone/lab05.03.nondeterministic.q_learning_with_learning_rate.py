@@ -4,13 +4,7 @@ import matplotlib.pyplot as plt
 from gym.envs.registration import  register
 import random as pr
 
-register(
-    id='FrozenLake-v3',
-    entry_point='gym.envs.toy_text:FrozenLakeEnv',
-    kwargs= {'map_name': '4x4', 'is_slippery': False}
-)
-
-env = gym.make('FrozenLake-v3')
+env = gym.make('FrozenLake-v0')
 
 Q = np.zeros([env.observation_space.n, env.action_space.n])
 num_episodes = 2000
