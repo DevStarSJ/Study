@@ -70,6 +70,7 @@ with tf.Session() as sess:
             sess.run(train, feed_dict={X: one_hot(s), Y: Qs})
 
             rAll += reward
+            s = s1
 
         rList.append(rAll)
 
