@@ -1,7 +1,5 @@
 from flask import Flask, request
 import flask
-import json
-from textwrap import dedent
 from uuid import uuid4
 
 from blockchain import Blockchain
@@ -62,6 +60,40 @@ def full_chain():
     }
 
     return flask.jsonify(response), 200
+
+
+@app.route('/nodes/register', methods=['POST'])
+def register_nodes():
+    values = request.get_json()
+
+    nodes = values.get('nodes')
+
+    if nodes is None:
+        return 'Error: Please supply a valid list of nodes', 400
+
+    for node in nodes:
+        blockchain.register_node(node)
+
+    response = {
+        'message': 'New nodes have been added',
+        'total_nodes' : list(blockchain.nodes)
+    }
+
+    return flask.jsonify(response), 201
+
+
+@app.route('/nodes/resolve', methods=['GET'])
+def consensus():
+    replaced = blockchain.resolve_conflicts()
+
+    response = {
+        'message': 'Our chain was replaced' if replaced else 'Our chain is authoritative',
+        'chain': blockchain.chain
+    }
+
+    return flask.jsonify(response), 200
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
