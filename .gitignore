@@ -20,3 +20,5 @@ Blog/JavaScript/.idea/modules.xml
 Blog/JavaScript/.idea/workspace.xml
 
 Blog/Python/.DS_Store
+*-checkpoint.ipynb
+.idea
