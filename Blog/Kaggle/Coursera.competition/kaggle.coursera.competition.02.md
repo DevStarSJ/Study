@@ -1,6 +1,6 @@
 ---
 title: Coursera Kaggle 강의(How to win a data science competition) week 2-1 EDA 요약
-date: 2018-10-20 17:00:00
+date: 2018-10-21 13:40:00
 categories:
 - DataScience
 tags:
