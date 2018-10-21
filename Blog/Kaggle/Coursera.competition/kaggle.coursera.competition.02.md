@@ -165,7 +165,7 @@ df.mean().sort_values().plot(style=’.’)
 
 ### 5. Dataset Cleaning (데이터 정제)
 
-1. Constant feature 확인
+#### 5.1. Constant feature 확인
 
 ```python
 traintest.nunique(axis=1) == 1
@@ -173,7 +173,7 @@ traintest.nunique(axis=1) == 1
 
 모든 값이 같은 feature를 확인하여 제거
 
-2. 중복된 feature 확인
+#### 5.2. 중복된 feature 확인
 
 ```python
 traintest.T.drop_duplicates()
@@ -191,12 +191,12 @@ traintest.T.drop_duplicates()
 
 모든 범주형 feature를 다시 encoding하여 비교하면 쉽게 찾을 수 있다.
 
-3. 중복된 row 제거
+#### 5.3. 중복된 row 제거
 
 먼저 중복된 row의 label이 같은지를 확인해야 한다. 같다고 판단이 되면 제거를 하는 것이 성능에 좋다.
 
 train과 test에도 중복된 row가 있을 수 있다.
 
-4. 데이터가 shuffle되었는지 확인
+#### 5.4. 데이터가 shuffle되었는지 확인
 
 shuffle 되지 않은 데이터에서는 누락된 데이터를 유추 할 수 있는 방법들이 있을 수 있다.
