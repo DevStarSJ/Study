@@ -146,3 +146,35 @@ ex) 1,2차 미분값으로 loss를 계산하고자 할 때
 
 ### 4. Regression metrics optimization
 
+#### 4.1 MSE, RMSE, R-squared
+
+대부분의 모델에서 잘 동작한다. 
+- Tree-based : XGBoost, LightGBM, sklearn.RandomForestRegressor
+- Linear models : sklearn.<>Regression, sklearn.SGFRegressor, Vowpal Wabbit (quantile loss)
+- Neural nets : Pytorchm Keras, TF, etc.
+
+L2 loss라고도 불림
+
+#### 4.2 MAE
+
+MSE와 최적화 관점에서는 큰 차이가 없지만, 2차 미분이 0이기 때문에 extra boost 방식에서는 사용을 못한다.
+- Tree-based : LightGBM, sklearn.RandomForestRegressor
+- Linear models : Vowpal Wabbit (quantile loss)
+- Neural nets : Pytorchm Keras, TF, etc.
+
+L1 loss, Median regression 이라고도 불림
+
+#### 4.3 MSPE, MAPE
+
+이것은 앞에서 본 2가지 metric과는 용도가 다르다.  
+각각 MSE, MAE의 가중 버전이다.  
+다른 metric의 early stopping을 위해 사용되기도 한다.
+
+- XGBoost, LightGBM 에서만 `sample_weights`용으로 사용한다.
+
+#### 4.4 RMSLE
+
+로그공간에서의 MSE 최적화 방식
+
+ㄴ
+
