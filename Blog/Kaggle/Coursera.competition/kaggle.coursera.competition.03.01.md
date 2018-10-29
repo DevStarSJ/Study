@@ -101,6 +101,48 @@ target과 차이가 클수록 penalty가 커진다. 하나의 큰 error는 여�
 
 #### 2.3 AUC (Area Under Curve)
 
-얼만 구분을 잘하느냐, 얼마나 겹치는게 없느냐에 대한 검증
-좋은 피처인지 아닌지를 구분할때 많이 사용
+얼마나 구분을 잘하느냐, 얼마나 겹치는게 없느냐에 대한 검증
+좋은 피처인지 아닌지를 구분할때 많이 사용  
+
+![](https://raw.githubusercontent.com/DevStarSJ/Study/master/Blog/Kaggle/Coursera.competition/image/coursera.competition.03.12.png)
+
+`True Positive` 와  `False Positive`를 이용하여 `TP`는 위쪽 `FP`는 오른쪽으로 움직이여 곡선을 그림을 그려서 그 아래 면적으로 평가. 면적이 넓을 수록 좋음. 최고 점수는 1
+
+![](https://raw.githubusercontent.com/DevStarSJ/Study/master/Blog/Kaggle/Coursera.competition/image/coursera.competition.03.13.png)
+
+#### 2.4 Cohen's Kappa
+
+어렵다. 무슨 내용인지 도저히 모르겠음
+
+### 3. General approaches for metrics optimization
+
+- Target metric : 우리가 최적화 하려는 것
+- Optimization loss : 모델이 최적화 하는 것
+
+모델은 우리가 지정한 *metric*으로 계산한 *loss*를 최소화하기 위해서 학습한다.
+
+- metric 최적화 전략
+  - 처음에 그냥 model을 실행할때 : MSE, Logloss
+  - train 데이터 전처리하여 다른 metric에 최적화 할때 : MSPE, MAPE, RMSLE, ...
+  - 다른 metric이나 predict 결과를 후처리 할때 : Accuracy, Kappa
+  - 기타 : loss function를 스스로 작성
+  - 다른 metric의 early stopping 용 : Any...
+
+ex) 1,2차 미분값으로 loss를 계산하고자 할 때
+
+```Python
+ def logregobj(preds, dtrain):
+     labels = dtrain.get_label()
+     preds = 1. / (1. + np.exp(-preds))
+     grad = preds - labels 
+     hess = preds * (1. - preds)
+     return grad, hess
+```
+
+- Early stopping
+  - M1 metric을 최적화하기 위해서 M2 metric의 최적값을 구하는 경우
+
+![](https://raw.githubusercontent.com/DevStarSJ/Study/master/Blog/Kaggle/Coursera.competition/image/coursera.competition.03.14.png)
+
+### 4. Regression metrics optimization
 
