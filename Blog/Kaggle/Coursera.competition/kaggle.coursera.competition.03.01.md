@@ -176,5 +176,5 @@ L1 loss, Median regression 이라고도 불림
 
 로그공간에서의 MSE 최적화 방식
 
-ㄴ
+### 5. Classification metrics optimization
 
