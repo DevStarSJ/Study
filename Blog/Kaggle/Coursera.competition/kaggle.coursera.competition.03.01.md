@@ -178,3 +178,28 @@ L1 loss, Median regression 이라고도 불림
 
 ### 5. Classification metrics optimization
 
+#### 5.1 LogLoss (Logistic Loss)
+
+- 모델이 잘 맞추는지를 측정
+- Regression의 MAE와 같은 존재  
+- RandomForest빼고는 대부분 잘 맞음  
+  - Tree-based : XGBoost, LightGBM
+  - Linear models : sklearn.<>Regression, sklearn.SGDRegressor, Vowpal Wabbit
+  - Neural nets : Pytorchm Keras, TF, etc.
+
+#### 5.2 Accuracy
+
+- metric이나 treshold를 최적화하는데 유용함
+
+#### 5.3 AUC
+
+- 모델이 잘 맞추는것을 측정하거나 logloss를 최적화하기 위해 사용됨
+- 한상의 object가 올바른 순서로 정렬될 확률
+- Tree-based : XGBoost, LightGBM
+- Neural nets : Pytorchm Keras, TF, etc.
+
+#### 5.4 
+
+- MSE를 최적화
+- 올바른 threshold를 찾음
+  - Bad : np.round(predictions)
