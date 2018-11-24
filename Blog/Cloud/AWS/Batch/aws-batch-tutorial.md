@@ -3,6 +3,8 @@ title: Introduce to AWS Batch
 date: 2018-11-24 12:08:00
 categories:
 - AWS
+- Batch
+
 tags:
 - AWS
 - Batch
