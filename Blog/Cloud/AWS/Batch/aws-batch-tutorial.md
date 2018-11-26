@@ -128,7 +128,7 @@ Networking 과 tags에 대해서는 따로 설명을 하지 않겠다. 일반적
 
 만약 하나의 **Job queue**에 여러 개의 **Job**이 수행되도록 제출한 경우 정의된 Compute environment들의 범위 안에서만 동시에 수행이 가능하다.
 
-예를 들어서 vCPU 10개가 필요한 Job 10개를 1개의 Job queue에 모두 할당 할 경우, 해당 Job queue에 정의된 Compute environment가 vCPU 36개일 경우 동시에 3개씩 밖에 수행을 할 수가 없다. 만약 정의된 Compute environment가 vCPU 36개, vCPU 24개 이렇게 2개가 있을 경우 먼저 제출된 3개는 앞의 머신에서 다음 2개는 뒤의 머신에서 수행되며, 마저미 5개는 먼저 제출된 Job중에 끝난 것이 있으면 해당 머신에 하나씩 할당이 된다.
+예를 들어서 vCPU 10개가 필요한 Job 10개를 1개의 Job queue에 모두 할당 할 경우, 해당 Job queue에 정의된 Compute environment가 vCPU 36개일 경우 동시에 3개씩 밖에 수행을 할 수가 없다. 만약 정의된 Compute environment가 vCPU 36개, vCPU 24개 이렇게 2개가 있을 경우 먼저 제출된 3개는 앞의 머신에서 다음 2개는 뒤의 머신에서 수행되며, 나머지 5개는 먼저 제출된 Job중에 끝난 것이 있으면 해당 머신에 하나씩 할당이 된다.
 
 ## 4. Job 실행
 
