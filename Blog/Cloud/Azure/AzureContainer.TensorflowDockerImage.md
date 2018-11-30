@@ -1,4 +1,13 @@
 ---
+layout: post
+title:  "Deploy Tensorflow Docker Image to Azure"
+subtitle:   "Deploy Tensorflow Docker Image to Azure"
+categories: cloud
+tags: azure
+comments: true
+---
+
+---
 title: Deploy Tensorflow Docker Image to Azure
 date: 2017-07-26 17:41:00
 categories:
