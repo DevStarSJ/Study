@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deploy Tensorflow Docker Image to Azure"
-subtitle:   "Deploy Tensorflow Docker Image to Azure"
+subtitle:  
 categories: cloud
 tags: azure
 comments: true
