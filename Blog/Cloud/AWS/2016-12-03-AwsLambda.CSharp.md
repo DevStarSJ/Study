@@ -7,17 +7,6 @@ tags: aws
 comments: true
 ---
 
-# AWS Lambda에 C# Handler 만들기 
-
-**AWS Lambda**에 대해 다루는 7번째 글입니다.
-
-- [Lambda 와 API Gateway 연동 #1 (GET, POST)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md)
-- [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md)
-- [Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md)
-- [Lambda Node.JS Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Node.md)
-- [AWS Lambda에 Python Handler 만들기](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Python.md)
-- [Lambda Python Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Python.md)
-
 2016년 12월 1일부터 (글쓴 날 기준으로 이틀 전) **AWS Lambda**에서 **C#**을 지원해 줍니다.  
 (관련글 : <https://aws.amazon.com/about-aws/whats-new/2016/12/aws-lambda-supports-c-sharp>)
 
@@ -261,6 +250,17 @@ public Stream FunctionHandler(Stream stream, ILambdaContext context)
 그래서 이 부분에 대해서는 따로 다루지 않겠습니다.
 
 잘못되었거나, 변경된 점, 기타 추가 사항에 대한 피드백은 언제나 환영합니다. - <seokjoon.yun@gmail.com>  
+
+
+**AWS Lambda**에 대해 다루는 7번째 글입니다.
+
+- [Lambda 와 API Gateway 연동 #1 (GET, POST)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-21-Lambda+APIGateWay.01.md)
+- [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-22-Lambda+APIGateway.02.Route.md)
+- [Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-23-Lambda+APIGateway.03.Proxy.md)
+- [Lambda Node.JS Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-27-Lambda.Packaging.Node.md)
+- [AWS Lambda에 Python Handler 만들기](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-24-AwsLambda.Python.md)
+- [Lambda Python Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-26-Lambda.Packaging.Python.md)
+- [AWS Lambda에 C# Handler 만들기](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-12-03-AwsLambda.CSharp.md)
 
 ### 참고
 

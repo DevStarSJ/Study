@@ -12,11 +12,13 @@ comments: true
 AWS Lambda 관련 5번째 포스트 입니다.  
 지난 글들의 목록은 다음과 같습니다.
 
-- [Lambda 와 API Gateway 연동 #1 (GET, POST)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateWay.01.md)
-- [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.02.Route.md)
-- [Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda%2BAPIGateway.03.Proxy.md)
-- [Lambda Node.JS Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/Lambda.Packaging.Node.md)
-
+- [Lambda 와 API Gateway 연동 #1 (GET, POST)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-21-Lambda+APIGateWay.01.md)
+- [Lambda 와 API Gateway 연동 #2 (ANY, Deploy Staging, Node.JS Route)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-22-Lambda+APIGateway.02.Route.md)
+- [Lambda 와 API Gateway 연동 #3 (Proxy Resource)](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-23-Lambda+APIGateway.03.Proxy.md)
+- [Lambda Node.JS Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-27-Lambda.Packaging.Node.md)
+- [AWS Lambda에 Python Handler 만들기](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-24-AwsLambda.Python.md)
+- [Lambda Python Packaging](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-11-26-Lambda.Packaging.Python.md)
+- [AWS Lambda에 C# Handler 만들기](https://github.com/DevStarSJ/Study/blob/master/Blog/Cloud/AWS/2016-12-03-AwsLambda.CSharp.md)
 이번에는 **Python**으로 구현해 보겠습니다.
 
 ## Previously on Lambda series
