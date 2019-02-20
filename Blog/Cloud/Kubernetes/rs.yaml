@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: octopos-rs
+  labels:
+    app: octopos
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: octopos
+  template:
+    metadata:
+      labels:
+        app: octopos
+    spec:
+      containers:
+      - name: octopos
+        image: 025325660074.dkr.ecr.ap-northeast-2.amazonaws.com/octopos_server:latest
+        livenessProbe:
+          httpGet:
+            path: /v1/menus
+            port: 3000
+          initialDelaySeconds: 15
+        readinessProbe:
+          exec:
+            command:
+            - ls
+        ports:
+        - name: http-server
+          containerPort: 3000
+          protocol: TCP

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: octopos-pod-gpu
+  labels:
+    creation_method: manual
+    env: develop
+    gpu: "true"
+spec:
+  nodeSelector:
+    gpu: "true"
+  containers:
+  - image: 025325660074.dkr.ecr.ap-northeast-2.amazonaws.com/octopos_server:latest
+    name: octopos 
+    ports:
+    - containerPort: 3000
+      protocol: TCP
