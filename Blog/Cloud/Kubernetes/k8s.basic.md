@@ -355,6 +355,71 @@ kubectl rollout history deployment octopos-v1
 kubectl rollout undo deployment octopos-v1 --to-revision=1
 ```
 
+## 9. Dashboard 연결
+
+참고 : <https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/dashboard-tutorial.html>
+
+#### 9.1 Dashboard 배포
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+```
+
+#### 9.2 heapster 배포하여 cluster 모니터링, 성능분석 활성화
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
+```
+
+#### 9.3 heapster대 대한 influxdb backend를 cluster에 배포
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
+```
+
+#### 9.4 dashboard에 대한 heapster cluster 역할 바인딩 생성
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml
+```
+
+#### 9.5 eks-admin 서비스 계정 및 클러스터 역할 바인딩
+
+##### eks-account.yaml
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: eks-admin
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: eks-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: eks-admin
+  namespace: kube-system
+```
+```shell
+kubectl apply -f eks-account.yaml
+```
+
+#### 9.6 dashboard로 연결
+
+```shell
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}')
+kubectl proxy
+```
+
+<http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login>
+
+
 ## 아직까지 다루지 않은 내용
 
 - Batch & CronJob
