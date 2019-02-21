@@ -419,12 +419,63 @@ kubectl proxy
 
 <http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login>
 
+## 10. AutoScaling
+
+Horizontal Pod Scaler
+
+```shell
+kubectl autoscale deployment octopos-deployment --cpu-percent=20 --min=1 --max=50
+```
+
+Worker Node AutoScaler
+<https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws>
+
+Test
+
+```shell
+kubectl exec -it octopos-deployment-5bdcc78dd7-shp6f  -- sh -c "while true; do wget -O - -q http://naver.com; done"
+```
+
 
 ## 아직까지 다루지 않은 내용
 
 - Batch & CronJob
 
+## ETC
 
+- t2.micro 로는 pod를 생성하지 못함
+- t3.small 로는 생성이 됨
+
+<https://github.com/kubernetes-incubator/metrics-server>
+<https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md>
+
+
+
+##### Step
+
+- `output/develop/config`를 `~/.kube/config`로 복사
+
+```shell
+cd ../output/develop
+
+cp config ~/.kube/config
+kubectl apply -f config_map_aws_auth.yaml
+
+cd ../example
+kubectl apply -f ./metrics-server.1.8+
+
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
+kubectl autoscale deployment octopos-deployment --cpu-percent=20 --min=1 --max=50
+```
+
+- pod 이름 하나를 잡음 : `octopos-deployment-5bdcc78dd7-kb4jj`
+STRESS TEST
+
+```shell
+kubectl exec -it octopos-deployment-5bdcc78dd7-kb4jj  -- sh -c "while true; do wget -O - -q http://naver.com; done"
+```
 
 
 
