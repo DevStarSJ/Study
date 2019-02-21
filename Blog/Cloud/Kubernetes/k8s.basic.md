@@ -470,12 +470,21 @@ kubectl apply -f service.yaml
 kubectl autoscale deployment octopos-deployment --cpu-percent=20 --min=1 --max=50
 ```
 
-- pod 이름 하나를 잡음 : `octopos-deployment-5bdcc78dd7-kb4jj`
+- pod 이름 하나를 잡음 : `octopos-deployment-5bdcc78dd7-p9rmz`
 STRESS TEST
 
 ```shell
-kubectl exec -it octopos-deployment-5bdcc78dd7-kb4jj  -- sh -c "while true; do wget -O - -q http://naver.com; done"
+kubectl exec -it octopos-deployment-5bdcc78dd7-p9rmz  -- sh -c "while true; do wget -O - -q http://naver.com; done"
+
+kubectl exec -it octopos-deployment-5bdcc78dd7-whw9l  -- sh -c "while true; do wget -O - -q http://naver.com; done"
+
+kubectl exec -it octopos-deployment-5bdcc78dd7-j9tc7  -- sh -c "while true; do wget -O - -q http://naver.com; done"
 ```
+
+
+
+
+
 
 
 
